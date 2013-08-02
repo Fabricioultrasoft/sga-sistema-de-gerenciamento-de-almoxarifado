@@ -69,7 +69,7 @@ namespace SGA
                             new Mensagem("Por favor!\n Cadastre uma senha!", "informacao", Resources.erro).ShowDialog();
                             CLogin CadLogin = new CLogin(funcionario);
                             CadLogin.ShowDialog();
-
+                            tbxSenha.Clear();
                         }
                         else
                         {

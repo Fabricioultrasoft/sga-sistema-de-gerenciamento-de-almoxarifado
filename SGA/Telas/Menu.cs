@@ -49,7 +49,7 @@ namespace SGA
         private void menuItemNFuncionario_Click(object sender, EventArgs e)
         {
             Funcionario objFuncionario = new Funcionario();
-            ManterFuncionario cadastrofunc = new ManterFuncionario("Cadastro", objFuncionario);
+            ManterFuncionario cadastrofunc = new ManterFuncionario("Cadastro", objFuncionario, funcionario);
             cadastrofunc.ShowDialog();
         }
 

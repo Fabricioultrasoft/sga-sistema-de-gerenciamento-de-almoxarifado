@@ -79,7 +79,7 @@ namespace SGA.Telas
             }
             else
             {
-                ManterFuncionario telaEdicao = new ManterFuncionario("Edicao", objFuncionario);
+                ManterFuncionario telaEdicao = new ManterFuncionario("Edicao", objFuncionario, usuarioLogado);
                 telaEdicao.ShowDialog();
                 preencherListView();
                 objFuncionario = null;
@@ -92,7 +92,7 @@ namespace SGA.Telas
             {
                 Funcionario func = new Funcionario();
 
-                ManterFuncionario telaEdicao = new ManterFuncionario("Cadastro", func);
+                ManterFuncionario telaEdicao = new ManterFuncionario("Cadastro", func, usuarioLogado);
                 telaEdicao.ShowDialog();
                 preencherListView();
                 objFuncionario = null;
@@ -121,14 +121,14 @@ namespace SGA.Telas
             {
                 if (tipoTela != "adicionar")
                 {
-                    ManterFuncionario telaDetalhes = new ManterFuncionario("Detalhes", objFuncionario);
+                    ManterFuncionario telaDetalhes = new ManterFuncionario("Detalhes", objFuncionario, usuarioLogado);
                     telaDetalhes.ShowDialog();
                     preencherListView();
                     objFuncionario = null;
                 }
                 else
                 {
-                    ManterFuncionario telaDetalhes = new ManterFuncionario("adicionar", objFuncionario);
+                    ManterFuncionario telaDetalhes = new ManterFuncionario("adicionar", objFuncionario, usuarioLogado);
                     telaDetalhes.ShowDialog();
                 }
             }
@@ -138,7 +138,7 @@ namespace SGA.Telas
         #region Métodos da classe
         private void manterFuncionario(string tipo)
         {
-            ManterFuncionario mFunc = new ManterFuncionario(tipo,objFuncionario);
+            ManterFuncionario mFunc = new ManterFuncionario(tipo,objFuncionario, usuarioLogado);
             mFunc.ShowDialog();
         }
         #endregion

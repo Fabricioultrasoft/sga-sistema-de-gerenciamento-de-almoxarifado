@@ -110,9 +110,9 @@ namespace SGA.Telas
                 }
                 catch (Exception erro)
                 {
-                    if (erro.Message == "Matrícula e/ou senha incorretos. \n Entre novamente com os dados.")
+                    if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
                     {
-                        new Mensagem("Senha incorreta,insira \nasenha novamenta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                        new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                     }
                     else
                     {
@@ -161,9 +161,9 @@ namespace SGA.Telas
                     }
                     catch (Exception erro)
                     {
-                        if (erro.Message == "Matrícula e/ou senha incorretos. \n Entre novamente com os dados.")
+                        if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
                         {
-                            new Mensagem("Senha incorreta,insira \nasenha novamenta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                            new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                         }
                         else
                         {

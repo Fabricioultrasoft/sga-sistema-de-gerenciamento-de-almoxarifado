@@ -17,16 +17,25 @@ namespace SGA.Telas
     {
         private string i_tipoTela;
         private ToolTip toolTip = new ToolTip();
+        private Funcionario i_funcionarioLogado = new Funcionario();
+
         Funcionario objFuncionario = new Funcionario();
 
         private FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
 
-        public ManterFuncionario(string tipo, Funcionario func)
+        public ManterFuncionario(string tipo, Funcionario func,Funcionario funcLogado)
         {
             tipoTela = tipo;
             objFuncionario = func;
+            funcionarioLogado = funcLogado;
             InitializeComponent();
             //montarTela();
+        }
+
+        public Funcionario funcionarioLogado
+        {
+            get { return i_funcionarioLogado; }
+            set { i_funcionarioLogado = value; }
         }
 
         public string tipoTela
@@ -266,10 +275,57 @@ namespace SGA.Telas
 
         private void btnRedefinirSenha_Click(object sender, EventArgs e)
         {
-            FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
-            funcionarioDel.redefinirSenha(objFuncionario);
-            new Mensagem("Senha redefinida!", "informacao", Resources.ok).ShowDialog();
-            this.Close();
+            Mensagem mensagem = new Mensagem("Entre com a sua senha.", "senha", SGA.Properties.Resources.key);
+            while (1 == 1)
+            {
+                mensagem.tbxSenha.Text = "";
+                mensagem.ShowDialog();
+                try
+                {
+
+                    if (mensagem.DialogResult == DialogResult.OK)
+                    {
+                        FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
+
+                        Funcionario funcionario = funcionarioLogado;
+
+                        funcionario.senha = Criptografia.Encrypt(mensagem.texto);
+
+                        funcionarioDel.Logar(funcionario);
+
+                        break;
+
+                    }
+                    else
+                    {
+                        mensagem.DialogResult = DialogResult.Cancel;
+                        break;
+                    }
+                }
+                catch (Exception erro)
+                {
+                    mensagem.DialogResult = DialogResult.Cancel;
+                    if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
+                    {
+                        new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                    }
+                    else
+                    {
+                        new Mensagem(erro.Message, "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                        break;
+                    }
+
+                }
+                
+            }
+            if (mensagem.DialogResult == DialogResult.OK)
+            {
+                FuncionarioDelegate funcionarioDele = new FuncionarioDelegate();
+                funcionarioDele.redefinirSenha(objFuncionario);
+                new Mensagem("Senha redefinida!", "informacao", Resources.ok).ShowDialog();
+                this.Close();
+            }
+           
         }
     }
 }

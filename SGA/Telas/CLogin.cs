@@ -24,7 +24,15 @@ namespace SGA.Telas
 
         private void btnSalvarLogin_Click(object sender, EventArgs e)
         {
-            if (tbxSenha.Text == tbxCSenha.Text)
+            if (tbxSenha.Text == "" || tbxCSenha.Text == "")
+            {
+                new Mensagem("Campo(s) obrigatório(s) em branco!", "informacao", Resources.erro).ShowDialog();
+            }
+            else if (tbxSenha.TextLength < 6)
+            {
+                new Mensagem("A senha deve ter no mínimo\nseis(6) caracteres", "informacao", Resources.erro).ShowDialog();
+            }
+            else if (tbxSenha.Text == tbxCSenha.Text)
             {
                 try
                 {
@@ -39,11 +47,21 @@ namespace SGA.Telas
 
                     new Mensagem(erro.Message, "informacao", Resources.erro).ShowDialog();
                 }
-                
+
             }
             else
             {
                 new Mensagem("Senhas não conferem!", "informacao", Resources.erro).ShowDialog();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mensagem mensagem = new Mensagem("Deseja cancelar o procedimento\natual?\nO mesmo é obrigatório\npara o acesso ao sistema.","confirma",SGA.Properties.Resources.interrogacao);
+            mensagem.ShowDialog();
+            if (mensagem.DialogResult == DialogResult.OK)
+            {
+                this.Close();
             }
         }
     }
