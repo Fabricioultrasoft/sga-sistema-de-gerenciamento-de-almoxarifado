@@ -1,0 +1,71 @@
+C:\Users\carlos\Desktop\SGA\SGA\bin\Debug\SGA.exe
+C:\Users\carlos\Desktop\SGA\SGA\bin\Debug\SGA.pdb
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Login.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Menu.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.csproj.GenerateResource.Cache
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.exe
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.pdb
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.csprojResolveAssemblyReference.cache
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.exe
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.pdb
+C:\Users\KELLY\Desktop\sga\SGA\bin\Debug\SGA.exe
+C:\Users\KELLY\Desktop\sga\SGA\bin\Debug\SGA.pdb
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Login.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Menu.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.exe
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.pdb
+F:\Documentos\sga\SGA\bin\Debug\SGA.exe
+F:\Documentos\sga\SGA\bin\Debug\SGA.pdb
+F:\Documentos\sga\SGA\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Login.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Menu.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+F:\Documentos\sga\SGA\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documentos\sga\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.exe
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.pdb
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\bin\Debug\SGA.exe
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\bin\Debug\SGA.pdb
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.csprojResolveAssemblyReference.cache
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Login.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Menu.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.csproj.GenerateResource.Cache

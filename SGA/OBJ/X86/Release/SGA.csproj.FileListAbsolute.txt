@@ -1,0 +1,31 @@
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ConfimaSenha.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.EditarComboBox.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.Mensagem.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.PesquisarFerramenta.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterFerramenta.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterFuncionario.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterRequisicao.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Login.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Menu.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Properties.Resources.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.PesquisarFuncionario.resources
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\carlos\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\bin\Release\SGA.exe
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\bin\Release\SGA.pdb
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.EditarComboBox.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.Mensagem.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.PesquisarFerramenta.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterFerramenta.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterFuncionario.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.ManterRequisicao.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Login.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Menu.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.Telas.PesquisarFuncionario.resources
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.exe
+C:\Documents and Settings\Administrador\Meus documentos\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Release\SGA.pdb

@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FACF0276-D1DC-4111-BC74-15D53F31A6F0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGA</RootNamespace>
+    <AssemblyName>SGA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AplicationService\FerramentaAS.cs" />
+    <Compile Include="AplicationService\FuncionarioAS.cs" />
+    <Compile Include="AplicationService\RequisicaoAS.cs" />
+    <Compile Include="Criptografia.cs" />
+    <Compile Include="Dao\Conexao.cs" />
+    <Compile Include="Dao\FerramentaDao.cs" />
+    <Compile Include="Dao\FuncionarioDao.cs" />
+    <Compile Include="Dao\RequisicaoDao.cs" />
+    <Compile Include="Delegate\FerramentaDelegate.cs" />
+    <Compile Include="Delegate\FuncionarioDelegate.cs" />
+    <Compile Include="Delegate\RequisicaoDelegate.cs" />
+    <Compile Include="Facade\FerramentaFacade.cs" />
+    <Compile Include="Facade\FuncionarioFacade.cs" />
+    <Compile Include="Facade\RequisicaoFacade.cs" />
+    <Compile Include="Entity\Funcionario.cs" />
+    <Compile Include="Entity\Ferramenta.cs" />
+    <Compile Include="Entity\Requisicao.cs" />
+    <Compile Include="Telas\CLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\CLogin.Designer.cs">
+      <DependentUpon>CLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\EditarComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\EditarComboBox.Designer.cs">
+      <DependentUpon>EditarComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Mensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Mensagem.Designer.cs">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\PesquisarFerramenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\PesquisarFerramenta.Designer.cs">
+      <DependentUpon>PesquisarFerramenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\ManterFerramenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\ManterFerramenta.Designer.cs">
+      <DependentUpon>ManterFerramenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\ManterFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\ManterFuncionario.Designer.cs">
+      <DependentUpon>ManterFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\ManterRequisicao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\ManterRequisicao.Designer.cs">
+      <DependentUpon>ManterRequisicao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telas\PesquisarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\PesquisarFuncionario.Designer.cs">
+      <DependentUpon>PesquisarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\PesquisarRequisicao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\PesquisarRequisicao.Designer.cs">
+      <DependentUpon>PesquisarRequisicao.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Telas\CLogin.resx">
+      <DependentUpon>CLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\EditarComboBox.resx">
+      <DependentUpon>EditarComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Mensagem.resx">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\PesquisarFerramenta.resx">
+      <DependentUpon>PesquisarFerramenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\ManterFerramenta.resx">
+      <DependentUpon>ManterFerramenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\ManterFuncionario.resx">
+      <DependentUpon>ManterFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\ManterRequisicao.resx">
+      <DependentUpon>ManterRequisicao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Telas\PesquisarFuncionario.resx">
+      <DependentUpon>PesquisarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\PesquisarRequisicao.resx">
+      <DependentUpon>PesquisarRequisicao.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370631243_eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370629123_button_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370631673_gnome-mime-text-x-vcalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370597340_button_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370593393_Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370597954_xfce_system-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370592887_Login Manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370628644_Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370628935_user-male-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370629399_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370629558_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370635927_Trash_Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370637053_cv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370637313_user-male-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370637407_user-male-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370637874_user-male-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370639093_webmaster_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370640620_edit-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370643457_Search-Male-User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1370648346_aiga_information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tooladd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interrogacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atencao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1372224553_key_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1374804631_Checkbox Full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1375243898_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1375244523_document-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1375245893_document_add.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
