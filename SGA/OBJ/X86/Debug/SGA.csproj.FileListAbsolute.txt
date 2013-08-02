@@ -69,3 +69,4 @@ C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.P
 C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
 C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
 C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.csproj.GenerateResource.Cache
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
