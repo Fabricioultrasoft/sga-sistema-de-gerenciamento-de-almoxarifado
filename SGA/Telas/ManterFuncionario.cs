@@ -122,7 +122,7 @@ namespace SGA.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbxMatricula.Text != "" || tbxNome.Text != "")
+            if ((tbxMatricula.Text != "" || tbxNome.Text != "" )&& tipoTela != "Detalhes" && tipoTela != "adicionar")
             {
                 Mensagem mensagem = new Mensagem("Deseja descartar as informações?", "confirma", SGA.Properties.Resources.atencao);
                 mensagem.ShowDialog();

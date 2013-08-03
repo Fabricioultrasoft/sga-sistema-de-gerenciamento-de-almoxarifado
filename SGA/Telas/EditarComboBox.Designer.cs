@@ -141,6 +141,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EditarComboBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGA";
+            this.Load += new System.EventHandler(this.EditarComboBox_Load);
             this.gbxEditar.ResumeLayout(false);
             this.ResumeLayout(false);
 

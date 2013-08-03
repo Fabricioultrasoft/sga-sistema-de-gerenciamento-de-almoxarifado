@@ -194,6 +194,7 @@ namespace SGA.Telas
         {
             preencherListView();
             montarTela();
+            this.ControlBox = false;
         }
 
         private void btnDesativar_Click(object sender, EventArgs e)

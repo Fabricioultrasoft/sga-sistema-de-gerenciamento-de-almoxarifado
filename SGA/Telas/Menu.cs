@@ -22,6 +22,22 @@ namespace SGA
             funcionario = func;
         }
 
+        private void montarTela()
+        {
+            if (funcionario.no_permissao == "Atendente")
+            {
+                menuItemNFuncionario.Visible = false;
+                menuItemNFerramenta.Visible = false;
+                MenuItmRelatorios.Visible = false;
+            } if (funcionario.no_permissao == "Usuario_comum")
+            {
+                menuItemNFuncionario.Visible = false;
+                menuItemNFerramenta.Visible = false;
+                menuItemlFuncionario.Text = "Detalhes";
+                MenuItmRelatorios.Visible = false;
+            }
+        }
+
         public Funcionario funcionario
         {
             get { return i_funcionario; }
@@ -42,8 +58,12 @@ namespace SGA
 
         private void MenuItmLogoff_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.ShowDialog();
+            Mensagem mensagen = new Mensagem("Deseja continuar?", "confirma", Resources.interrogacao);
+            if (mensagen.ShowDialog() == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void menuItemNFuncionario_Click(object sender, EventArgs e)
@@ -95,8 +115,16 @@ namespace SGA
 
         private void menuItemlFuncionario_Click(object sender, EventArgs e)
         {
-            PesquisarFuncionario pesquisaFunc = new PesquisarFuncionario(funcionario, "");
-            pesquisaFunc.ShowDialog();
+            if (funcionario.no_permissao == "Usuario_comum")
+            {
+                ManterFuncionario telaDetalhes = new ManterFuncionario("adicionar", funcionario, funcionario);
+                telaDetalhes.ShowDialog();
+            }
+            else
+            {
+                PesquisarFuncionario pesquisaFunc = new PesquisarFuncionario(funcionario, "");
+                pesquisaFunc.ShowDialog();
+            }
         }
 
         private void menuItemlFerramenta_Click(object sender, EventArgs e)
@@ -127,17 +155,18 @@ namespace SGA
         }
         #endregion
 
-        public void montarTea()
-        {
-            menuItemlFuncionario.Enabled = false;
-        }
-
         #endregion
 
         private void menuItemLRequisicao_Click(object sender, EventArgs e)
         {
             PesquisarRequisicao pRequisicao = new PesquisarRequisicao();
             pRequisicao.ShowDialog();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+            montarTela();
         }
 
     }

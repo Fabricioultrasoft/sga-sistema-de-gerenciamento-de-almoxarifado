@@ -16,11 +16,22 @@ namespace SGA
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Menu());
-            Login login = new Login();
-            Application.Run(login);
-            if (login.DialogResult == DialogResult.OK)
+            while (1 == 1)
             {
-                Application.Run(new Menu(login.funcionario));
+                Login login = new Login();
+                
+                Application.Run(login);
+                Menu menu = new Menu(login.funcionario);
+                if (login.DialogResult == DialogResult.OK)
+                {
+                    
+                    Application.Run(menu);
+                    
+                }
+                if (menu.DialogResult != DialogResult.OK)
+                {
+                    break;
+                }
             }
         }
     }

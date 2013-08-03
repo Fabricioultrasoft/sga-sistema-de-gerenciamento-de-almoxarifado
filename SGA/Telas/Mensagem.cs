@@ -24,7 +24,7 @@ namespace SGA.Telas
 
             lblMensagem.Text = texto;
             pictureBox1.Image = icone;
-            montarTela(tipoTela);
+            
         }
 
         public string tipoTela
@@ -99,6 +99,12 @@ namespace SGA.Telas
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void Mensagem_Load(object sender, EventArgs e)
+        {
+            montarTela(tipoTela);
+            this.ControlBox = false;
         }
     }
 }

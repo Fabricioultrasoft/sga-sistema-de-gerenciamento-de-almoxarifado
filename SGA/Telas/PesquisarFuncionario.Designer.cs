@@ -354,7 +354,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PesquisarFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PesquisarFuncionario";
+            this.Text = "Pesquisar Funcionario";
             this.Load += new System.EventHandler(this.PesquisarFuncionario_Load);
             this.gbxLmtPerAdmissao.ResumeLayout(false);
             this.gbxLmtPerAdmissao.PerformLayout();

@@ -70,3 +70,23 @@ C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.T
 C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
 C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\obj\x86\Debug\SGA.csproj.GenerateResource.Cache
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
+F:\Documentos\SGA\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.exe
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.pdb
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\bin\Debug\SGA.exe
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\bin\Debug\SGA.pdb
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Login.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Menu.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.write.1.tlog

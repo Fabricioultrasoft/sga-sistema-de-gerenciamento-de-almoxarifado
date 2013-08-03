@@ -38,7 +38,7 @@
             this.MenuItmRequisicao = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItmNRequisição = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemLRequisicao = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItmRlaturios = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItmRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItmLogoff = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItmSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -52,7 +52,7 @@
             this.MenuItmFuncionario,
             this.MenuItmFerramenta,
             this.MenuItmRequisicao,
-            this.MenuItmRlaturios,
+            this.MenuItmRelatorios,
             this.MenuItmLogoff,
             this.MenuItmSair});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -134,12 +134,12 @@
             this.menuItemLRequisicao.Text = "Pesquisar Requisição";
             this.menuItemLRequisicao.Click += new System.EventHandler(this.menuItemLRequisicao_Click);
             // 
-            // MenuItmRlaturios
+            // MenuItmRelatorios
             // 
-            this.MenuItmRlaturios.AutoSize = false;
-            this.MenuItmRlaturios.Name = "MenuItmRlaturios";
-            this.MenuItmRlaturios.Size = new System.Drawing.Size(100, 34);
-            this.MenuItmRlaturios.Text = "Relatórios";
+            this.MenuItmRelatorios.AutoSize = false;
+            this.MenuItmRelatorios.Name = "MenuItmRelatorios";
+            this.MenuItmRelatorios.Size = new System.Drawing.Size(100, 34);
+            this.MenuItmRelatorios.Text = "Relatórios";
             // 
             // MenuItmLogoff
             // 
@@ -172,6 +172,7 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SGA - Sistema de Gerenciamento de Almoxarifado";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -184,7 +185,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItmFuncionario;
         private System.Windows.Forms.ToolStripMenuItem MenuItmFerramenta;
         private System.Windows.Forms.ToolStripMenuItem MenuItmRequisicao;
-        private System.Windows.Forms.ToolStripMenuItem MenuItmRlaturios;
+        private System.Windows.Forms.ToolStripMenuItem MenuItmRelatorios;
         private System.Windows.Forms.ToolStripMenuItem MenuItmLogoff;
         private System.Windows.Forms.ToolStripMenuItem MenuItmSair;
         private System.Windows.Forms.ToolStripMenuItem menuItemNFuncionario;

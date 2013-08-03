@@ -280,5 +280,10 @@ namespace SGA.Telas
                 }
             }
         }
+
+        private void EditarComboBox_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }

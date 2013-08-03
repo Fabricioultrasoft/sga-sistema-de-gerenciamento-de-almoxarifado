@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.gbxLogin = new System.Windows.Forms.GroupBox();
+            this.pictBErroSenha = new System.Windows.Forms.PictureBox();
+            this.pictBErroMat = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -37,12 +39,10 @@
             this.btnLogar = new System.Windows.Forms.Button();
             this.tbxSenha = new System.Windows.Forms.TextBox();
             this.tbxMatricula = new System.Windows.Forms.TextBox();
-            this.pictBErroMat = new System.Windows.Forms.PictureBox();
-            this.pictBErroSenha = new System.Windows.Forms.PictureBox();
             this.gbxLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictBErroMat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBErroSenha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBErroMat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxLogin
@@ -64,6 +64,24 @@
             this.gbxLogin.TabIndex = 7;
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login:";
+            // 
+            // pictBErroSenha
+            // 
+            this.pictBErroSenha.Image = global::SGA.Properties.Resources.exclamation;
+            this.pictBErroSenha.Location = new System.Drawing.Point(402, 135);
+            this.pictBErroSenha.Name = "pictBErroSenha";
+            this.pictBErroSenha.Size = new System.Drawing.Size(16, 16);
+            this.pictBErroSenha.TabIndex = 14;
+            this.pictBErroSenha.TabStop = false;
+            // 
+            // pictBErroMat
+            // 
+            this.pictBErroMat.Image = global::SGA.Properties.Resources.exclamation;
+            this.pictBErroMat.Location = new System.Drawing.Point(402, 64);
+            this.pictBErroMat.Name = "pictBErroMat";
+            this.pictBErroMat.Size = new System.Drawing.Size(16, 16);
+            this.pictBErroMat.TabIndex = 13;
+            this.pictBErroMat.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -143,24 +161,6 @@
             this.tbxMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMatricula_KeyPress);
             this.tbxMatricula.Leave += new System.EventHandler(this.tbxMatricula_Leave);
             // 
-            // pictBErroMat
-            // 
-            this.pictBErroMat.Image = global::SGA.Properties.Resources.exclamation;
-            this.pictBErroMat.Location = new System.Drawing.Point(402, 64);
-            this.pictBErroMat.Name = "pictBErroMat";
-            this.pictBErroMat.Size = new System.Drawing.Size(16, 16);
-            this.pictBErroMat.TabIndex = 13;
-            this.pictBErroMat.TabStop = false;
-            // 
-            // pictBErroSenha
-            // 
-            this.pictBErroSenha.Image = global::SGA.Properties.Resources.exclamation;
-            this.pictBErroSenha.Location = new System.Drawing.Point(402, 135);
-            this.pictBErroSenha.Name = "pictBErroSenha";
-            this.pictBErroSenha.Size = new System.Drawing.Size(16, 16);
-            this.pictBErroSenha.TabIndex = 14;
-            this.pictBErroSenha.TabStop = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -173,13 +173,13 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "SGA";
             this.Load += new System.EventHandler(this.Login_Load);
             this.gbxLogin.ResumeLayout(false);
             this.gbxLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictBErroMat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBErroSenha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBErroMat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

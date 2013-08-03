@@ -46,13 +46,12 @@ namespace SGA
             mensagem.ShowDialog();
             if (mensagem.DialogResult == DialogResult.OK)
             {
-                this.Close();
+                Application.Exit();
             }
         }
-
+        
         private void btnLogar_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (validarCampos(""))
@@ -157,6 +156,7 @@ namespace SGA
         {
             pictBErroMat.Visible = false;
             pictBErroSenha.Visible = false;
+            this.ControlBox = false;
         }
         public void exibirErro(Control control, string texto)
         {

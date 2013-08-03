@@ -64,5 +64,10 @@ namespace SGA.Telas
                 this.Close();
             }
         }
+
+        private void CLogin_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }
