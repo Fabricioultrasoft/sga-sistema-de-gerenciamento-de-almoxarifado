@@ -33,9 +33,11 @@
             this.codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cod_ferramenta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ferramenta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.fk_func_requisitante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dtsaida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fk_func_saida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fk_func_baixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.fk_func_requisitante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dtbaixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnNFerramenta = new System.Windows.Forms.Button();
             this.btnDetalhes = new System.Windows.Forms.Button();
             this.btnDesativar = new System.Windows.Forms.Button();
@@ -64,8 +66,6 @@
             this.lblGrupo = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblCodMat = new System.Windows.Forms.Label();
-            this.dtsaida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dtbaixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbxAddFerramenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFerramenta)).BeginInit();
             this.gbxFiltrar.SuspendLayout();
@@ -101,8 +101,8 @@
             this.fk_func_requisitante,
             this.dtsaida,
             this.fk_func_saida,
-            this.fk_func_baixa,
-            this.dtbaixa});
+            this.dtbaixa,
+            this.fk_func_baixa});
             this.listVFerramenta.FullRowSelect = true;
             this.listVFerramenta.GridLines = true;
             this.listVFerramenta.Location = new System.Drawing.Point(6, 288);
@@ -111,6 +111,7 @@
             this.listVFerramenta.TabIndex = 35;
             this.listVFerramenta.UseCompatibleStateImageBehavior = false;
             this.listVFerramenta.View = System.Windows.Forms.View.Details;
+            this.listVFerramenta.SelectedIndexChanged += new System.EventHandler(this.listVFerramenta_SelectedIndexChanged);
             // 
             // codigo
             // 
@@ -129,6 +130,18 @@
             this.ferramenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ferramenta.Width = 91;
             // 
+            // fk_func_requisitante
+            // 
+            this.fk_func_requisitante.Text = "Func.Requisitante";
+            this.fk_func_requisitante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fk_func_requisitante.Width = 133;
+            // 
+            // dtsaida
+            // 
+            this.dtsaida.Text = "Dt-Saída";
+            this.dtsaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtsaida.Width = 109;
+            // 
             // fk_func_saida
             // 
             this.fk_func_saida.Text = "Func.Saída";
@@ -141,11 +154,11 @@
             this.fk_func_baixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fk_func_baixa.Width = 121;
             // 
-            // fk_func_requisitante
+            // dtbaixa
             // 
-            this.fk_func_requisitante.Text = "Func.Requisitante";
-            this.fk_func_requisitante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.fk_func_requisitante.Width = 133;
+            this.dtbaixa.Text = "Dt-Baixa";
+            this.dtbaixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtbaixa.Width = 109;
             // 
             // btnNFerramenta
             // 
@@ -232,6 +245,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(167, 23);
             this.textBox3.TabIndex = 40;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -239,6 +253,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 23);
             this.textBox2.TabIndex = 39;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label2
             // 
@@ -255,6 +270,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 23);
             this.textBox1.TabIndex = 37;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -308,6 +324,7 @@
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 4;
+            this.tbxNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxNome_KeyPress);
             // 
             // tbxCodigo
             // 
@@ -315,6 +332,8 @@
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(167, 23);
             this.tbxCodigo.TabIndex = 1;
+            this.tbxCodigo.TextChanged += new System.EventHandler(this.tbxCodigo_TextChanged);
+            this.tbxCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCodigo_KeyPress);
             // 
             // gbxLmtPerAdmissao
             // 
@@ -422,18 +441,6 @@
             this.lblCodMat.TabIndex = 3;
             this.lblCodMat.Text = "Matrícula funcionário saída:";
             // 
-            // dtsaida
-            // 
-            this.dtsaida.Text = "Dt-Saída";
-            this.dtsaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dtsaida.Width = 109;
-            // 
-            // dtbaixa
-            // 
-            this.dtbaixa.Text = "Dt-Baixa";
-            this.dtbaixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dtbaixa.Width = 109;
-            // 
             // PesquisarRequisicao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -448,6 +455,7 @@
             this.Name = "PesquisarRequisicao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PesquisarRequisicao";
+            this.Load += new System.EventHandler(this.PesquisarRequisicao_Load);
             this.gbxAddFerramenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxFerramenta)).EndInit();
             this.gbxFiltrar.ResumeLayout(false);

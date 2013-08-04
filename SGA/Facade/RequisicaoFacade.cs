@@ -15,5 +15,10 @@ namespace SGA.Facade
         {
             requisicaoAs.gravarRequisicao(requisicao);
         }
+
+        public List<Requisicao> pesquisarRequisicao()
+        {
+            return requisicaoAs.pesquisarRequisicao();
+        }
     }
 }

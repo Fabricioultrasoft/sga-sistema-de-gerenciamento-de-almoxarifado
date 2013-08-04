@@ -30,7 +30,7 @@ namespace SGA.Telas
             }
             else if (tbxSenha.TextLength < 6)
             {
-                new Mensagem("A senha deve ter no mínimo\nseis(6) caracteres", "informacao", Resources.erro).ShowDialog();
+                new Mensagem("Tamanho de senha inválido!\nInsira uma senha com no mínimo\n seis caracteres.", "informacao", Resources.erro).ShowDialog();
             }
             else if (tbxSenha.Text == tbxCSenha.Text)
             {

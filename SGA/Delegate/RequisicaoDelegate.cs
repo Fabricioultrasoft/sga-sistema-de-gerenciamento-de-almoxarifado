@@ -15,5 +15,9 @@ namespace SGA.Delegate
         {
             requisicaoFacade.gravarRequisicao(requisicao);
         }
+        public List<Requisicao> pesquisarRequisicao()
+        {
+            return requisicaoFacade.pesquisarRequisicao();
+        }
     }
 }

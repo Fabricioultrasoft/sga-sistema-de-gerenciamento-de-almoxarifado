@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.gbxNRequisicao = new System.Windows.Forms.GroupBox();
+            this.gbxFuncBaixa = new System.Windows.Forms.GroupBox();
+            this.listViewFuncSaida = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbxFuncSaida = new System.Windows.Forms.GroupBox();
+            this.listViewFuncBaixa = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbxFerramenta = new System.Windows.Forms.GroupBox();
             this.listVFerramenta = new System.Windows.Forms.ListView();
             this.codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,14 +51,14 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.gbxFuncionario = new System.Windows.Forms.GroupBox();
-            this.lblFuncaoFunc = new System.Windows.Forms.Label();
-            this.lblNomeFunc = new System.Windows.Forms.Label();
-            this.lblMatFunc = new System.Windows.Forms.Label();
+            this.listVFuncReq = new System.Windows.Forms.ListView();
+            this.columnMatricula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFuncao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.lblFuncao = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.lblMatricula = new System.Windows.Forms.Label();
             this.gbxNRequisicao.SuspendLayout();
+            this.gbxFuncBaixa.SuspendLayout();
+            this.gbxFuncSaida.SuspendLayout();
             this.gbxFerramenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFerramenta)).BeginInit();
             this.gbxFuncionario.SuspendLayout();
@@ -56,6 +66,8 @@
             // 
             // gbxNRequisicao
             // 
+            this.gbxNRequisicao.Controls.Add(this.gbxFuncBaixa);
+            this.gbxNRequisicao.Controls.Add(this.gbxFuncSaida);
             this.gbxNRequisicao.Controls.Add(this.gbxFerramenta);
             this.gbxNRequisicao.Controls.Add(this.btnCancelar);
             this.gbxNRequisicao.Controls.Add(this.btnSalvar);
@@ -67,15 +79,104 @@
             this.gbxNRequisicao.TabStop = false;
             this.gbxNRequisicao.Text = "Nova Requisição";
             // 
+            // gbxFuncBaixa
+            // 
+            this.gbxFuncBaixa.Controls.Add(this.listViewFuncBaixa);
+            this.gbxFuncBaixa.Location = new System.Drawing.Point(541, 118);
+            this.gbxFuncBaixa.Name = "gbxFuncBaixa";
+            this.gbxFuncBaixa.Size = new System.Drawing.Size(369, 96);
+            this.gbxFuncBaixa.TabIndex = 39;
+            this.gbxFuncBaixa.TabStop = false;
+            this.gbxFuncBaixa.Text = "Funcionário Baixa";
+            // 
+            // listViewFuncSaida
+            // 
+            this.listViewFuncSaida.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.listViewFuncSaida.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listViewFuncSaida.FullRowSelect = true;
+            this.listViewFuncSaida.GridLines = true;
+            this.listViewFuncSaida.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewFuncSaida.LabelWrap = false;
+            this.listViewFuncSaida.Location = new System.Drawing.Point(6, 22);
+            this.listViewFuncSaida.Name = "listViewFuncSaida";
+            this.listViewFuncSaida.Size = new System.Drawing.Size(357, 68);
+            this.listViewFuncSaida.TabIndex = 37;
+            this.listViewFuncSaida.UseCompatibleStateImageBehavior = false;
+            this.listViewFuncSaida.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Matrícula";
+            this.columnHeader4.Width = 76;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Nome";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 170;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Função";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 105;
+            // 
+            // gbxFuncSaida
+            // 
+            this.gbxFuncSaida.Controls.Add(this.listViewFuncSaida);
+            this.gbxFuncSaida.Location = new System.Drawing.Point(541, 13);
+            this.gbxFuncSaida.Name = "gbxFuncSaida";
+            this.gbxFuncSaida.Size = new System.Drawing.Size(369, 102);
+            this.gbxFuncSaida.TabIndex = 38;
+            this.gbxFuncSaida.TabStop = false;
+            this.gbxFuncSaida.Text = "Funcionário Saída";
+            // 
+            // listViewFuncBaixa
+            // 
+            this.listViewFuncBaixa.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.listViewFuncBaixa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listViewFuncBaixa.FullRowSelect = true;
+            this.listViewFuncBaixa.GridLines = true;
+            this.listViewFuncBaixa.LabelWrap = false;
+            this.listViewFuncBaixa.Location = new System.Drawing.Point(6, 22);
+            this.listViewFuncBaixa.Name = "listViewFuncBaixa";
+            this.listViewFuncBaixa.Size = new System.Drawing.Size(357, 68);
+            this.listViewFuncBaixa.TabIndex = 37;
+            this.listViewFuncBaixa.UseCompatibleStateImageBehavior = false;
+            this.listViewFuncBaixa.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Matrícula";
+            this.columnHeader1.Width = 76;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 170;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Função";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 105;
+            // 
             // gbxFerramenta
             // 
             this.gbxFerramenta.Controls.Add(this.listVFerramenta);
             this.gbxFerramenta.Controls.Add(this.button1);
             this.gbxFerramenta.Controls.Add(this.btnAddFerramenta);
             this.gbxFerramenta.Controls.Add(this.pbxFerramenta);
-            this.gbxFerramenta.Location = new System.Drawing.Point(6, 166);
+            this.gbxFerramenta.Location = new System.Drawing.Point(6, 214);
             this.gbxFerramenta.Name = "gbxFerramenta";
-            this.gbxFerramenta.Size = new System.Drawing.Size(910, 391);
+            this.gbxFerramenta.Size = new System.Drawing.Size(910, 350);
             this.gbxFerramenta.TabIndex = 15;
             this.gbxFerramenta.TabStop = false;
             this.gbxFerramenta.Text = "Ferramentas";
@@ -89,7 +190,7 @@
             this.categoria});
             this.listVFerramenta.FullRowSelect = true;
             this.listVFerramenta.GridLines = true;
-            this.listVFerramenta.Location = new System.Drawing.Point(6, 22);
+            this.listVFerramenta.Location = new System.Drawing.Point(6, 16);
             this.listVFerramenta.Name = "listVFerramenta";
             this.listVFerramenta.Size = new System.Drawing.Size(570, 274);
             this.listVFerramenta.TabIndex = 36;
@@ -124,7 +225,7 @@
             // 
             this.button1.Image = global::SGA.Properties.Resources._1370629558_minus;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(327, 320);
+            this.button1.Location = new System.Drawing.Point(327, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 44);
             this.button1.TabIndex = 14;
@@ -136,7 +237,7 @@
             // 
             this.btnAddFerramenta.Image = global::SGA.Properties.Resources._1370629399_plus;
             this.btnAddFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddFerramenta.Location = new System.Drawing.Point(110, 320);
+            this.btnAddFerramenta.Location = new System.Drawing.Point(109, 298);
             this.btnAddFerramenta.Name = "btnAddFerramenta";
             this.btnAddFerramenta.Size = new System.Drawing.Size(148, 44);
             this.btnAddFerramenta.TabIndex = 13;
@@ -147,7 +248,7 @@
             // pbxFerramenta
             // 
             this.pbxFerramenta.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pbxFerramenta.Location = new System.Drawing.Point(579, 22);
+            this.pbxFerramenta.Location = new System.Drawing.Point(579, 16);
             this.pbxFerramenta.Name = "pbxFerramenta";
             this.pbxFerramenta.Size = new System.Drawing.Size(325, 274);
             this.pbxFerramenta.TabIndex = 12;
@@ -157,7 +258,7 @@
             // 
             this.btnCancelar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.Location = new System.Drawing.Point(511, 563);
+            this.btnCancelar.Location = new System.Drawing.Point(511, 571);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(148, 44);
             this.btnCancelar.TabIndex = 14;
@@ -169,7 +270,7 @@
             // 
             this.btnSalvar.Image = global::SGA.Properties.Resources._1370629123_button_30;
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalvar.Location = new System.Drawing.Point(299, 563);
+            this.btnSalvar.Location = new System.Drawing.Point(299, 571);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(148, 44);
             this.btnSalvar.TabIndex = 13;
@@ -179,85 +280,60 @@
             // 
             // gbxFuncionario
             // 
-            this.gbxFuncionario.Controls.Add(this.lblFuncaoFunc);
-            this.gbxFuncionario.Controls.Add(this.lblNomeFunc);
-            this.gbxFuncionario.Controls.Add(this.lblMatFunc);
+            this.gbxFuncionario.Controls.Add(this.listVFuncReq);
             this.gbxFuncionario.Controls.Add(this.btnAlterar);
-            this.gbxFuncionario.Controls.Add(this.lblFuncao);
-            this.gbxFuncionario.Controls.Add(this.lblNome);
-            this.gbxFuncionario.Controls.Add(this.lblMatricula);
-            this.gbxFuncionario.Location = new System.Drawing.Point(6, 22);
+            this.gbxFuncionario.Location = new System.Drawing.Point(12, 58);
             this.gbxFuncionario.Name = "gbxFuncionario";
-            this.gbxFuncionario.Size = new System.Drawing.Size(546, 138);
+            this.gbxFuncionario.Size = new System.Drawing.Size(523, 104);
             this.gbxFuncionario.TabIndex = 1;
             this.gbxFuncionario.TabStop = false;
-            this.gbxFuncionario.Text = "Funcionário";
+            this.gbxFuncionario.Text = "Funcionário Requisitante";
             // 
-            // lblFuncaoFunc
+            // listVFuncReq
             // 
-            this.lblFuncaoFunc.AutoSize = true;
-            this.lblFuncaoFunc.Location = new System.Drawing.Point(142, 98);
-            this.lblFuncaoFunc.Name = "lblFuncaoFunc";
-            this.lblFuncaoFunc.Size = new System.Drawing.Size(46, 16);
-            this.lblFuncaoFunc.TabIndex = 7;
-            this.lblFuncaoFunc.Text = "função";
+            this.listVFuncReq.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.listVFuncReq.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnMatricula,
+            this.columnNome,
+            this.columnFuncao});
+            this.listVFuncReq.FullRowSelect = true;
+            this.listVFuncReq.GridLines = true;
+            this.listVFuncReq.LabelWrap = false;
+            this.listVFuncReq.Location = new System.Drawing.Point(6, 22);
+            this.listVFuncReq.Name = "listVFuncReq";
+            this.listVFuncReq.Size = new System.Drawing.Size(357, 68);
+            this.listVFuncReq.TabIndex = 37;
+            this.listVFuncReq.UseCompatibleStateImageBehavior = false;
+            this.listVFuncReq.View = System.Windows.Forms.View.Details;
             // 
-            // lblNomeFunc
+            // columnMatricula
             // 
-            this.lblNomeFunc.AutoSize = true;
-            this.lblNomeFunc.Location = new System.Drawing.Point(142, 65);
-            this.lblNomeFunc.Name = "lblNomeFunc";
-            this.lblNomeFunc.Size = new System.Drawing.Size(40, 16);
-            this.lblNomeFunc.TabIndex = 6;
-            this.lblNomeFunc.Text = "nome";
+            this.columnMatricula.Text = "Matrícula";
+            this.columnMatricula.Width = 76;
             // 
-            // lblMatFunc
+            // columnNome
             // 
-            this.lblMatFunc.AutoSize = true;
-            this.lblMatFunc.Location = new System.Drawing.Point(142, 29);
-            this.lblMatFunc.Name = "lblMatFunc";
-            this.lblMatFunc.Size = new System.Drawing.Size(61, 16);
-            this.lblMatFunc.TabIndex = 4;
-            this.lblMatFunc.Text = "matrícula";
+            this.columnNome.Text = "Nome";
+            this.columnNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnNome.Width = 170;
+            // 
+            // columnFuncao
+            // 
+            this.columnFuncao.Text = "Função";
+            this.columnFuncao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnFuncao.Width = 91;
             // 
             // btnAlterar
             // 
             this.btnAlterar.Image = global::SGA.Properties.Resources._1370643457_Search_Male_User;
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlterar.Location = new System.Drawing.Point(371, 51);
+            this.btnAlterar.Location = new System.Drawing.Point(364, 32);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(148, 44);
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // lblFuncao
-            // 
-            this.lblFuncao.AutoSize = true;
-            this.lblFuncao.Location = new System.Drawing.Point(26, 98);
-            this.lblFuncao.Name = "lblFuncao";
-            this.lblFuncao.Size = new System.Drawing.Size(54, 16);
-            this.lblFuncao.TabIndex = 2;
-            this.lblFuncao.Text = "Função:";
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(26, 65);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(46, 16);
-            this.lblNome.TabIndex = 1;
-            this.lblNome.Text = "Nome:";
-            // 
-            // lblMatricula
-            // 
-            this.lblMatricula.AutoSize = true;
-            this.lblMatricula.Location = new System.Drawing.Point(26, 29);
-            this.lblMatricula.Name = "lblMatricula";
-            this.lblMatricula.Size = new System.Drawing.Size(65, 16);
-            this.lblMatricula.TabIndex = 0;
-            this.lblMatricula.Text = "Matrícula:";
             // 
             // ManterRequisicao
             // 
@@ -274,10 +350,11 @@
             this.Text = "CadastroRequisicao";
             this.Load += new System.EventHandler(this.ManterRequisicao_Load);
             this.gbxNRequisicao.ResumeLayout(false);
+            this.gbxFuncBaixa.ResumeLayout(false);
+            this.gbxFuncSaida.ResumeLayout(false);
             this.gbxFerramenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxFerramenta)).EndInit();
             this.gbxFuncionario.ResumeLayout(false);
-            this.gbxFuncionario.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -297,12 +374,20 @@
         private System.Windows.Forms.ColumnHeader fabricante;
         private System.Windows.Forms.ColumnHeader categoria;
         private System.Windows.Forms.GroupBox gbxFuncionario;
-        private System.Windows.Forms.Label lblFuncaoFunc;
-        private System.Windows.Forms.Label lblNomeFunc;
-        private System.Windows.Forms.Label lblMatFunc;
         private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.Label lblFuncao;
-        private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label lblMatricula;
+        private System.Windows.Forms.GroupBox gbxFuncBaixa;
+        private System.Windows.Forms.ListView listViewFuncSaida;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.GroupBox gbxFuncSaida;
+        private System.Windows.Forms.ListView listViewFuncBaixa;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView listVFuncReq;
+        private System.Windows.Forms.ColumnHeader columnMatricula;
+        private System.Windows.Forms.ColumnHeader columnNome;
+        private System.Windows.Forms.ColumnHeader columnFuncao;
     }
 }

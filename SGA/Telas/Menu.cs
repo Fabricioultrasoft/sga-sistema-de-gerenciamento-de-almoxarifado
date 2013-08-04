@@ -100,9 +100,9 @@ namespace SGA
                     }
                     else
                     {
-                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario);
+                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova");
                         cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
-                        cRequisicao.i_funcionarioRequisitante = pFuncionario.objFuncionario;
+                        cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
                         cRequisicao.ShowDialog();
                         if (cRequisicao.DialogResult == DialogResult.Cancel)
                         {

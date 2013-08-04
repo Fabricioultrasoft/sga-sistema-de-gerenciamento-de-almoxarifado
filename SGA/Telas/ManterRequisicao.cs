@@ -14,25 +14,72 @@ namespace SGA.Telas
     public partial class ManterRequisicao : Form
     {
         private Funcionario i_usuarioLogado;
-        public Funcionario i_funcionarioRequisitante = new Funcionario();
+        private Funcionario i_funcionarioRequisitante = new Funcionario();
+        private Funcionario i_funcionarioBaixa = new Funcionario();
+        private Funcionario i_funcionarioSaída = new Funcionario();
+        private string i_tipoTela = "";
+
         List<Ferramenta> i_arrayFerramentas = new List<Ferramenta>();
         Ferramenta objFerramentaSelecionada;
 
-        public ManterRequisicao(Funcionario func)
+        public ManterRequisicao(Funcionario func, string tipoT)
         {
             InitializeComponent();
             usuarioLogado = func;
-            montarTela();
+            tipoTela = tipoT;
         }
+
+        public Funcionario funcionarioSaída
+        {
+            get { return i_funcionarioSaída; }
+            set { i_funcionarioSaída = value; }
+        }
+
+        public string tipoTela
+        {
+            get { return i_tipoTela; }
+            set { i_tipoTela = value; }
+        }
+
+        public Funcionario funcionarioBaixa
+        {
+            get { return i_funcionarioBaixa; }
+            set { i_funcionarioBaixa = value; }
+        }
+
+        public Funcionario funcionarioRequisitante
+        {
+            get { return i_funcionarioRequisitante; }
+            set { i_funcionarioRequisitante = value; }
+        }
+        
 
         private void montarTela()
         {
             pbxFerramenta.Image = null;
             pbxFerramenta.SizeMode = PictureBoxSizeMode.Zoom;
             preencherListView();
-            lblMatFunc.Text = i_funcionarioRequisitante.matricula.ToString();
-            lblNomeFunc.Text = i_funcionarioRequisitante.nome;
-            lblFuncaoFunc.Text = i_funcionarioRequisitante.no_funcao;
+            if (tipoTela == "nova")
+            {
+                gbxFuncBaixa.Visible = false;
+                funcionarioSaída = usuarioLogado;
+            }
+            preencherLstVfuncionario();
+        }
+
+        private void preencherLstVfuncionario()
+        {
+            listViewFuncSaida.Items.Clear();
+            var item = new ListViewItem(new String[] { funcionarioSaída.matricula + "", funcionarioSaída.nome, funcionarioSaída.no_funcao });
+            listViewFuncSaida.Items.Add(item);
+
+            listVFuncReq.Items.Clear();
+            var itemr = new ListViewItem(new String[] { funcionarioRequisitante.matricula + "", funcionarioRequisitante.nome, funcionarioRequisitante.no_funcao });
+            listVFuncReq.Items.Add(itemr);
+
+            listViewFuncBaixa.Items.Clear();
+            var item2 = new ListViewItem(new String[] { funcionarioBaixa.matricula + "", funcionarioBaixa.nome, funcionarioBaixa.no_funcao });
+            listViewFuncBaixa.Items.Add(item2);
         }
 
         public List<Ferramenta> arrayFerramentas
@@ -144,7 +191,7 @@ namespace SGA.Telas
                             Requisicao requisicao = new Requisicao();
                             requisicao.ferramentas = this.arrayFerramentas;
                             requisicao.funcionario.Add(usuarioLogado);
-                            requisicao.funcionario.Add(i_funcionarioRequisitante);
+                            requisicao.funcionario.Add(funcionarioRequisitante);
 
                             RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
                             requisicaoDel.gravarRequisicao(requisicao);
@@ -251,7 +298,7 @@ namespace SGA.Telas
 
             if (pesqFuncionario.DialogResult != DialogResult.Cancel)
             {
-                this.i_funcionarioRequisitante = pesqFuncionario.objFuncionario;
+                this.funcionarioRequisitante = pesqFuncionario.objFuncionario;
             }
             else
             {

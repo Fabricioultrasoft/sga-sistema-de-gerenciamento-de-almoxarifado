@@ -198,5 +198,10 @@ namespace SGA
         {
             pictBErroSenha.Visible = false;
         }
+
+        private void tbxMatricula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

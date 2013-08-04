@@ -15,5 +15,10 @@ namespace SGA.AplicationService
         {
             requisicaoDao.gravarRequisicao(requisicao);
         }
+
+        public List<Requisicao> pesquisarRequisicao()
+        {
+            return requisicaoDao.pesquisarRequisicao();
+        }
     }
 }
