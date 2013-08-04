@@ -17,10 +17,18 @@ namespace SGA.Telas
         private List<Requisicao> i_listaRequisicoes = new List<Requisicao>();
         private Requisicao i_objRequisicao = new Requisicao();
         private Requisicao i_objPesquisaRequisicao = new Requisicao();
+        private Funcionario i_usuarioLogado = new Funcionario();
 
-        public PesquisarRequisicao()
+        public PesquisarRequisicao(Funcionario func)
         {
             InitializeComponent();
+            usuarioLogado = func;
+        }
+
+        public Funcionario usuarioLogado
+        {
+            get { return i_usuarioLogado; }
+            set { i_usuarioLogado = value; }
         }
 
         internal Requisicao objPesquisaRequisicao
@@ -48,7 +56,17 @@ namespace SGA.Telas
             objPesquisaRequisicao.funcionario.Add(new Funcionario());
             objPesquisaRequisicao.funcionario.Add(new Funcionario());
 
+            comboBox1.Items.Add("");
+            comboBox1.Items.Add("Criação");
+            comboBox1.Items.Add("Baixa");
+
+            cbxSituacao.Items.Add("");
+            cbxSituacao.Items.Add("Abertas");
+            cbxSituacao.Items.Add("Fechadas");
+
             pbxFerramenta.SizeMode = PictureBoxSizeMode.Zoom;
+
+            setDtpickers();
 
             preencherListViewRequisicao();
         }
@@ -56,13 +74,21 @@ namespace SGA.Telas
         private void preencherListViewRequisicao()
         {
             RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-            listaRequisicoes = requisicaoDel.pesquisarRequisicao();
+            listaRequisicoes = requisicaoDel.pesquisarRequisicao(objPesquisaRequisicao);
             listVFerramenta.Items.Clear();
             foreach (Requisicao requisicao in listaRequisicoes)
             {
+                string dataBaixa = "";
+                string matFuncBaixa = "";
+
+                if (requisicao.funcionario[2].matricula != 0)
+                {
+                    dataBaixa = requisicao.dtBaixa.ToString();
+                    matFuncBaixa =  requisicao.funcionario[2].matricula + "";
+                }
                 var item = new ListViewItem(new String[] { requisicao.codRequisicao + "", requisicao.ferramentas[0].codFerramenta, requisicao.ferramentas[0].nomeFerramenta,
                                           requisicao.funcionario[1].matricula + "",requisicao.dtRequisicao.ToString(),requisicao.funcionario[0].matricula + "",
-                                          requisicao.dtBaixa.ToString(), requisicao.funcionario[2].matricula + "" });
+                                          dataBaixa, matFuncBaixa });
                 listVFerramenta.Items.Add(item);
             }
         }
@@ -125,12 +151,191 @@ namespace SGA.Telas
 
         private void tbxCodigo_TextChanged(object sender, EventArgs e)
         {
-            objPesquisaRequisicao.codRequisicao = Convert.ToInt32(tbxCodigo.Text);
+            try
+            {
+                objPesquisaRequisicao.codRequisicao = Convert.ToInt32(tbxCodigo.Text);
+            }
+            catch
+            {
+                objPesquisaRequisicao.codRequisicao = 0;
+            }
+            preencherListViewRequisicao();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             objPesquisaRequisicao.ferramentas[0].codFerramenta = textBox3.Text;
+            preencherListViewRequisicao();
+        }
+
+        private void cbxSituacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objPesquisaRequisicao.situacao = cbxSituacao.SelectedItem.ToString();
+            preencherListViewRequisicao();
+        }
+
+        private void tbxNome_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                objPesquisaRequisicao.funcionario[0].matricula = Convert.ToInt32(tbxNome.Text);
+            }
+            catch
+            {
+                objPesquisaRequisicao.funcionario[0].matricula = 0;
+            }
+            preencherListViewRequisicao();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                objPesquisaRequisicao.funcionario[1].matricula = Convert.ToInt32(textBox1.Text);
+            }
+            catch
+            {
+                objPesquisaRequisicao.funcionario[1].matricula = 0;
+            }
+            preencherListViewRequisicao();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                objPesquisaRequisicao.funcionario[2].matricula = Convert.ToInt32(textBox2.Text);
+            }
+            catch
+            {
+                objPesquisaRequisicao.funcionario[2].matricula = 0;
+            }
+            preencherListViewRequisicao();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objPesquisaRequisicao.tipoPeriodo = comboBox1.SelectedItem.ToString();
+            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
+            preencherListViewRequisicao();
+        }
+
+        private void dtpickerFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerFinal.Value <= dtpickerInicio.Value)
+            {
+                new Mensagem("A data final deve ser maior \nque a data de início!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
+            }
+
+            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            preencherListViewRequisicao();
+        }
+
+        private void dtpickerInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerInicio.Value >= dtpickerFinal.Value)
+            {
+                new Mensagem("A data inicial deve ser menor \nque a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
+            }
+
+            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
+            preencherListViewRequisicao();
+        }
+
+        private void setDtpickers()
+        {
+            RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
+            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicio.Value = dtpickerInicio.MinDate;
+            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (dtpickerFinal.MinDate.AddDays(-1) == data)
+            {
+                dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+            }
+            else
+            {
+                dtpickerFinal.MaxDate = data;
+            }
+            dtpickerFinal.Value = dtpickerFinal.MaxDate;
+            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbxSituacao.SelectedItem = "";
+            tbxCodigo.Clear();
+            tbxNome.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+        }
+
+        private void btnRedPeriodo_Click(object sender, EventArgs e)
+        {
+            comboBox1.SelectedItem = "";
+            textBox1.Clear();
+            setDtpickers();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnNFerramenta_Click(object sender, EventArgs e)
+        {
+            while (1 == 1)
+            {
+                PesquisarFerramenta pFerramenta = new PesquisarFerramenta(usuarioLogado, "adicionar");
+                pFerramenta.ShowDialog();
+                if (pFerramenta.DialogResult == DialogResult.Cancel)
+                {
+                    break;
+                }
+                else
+                {
+                    PesquisarFuncionario pFuncionario = new PesquisarFuncionario(usuarioLogado, "adicionar");
+                    pFuncionario.ShowDialog();
+                    if (pFuncionario.DialogResult == DialogResult.Cancel)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        ManterRequisicao cRequisicao = new ManterRequisicao(usuarioLogado, "nova", new Requisicao());
+                        cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
+                        cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
+                        cRequisicao.ShowDialog();
+                        if (cRequisicao.DialogResult == DialogResult.Cancel)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            button1_Click(new object(), new EventArgs());
+            btnRedPeriodo_Click(new object() ,new EventArgs() );
+            objRequisicao = null;
+            preencherListViewRequisicao();
+        }
+
+        private void btnDetalhes_Click(object sender, EventArgs e)
+        {
+            if (objRequisicao == null)
+            {
+                new Mensagem("Selecione uma requisição\nprimeiro!", "informa", SGA.Properties.Resources.erro).ShowDialog();
+            }
+            else
+            {
+                ManterRequisicao cRequisicao = new ManterRequisicao(usuarioLogado, "Detalhes", objRequisicao);
+                cRequisicao.ShowDialog();
+                objRequisicao = null;
+            }
         }
     }
 }

@@ -15,9 +15,15 @@ namespace SGA.Delegate
         {
             requisicaoFacade.gravarRequisicao(requisicao);
         }
-        public List<Requisicao> pesquisarRequisicao()
+
+        public List<Requisicao> pesquisarRequisicao(Requisicao objRequisicao)
         {
-            return requisicaoFacade.pesquisarRequisicao();
+            return requisicaoFacade.pesquisarRequisicao(objRequisicao);
+        }
+
+        public string setDateTimerPicker()
+        {
+            return requisicaoFacade.setDateTimerPicker();
         }
     }
 }

@@ -35,14 +35,65 @@ namespace SGA.Dao
             }
         }
 
-        public List<Requisicao> pesquisarRequisicao()
+        public List<Requisicao> pesquisarRequisicao(Requisicao objRequisicao)
         {
+            string condicoes = "";
+
+            if(objRequisicao.codRequisicao != 0)
+            {
+                condicoes += " AND nu_seq_requisicao LIKE('%" + objRequisicao.codRequisicao + "%')"; 
+            }
+
+            if (objRequisicao.ferramentas[0].codFerramenta != "" )
+            {
+                condicoes += " AND fk_ferramenta LIKE('%" + objRequisicao.ferramentas[0].codFerramenta + "%')";
+            }
+
+            if (objRequisicao.funcionario[0].matricula != 0)
+            {
+                condicoes += " AND fk_func_saida_ferr LIKE('%" + objRequisicao.funcionario[0].matricula + "%')";
+            }
+
+            if (objRequisicao.funcionario[1].matricula != 0)
+            {
+                condicoes += " AND fk_func_baixa_ferr LIKE('%" + objRequisicao.funcionario[1].matricula + "%')";
+            }
+
+            if (objRequisicao.funcionario[2].matricula != 0)
+            {
+                condicoes += " AND fk_func_requisitante LIKE('%" + objRequisicao.funcionario[2].matricula + "%')";
+            }
+
+            if (objRequisicao.situacao + "" != "")
+            {
+                if (objRequisicao.situacao == "Abertas")
+                {
+                    condicoes += " AND dt_baixa_requisicao IS NULL";
+                }
+                else
+                {
+                    condicoes += " AND dt_baixa_requisicao IS NOT NULL";
+                }
+            }
+
+            if (objRequisicao.tipoPeriodo + "" != "")
+            {
+                if (objRequisicao.tipoPeriodo == "Baixa")
+                {
+                    condicoes += " AND dt_baixa_requisicao between '" + objRequisicao.periodo[0] + "' AND '" + objRequisicao.periodo[1] + "'";
+                }
+                else
+                {
+                    condicoes += " AND dt_saida_requisicao between '" + objRequisicao.periodo[0] + "' AND '" + objRequisicao.periodo[1] + "'";
+                }
+            }
+
             List<Requisicao> listaRequisicao = new List<Requisicao>();
             Requisicao requisicao;
             Ferramenta ferramenta = new Ferramenta();
             Funcionario funcionario;
 
-            SqlCommand selectRequisicao = new SqlCommand("SELECT nu_seq_requisicao, fk_ferramenta, de.no_ferramenta, f.imagem , dt_saida_requisicao, dt_baixa_requisicao , fk_func_requisitante" +
+            SqlCommand selectRequisicao = new SqlCommand("SELECT nu_seq_requisicao, fk_ferramenta,gr.no_grupo, fa.no_fabricante, de.no_ferramenta, f.imagem , dt_saida_requisicao, dt_baixa_requisicao , fk_func_requisitante" +
       ",(SELECT no_funcionario FROM tb_funcionario WHERE mat_funcionario = fk_func_requisitante) as no_func_requisitante" + 
       ",(SELECT no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario = fk_func_requisitante) as no_funcao_req " +
       ",fk_func_saida_ferr " +
@@ -53,8 +104,10 @@ namespace SGA.Dao
       ",(SELECT no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario = fk_func_baixa_ferr) as no_funcao_baixa " +
       "      FROM [sga].[dbo].[tb_requisicao] r " + 
       "     INNER JOIN tb_ferramenta f  ON(fk_ferramenta = f.cod_ferramenta)  " +
+      "     INNER JOIN tb_fabricante fa ON(fk_fabricante = fa.nu_seq_fabricante)" +
       "      INNER jOIN tb_descricao_ferramenta de ON(fk_descricao_ferramenta = de.nu_seq_descricao) " +
-      " WHERE 1 = 1", Conexao.con());
+      "     INNER JOIN tb_grupo_ferramenta gr ON(fk_grupo = nu_seq_grupo)" +
+      " WHERE 1 = 1" + condicoes, Conexao.con());
 
             Conexao.con().Open();
 
@@ -68,12 +121,14 @@ namespace SGA.Dao
                 if (linha["dt_baixa_requisicao"].ToString() != "")
                     requisicao.dtBaixa = Convert.ToDateTime(linha["dt_baixa_requisicao"]);
                 requisicao.dtRequisicao = Convert.ToDateTime(linha["dt_saida_requisicao"]);
-                ferramenta.codFerramenta = linha["fk_ferramenta"].ToString();
 
+                ferramenta.codFerramenta = linha["fk_ferramenta"].ToString();
                 ferramenta.nomeFerramenta = linha["no_ferramenta"].ToString();
                 if (linha["imagem"].ToString() != "")
                     ferramenta.imagem = ConvertByteArrayToImage((Byte[])linha["imagem"]);
                 requisicao.ferramentas.Add(ferramenta);
+                ferramenta.codFabricante = linha["no_fabricante"].ToString();
+                ferramenta.codGrupo = linha["no_grupo"].ToString();
 
                 funcionario = new Funcionario();
                 funcionario.matricula = Convert.ToInt32(linha["fk_func_saida_ferr"]);
@@ -109,6 +164,24 @@ namespace SGA.Dao
             }
 
             return (Image.FromStream(new MemoryStream(byteArray)));
+        }
+
+        public string setDateTimerPicker()
+        {
+            string timer = "";
+
+            SqlCommand selectTimer = new SqlCommand("SELECT MIN([dt_saida_requisicao]) as min FROM tb_requisicao", Conexao.con());
+
+            Conexao.con().Open();
+
+            SqlDataReader linha = selectTimer.ExecuteReader();
+
+            if (linha.Read())
+                timer = linha["min"].ToString();
+
+            Conexao.con().Close();
+
+            return timer;
         }
     }
 }

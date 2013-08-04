@@ -17,16 +17,24 @@ namespace SGA.Telas
         private Funcionario i_funcionarioRequisitante = new Funcionario();
         private Funcionario i_funcionarioBaixa = new Funcionario();
         private Funcionario i_funcionarioSaída = new Funcionario();
+        private Requisicao i_objRequisicao = new Requisicao();
+
+        internal Requisicao objRequisicao
+        {
+            get { return i_objRequisicao; }
+            set { i_objRequisicao = value; }
+        }
         private string i_tipoTela = "";
 
         List<Ferramenta> i_arrayFerramentas = new List<Ferramenta>();
         Ferramenta objFerramentaSelecionada;
 
-        public ManterRequisicao(Funcionario func, string tipoT)
+        public ManterRequisicao(Funcionario func, string tipoT, Requisicao req)
         {
             InitializeComponent();
             usuarioLogado = func;
             tipoTela = tipoT;
+            objRequisicao = req;
         }
 
         public Funcionario funcionarioSaída
@@ -58,13 +66,31 @@ namespace SGA.Telas
         {
             pbxFerramenta.Image = null;
             pbxFerramenta.SizeMode = PictureBoxSizeMode.Zoom;
-            preencherListView();
             if (tipoTela == "nova")
             {
                 gbxFuncBaixa.Visible = false;
                 funcionarioSaída = usuarioLogado;
+                preencherListView();
+            }
+            else
+            {
+                funcionarioRequisitante = objRequisicao.funcionario[1];
+                funcionarioSaída = objRequisicao.funcionario[0];
+                funcionarioBaixa = objRequisicao.funcionario[2];
+
+                btnAddFerramenta.Enabled = false;
+                btnAlterar.Enabled = false;
+                btnSalvar.Enabled = false;
+                button1.Enabled = false;
+
+                listVFerramenta.Height = 68;
+                Ferramenta ferr = objRequisicao.ferramentas[0];
+                pbxFerramenta.Image = objRequisicao.ferramentas[0].imagem;
+                var item = new ListViewItem(new[] { ferr.codFerramenta, ferr.nomeFerramenta, ferr.codFabricante, ferr.codGrupo });
+                listVFerramenta.Items.Add(item);
             }
             preencherLstVfuncionario();
+            
         }
 
         private void preencherLstVfuncionario()
@@ -183,7 +209,7 @@ namespace SGA.Telas
                         {
                             FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
 
-                            Funcionario funcionario = usuarioLogado;
+                            Funcionario funcionario = funcionarioRequisitante;
 
                             funcionario.senha = Criptografia.Encrypt(mensagem.texto);
 
@@ -232,11 +258,18 @@ namespace SGA.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Mensagem mensagem = new Mensagem("Deseja cancelar \n a requisição?", "confirma", SGA.Properties.Resources.interrogacao);
-            mensagem.ShowDialog();
-            if (mensagem.DialogResult == DialogResult.OK)
+            if (tipoTela == "nova")
             {
-                this.DialogResult = DialogResult.Cancel;
+                Mensagem mensagem = new Mensagem("Deseja cancelar \n a requisição?", "confirma", SGA.Properties.Resources.interrogacao);
+                mensagem.ShowDialog();
+                if (mensagem.DialogResult == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                }
+            }
+            else
+            {
                 this.Close();
             }
         }

@@ -34,10 +34,10 @@
             this.cod_ferramenta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ferramenta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fk_func_requisitante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dtsaida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dtSaida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fk_func_saida = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.fk_func_baixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dtbaixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.fk_func_baixa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnNFerramenta = new System.Windows.Forms.Button();
             this.btnDetalhes = new System.Windows.Forms.Button();
             this.btnDesativar = new System.Windows.Forms.Button();
@@ -99,7 +99,7 @@
             this.cod_ferramenta,
             this.ferramenta,
             this.fk_func_requisitante,
-            this.dtsaida,
+            this.dtSaida,
             this.fk_func_saida,
             this.dtbaixa,
             this.fk_func_baixa});
@@ -136,11 +136,11 @@
             this.fk_func_requisitante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fk_func_requisitante.Width = 133;
             // 
-            // dtsaida
+            // dtSaida
             // 
-            this.dtsaida.Text = "Dt-Saída";
-            this.dtsaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dtsaida.Width = 109;
+            this.dtSaida.Text = "Dt-Criação";
+            this.dtSaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtSaida.Width = 93;
             // 
             // fk_func_saida
             // 
@@ -148,17 +148,17 @@
             this.fk_func_saida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fk_func_saida.Width = 108;
             // 
-            // fk_func_baixa
-            // 
-            this.fk_func_baixa.Text = "Func.Baixa";
-            this.fk_func_baixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.fk_func_baixa.Width = 121;
-            // 
             // dtbaixa
             // 
             this.dtbaixa.Text = "Dt-Baixa";
             this.dtbaixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtbaixa.Width = 109;
+            // 
+            // fk_func_baixa
+            // 
+            this.fk_func_baixa.Text = "Func.Baixa";
+            this.fk_func_baixa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fk_func_baixa.Width = 121;
             // 
             // btnNFerramenta
             // 
@@ -171,6 +171,7 @@
             this.btnNFerramenta.Text = "Nova Requisição";
             this.btnNFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNFerramenta.UseVisualStyleBackColor = true;
+            this.btnNFerramenta.Click += new System.EventHandler(this.btnNFerramenta_Click);
             // 
             // btnDetalhes
             // 
@@ -182,6 +183,7 @@
             this.btnDetalhes.TabIndex = 9;
             this.btnDetalhes.Text = "Detalhes";
             this.btnDetalhes.UseVisualStyleBackColor = true;
+            this.btnDetalhes.Click += new System.EventHandler(this.btnDetalhes_Click);
             // 
             // btnDesativar
             // 
@@ -204,6 +206,7 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pbxFerramenta
             // 
@@ -253,6 +256,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 23);
             this.textBox2.TabIndex = 39;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label2
@@ -270,6 +274,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 23);
             this.textBox1.TabIndex = 37;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
@@ -288,15 +293,16 @@
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(167, 24);
             this.cbxSituacao.TabIndex = 35;
+            this.cbxSituacao.SelectedIndexChanged += new System.EventHandler(this.cbxSituacao_SelectedIndexChanged);
             // 
             // lblSituacao
             // 
             this.lblSituacao.AutoSize = true;
-            this.lblSituacao.Location = new System.Drawing.Point(64, 111);
+            this.lblSituacao.Location = new System.Drawing.Point(3, 111);
             this.lblSituacao.Name = "lblSituacao";
-            this.lblSituacao.Size = new System.Drawing.Size(62, 16);
+            this.lblSituacao.Size = new System.Drawing.Size(124, 16);
             this.lblSituacao.TabIndex = 34;
-            this.lblSituacao.Text = "Situação:";
+            this.lblSituacao.Text = "Situação requisição:";
             // 
             // button1
             // 
@@ -308,6 +314,7 @@
             this.button1.TabIndex = 33;
             this.button1.Text = "Limpar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLimpar
             // 
@@ -324,6 +331,7 @@
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 4;
+            this.tbxNome.TextChanged += new System.EventHandler(this.tbxNome_TextChanged);
             this.tbxNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxNome_KeyPress);
             // 
             // tbxCodigo
@@ -349,7 +357,7 @@
             this.gbxLmtPerAdmissao.Size = new System.Drawing.Size(898, 99);
             this.gbxLmtPerAdmissao.TabIndex = 27;
             this.gbxLmtPerAdmissao.TabStop = false;
-            this.gbxLmtPerAdmissao.Text = "Limitar período de criação";
+            this.gbxLmtPerAdmissao.Text = "Limitar período ";
             // 
             // comboBox1
             // 
@@ -358,6 +366,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(167, 24);
             this.comboBox1.TabIndex = 41;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lbldtpickerFinal
             // 
@@ -384,6 +393,7 @@
             this.dtpickerFinal.Name = "dtpickerFinal";
             this.dtpickerFinal.Size = new System.Drawing.Size(99, 23);
             this.dtpickerFinal.TabIndex = 31;
+            this.dtpickerFinal.ValueChanged += new System.EventHandler(this.dtpickerFinal_ValueChanged);
             // 
             // lblDtInicio
             // 
@@ -401,6 +411,7 @@
             this.dtpickerInicio.Name = "dtpickerInicio";
             this.dtpickerInicio.Size = new System.Drawing.Size(99, 23);
             this.dtpickerInicio.TabIndex = 29;
+            this.dtpickerInicio.ValueChanged += new System.EventHandler(this.dtpickerInicio_ValueChanged);
             // 
             // btnRedPeriodo
             // 
@@ -413,6 +424,7 @@
             this.btnRedPeriodo.Text = "Redefinir Período";
             this.btnRedPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRedPeriodo.UseVisualStyleBackColor = true;
+            this.btnRedPeriodo.Click += new System.EventHandler(this.btnRedPeriodo_Click);
             // 
             // lblGrupo
             // 
@@ -504,7 +516,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ColumnHeader fk_func_baixa;
         private System.Windows.Forms.ColumnHeader fk_func_requisitante;
-        private System.Windows.Forms.ColumnHeader dtsaida;
+        private System.Windows.Forms.ColumnHeader dtSaida;
         private System.Windows.Forms.ColumnHeader dtbaixa;
 
     }

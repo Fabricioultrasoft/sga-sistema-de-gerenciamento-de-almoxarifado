@@ -100,7 +100,7 @@ namespace SGA
                     }
                     else
                     {
-                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova");
+                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova",new Requisicao());
                         cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
                         cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
                         cRequisicao.ShowDialog();
@@ -159,7 +159,7 @@ namespace SGA
 
         private void menuItemLRequisicao_Click(object sender, EventArgs e)
         {
-            PesquisarRequisicao pRequisicao = new PesquisarRequisicao();
+            PesquisarRequisicao pRequisicao = new PesquisarRequisicao(funcionario);
             pRequisicao.ShowDialog();
         }
 

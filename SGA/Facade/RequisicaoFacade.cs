@@ -16,9 +16,14 @@ namespace SGA.Facade
             requisicaoAs.gravarRequisicao(requisicao);
         }
 
-        public List<Requisicao> pesquisarRequisicao()
+        public List<Requisicao> pesquisarRequisicao(Requisicao objRequisicao)
         {
-            return requisicaoAs.pesquisarRequisicao();
+            return requisicaoAs.pesquisarRequisicao(objRequisicao);
+        }
+
+        public string setDateTimerPicker()
+        {
+            return requisicaoAs.setDateTimerPicker();
         }
     }
 }

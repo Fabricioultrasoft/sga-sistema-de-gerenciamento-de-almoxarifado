@@ -6,7 +6,7 @@ using SGA.Facade;
 
 namespace SGA.Entity
 {
-    class Requisicao
+    public class Requisicao
     {
         private int i_codRequisicao;
         private DateTime i_dtRequisicao;
@@ -15,6 +15,27 @@ namespace SGA.Entity
         private List<Funcionario> i_funcionario = new List<Funcionario>();
         private int i_matFuncRequisicao;
         private int i_matFuncBaixa;
+        private string i_situacao;
+        private string[] i_periodo = { "", "" };
+        private string i_tipoPeriodo;
+
+        public string tipoPeriodo
+        {
+            get { return i_tipoPeriodo; }
+            set { i_tipoPeriodo = value; }
+        }
+
+        public string[] periodo
+        {
+            get { return i_periodo; }
+            set { i_periodo = value; }
+        }
+
+        public string situacao
+        {
+            get { return i_situacao; }
+            set { i_situacao = value; }
+        }
 
         internal List<Funcionario> funcionario
         {

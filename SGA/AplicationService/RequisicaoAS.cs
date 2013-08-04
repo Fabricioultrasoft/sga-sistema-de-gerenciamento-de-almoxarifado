@@ -16,9 +16,14 @@ namespace SGA.AplicationService
             requisicaoDao.gravarRequisicao(requisicao);
         }
 
-        public List<Requisicao> pesquisarRequisicao()
+        public List<Requisicao> pesquisarRequisicao(Requisicao objRequisicao)
         {
-            return requisicaoDao.pesquisarRequisicao();
+            return requisicaoDao.pesquisarRequisicao(objRequisicao);
+        }
+
+        public string setDateTimerPicker()
+        {
+            return requisicaoDao.setDateTimerPicker();
         }
     }
 }
