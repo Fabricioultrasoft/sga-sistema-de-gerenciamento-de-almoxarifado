@@ -83,6 +83,10 @@ namespace SGA.Telas
                 btnSalvar.Enabled = false;
                 button1.Enabled = false;
 
+                if (funcionarioBaixa.matricula == 0)
+                    gbxFuncBaixa.Visible = false;
+
+
                 listVFerramenta.Height = 68;
                 Ferramenta ferr = objRequisicao.ferramentas[0];
                 pbxFerramenta.Image = objRequisicao.ferramentas[0].imagem;
