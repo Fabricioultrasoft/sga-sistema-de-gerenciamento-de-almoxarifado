@@ -25,5 +25,10 @@ namespace SGA.Delegate
         {
             return requisicaoFacade.setDateTimerPicker();
         }
+
+        public void finalizarRequisicao(Requisicao requisicao)
+        {
+            requisicaoFacade.finalizarRequisicao(requisicao);
+        }
     }
 }

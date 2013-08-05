@@ -25,5 +25,10 @@ namespace SGA.Facade
         {
             return requisicaoAs.setDateTimerPicker();
         }
+
+        public void finalizarRequisicao(Requisicao requisicao)
+        {
+            requisicaoAs.finalizarRequisicao(requisicao);
+        }
     }
 }

@@ -183,5 +183,19 @@ namespace SGA.Dao
 
             return timer;
         }
+
+        public void finalizarRequisicao(Requisicao requisicao)
+        {
+            SqlCommand updade = new SqlCommand("UPDATE tb_requisicao SET dt_baixa_requisicao = CURRENT_TIMESTAMP,fk_func_baixa_ferr = @mat_func_baixa " +
+            "WHERE nu_seq_requisicao = @cod_requisicao", Conexao.con());
+            updade.Parameters.AddWithValue(@"mat_func_baixa", requisicao.funcionario[2].matricula);
+            updade.Parameters.AddWithValue(@"cod_requisicao", requisicao.codRequisicao);
+
+            Conexao.con().Open();
+
+            updade.ExecuteNonQuery();
+
+            Conexao.con().Close();
+        }
     }
 }

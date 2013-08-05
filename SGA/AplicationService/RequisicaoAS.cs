@@ -25,5 +25,10 @@ namespace SGA.AplicationService
         {
             return requisicaoDao.setDateTimerPicker();
         }
+
+        public void finalizarRequisicao(Requisicao requisicao)
+        {
+            requisicaoDao.finalizarRequisicao(requisicao);
+        }
     }
 }

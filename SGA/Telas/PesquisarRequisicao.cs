@@ -15,7 +15,7 @@ namespace SGA.Telas
     {
 
         private List<Requisicao> i_listaRequisicoes = new List<Requisicao>();
-        private Requisicao i_objRequisicao = new Requisicao();
+        private Requisicao i_objRequisicao;
         private Requisicao i_objPesquisaRequisicao = new Requisicao();
         private Funcionario i_usuarioLogado = new Funcionario();
 
@@ -109,11 +109,24 @@ namespace SGA.Telas
                         if (requisicao.codRequisicao + "" == listVFerramenta.SelectedItems[0].Text)
                         {
                             objRequisicao = requisicao;
+                            requisicaoFechadaAcao(requisicao);
                             pbxFerramenta.Image = objRequisicao.ferramentas[0].imagem;
                             break;
                         }
                     }
                 }
+            }
+        }
+
+        public void requisicaoFechadaAcao(Requisicao requisicao)
+        {
+            if (requisicao.funcionario[2].matricula + "" != "0")
+            {
+                btnDesativar.Enabled = false;
+            }
+            else
+            {
+                btnDesativar.Enabled = true;
             }
         }
 
@@ -328,13 +341,70 @@ namespace SGA.Telas
         {
             if (objRequisicao == null)
             {
-                new Mensagem("Selecione uma requisição\nprimeiro!", "informa", SGA.Properties.Resources.erro).ShowDialog();
+                new Mensagem("Selecione uma requisição\nprimeiro!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
             }
             else
             {
                 ManterRequisicao cRequisicao = new ManterRequisicao(usuarioLogado, "Detalhes", objRequisicao);
                 cRequisicao.ShowDialog();
                 objRequisicao = null;
+            }
+        }
+
+        private void btnDesativar_Click(object sender, EventArgs e)
+        {
+            if (objRequisicao != null)
+            {
+                while (1 == 1)
+                {
+                    Mensagem mensagem = new Mensagem("Deseja finalizar a requisição?", "senha", SGA.Properties.Resources.key);
+                    mensagem.tbxSenha.Text = "";
+                    mensagem.ShowDialog();
+                    try
+                    {
+
+                        if (mensagem.DialogResult == DialogResult.OK)
+                        {
+                            FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
+
+                            Funcionario funcionario = usuarioLogado;
+
+                            funcionario.senha = Criptografia.Encrypt(mensagem.texto);
+
+                            funcionarioDel.Logar(funcionario);
+
+                            RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
+                            objRequisicao.funcionario[2].matricula = usuarioLogado.matricula;
+                            requisicaoDel.finalizarRequisicao(objRequisicao);
+
+                            new Mensagem("Requisição finalizada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    catch (Exception erro)
+                    {
+                        if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
+                        {
+                            new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                        }
+                        else
+                        {
+                            new Mensagem(erro.Message, "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                            break;
+                        }
+
+                    }
+
+                }
+                objRequisicao = null;
+            }
+            else
+            {
+                new Mensagem("Selecione uma requisição\nprimeiro!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
             }
         }
     }

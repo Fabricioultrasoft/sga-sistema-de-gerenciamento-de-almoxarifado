@@ -195,6 +195,7 @@
             this.btnDesativar.TabIndex = 33;
             this.btnDesativar.Text = "Finalizar";
             this.btnDesativar.UseVisualStyleBackColor = true;
+            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
             // 
             // btnCancelar
             // 
