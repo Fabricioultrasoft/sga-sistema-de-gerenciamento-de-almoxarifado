@@ -74,6 +74,7 @@ namespace SGA.Telas
             }
             else
             {
+                gbxNRequisicao.Text = "Detalhes requisição";
                 funcionarioRequisitante = objRequisicao.funcionario[1];
                 funcionarioSaída = objRequisicao.funcionario[0];
                 funcionarioBaixa = objRequisicao.funcionario[2];

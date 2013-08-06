@@ -144,6 +144,7 @@
             // 
             this.tbxSenha.Location = new System.Drawing.Point(229, 133);
             this.tbxSenha.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tbxSenha.MaxLength = 10;
             this.tbxSenha.Name = "tbxSenha";
             this.tbxSenha.PasswordChar = '*';
             this.tbxSenha.Size = new System.Drawing.Size(167, 23);

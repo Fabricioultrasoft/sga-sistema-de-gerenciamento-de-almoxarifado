@@ -44,9 +44,9 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.label1.Location = new System.Drawing.Point(96, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Senha:";
+            this.label1.Text = "*Senha:";
             // 
             // label2
             // 
@@ -54,15 +54,16 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.label2.Location = new System.Drawing.Point(29, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 16);
+            this.label2.Size = new System.Drawing.Size(124, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Confirme a Senha:";
+            this.label2.Text = "*Confirme a Senha:";
             // 
             // tbxSenha
             // 
             this.tbxSenha.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbxSenha.Location = new System.Drawing.Point(171, 66);
             this.tbxSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxSenha.MaxLength = 10;
             this.tbxSenha.Name = "tbxSenha";
             this.tbxSenha.PasswordChar = '*';
             this.tbxSenha.Size = new System.Drawing.Size(167, 23);
@@ -73,6 +74,7 @@
             this.tbxCSenha.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbxCSenha.Location = new System.Drawing.Point(171, 121);
             this.tbxCSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxCSenha.MaxLength = 10;
             this.tbxCSenha.Name = "tbxCSenha";
             this.tbxCSenha.PasswordChar = '*';
             this.tbxCSenha.Size = new System.Drawing.Size(167, 23);

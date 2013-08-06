@@ -351,7 +351,7 @@ namespace SGA.Telas
                     {
                         if (erro.Message == "Matrícula e/ou Senha inválidos! Entre novamente com os dados!")
                         {
-                            new Mensagem("Senha incorreta,insira \nasenha novamenta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                            new Mensagem("Senha inválida!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                         }
                         else
                         {

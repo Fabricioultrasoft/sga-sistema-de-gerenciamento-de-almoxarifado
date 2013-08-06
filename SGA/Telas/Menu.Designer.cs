@@ -75,14 +75,14 @@
             // menuItemNFuncionario
             // 
             this.menuItemNFuncionario.Name = "menuItemNFuncionario";
-            this.menuItemNFuncionario.Size = new System.Drawing.Size(254, 22);
-            this.menuItemNFuncionario.Text = "Novo Funcionário";
+            this.menuItemNFuncionario.Size = new System.Drawing.Size(242, 22);
+            this.menuItemNFuncionario.Text = "Novo Funcionário           (F2)";
             this.menuItemNFuncionario.Click += new System.EventHandler(this.menuItemNFuncionario_Click);
             // 
             // menuItemlFuncionario
             // 
             this.menuItemlFuncionario.Name = "menuItemlFuncionario";
-            this.menuItemlFuncionario.Size = new System.Drawing.Size(254, 22);
+            this.menuItemlFuncionario.Size = new System.Drawing.Size(242, 22);
             this.menuItemlFuncionario.Text = "Pesquisar Funcionário    (F3)";
             this.menuItemlFuncionario.Click += new System.EventHandler(this.menuItemlFuncionario_Click);
             // 
@@ -99,15 +99,15 @@
             // menuItemNFerramenta
             // 
             this.menuItemNFerramenta.Name = "menuItemNFerramenta";
-            this.menuItemNFerramenta.Size = new System.Drawing.Size(255, 22);
-            this.menuItemNFerramenta.Text = "Nova Ferramenta";
+            this.menuItemNFerramenta.Size = new System.Drawing.Size(243, 22);
+            this.menuItemNFerramenta.Text = "Nova Ferramenta           (F4)";
             this.menuItemNFerramenta.Click += new System.EventHandler(this.MenuItemNFerramenta_Click);
             // 
             // menuItemlFerramenta
             // 
             this.menuItemlFerramenta.Name = "menuItemlFerramenta";
-            this.menuItemlFerramenta.Size = new System.Drawing.Size(255, 22);
-            this.menuItemlFerramenta.Text = "Pesquisar Ferramenta    (F4)";
+            this.menuItemlFerramenta.Size = new System.Drawing.Size(243, 22);
+            this.menuItemlFerramenta.Text = "Pesquisar Ferramenta    (F5)";
             this.menuItemlFerramenta.Click += new System.EventHandler(this.menuItemlFerramenta_Click);
             // 
             // MenuItmRequisicao
@@ -123,30 +123,31 @@
             // menuItmNRequisição
             // 
             this.menuItmNRequisição.Name = "menuItmNRequisição";
-            this.menuItmNRequisição.Size = new System.Drawing.Size(209, 22);
-            this.menuItmNRequisição.Text = "Nova Requisição";
+            this.menuItmNRequisição.Size = new System.Drawing.Size(233, 22);
+            this.menuItmNRequisição.Text = "Nova Requisição          (F6)";
             this.menuItmNRequisição.Click += new System.EventHandler(this.menuItemNRequisição_Click);
             // 
             // menuItemLRequisicao
             // 
             this.menuItemLRequisicao.Name = "menuItemLRequisicao";
-            this.menuItemLRequisicao.Size = new System.Drawing.Size(209, 22);
-            this.menuItemLRequisicao.Text = "Pesquisar Requisição";
+            this.menuItemLRequisicao.Size = new System.Drawing.Size(233, 22);
+            this.menuItemLRequisicao.Text = "Pesquisar Requisição   (F7)";
             this.menuItemLRequisicao.Click += new System.EventHandler(this.menuItemLRequisicao_Click);
             // 
             // MenuItmRelatorios
             // 
             this.MenuItmRelatorios.AutoSize = false;
             this.MenuItmRelatorios.Name = "MenuItmRelatorios";
-            this.MenuItmRelatorios.Size = new System.Drawing.Size(100, 34);
-            this.MenuItmRelatorios.Text = "Relatórios";
+            this.MenuItmRelatorios.Size = new System.Drawing.Size(94, 34);
+            this.MenuItmRelatorios.Text = "Relatórios  (F8)";
+            this.MenuItmRelatorios.Click += new System.EventHandler(this.MenuItmRelatorios_Click);
             // 
             // MenuItmLogoff
             // 
             this.MenuItmLogoff.AutoSize = false;
             this.MenuItmLogoff.Name = "MenuItmLogoff";
-            this.MenuItmLogoff.Size = new System.Drawing.Size(100, 34);
-            this.MenuItmLogoff.Text = "Logoff";
+            this.MenuItmLogoff.Size = new System.Drawing.Size(94, 34);
+            this.MenuItmLogoff.Text = "Logoff  (F9)";
             this.MenuItmLogoff.Click += new System.EventHandler(this.MenuItmLogoff_Click);
             // 
             // MenuItmSair
@@ -154,7 +155,7 @@
             this.MenuItmSair.AutoSize = false;
             this.MenuItmSair.Name = "MenuItmSair";
             this.MenuItmSair.Size = new System.Drawing.Size(94, 34);
-            this.MenuItmSair.Text = "Sair";
+            this.MenuItmSair.Text = "Sair  (F10)";
             this.MenuItmSair.Click += new System.EventHandler(this.MenuItmSair_Click);
             // 
             // Menu

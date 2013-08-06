@@ -26,7 +26,7 @@ namespace SGA.Telas
         {
             if (tbxSenha.Text == "" || tbxCSenha.Text == "")
             {
-                new Mensagem("Campo(s) obrigatório(s) em branco!", "informacao", Resources.erro).ShowDialog();
+                new Mensagem("Campos obrigatórios em branco!\nPor favor preencha!", "informacao", Resources.erro).ShowDialog();
             }
             else if (tbxSenha.TextLength < 6)
             {

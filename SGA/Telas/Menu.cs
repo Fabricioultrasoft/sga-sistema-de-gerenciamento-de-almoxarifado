@@ -49,7 +49,7 @@ namespace SGA
         #region Itens do Menu
         private void MenuItmSair_Click(object sender, EventArgs e)
         {
-            Mensagem mensagen = new Mensagem("Deseja Realmente sair?", "confirma", Resources.interrogacao);
+            Mensagem mensagen = new Mensagem("Deseja sair do aplicativo?", "confirma", Resources.interrogacao);
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
                 Application.Exit();
@@ -140,17 +140,54 @@ namespace SGA
         #region Teclas de Atalho
         private void Menu_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.F2)
+            {
+                menuItemNFuncionario_Click(new object(), new EventArgs());
+            }
+
             if (e.KeyCode == Keys.F3)
             {
-                PesquisarFuncionario pesquisaFunc = new PesquisarFuncionario(funcionario, "adicionar");
-                pesquisaFunc.ShowDialog();
+                menuItemlFuncionario_Click(new object(), new EventArgs()); 
+            }
+
+            if (e.KeyCode == Keys.F4)
+            {
+                MenuItemNFerramenta_Click(new object(), new EventArgs());
             }
 
             if (e.KeyCode == Keys.F5)
             {
-                PesquisarFerramenta pFerramenta = new PesquisarFerramenta(funcionario, "pesquisa");
-                pFerramenta.ShowDialog();
+                menuItemlFerramenta_Click(new object(), new EventArgs()); 
             }
+
+             if (e.KeyCode == Keys.F6)
+             {
+                 menuItemNRequisição_Click(new object(), new EventArgs());
+             }
+
+             if (e.KeyCode == Keys.F7)
+             {
+                 menuItemLRequisicao_Click(new object(), new EventArgs());
+             }
+
+             if (e.KeyCode == Keys.F8)
+             {
+                 MenuItmRelatorios_Click(new object(), new EventArgs());
+             }
+
+             if (e.KeyCode == Keys.F9)
+             {
+                 MenuItmLogoff_Click(new object(), new EventArgs());
+             }
+
+             if (e.KeyCode == Keys.F10)
+             {
+                 MenuItmSair_Click(new object(), new EventArgs());
+             }
+
+             if (e.KeyCode == Keys.F1)
+             {
+             }
 
         }
         #endregion
@@ -167,6 +204,11 @@ namespace SGA
         {
             this.ControlBox = false;
             montarTela();
+        }
+
+        private void MenuItmRelatorios_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

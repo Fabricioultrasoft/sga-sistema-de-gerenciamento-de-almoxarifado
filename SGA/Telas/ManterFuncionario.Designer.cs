@@ -151,9 +151,11 @@
             // tbxMatricula
             // 
             this.tbxMatricula.Location = new System.Drawing.Point(226, 58);
+            this.tbxMatricula.MaxLength = 6;
             this.tbxMatricula.Name = "tbxMatricula";
             this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
             this.tbxMatricula.TabIndex = 13;
+            this.tbxMatricula.TextChanged += new System.EventHandler(this.tbxMatricula_TextChanged);
             this.tbxMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMatricula_KeyPress);
             // 
             // btnCancelar

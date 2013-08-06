@@ -67,7 +67,7 @@ namespace SGA.Telas
             preencherPermissao();
 
             setarToolTip();
-
+            btnRedefinirSenha.Visible = false;
             if (tipoTela == "Edicao")
             {
                 this.tbxNome.Enabled = true;
@@ -77,6 +77,8 @@ namespace SGA.Telas
                 this.btnSalvar.Image = SGA.Properties.Resources._1370629123_button_30;
                 gbxFuncionario.Text = "Editar Funcionário";
                 tbxMatricula.Enabled = false;
+                btnRedefinirSenha.Visible = true;
+
             }
             else if (tipoTela == "adicionar")
             {
@@ -307,7 +309,7 @@ namespace SGA.Telas
                     mensagem.DialogResult = DialogResult.Cancel;
                     if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
                     {
-                        new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                        new Mensagem("Senha inválida!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                     }
                     else
                     {
@@ -326,6 +328,17 @@ namespace SGA.Telas
                 this.Close();
             }
            
+        }
+
+        private void tbxMatricula_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int matricula = Convert.ToInt32(tbxMatricula.Text);
+            }catch
+            {
+                tbxMatricula.Text = "";
+            }
         }
     }
 }

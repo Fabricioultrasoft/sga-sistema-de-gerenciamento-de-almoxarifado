@@ -62,6 +62,8 @@ namespace SGA.Dao
                     insertDesc.ExecuteNonQuery();
 
                     Conexao.con().Close();
+                    Conexao.gravarLog("Cadastro", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+
                 }
                 else
                 {
@@ -226,6 +228,8 @@ namespace SGA.Dao
                 delete.ExecuteNonQuery();
 
                 Conexao.con().Close();
+                Conexao.gravarLog("Exclusao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+
             }
             else
             {
@@ -238,9 +242,10 @@ namespace SGA.Dao
                 desativa.ExecuteNonQuery();
 
                 Conexao.con().Close();
+                Conexao.gravarLog("Desativacao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+
             }
 
-            Conexao.gravarLog("Desativacao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
         }
 
         private string geraCodigo()

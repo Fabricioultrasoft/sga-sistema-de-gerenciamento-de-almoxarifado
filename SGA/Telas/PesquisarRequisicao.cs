@@ -171,6 +171,7 @@ namespace SGA.Telas
             catch
             {
                 objPesquisaRequisicao.codRequisicao = 0;
+                tbxCodigo.Text = "";
             }
             preencherListViewRequisicao();
         }
@@ -196,6 +197,7 @@ namespace SGA.Telas
             catch
             {
                 objPesquisaRequisicao.funcionario[0].matricula = 0;
+                tbxNome.Text = "";
             }
             preencherListViewRequisicao();
         }
@@ -209,6 +211,7 @@ namespace SGA.Telas
             catch
             {
                 objPesquisaRequisicao.funcionario[1].matricula = 0;
+                textBox1.Text = "";
             }
             preencherListViewRequisicao();
 
@@ -223,6 +226,7 @@ namespace SGA.Telas
             catch
             {
                 objPesquisaRequisicao.funcionario[2].matricula = 0;
+                textBox2.Text = "";
             }
             preencherListViewRequisicao();
         }
@@ -406,6 +410,7 @@ namespace SGA.Telas
             {
                 new Mensagem("Selecione uma requisição\nprimeiro!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
             }
+            preencherListViewRequisicao();
         }
     }
 }

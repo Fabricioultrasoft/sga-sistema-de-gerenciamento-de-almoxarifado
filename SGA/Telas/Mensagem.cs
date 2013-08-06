@@ -64,6 +64,7 @@ namespace SGA.Telas
                         lblSenha.Text = "Senha:";
                         tbxSenha.PasswordChar = '*';
                         this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                        tbxSenha.MaxLength = 10;
                     }
                     break;
                 default:

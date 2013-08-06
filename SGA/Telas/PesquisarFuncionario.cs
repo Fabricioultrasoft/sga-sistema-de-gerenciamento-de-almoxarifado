@@ -179,7 +179,7 @@ namespace SGA.Telas
                 {
                     foreach (Funcionario fu in funcionarios)
                     {
-                        if (fu.matricula == Convert.ToInt16(listVFuncionario.SelectedItems[0].Text))
+                        if (fu.matricula == Convert.ToInt32(listVFuncionario.SelectedItems[0].Text))
                         {
                             objFuncionario = fu;
                             break;
@@ -201,7 +201,7 @@ namespace SGA.Telas
         {
             if (objFuncionario == null)
             {
-                new Mensagem("Selecione uma ferramenta \n primeiro!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                new Mensagem("Selecione um funcionário \n primeiro!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
             }
             else
             {
@@ -225,7 +225,7 @@ namespace SGA.Telas
                             objFuncionario.chaveUsuario = usuarioLogado.matricula + "";
                             FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
                             funcionarioD.desativaFuncionario(objFuncionario);
-                            new Mensagem("Funcionário excluída com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            new Mensagem("Funcionário desativado com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
                             break;
 
                         }
@@ -236,9 +236,9 @@ namespace SGA.Telas
                     }
                     catch (Exception erro)
                     {
-                        if (erro.Message == "Matrícula e/ou senha incorretos. \n Entre novamente com os dados.")
+                        if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
                         {
-                            new Mensagem("Senha incorreta,insira \nasenha novamenta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                            new Mensagem("Senha inválida!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                         }
                         else
                         {

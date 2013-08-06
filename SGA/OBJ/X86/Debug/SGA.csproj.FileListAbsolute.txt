@@ -90,3 +90,4 @@ C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.
 C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
 C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources

@@ -75,6 +75,8 @@ namespace SGA.Dao
             updateFuncionario.ExecuteNonQuery();
             updateUsuario.ExecuteNonQuery();
             Conexao.con().Close();
+            Conexao.gravarLog("Edicao", edFuncionario.chaveUsuario, edFuncionario.matricula + "", "");
+
         }
 
         public Funcionario Logar(Funcionario funcionario)
@@ -293,7 +295,7 @@ namespace SGA.Dao
             SqlCommand selectFuncionario = new SqlCommand("SELECT f.mat_funcionario ,f.no_funcionario ,f.dt_ins_funcionario ,f.ativo" +
       ",fu.nu_seq_funcao,fu.no_funcao,u.nu_seq_usuario,p.nu_seq_permissao,p.no_permissao FROM tb_funcionario f INNER JOIN tb_funcao " +
       "fu ON(f.fk_funcao = fu.nu_seq_funcao) INNER JOIN tb_usuario u ON(f.mat_funcionario = u.fk_funcionario) INNER JOIN tb_permissao p" +
-      " ON(u.fk_permissao = p.nu_seq_permissao) WHERE 1 = 1 " + codigo, Conexao.con());
+      " ON(u.fk_permissao = p.nu_seq_permissao) WHERE f.ativo <> '0' " + codigo, Conexao.con());
 
 
             Conexao.con().Open();
@@ -303,7 +305,7 @@ namespace SGA.Dao
             while (ler.Read())
             {
                 Funcionario funcionario = new Funcionario();
-                funcionario.matricula = Convert.ToInt16(ler["mat_funcionario"]);
+                funcionario.matricula = Convert.ToInt32(ler["mat_funcionario"]);
                 funcionario.nome = ler["no_funcionario"].ToString();
                 funcionario.dt_ins_funcionario = Convert.ToDateTime(ler["dt_ins_funcionario"]);
                 funcionario.ativo = ler["ativo"].ToString();
@@ -382,6 +384,8 @@ namespace SGA.Dao
                 delete.ExecuteNonQuery();
 
                 Conexao.con().Close();
+                Conexao.gravarLog("Exclusao", funcionario.chaveUsuario, funcionario.matricula + "", "");
+
             }
             else
             {
@@ -394,9 +398,10 @@ namespace SGA.Dao
                 desativa.ExecuteNonQuery();
 
                 Conexao.con().Close();
+                Conexao.gravarLog("Desativacao", funcionario.chaveUsuario, funcionario.matricula + "", "");
+
             }
 
-            Conexao.gravarLog("Desativacao", funcionario.chaveUsuario, funcionario.matricula + "", "");
         }
 
         public string setDateTimerPicker()
