@@ -9,7 +9,7 @@ namespace SGA.Dao
      class Conexao
     {
         //cria um objeto
-         private static SqlConnection conexao = new SqlConnection(@"Data Source=.\SQLEXPRESS; Initial Catalog = sga; Integrated Security = false; User ID = sa ; Password = 180985");
+         private static SqlConnection conexao = new SqlConnection(@"Data Source=.\SQLEXPRESS; Initial Catalog = sga; Integrated Security = false; User ID = sa ; Password = root");
         //cria um metodo para passar o objeto
         public static SqlConnection con()
         {

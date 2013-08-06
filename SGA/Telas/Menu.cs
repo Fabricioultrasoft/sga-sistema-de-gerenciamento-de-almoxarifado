@@ -208,7 +208,8 @@ namespace SGA
 
         private void MenuItmRelatorios_Click(object sender, EventArgs e)
         {
-
+            Relatorio relatorio = new Relatorio();
+            relatorio.ShowDialog();
         }
 
     }

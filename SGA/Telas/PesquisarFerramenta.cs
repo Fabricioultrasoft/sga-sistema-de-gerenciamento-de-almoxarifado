@@ -240,11 +240,7 @@ namespace SGA.Telas
                 int i = 0;
                 for (int j = 0; j < arrayFerramentasRequsicao.Count; j++)
                 {
-                    if ((arrayFerramentasRequsicao[j]).codFerramenta != ferr.codFerramenta)
-                    {
-                        continue;
-                    }
-                    else
+                    if ((arrayFerramentasRequsicao[j]).codFerramenta == ferr.codFerramenta || (arrayFerramentasRequsicao[j]).nomeFerramenta == ferr.nomeFerramenta)
                     {
                         i = 1;
                         break;
@@ -307,7 +303,6 @@ namespace SGA.Telas
                     }
                 }
             }
-
         }
 
         private void btnDesativar_Click(object sender, EventArgs e)
