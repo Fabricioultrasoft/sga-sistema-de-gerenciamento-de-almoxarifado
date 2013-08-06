@@ -189,6 +189,7 @@ namespace SGA.Telas
                     }
                     else
                     {
+                        funcionario.chaveUsuario = funcionarioLogado.matricula + "";
                         funcionarioD.editarFuncionario(funcionario);
                         new Mensagem("Registro alterado com sucesso!", "informacao", Resources.ok).ShowDialog();
                         this.Close();

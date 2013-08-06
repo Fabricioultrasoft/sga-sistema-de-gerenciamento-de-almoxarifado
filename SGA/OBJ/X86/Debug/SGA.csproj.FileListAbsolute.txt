@@ -92,3 +92,6 @@ C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateRe
 C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.Relatorio.resources
+C:\Users\carlos\Desktop\SGA\SGA\bin\Debug\SGA.exe.config
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\RdlCompile.cache
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\RdlCompile.compiled

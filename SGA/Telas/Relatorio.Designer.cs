@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.gbxrelatorio = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFuncionario = new System.Windows.Forms.TabPage();
@@ -43,6 +45,10 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tb_funcionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sgaDataSet = new SGA.sgaDataSet();
+            this.tbfuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tb_funcionarioTableAdapter = new SGA.sgaDataSetTableAdapters.tb_funcionarioTableAdapter();
             this.gbxrelatorio.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFuncionario.SuspendLayout();
@@ -51,6 +57,9 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_funcionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbfuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxrelatorio
@@ -202,13 +211,37 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(7, 254);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.tb_funcionarioBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(108, 250);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(888, 246);
+            this.reportViewer1.Size = new System.Drawing.Size(715, 290);
             this.reportViewer1.TabIndex = 2;
+            // 
+            // tb_funcionarioBindingSource
+            // 
+            this.tb_funcionarioBindingSource.DataMember = "tb_funcionario";
+            this.tb_funcionarioBindingSource.DataSource = this.sgaDataSet;
+            // 
+            // sgaDataSet
+            // 
+            this.sgaDataSet.DataSetName = "sgaDataSet";
+            this.sgaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbfuncionarioBindingSource
+            // 
+            this.tbfuncionarioBindingSource.DataMember = "tb_funcionario";
+            this.tbfuncionarioBindingSource.DataSource = this.sgaDataSet;
+            // 
+            // tb_funcionarioTableAdapter
+            // 
+            this.tb_funcionarioTableAdapter.ClearBeforeFill = true;
             // 
             // Relatorio
             // 
@@ -235,6 +268,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_funcionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sgaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbfuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,7 +290,11 @@
         private System.Windows.Forms.TabPage tabPageRequisicao;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButton3;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private sgaDataSet sgaDataSet;
+        private System.Windows.Forms.BindingSource tbfuncionarioBindingSource;
+        private sgaDataSetTableAdapters.tb_funcionarioTableAdapter tb_funcionarioTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource tb_funcionarioBindingSource;
     }
 }
