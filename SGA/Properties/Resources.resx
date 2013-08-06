@@ -136,17 +136,14 @@
   <data name="1375243898_download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1375243898_download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1370629558_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1370629558_minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1370643457_Search-Male-User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370643457_Search-Male-User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1370640620_edit-file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1370640620_edit-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1375244523_document-open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1375244523_document-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1372224553_key_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1372224553_key_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="file_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,11 +151,8 @@
   <data name="key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1374804631_Checkbox Full" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1374804631_Checkbox Full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1370628935_user-male-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1370628935_user-male-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1370629558_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1370629558_minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1370629123_button_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370629123_button_30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +169,17 @@
   <data name="1370639093_webmaster_tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370639093_webmaster_tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1374804631_Checkbox Full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1374804631_Checkbox Full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="erro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1370628935_user-male-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1370628935_user-male-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1375816497_Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1375816497_Next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1370631243_eraser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370631243_eraser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +205,12 @@
   <data name="atencao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atencao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1375245893_document_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1375245893_document_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1375816503_Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1375816503_Previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1370637874_user-male-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370637874_user-male-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,13 +220,13 @@
   <data name="1370593393_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1370593393_Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1372224553_key_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1372224553_key_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1370640620_edit-file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1370640620_edit-file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tooladd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tooladd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1375245893_document_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1375245893_document_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1375818175_Generate-tables" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1375818175_Generate-tables.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
