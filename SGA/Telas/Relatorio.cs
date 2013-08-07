@@ -26,6 +26,10 @@ namespace SGA.Telas
 
         private void mudançaTipoRelatorio(RadioButton radiobutton)
         {
+            rbtnRequisicao.Checked = false;
+            rbtnFerramenta.Checked = false;
+            rbtnFuncionario.Checked = true;
+
             if (radiobutton == rbtnEventosSistema)
             {
                 rbtnRequisicao.Enabled = false;
@@ -41,7 +45,7 @@ namespace SGA.Telas
             else 
             {
                 rbtnRequisicao.Enabled = false;
-                rbtnFerramenta.Enabled = false;
+                rbtnFerramenta.Checked = true;
                 rbtnFuncionario.Enabled = false;
             }
         }
@@ -59,6 +63,30 @@ namespace SGA.Telas
             while (funcao.Count != 0)
             {
                 cbxFuncao.Items.Add(funcao.Dequeue().ToString());
+            }
+        }
+
+        private void rbtnEventosSistema_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnEventosSistema.Checked)
+            {
+                mudançaTipoRelatorio(rbtnEventosSistema);
+            }
+        }
+
+        private void rbtnLista_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnLista.Checked)
+            {
+                mudançaTipoRelatorio(rbtnLista);
+            }
+        }
+
+        private void rbtnFerramentasReqisitadas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnFerramentasReqisitadas.Checked)
+            {
+                mudançaTipoRelatorio(rbtnFerramentasReqisitadas);
             }
         }
     }

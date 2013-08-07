@@ -240,7 +240,7 @@ namespace SGA.Telas
                 int i = 0;
                 for (int j = 0; j < arrayFerramentasRequsicao.Count; j++)
                 {
-                    if ((arrayFerramentasRequsicao[j]).codFerramenta == ferr.codFerramenta || (arrayFerramentasRequsicao[j]).nomeFerramenta == ferr.nomeFerramenta)
+                    if ((arrayFerramentasRequsicao[j]).codFerramenta == ferr.codFerramenta)
                     {
                         i = 1;
                         break;

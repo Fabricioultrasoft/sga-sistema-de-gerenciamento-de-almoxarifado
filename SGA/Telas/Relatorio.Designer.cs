@@ -29,23 +29,33 @@
         private void InitializeComponent()
         {
             this.gbxrelatorio = new System.Windows.Forms.GroupBox();
-            this.gbxTipoRelatorio = new System.Windows.Forms.GroupBox();
-            this.rbtnLista = new System.Windows.Forms.RadioButton();
-            this.rbtnEventosSistema = new System.Windows.Forms.RadioButton();
+            this.btnGerarRelatorio = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimparTudo = new System.Windows.Forms.Button();
+            this.gbxFocoRelatório = new System.Windows.Forms.GroupBox();
+            this.rbtnRequisicao = new System.Windows.Forms.RadioButton();
+            this.rbtnFerramenta = new System.Windows.Forms.RadioButton();
+            this.rbtnFuncionario = new System.Windows.Forms.RadioButton();
+            this.gbxFiltrarDados = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFuncionario = new System.Windows.Forms.TabPage();
+            this.btnLimparFuncionario = new System.Windows.Forms.Button();
+            this.cbxPermissao = new System.Windows.Forms.ComboBox();
             this.gbxPeriodoAdimissao = new System.Windows.Forms.GroupBox();
             this.lblpickerFinal = new System.Windows.Forms.Label();
             this.dtpickekAdmissaoFinal = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpickekAdmissaoInicio = new System.Windows.Forms.DateTimePicker();
-            this.cbxPermissao = new System.Windows.Forms.ComboBox();
+            this.btnRedefinirPeriodoAdmissao = new System.Windows.Forms.Button();
             this.lblMatricula = new System.Windows.Forms.Label();
-            this.lblPermissao = new System.Windows.Forms.Label();
-            this.lblFuncao = new System.Windows.Forms.Label();
-            this.tbxMatricula = new System.Windows.Forms.TextBox();
             this.cbxFuncao = new System.Windows.Forms.ComboBox();
+            this.lblPermissao = new System.Windows.Forms.Label();
+            this.tbxMatricula = new System.Windows.Forms.TextBox();
+            this.lblFuncao = new System.Windows.Forms.Label();
             this.tabPageFerramenta = new System.Windows.Forms.TabPage();
+            this.btnLimparFerramenta = new System.Windows.Forms.Button();
+            this.cbxSituacao = new System.Windows.Forms.ComboBox();
+            this.lblSituacao = new System.Windows.Forms.Label();
             this.gbxLmtPerAdmissao = new System.Windows.Forms.GroupBox();
             this.cbxTipoPeriodoFerramenta = new System.Windows.Forms.ComboBox();
             this.lbldtpickerFinal = new System.Windows.Forms.Label();
@@ -53,15 +63,15 @@
             this.dtpickerFinalFerramenta = new System.Windows.Forms.DateTimePicker();
             this.lblDtInicio = new System.Windows.Forms.Label();
             this.dtpickerInicioFerramenta = new System.Windows.Forms.DateTimePicker();
-            this.cbxSituacao = new System.Windows.Forms.ComboBox();
-            this.lblSituacao = new System.Windows.Forms.Label();
+            this.btnRedPeriodoFerramenta = new System.Windows.Forms.Button();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.cbxFabricante = new System.Windows.Forms.ComboBox();
-            this.lblFabricante = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.cbxGrupo = new System.Windows.Forms.ComboBox();
             this.lblGrupo = new System.Windows.Forms.Label();
+            this.lblFabricante = new System.Windows.Forms.Label();
+            this.cbxGrupo = new System.Windows.Forms.ComboBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.tabPageRequisicao = new System.Windows.Forms.TabPage();
+            this.btnLimparRquisicao = new System.Windows.Forms.Button();
             this.cbxSituacaoRequisicao = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -73,23 +83,14 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.gbxFiltrarDados = new System.Windows.Forms.GroupBox();
-            this.rbtnFerramentasReqisitadas = new System.Windows.Forms.RadioButton();
-            this.gbxFocoRelatório = new System.Windows.Forms.GroupBox();
-            this.rbtnRequisicao = new System.Windows.Forms.RadioButton();
-            this.rbtnFerramenta = new System.Windows.Forms.RadioButton();
-            this.rbtnFuncionario = new System.Windows.Forms.RadioButton();
-            this.btnGerarRelatorio = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnLimparTudo = new System.Windows.Forms.Button();
-            this.btnLimparFuncionario = new System.Windows.Forms.Button();
-            this.btnRedefinirPeriodoAdmissao = new System.Windows.Forms.Button();
-            this.btnLimparFerramenta = new System.Windows.Forms.Button();
-            this.btnRedPeriodoFerramenta = new System.Windows.Forms.Button();
-            this.btnLimparRquisicao = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.gbxTipoRelatorio = new System.Windows.Forms.GroupBox();
+            this.rbtnFerramentasReqisitadas = new System.Windows.Forms.RadioButton();
+            this.rbtnLista = new System.Windows.Forms.RadioButton();
+            this.rbtnEventosSistema = new System.Windows.Forms.RadioButton();
             this.gbxrelatorio.SuspendLayout();
-            this.gbxTipoRelatorio.SuspendLayout();
+            this.gbxFocoRelatório.SuspendLayout();
+            this.gbxFiltrarDados.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFuncionario.SuspendLayout();
             this.gbxPeriodoAdimissao.SuspendLayout();
@@ -97,8 +98,7 @@
             this.gbxLmtPerAdmissao.SuspendLayout();
             this.tabPageRequisicao.SuspendLayout();
             this.gbxPeriodoRequisicao.SuspendLayout();
-            this.gbxFiltrarDados.SuspendLayout();
-            this.gbxFocoRelatório.SuspendLayout();
+            this.gbxTipoRelatorio.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxrelatorio
@@ -115,39 +115,94 @@
             this.gbxrelatorio.TabIndex = 0;
             this.gbxrelatorio.TabStop = false;
             // 
-            // gbxTipoRelatorio
+            // btnGerarRelatorio
             // 
-            this.gbxTipoRelatorio.Controls.Add(this.rbtnFerramentasReqisitadas);
-            this.gbxTipoRelatorio.Controls.Add(this.rbtnLista);
-            this.gbxTipoRelatorio.Controls.Add(this.rbtnEventosSistema);
-            this.gbxTipoRelatorio.Location = new System.Drawing.Point(210, 29);
-            this.gbxTipoRelatorio.Name = "gbxTipoRelatorio";
-            this.gbxTipoRelatorio.Size = new System.Drawing.Size(265, 117);
-            this.gbxTipoRelatorio.TabIndex = 2;
-            this.gbxTipoRelatorio.TabStop = false;
-            this.gbxTipoRelatorio.Text = "Tipo de relatório";
+            this.btnGerarRelatorio.Image = global::SGA.Properties.Resources._1375818175_Generate_tables1;
+            this.btnGerarRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(389, 555);
+            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
+            this.btnGerarRelatorio.Size = new System.Drawing.Size(148, 44);
+            this.btnGerarRelatorio.TabIndex = 47;
+            this.btnGerarRelatorio.Text = "Gerar Relatório";
+            this.btnGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarRelatorio.UseVisualStyleBackColor = true;
             // 
-            // rbtnLista
+            // btnCancelar
             // 
-            this.rbtnLista.AutoSize = true;
-            this.rbtnLista.Location = new System.Drawing.Point(23, 55);
-            this.rbtnLista.Name = "rbtnLista";
-            this.rbtnLista.Size = new System.Drawing.Size(52, 20);
-            this.rbtnLista.TabIndex = 1;
-            this.rbtnLista.TabStop = true;
-            this.rbtnLista.Text = "Lista";
-            this.rbtnLista.UseVisualStyleBackColor = true;
+            this.btnCancelar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.Location = new System.Drawing.Point(630, 555);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(148, 44);
+            this.btnCancelar.TabIndex = 46;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // rbtnEventosSistema
+            // btnLimparTudo
             // 
-            this.rbtnEventosSistema.AutoSize = true;
-            this.rbtnEventosSistema.Location = new System.Drawing.Point(23, 29);
-            this.rbtnEventosSistema.Name = "rbtnEventosSistema";
-            this.rbtnEventosSistema.Size = new System.Drawing.Size(136, 20);
-            this.rbtnEventosSistema.TabIndex = 0;
-            this.rbtnEventosSistema.TabStop = true;
-            this.rbtnEventosSistema.Text = "Eventos no sistema";
-            this.rbtnEventosSistema.UseVisualStyleBackColor = true;
+            this.btnLimparTudo.Image = global::SGA.Properties.Resources._1375863032_edit_clear;
+            this.btnLimparTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparTudo.Location = new System.Drawing.Point(148, 555);
+            this.btnLimparTudo.Name = "btnLimparTudo";
+            this.btnLimparTudo.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparTudo.TabIndex = 45;
+            this.btnLimparTudo.Text = "Limpar Tudo";
+            this.btnLimparTudo.UseVisualStyleBackColor = true;
+            // 
+            // gbxFocoRelatório
+            // 
+            this.gbxFocoRelatório.Controls.Add(this.rbtnRequisicao);
+            this.gbxFocoRelatório.Controls.Add(this.rbtnFerramenta);
+            this.gbxFocoRelatório.Controls.Add(this.rbtnFuncionario);
+            this.gbxFocoRelatório.Location = new System.Drawing.Point(510, 29);
+            this.gbxFocoRelatório.Name = "gbxFocoRelatório";
+            this.gbxFocoRelatório.Size = new System.Drawing.Size(151, 117);
+            this.gbxFocoRelatório.TabIndex = 3;
+            this.gbxFocoRelatório.TabStop = false;
+            this.gbxFocoRelatório.Text = "Foco do relatório";
+            // 
+            // rbtnRequisicao
+            // 
+            this.rbtnRequisicao.AutoSize = true;
+            this.rbtnRequisicao.Location = new System.Drawing.Point(25, 81);
+            this.rbtnRequisicao.Name = "rbtnRequisicao";
+            this.rbtnRequisicao.Size = new System.Drawing.Size(87, 20);
+            this.rbtnRequisicao.TabIndex = 2;
+            this.rbtnRequisicao.TabStop = true;
+            this.rbtnRequisicao.Text = "Requisição";
+            this.rbtnRequisicao.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFerramenta
+            // 
+            this.rbtnFerramenta.AutoSize = true;
+            this.rbtnFerramenta.Location = new System.Drawing.Point(25, 55);
+            this.rbtnFerramenta.Name = "rbtnFerramenta";
+            this.rbtnFerramenta.Size = new System.Drawing.Size(93, 20);
+            this.rbtnFerramenta.TabIndex = 1;
+            this.rbtnFerramenta.TabStop = true;
+            this.rbtnFerramenta.Text = "Ferramenta";
+            this.rbtnFerramenta.UseVisualStyleBackColor = true;
+            // 
+            // rbtnFuncionario
+            // 
+            this.rbtnFuncionario.AutoSize = true;
+            this.rbtnFuncionario.Location = new System.Drawing.Point(25, 29);
+            this.rbtnFuncionario.Name = "rbtnFuncionario";
+            this.rbtnFuncionario.Size = new System.Drawing.Size(92, 20);
+            this.rbtnFuncionario.TabIndex = 0;
+            this.rbtnFuncionario.TabStop = true;
+            this.rbtnFuncionario.Text = "Funcionário";
+            this.rbtnFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // gbxFiltrarDados
+            // 
+            this.gbxFiltrarDados.Controls.Add(this.tabControl1);
+            this.gbxFiltrarDados.Location = new System.Drawing.Point(25, 162);
+            this.gbxFiltrarDados.Name = "gbxFiltrarDados";
+            this.gbxFiltrarDados.Size = new System.Drawing.Size(873, 378);
+            this.gbxFiltrarDados.TabIndex = 3;
+            this.gbxFiltrarDados.TabStop = false;
+            this.gbxFiltrarDados.Text = "Filtrar Dados";
             // 
             // tabControl1
             // 
@@ -177,6 +232,25 @@
             this.tabPageFuncionario.TabIndex = 0;
             this.tabPageFuncionario.Text = "Funcionário";
             this.tabPageFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparFuncionario
+            // 
+            this.btnLimparFuncionario.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparFuncionario.Location = new System.Drawing.Point(478, 61);
+            this.btnLimparFuncionario.Name = "btnLimparFuncionario";
+            this.btnLimparFuncionario.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparFuncionario.TabIndex = 43;
+            this.btnLimparFuncionario.Text = "Limpar";
+            this.btnLimparFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // cbxPermissao
+            // 
+            this.cbxPermissao.FormattingEnabled = true;
+            this.cbxPermissao.Location = new System.Drawing.Point(205, 125);
+            this.cbxPermissao.Name = "cbxPermissao";
+            this.cbxPermissao.Size = new System.Drawing.Size(167, 24);
+            this.cbxPermissao.TabIndex = 42;
             // 
             // gbxPeriodoAdimissao
             // 
@@ -226,13 +300,17 @@
             this.dtpickekAdmissaoInicio.Size = new System.Drawing.Size(99, 23);
             this.dtpickekAdmissaoInicio.TabIndex = 29;
             // 
-            // cbxPermissao
+            // btnRedefinirPeriodoAdmissao
             // 
-            this.cbxPermissao.FormattingEnabled = true;
-            this.cbxPermissao.Location = new System.Drawing.Point(205, 125);
-            this.cbxPermissao.Name = "cbxPermissao";
-            this.cbxPermissao.Size = new System.Drawing.Size(167, 24);
-            this.cbxPermissao.TabIndex = 42;
+            this.btnRedefinirPeriodoAdmissao.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
+            this.btnRedefinirPeriodoAdmissao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedefinirPeriodoAdmissao.Location = new System.Drawing.Point(605, 28);
+            this.btnRedefinirPeriodoAdmissao.Name = "btnRedefinirPeriodoAdmissao";
+            this.btnRedefinirPeriodoAdmissao.Size = new System.Drawing.Size(148, 44);
+            this.btnRedefinirPeriodoAdmissao.TabIndex = 28;
+            this.btnRedefinirPeriodoAdmissao.Text = "Redefinir Período";
+            this.btnRedefinirPeriodoAdmissao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRedefinirPeriodoAdmissao.UseVisualStyleBackColor = true;
             // 
             // lblMatricula
             // 
@@ -243,6 +321,14 @@
             this.lblMatricula.TabIndex = 37;
             this.lblMatricula.Text = "Matrícula:";
             // 
+            // cbxFuncao
+            // 
+            this.cbxFuncao.FormattingEnabled = true;
+            this.cbxFuncao.Location = new System.Drawing.Point(205, 71);
+            this.cbxFuncao.Name = "cbxFuncao";
+            this.cbxFuncao.Size = new System.Drawing.Size(167, 24);
+            this.cbxFuncao.TabIndex = 39;
+            // 
             // lblPermissao
             // 
             this.lblPermissao.AutoSize = true;
@@ -252,6 +338,13 @@
             this.lblPermissao.TabIndex = 41;
             this.lblPermissao.Text = "Permissão:";
             // 
+            // tbxMatricula
+            // 
+            this.tbxMatricula.Location = new System.Drawing.Point(205, 22);
+            this.tbxMatricula.Name = "tbxMatricula";
+            this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
+            this.tbxMatricula.TabIndex = 40;
+            // 
             // lblFuncao
             // 
             this.lblFuncao.AutoSize = true;
@@ -260,21 +353,6 @@
             this.lblFuncao.Size = new System.Drawing.Size(54, 16);
             this.lblFuncao.TabIndex = 38;
             this.lblFuncao.Text = "Função:";
-            // 
-            // tbxMatricula
-            // 
-            this.tbxMatricula.Location = new System.Drawing.Point(205, 22);
-            this.tbxMatricula.Name = "tbxMatricula";
-            this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
-            this.tbxMatricula.TabIndex = 40;
-            // 
-            // cbxFuncao
-            // 
-            this.cbxFuncao.FormattingEnabled = true;
-            this.cbxFuncao.Location = new System.Drawing.Point(205, 71);
-            this.cbxFuncao.Name = "cbxFuncao";
-            this.cbxFuncao.Size = new System.Drawing.Size(167, 24);
-            this.cbxFuncao.TabIndex = 39;
             // 
             // tabPageFerramenta
             // 
@@ -295,6 +373,34 @@
             this.tabPageFerramenta.TabIndex = 1;
             this.tabPageFerramenta.Text = "Ferramenta";
             this.tabPageFerramenta.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparFerramenta
+            // 
+            this.btnLimparFerramenta.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparFerramenta.Location = new System.Drawing.Point(649, 53);
+            this.btnLimparFerramenta.Name = "btnLimparFerramenta";
+            this.btnLimparFerramenta.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparFerramenta.TabIndex = 46;
+            this.btnLimparFerramenta.Text = "Limpar";
+            this.btnLimparFerramenta.UseVisualStyleBackColor = true;
+            // 
+            // cbxSituacao
+            // 
+            this.cbxSituacao.FormattingEnabled = true;
+            this.cbxSituacao.Location = new System.Drawing.Point(435, 84);
+            this.cbxSituacao.Name = "cbxSituacao";
+            this.cbxSituacao.Size = new System.Drawing.Size(167, 24);
+            this.cbxSituacao.TabIndex = 45;
+            // 
+            // lblSituacao
+            // 
+            this.lblSituacao.AutoSize = true;
+            this.lblSituacao.Location = new System.Drawing.Point(371, 87);
+            this.lblSituacao.Name = "lblSituacao";
+            this.lblSituacao.Size = new System.Drawing.Size(62, 16);
+            this.lblSituacao.TabIndex = 44;
+            this.lblSituacao.Text = "Situação:";
             // 
             // gbxLmtPerAdmissao
             // 
@@ -363,22 +469,17 @@
             this.dtpickerInicioFerramenta.Size = new System.Drawing.Size(99, 23);
             this.dtpickerInicioFerramenta.TabIndex = 29;
             // 
-            // cbxSituacao
+            // btnRedPeriodoFerramenta
             // 
-            this.cbxSituacao.FormattingEnabled = true;
-            this.cbxSituacao.Location = new System.Drawing.Point(435, 84);
-            this.cbxSituacao.Name = "cbxSituacao";
-            this.cbxSituacao.Size = new System.Drawing.Size(167, 24);
-            this.cbxSituacao.TabIndex = 45;
-            // 
-            // lblSituacao
-            // 
-            this.lblSituacao.AutoSize = true;
-            this.lblSituacao.Location = new System.Drawing.Point(371, 87);
-            this.lblSituacao.Name = "lblSituacao";
-            this.lblSituacao.Size = new System.Drawing.Size(62, 16);
-            this.lblSituacao.TabIndex = 44;
-            this.lblSituacao.Text = "Situação:";
+            this.btnRedPeriodoFerramenta.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
+            this.btnRedPeriodoFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedPeriodoFerramenta.Location = new System.Drawing.Point(611, 22);
+            this.btnRedPeriodoFerramenta.Name = "btnRedPeriodoFerramenta";
+            this.btnRedPeriodoFerramenta.Size = new System.Drawing.Size(148, 44);
+            this.btnRedPeriodoFerramenta.TabIndex = 28;
+            this.btnRedPeriodoFerramenta.Text = "Redefinir Período";
+            this.btnRedPeriodoFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRedPeriodoFerramenta.UseVisualStyleBackColor = true;
             // 
             // tbxCodigo
             // 
@@ -395,6 +496,15 @@
             this.cbxFabricante.Size = new System.Drawing.Size(167, 24);
             this.cbxFabricante.TabIndex = 43;
             // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Location = new System.Drawing.Point(50, 87);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(47, 16);
+            this.lblGrupo.TabIndex = 40;
+            this.lblGrupo.Text = "Grupo:";
+            // 
             // lblFabricante
             // 
             this.lblFabricante.AutoSize = true;
@@ -404,15 +514,6 @@
             this.lblFabricante.TabIndex = 42;
             this.lblFabricante.Text = "Fabricante:";
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(45, 48);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(52, 16);
-            this.lblCodigo.TabIndex = 39;
-            this.lblCodigo.Text = "Código:";
-            // 
             // cbxGrupo
             // 
             this.cbxGrupo.FormattingEnabled = true;
@@ -421,14 +522,14 @@
             this.cbxGrupo.Size = new System.Drawing.Size(167, 24);
             this.cbxGrupo.TabIndex = 41;
             // 
-            // lblGrupo
+            // lblCodigo
             // 
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(50, 87);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(47, 16);
-            this.lblGrupo.TabIndex = 40;
-            this.lblGrupo.Text = "Grupo:";
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(45, 48);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(52, 16);
+            this.lblCodigo.TabIndex = 39;
+            this.lblCodigo.Text = "Código:";
             // 
             // tabPageRequisicao
             // 
@@ -445,6 +546,17 @@
             this.tabPageRequisicao.TabIndex = 2;
             this.tabPageRequisicao.Text = "Requisição";
             this.tabPageRequisicao.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparRquisicao
+            // 
+            this.btnLimparRquisicao.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparRquisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparRquisicao.Location = new System.Drawing.Point(513, 58);
+            this.btnLimparRquisicao.Name = "btnLimparRquisicao";
+            this.btnLimparRquisicao.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparRquisicao.TabIndex = 44;
+            this.btnLimparRquisicao.Text = "Limpar";
+            this.btnLimparRquisicao.UseVisualStyleBackColor = true;
             // 
             // cbxSituacaoRequisicao
             // 
@@ -546,163 +658,6 @@
             this.dateTimePicker4.Size = new System.Drawing.Size(99, 23);
             this.dateTimePicker4.TabIndex = 29;
             // 
-            // gbxFiltrarDados
-            // 
-            this.gbxFiltrarDados.Controls.Add(this.tabControl1);
-            this.gbxFiltrarDados.Location = new System.Drawing.Point(25, 162);
-            this.gbxFiltrarDados.Name = "gbxFiltrarDados";
-            this.gbxFiltrarDados.Size = new System.Drawing.Size(873, 378);
-            this.gbxFiltrarDados.TabIndex = 3;
-            this.gbxFiltrarDados.TabStop = false;
-            this.gbxFiltrarDados.Text = "Filtrar Dados";
-            // 
-            // rbtnFerramentasReqisitadas
-            // 
-            this.rbtnFerramentasReqisitadas.AutoSize = true;
-            this.rbtnFerramentasReqisitadas.Location = new System.Drawing.Point(23, 81);
-            this.rbtnFerramentasReqisitadas.Name = "rbtnFerramentasReqisitadas";
-            this.rbtnFerramentasReqisitadas.Size = new System.Drawing.Size(203, 20);
-            this.rbtnFerramentasReqisitadas.TabIndex = 2;
-            this.rbtnFerramentasReqisitadas.TabStop = true;
-            this.rbtnFerramentasReqisitadas.Text = "Ferramentas mais requisitadas";
-            this.rbtnFerramentasReqisitadas.UseVisualStyleBackColor = true;
-            // 
-            // gbxFocoRelatório
-            // 
-            this.gbxFocoRelatório.Controls.Add(this.rbtnRequisicao);
-            this.gbxFocoRelatório.Controls.Add(this.rbtnFerramenta);
-            this.gbxFocoRelatório.Controls.Add(this.rbtnFuncionario);
-            this.gbxFocoRelatório.Location = new System.Drawing.Point(510, 29);
-            this.gbxFocoRelatório.Name = "gbxFocoRelatório";
-            this.gbxFocoRelatório.Size = new System.Drawing.Size(151, 117);
-            this.gbxFocoRelatório.TabIndex = 3;
-            this.gbxFocoRelatório.TabStop = false;
-            this.gbxFocoRelatório.Text = "Foco do relatório";
-            // 
-            // rbtnRequisicao
-            // 
-            this.rbtnRequisicao.AutoSize = true;
-            this.rbtnRequisicao.Location = new System.Drawing.Point(25, 81);
-            this.rbtnRequisicao.Name = "rbtnRequisicao";
-            this.rbtnRequisicao.Size = new System.Drawing.Size(87, 20);
-            this.rbtnRequisicao.TabIndex = 2;
-            this.rbtnRequisicao.TabStop = true;
-            this.rbtnRequisicao.Text = "Requisição";
-            this.rbtnRequisicao.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFerramenta
-            // 
-            this.rbtnFerramenta.AutoSize = true;
-            this.rbtnFerramenta.Location = new System.Drawing.Point(25, 55);
-            this.rbtnFerramenta.Name = "rbtnFerramenta";
-            this.rbtnFerramenta.Size = new System.Drawing.Size(93, 20);
-            this.rbtnFerramenta.TabIndex = 1;
-            this.rbtnFerramenta.TabStop = true;
-            this.rbtnFerramenta.Text = "Ferramenta";
-            this.rbtnFerramenta.UseVisualStyleBackColor = true;
-            // 
-            // rbtnFuncionario
-            // 
-            this.rbtnFuncionario.AutoSize = true;
-            this.rbtnFuncionario.Location = new System.Drawing.Point(25, 29);
-            this.rbtnFuncionario.Name = "rbtnFuncionario";
-            this.rbtnFuncionario.Size = new System.Drawing.Size(92, 20);
-            this.rbtnFuncionario.TabIndex = 0;
-            this.rbtnFuncionario.TabStop = true;
-            this.rbtnFuncionario.Text = "Funcionário";
-            this.rbtnFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // btnGerarRelatorio
-            // 
-            this.btnGerarRelatorio.Image = global::SGA.Properties.Resources._1375818175_Generate_tables1;
-            this.btnGerarRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGerarRelatorio.Location = new System.Drawing.Point(389, 555);
-            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
-            this.btnGerarRelatorio.Size = new System.Drawing.Size(148, 44);
-            this.btnGerarRelatorio.TabIndex = 47;
-            this.btnGerarRelatorio.Text = "Gerar Relatório";
-            this.btnGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGerarRelatorio.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.Location = new System.Drawing.Point(630, 555);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(148, 44);
-            this.btnCancelar.TabIndex = 46;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparTudo
-            // 
-            this.btnLimparTudo.Image = global::SGA.Properties.Resources._1375863032_edit_clear;
-            this.btnLimparTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparTudo.Location = new System.Drawing.Point(148, 555);
-            this.btnLimparTudo.Name = "btnLimparTudo";
-            this.btnLimparTudo.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparTudo.TabIndex = 45;
-            this.btnLimparTudo.Text = "Limpar Tudo";
-            this.btnLimparTudo.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparFuncionario
-            // 
-            this.btnLimparFuncionario.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparFuncionario.Location = new System.Drawing.Point(478, 61);
-            this.btnLimparFuncionario.Name = "btnLimparFuncionario";
-            this.btnLimparFuncionario.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparFuncionario.TabIndex = 43;
-            this.btnLimparFuncionario.Text = "Limpar";
-            this.btnLimparFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // btnRedefinirPeriodoAdmissao
-            // 
-            this.btnRedefinirPeriodoAdmissao.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
-            this.btnRedefinirPeriodoAdmissao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRedefinirPeriodoAdmissao.Location = new System.Drawing.Point(605, 28);
-            this.btnRedefinirPeriodoAdmissao.Name = "btnRedefinirPeriodoAdmissao";
-            this.btnRedefinirPeriodoAdmissao.Size = new System.Drawing.Size(148, 44);
-            this.btnRedefinirPeriodoAdmissao.TabIndex = 28;
-            this.btnRedefinirPeriodoAdmissao.Text = "Redefinir Período";
-            this.btnRedefinirPeriodoAdmissao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRedefinirPeriodoAdmissao.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparFerramenta
-            // 
-            this.btnLimparFerramenta.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparFerramenta.Location = new System.Drawing.Point(649, 53);
-            this.btnLimparFerramenta.Name = "btnLimparFerramenta";
-            this.btnLimparFerramenta.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparFerramenta.TabIndex = 46;
-            this.btnLimparFerramenta.Text = "Limpar";
-            this.btnLimparFerramenta.UseVisualStyleBackColor = true;
-            // 
-            // btnRedPeriodoFerramenta
-            // 
-            this.btnRedPeriodoFerramenta.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
-            this.btnRedPeriodoFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRedPeriodoFerramenta.Location = new System.Drawing.Point(611, 22);
-            this.btnRedPeriodoFerramenta.Name = "btnRedPeriodoFerramenta";
-            this.btnRedPeriodoFerramenta.Size = new System.Drawing.Size(148, 44);
-            this.btnRedPeriodoFerramenta.TabIndex = 28;
-            this.btnRedPeriodoFerramenta.Text = "Redefinir Período";
-            this.btnRedPeriodoFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRedPeriodoFerramenta.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparRquisicao
-            // 
-            this.btnLimparRquisicao.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparRquisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparRquisicao.Location = new System.Drawing.Point(513, 58);
-            this.btnLimparRquisicao.Name = "btnLimparRquisicao";
-            this.btnLimparRquisicao.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparRquisicao.TabIndex = 44;
-            this.btnLimparRquisicao.Text = "Limpar";
-            this.btnLimparRquisicao.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
             this.button2.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
@@ -714,6 +669,54 @@
             this.button2.Text = "Redefinir Período";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // gbxTipoRelatorio
+            // 
+            this.gbxTipoRelatorio.Controls.Add(this.rbtnFerramentasReqisitadas);
+            this.gbxTipoRelatorio.Controls.Add(this.rbtnLista);
+            this.gbxTipoRelatorio.Controls.Add(this.rbtnEventosSistema);
+            this.gbxTipoRelatorio.Location = new System.Drawing.Point(210, 29);
+            this.gbxTipoRelatorio.Name = "gbxTipoRelatorio";
+            this.gbxTipoRelatorio.Size = new System.Drawing.Size(265, 117);
+            this.gbxTipoRelatorio.TabIndex = 2;
+            this.gbxTipoRelatorio.TabStop = false;
+            this.gbxTipoRelatorio.Text = "Tipo de relatório";
+            // 
+            // rbtnFerramentasReqisitadas
+            // 
+            this.rbtnFerramentasReqisitadas.AutoSize = true;
+            this.rbtnFerramentasReqisitadas.Location = new System.Drawing.Point(23, 81);
+            this.rbtnFerramentasReqisitadas.Name = "rbtnFerramentasReqisitadas";
+            this.rbtnFerramentasReqisitadas.Size = new System.Drawing.Size(203, 20);
+            this.rbtnFerramentasReqisitadas.TabIndex = 2;
+            this.rbtnFerramentasReqisitadas.TabStop = true;
+            this.rbtnFerramentasReqisitadas.Text = "Ferramentas mais requisitadas";
+            this.rbtnFerramentasReqisitadas.UseVisualStyleBackColor = true;
+            this.rbtnFerramentasReqisitadas.CheckedChanged += new System.EventHandler(this.rbtnFerramentasReqisitadas_CheckedChanged);
+            // 
+            // rbtnLista
+            // 
+            this.rbtnLista.AutoSize = true;
+            this.rbtnLista.Location = new System.Drawing.Point(23, 55);
+            this.rbtnLista.Name = "rbtnLista";
+            this.rbtnLista.Size = new System.Drawing.Size(52, 20);
+            this.rbtnLista.TabIndex = 1;
+            this.rbtnLista.TabStop = true;
+            this.rbtnLista.Text = "Lista";
+            this.rbtnLista.UseVisualStyleBackColor = true;
+            this.rbtnLista.CheckedChanged += new System.EventHandler(this.rbtnLista_CheckedChanged);
+            // 
+            // rbtnEventosSistema
+            // 
+            this.rbtnEventosSistema.AutoSize = true;
+            this.rbtnEventosSistema.Location = new System.Drawing.Point(23, 29);
+            this.rbtnEventosSistema.Name = "rbtnEventosSistema";
+            this.rbtnEventosSistema.Size = new System.Drawing.Size(136, 20);
+            this.rbtnEventosSistema.TabIndex = 0;
+            this.rbtnEventosSistema.TabStop = true;
+            this.rbtnEventosSistema.Text = "Eventos no sistema";
+            this.rbtnEventosSistema.UseVisualStyleBackColor = true;
+            this.rbtnEventosSistema.CheckedChanged += new System.EventHandler(this.rbtnEventosSistema_CheckedChanged);
             // 
             // Relatorio
             // 
@@ -730,8 +733,9 @@
             this.Text = "SGA";
             this.Load += new System.EventHandler(this.Relatorio_Load);
             this.gbxrelatorio.ResumeLayout(false);
-            this.gbxTipoRelatorio.ResumeLayout(false);
-            this.gbxTipoRelatorio.PerformLayout();
+            this.gbxFocoRelatório.ResumeLayout(false);
+            this.gbxFocoRelatório.PerformLayout();
+            this.gbxFiltrarDados.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageFuncionario.ResumeLayout(false);
             this.tabPageFuncionario.PerformLayout();
@@ -745,9 +749,8 @@
             this.tabPageRequisicao.PerformLayout();
             this.gbxPeriodoRequisicao.ResumeLayout(false);
             this.gbxPeriodoRequisicao.PerformLayout();
-            this.gbxFiltrarDados.ResumeLayout(false);
-            this.gbxFocoRelatório.ResumeLayout(false);
-            this.gbxFocoRelatório.PerformLayout();
+            this.gbxTipoRelatorio.ResumeLayout(false);
+            this.gbxTipoRelatorio.PerformLayout();
             this.ResumeLayout(false);
 
         }
