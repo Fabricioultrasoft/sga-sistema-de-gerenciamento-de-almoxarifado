@@ -74,7 +74,7 @@
             this.btnLimparRquisicao = new System.Windows.Forms.Button();
             this.cbxSituacaoRequisicao = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxCodigoRequisicao = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.gbxPeriodoRequisicao = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -539,7 +539,7 @@
             this.tabPageRequisicao.Controls.Add(this.btnLimparRquisicao);
             this.tabPageRequisicao.Controls.Add(this.cbxSituacaoRequisicao);
             this.tabPageRequisicao.Controls.Add(this.label6);
-            this.tabPageRequisicao.Controls.Add(this.textBox1);
+            this.tabPageRequisicao.Controls.Add(this.tbxCodigoRequisicao);
             this.tabPageRequisicao.Controls.Add(this.label7);
             this.tabPageRequisicao.Controls.Add(this.gbxPeriodoRequisicao);
             this.tabPageRequisicao.Location = new System.Drawing.Point(4, 25);
@@ -578,12 +578,12 @@
             this.label6.TabIndex = 38;
             this.label6.Text = "Situação requisição:";
             // 
-            // textBox1
+            // tbxCodigoRequisicao
             // 
-            this.textBox1.Location = new System.Drawing.Point(280, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 23);
-            this.textBox1.TabIndex = 36;
+            this.tbxCodigoRequisicao.Location = new System.Drawing.Point(280, 44);
+            this.tbxCodigoRequisicao.Name = "tbxCodigoRequisicao";
+            this.tbxCodigoRequisicao.Size = new System.Drawing.Size(167, 23);
+            this.tbxCodigoRequisicao.TabIndex = 36;
             // 
             // label7
             // 
@@ -807,7 +807,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbxSituacaoRequisicao;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxCodigoRequisicao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox gbxFiltrarDados;
         private System.Windows.Forms.Button btnLimparFerramenta;

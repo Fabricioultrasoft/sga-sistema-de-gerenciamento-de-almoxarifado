@@ -64,6 +64,16 @@ namespace SGA.Telas
             }
             else
             {
+                if (rbtnEventosSistema.Checked)
+                {
+                    tbxCodigo.Enabled = false;
+                    tbxMatricula.Enabled = false;
+                }
+                else
+                {
+                    tbxCodigo.Enabled = true;
+                    tbxMatricula.Enabled = true;
+                }
                 tabControl1.Controls.Add(tabPageFerramenta);
                 tabControl1.Controls.Add(tabPageRequisicao);
                 tabControl1.Controls.Add(tabPageFuncionario);
