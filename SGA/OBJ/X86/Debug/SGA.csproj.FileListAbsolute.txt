@@ -92,6 +92,24 @@ C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateRe
 C:\Documents and Settings\Administrador\Desktop\SGA\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.Relatorio.resources
-C:\Users\carlos\Desktop\SGA\SGA\bin\Debug\SGA.exe.config
-C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\RdlCompile.cache
-C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\RdlCompile.compiled
+C:\Users\KELLY\Desktop\sga\SGA\obj\x86\Debug\SGA.Telas.Relatorio.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.exe
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.pdb
+F:\Documentos\sga1\SGA\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.CLogin.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.EditarComboBox.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.Mensagem.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.PesquisarFerramenta.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.ManterFerramenta.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.ManterFuncionario.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.ManterRequisicao.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Login.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Menu.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Properties.Resources.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.PesquisarFuncionario.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.PesquisarRequisicao.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\SGA.Telas.Relatorio.resources
+F:\Documentos\sga1\SGA\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documentos\sga1\SGA\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Documentos\sga1\SGA\bin\Debug\SGA.exe
+F:\Documentos\sga1\SGA\bin\Debug\SGA.pdb

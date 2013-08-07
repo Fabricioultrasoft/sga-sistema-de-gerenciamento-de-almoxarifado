@@ -197,18 +197,5 @@ namespace SGA.Dao
 
             Conexao.con().Close();
         }
-
-        public SqlDataReader  query()
-        {
-            SqlCommand select = new SqlCommand("SELECT * FROM tb_funcionario WHERE mat_funcionario = 4545", Conexao.con());;
-
-            Conexao.con().Open();
-
-            SqlDataReader linha = select.ExecuteReader();
-
-            Conexao.con().Close();
-
-            return linha;
-        }
     }
 }

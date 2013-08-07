@@ -34,8 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -73,11 +71,6 @@
     <Compile Include="Entity\Funcionario.cs" />
     <Compile Include="Entity\Ferramenta.cs" />
     <Compile Include="Entity\Requisicao.cs" />
-    <Compile Include="sgaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sgaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Telas\CLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,8 +191,6 @@
     <EmbeddedResource Include="Telas\Relatorio.resx">
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Report1.rdlc" />
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,17 +200,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="sgaDataSet.xsc">
-      <DependentUpon>sgaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="sgaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sgaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="sgaDataSet.xss">
-      <DependentUpon>sgaDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1370631243_eraser.png" />
