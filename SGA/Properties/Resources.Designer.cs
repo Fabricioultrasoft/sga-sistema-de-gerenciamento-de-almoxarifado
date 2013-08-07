@@ -333,6 +333,26 @@ namespace SGA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1375818175_Generate_tables1 {
+            get {
+                object obj = ResourceManager.GetObject("1375818175_Generate-tables1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1375863032_edit_clear {
+            get {
+                object obj = ResourceManager.GetObject("1375863032_edit-clear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap atencao {
             get {
                 object obj = ResourceManager.GetObject("atencao", resourceCulture);

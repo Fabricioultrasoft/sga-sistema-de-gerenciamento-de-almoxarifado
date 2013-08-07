@@ -18,9 +18,37 @@ namespace SGA.Telas
             InitializeComponent();
         }
 
-        private void Relatorio_Load(object sender, EventArgs e)
+        private void montarTela()
         {
             preencherCbxFuncao();
+
+        }
+
+        private void mudançaTipoRelatorio(RadioButton radiobutton)
+        {
+            if (radiobutton == rbtnEventosSistema)
+            {
+                rbtnRequisicao.Enabled = false;
+                rbtnFerramenta.Enabled = true;
+                rbtnFuncionario.Enabled = true;
+            }
+            else if(radiobutton == rbtnLista)
+            {
+                rbtnRequisicao.Enabled = true;
+                rbtnFerramenta.Enabled = true;
+                rbtnFuncionario.Enabled = true;
+            }
+            else 
+            {
+                rbtnRequisicao.Enabled = false;
+                rbtnFerramenta.Enabled = false;
+                rbtnFuncionario.Enabled = false;
+            }
+        }
+
+        private void Relatorio_Load(object sender, EventArgs e)
+        {
+            montarTela();
         }
         private void preencherCbxFuncao()
         {

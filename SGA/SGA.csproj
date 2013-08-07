@@ -315,6 +315,12 @@
   <ItemGroup>
     <None Include="Resources\1375818175_Generate-tables.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1375818175_Generate-tables1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1375863032_edit-clear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
