@@ -171,6 +171,7 @@
             this.rbtnRequisicao.TabStop = true;
             this.rbtnRequisicao.Text = "Requisição";
             this.rbtnRequisicao.UseVisualStyleBackColor = true;
+            this.rbtnRequisicao.CheckedChanged += new System.EventHandler(this.rbtnRequisicao_CheckedChanged);
             // 
             // rbtnFerramenta
             // 
@@ -182,6 +183,7 @@
             this.rbtnFerramenta.TabStop = true;
             this.rbtnFerramenta.Text = "Ferramenta";
             this.rbtnFerramenta.UseVisualStyleBackColor = true;
+            this.rbtnFerramenta.CheckedChanged += new System.EventHandler(this.rbtnFerramenta_CheckedChanged);
             // 
             // rbtnFuncionario
             // 
@@ -193,6 +195,7 @@
             this.rbtnFuncionario.TabStop = true;
             this.rbtnFuncionario.Text = "Funcionário";
             this.rbtnFuncionario.UseVisualStyleBackColor = true;
+            this.rbtnFuncionario.CheckedChanged += new System.EventHandler(this.rbtnFuncionario_CheckedChanged);
             // 
             // gbxFiltrarDados
             // 

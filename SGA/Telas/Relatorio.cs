@@ -26,8 +26,6 @@ namespace SGA.Telas
 
         private void mudançaTipoRelatorio(RadioButton radiobutton)
         {
-            rbtnRequisicao.Checked = false;
-            rbtnFerramenta.Checked = false;
             rbtnFuncionario.Checked = true;
 
             if (radiobutton == rbtnEventosSistema)
@@ -47,6 +45,28 @@ namespace SGA.Telas
                 rbtnRequisicao.Enabled = false;
                 rbtnFerramenta.Checked = true;
                 rbtnFuncionario.Enabled = false;
+            }
+        }
+
+        private void mudancaFocoRelatorio(RadioButton radiobutton)
+        {
+            tabControl1.Controls.Remove(tabPageFerramenta);
+            tabControl1.Controls.Remove(tabPageRequisicao);
+            tabControl1.Controls.Remove(tabPageFuncionario);
+
+            if (radiobutton == rbtnFuncionario)
+            {
+                tabControl1.Controls.Add(tabPageFuncionario);
+            }
+            else if (radiobutton == rbtnFerramenta)
+            {
+                tabControl1.Controls.Add(tabPageFerramenta);
+            }
+            else
+            {
+                tabControl1.Controls.Add(tabPageFerramenta);
+                tabControl1.Controls.Add(tabPageRequisicao);
+                tabControl1.Controls.Add(tabPageFuncionario);
             }
         }
 
@@ -87,6 +107,30 @@ namespace SGA.Telas
             if (rbtnFerramentasReqisitadas.Checked)
             {
                 mudançaTipoRelatorio(rbtnFerramentasReqisitadas);
+            }
+        }
+
+        private void rbtnFuncionario_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnFuncionario.Checked)
+            {
+                mudancaFocoRelatorio(rbtnFuncionario);
+            }
+        }
+
+        private void rbtnFerramenta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnFerramenta.Checked)
+            {
+                mudancaFocoRelatorio(rbtnFerramenta);
+            }
+        }
+
+        private void rbtnRequisicao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnRequisicao.Checked)
+            {
+                mudancaFocoRelatorio(rbtnRequisicao);
             }
         }
     }
