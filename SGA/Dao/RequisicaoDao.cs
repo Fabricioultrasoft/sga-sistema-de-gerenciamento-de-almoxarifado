@@ -32,6 +32,7 @@ namespace SGA.Dao
                 updateFerramenta.ExecuteNonQuery();
                 insertRequisicao.ExecuteNonQuery();
                 Conexao.con().Close();
+                Conexao.gravarLog("Cadastro", requisicao.funcionario[0].matricula + "", requisicao.funcionario[1].matricula + "", ferramenta.codFerramenta, "Gravar");
             }
         }
 
@@ -186,16 +187,21 @@ namespace SGA.Dao
 
         public void finalizarRequisicao(Requisicao requisicao)
         {
+            SqlCommand updateFerramenta = new SqlCommand("UPDATE tb_ferramenta SET fk_situacao = 1 WHERE cod_ferramenta = @cod_ferramenta", Conexao.con());
+
+            updateFerramenta.Parameters.AddWithValue("@cod_ferramenta", requisicao.ferramentas[0].codFerramenta);
+
             SqlCommand updade = new SqlCommand("UPDATE tb_requisicao SET dt_baixa_requisicao = CURRENT_TIMESTAMP,fk_func_baixa_ferr = @mat_func_baixa " +
             "WHERE nu_seq_requisicao = @cod_requisicao", Conexao.con());
             updade.Parameters.AddWithValue(@"mat_func_baixa", requisicao.funcionario[2].matricula);
             updade.Parameters.AddWithValue(@"cod_requisicao", requisicao.codRequisicao);
 
             Conexao.con().Open();
-
+            updateFerramenta.ExecuteNonQuery();
             updade.ExecuteNonQuery();
 
             Conexao.con().Close();
+            Conexao.gravarLog("Requisição finalizada", requisicao.funcionario[2].matricula + "", requisicao.funcionario[1].matricula + "", requisicao.ferramentas[0].codFerramenta, requisicao.funcionario[2].matricula + "");
         }
     }
 }

@@ -62,7 +62,7 @@ namespace SGA.Dao
                     insertDesc.ExecuteNonQuery();
 
                     Conexao.con().Close();
-                    Conexao.gravarLog("Cadastro", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+                    
 
                 }
                 else
@@ -105,6 +105,7 @@ namespace SGA.Dao
                 update.ExecuteNonQuery();
 
                 Conexao.con().Close();
+                Conexao.gravarLog("Atualização", ferramenta.chaveUsuario, "", ferramenta.codFerramenta, "");
             }
             else
             {
@@ -113,7 +114,9 @@ namespace SGA.Dao
                     SqlCommand insertFerr = new SqlCommand("INSERT INTO tb_ferramenta(cod_ferramenta, dt_aquisicao, dt_desativacao,fk_descricao_ferramenta, fk_fabricante, imagem, nu_serie, fk_situacao)" +
                     "VALUES ( @codigo, current_timestamp, null, @codDesc, (SELECT nu_seq_fabricante FROM tb_fabricante WHERE no_fabricante = @fabricante), @imagem, @nuserie, @situacao)", Conexao.con());
 
-                    insertFerr.Parameters.AddWithValue("@codigo", geraCodigo());
+
+                    ferramenta.codFerramenta = geraCodigo();
+                    insertFerr.Parameters.AddWithValue("@codigo", ferramenta.codFerramenta);
                     insertFerr.Parameters.AddWithValue("@codDesc", codDesc);
                     insertFerr.Parameters.AddWithValue("@fabricante", ferramenta.codFabricante);
                     insertFerr.Parameters.AddWithValue("@nuserie", ferramenta.nu_serie);
@@ -133,6 +136,7 @@ namespace SGA.Dao
                     insertFerr.ExecuteNonQuery();
 
                     Conexao.con().Close();
+                    Conexao.gravarLog("Cadastro", ferramenta.chaveUsuario, "", ferramenta.codFerramenta, "");
 
                 }
 
@@ -228,7 +232,7 @@ namespace SGA.Dao
                 delete.ExecuteNonQuery();
 
                 Conexao.con().Close();
-                Conexao.gravarLog("Exclusao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+                Conexao.gravarLog("Exclusao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta, "");
 
             }
             else
@@ -242,7 +246,7 @@ namespace SGA.Dao
                 desativa.ExecuteNonQuery();
 
                 Conexao.con().Close();
-                Conexao.gravarLog("Desativacao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta);
+                Conexao.gravarLog("Desativacao", ferramenta.chaveUsuario, "", ferramenta.codFerramenta, "");
 
             }
 

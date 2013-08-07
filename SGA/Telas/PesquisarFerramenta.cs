@@ -128,7 +128,7 @@ namespace SGA.Telas
                 }
                 else
                 {
-                    ManterFerramenta telaDetalhes = new ManterFerramenta("Detalhes", objFerramenta);
+                    ManterFerramenta telaDetalhes = new ManterFerramenta("Detalhes", objFerramenta, usuarioLogado);
                     telaDetalhes.ShowDialog();
                     pbxFerramenta.Image = null;
                     objFerramenta = null;
@@ -171,7 +171,7 @@ namespace SGA.Telas
             }
             else
             {
-                ManterFerramenta telaDetalhes = new ManterFerramenta("Edicao", objFerramenta);
+                ManterFerramenta telaDetalhes = new ManterFerramenta("Edicao", objFerramenta, usuarioLogado);
                 telaDetalhes.ShowDialog();
                 pbxFerramenta.Image = null;
                 objFerramenta = null;
@@ -184,7 +184,7 @@ namespace SGA.Telas
             if (tipoTela == "pesquisa")
             {
                 Ferramenta ferr = new Ferramenta();
-                ManterFerramenta novaFerr = new ManterFerramenta("cadastro", ferr);
+                ManterFerramenta novaFerr = new ManterFerramenta("cadastro", ferr, usuarioLogado);
                 novaFerr.ShowDialog();
                 pbxFerramenta.Image = null;
             }

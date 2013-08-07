@@ -168,6 +168,8 @@ namespace SGA.Telas
                     funcionario.nome = tbxNome.Text;
                     funcionario.no_funcao = cbxFuncao.Text;
                     funcionario.no_permissao = cbxPermissao.Text;
+                    funcionario.chaveUsuario = funcionarioLogado.matricula.ToString();
+
                     if (tipoTela != "Edicao")
                     {
 

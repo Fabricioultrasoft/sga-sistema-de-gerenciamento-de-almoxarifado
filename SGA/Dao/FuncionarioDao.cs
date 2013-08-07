@@ -34,6 +34,7 @@ namespace SGA.Dao
             insertFuncionario.ExecuteNonQuery();
             insertUsuario.ExecuteNonQuery();
             Conexao.con().Close();
+            Conexao.gravarLog("Cadastro", func.chaveUsuario, func.matricula + "", "", "");
         }
 
         public void inserirSenha(Funcionario func) 
@@ -57,6 +58,7 @@ namespace SGA.Dao
             Conexao.con().Open();
             updateSenha.ExecuteNonQuery();
             Conexao.con().Close();
+            Conexao.gravarLog("Redefinição de senha", func.chaveUsuario, func.matricula + "", "", "");
         }
 
         public void editarFuncionario(Funcionario edFuncionario)
@@ -75,7 +77,7 @@ namespace SGA.Dao
             updateFuncionario.ExecuteNonQuery();
             updateUsuario.ExecuteNonQuery();
             Conexao.con().Close();
-            Conexao.gravarLog("Edicao", edFuncionario.chaveUsuario, edFuncionario.matricula + "", "");
+            Conexao.gravarLog("Atualização", edFuncionario.chaveUsuario, edFuncionario.matricula + "", "", "");
 
         }
 
@@ -384,7 +386,7 @@ namespace SGA.Dao
                 delete.ExecuteNonQuery();
 
                 Conexao.con().Close();
-                Conexao.gravarLog("Exclusao", funcionario.chaveUsuario, funcionario.matricula + "", "");
+                Conexao.gravarLog("Exclusao", funcionario.chaveUsuario, funcionario.matricula + "", "", "");
 
             }
             else
@@ -398,7 +400,7 @@ namespace SGA.Dao
                 desativa.ExecuteNonQuery();
 
                 Conexao.con().Close();
-                Conexao.gravarLog("Desativacao", funcionario.chaveUsuario, funcionario.matricula + "", "");
+                Conexao.gravarLog("Desativacao", funcionario.chaveUsuario, funcionario.matricula + "", "", "");
 
             }
 

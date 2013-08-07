@@ -76,7 +76,7 @@ namespace SGA
         private void MenuItemNFerramenta_Click(object sender, EventArgs e)
         {
             Ferramenta objFerramenta = new Ferramenta();
-            ManterFerramenta cadastroF = new ManterFerramenta("", objFerramenta);
+            ManterFerramenta cadastroF = new ManterFerramenta("", objFerramenta, funcionario);
             cadastroF.ShowDialog();
         }
 

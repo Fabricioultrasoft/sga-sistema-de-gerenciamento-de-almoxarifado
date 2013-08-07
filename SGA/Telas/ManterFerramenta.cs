@@ -18,14 +18,22 @@ namespace SGA.Telas
     {
         private string i_tipoTela;
         private Ferramenta ferramenta = new Ferramenta();
+        private Funcionario i_usuarioLogado;
 
         private FerramentaDelegate ferramentaDel = new FerramentaDelegate();
 
-        public ManterFerramenta(string tipo, Ferramenta ferr)
+        public ManterFerramenta(string tipo, Ferramenta ferr, Funcionario func)
         {
             InitializeComponent();
             ferramenta = ferr;
             tipoTela = tipo;
+            usuarioLogado = func;
+        }
+
+        public Funcionario usuarioLogado
+        {
+            get { return i_usuarioLogado; }
+            set { i_usuarioLogado = value; }
         }
 
         public string tipoTela
@@ -73,6 +81,8 @@ namespace SGA.Telas
                     this.ferramenta.codFabricante = this.cbxFabricante.SelectedItem.ToString();
                     this.ferramenta.nu_serie = tbxNuSerie.Text;
                     this.ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
+
+                    this.ferramenta.chaveUsuario = usuarioLogado.matricula.ToString();
 
                     try
                     {
