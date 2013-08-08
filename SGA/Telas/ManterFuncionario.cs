@@ -325,6 +325,7 @@ namespace SGA.Telas
             if (mensagem.DialogResult == DialogResult.OK)
             {
                 FuncionarioDelegate funcionarioDele = new FuncionarioDelegate();
+                objFuncionario.chaveUsuario = funcionarioLogado.matricula.ToString();
                 funcionarioDele.redefinirSenha(objFuncionario);
                 new Mensagem("Senha redefinida!", "informacao", Resources.ok).ShowDialog();
                 this.Close();

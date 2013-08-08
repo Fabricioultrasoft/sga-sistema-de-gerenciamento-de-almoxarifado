@@ -308,6 +308,7 @@
             // tbxCodigo
             // 
             this.tbxCodigo.Location = new System.Drawing.Point(66, 27);
+            this.tbxCodigo.MaxLength = 5;
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(167, 23);
             this.tbxCodigo.TabIndex = 1;

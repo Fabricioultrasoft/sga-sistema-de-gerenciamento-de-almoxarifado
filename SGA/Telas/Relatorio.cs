@@ -8,20 +8,46 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SGA.Delegate;
+using SGA.Entity;
 
 namespace SGA.Telas
 {
     public partial class Relatorio : Form
     {
+        private FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
+        private Requisicao i_objPesquisa = new Requisicao();
+        private FerramentaDelegate ferramentaD = new FerramentaDelegate();
+        
         public Relatorio()
         {
             InitializeComponent();
         }
 
+        public Requisicao objPesquisa
+        {
+            get { return i_objPesquisa; }
+            set { i_objPesquisa = value; }
+        }
+
+
         private void montarTela()
         {
             preencherCbxFuncao();
+            setDtpickers();
+            preencherCbxPermissao();
+            preencherCbxGrupo();
+            preencherCbxSituacao();
+            preencherCbxFabricante();
+            preenchercbxTipoPeriodo();
+            setDtpickersFerramenta();
+            setDtpickersRequisicao();
+        }
 
+        private void preenchercbxTipoPeriodo()
+        {
+            cbxTipoPeriodoFerramenta.Items.Add("");
+            cbxTipoPeriodoFerramenta.Items.Add("Aquisicao");
+            cbxTipoPeriodoFerramenta.Items.Add("Desativação");
         }
 
         private void mudançaTipoRelatorio(RadioButton radiobutton)
@@ -142,6 +168,252 @@ namespace SGA.Telas
             {
                 mudancaFocoRelatorio(rbtnRequisicao);
             }
+        }
+
+        private void tbxCodigoRequisicao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            apenasNumeros(e);
+        }
+
+        public static void apenasNumeros(KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || //Letras
+                char.IsSymbol(e.KeyChar) || //Símbolos
+                char.IsWhiteSpace(e.KeyChar) || //Espaço
+                char.IsPunctuation(e.KeyChar)) //Pontuação
+            {
+                e.Handled = true;//Não permitir
+            }
+            //Com o script acima é possível utilizar Números, 'Del', 'BackSpace'..
+        }
+
+        private void tbxMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            apenasNumeros(e);
+        }
+
+        private void preencherCbxPermissao()
+        {
+            Queue permissao = funcionarioD.preencherCbxPermissao();
+            cbxPermissao.Items.Clear();
+            cbxPermissao.Items.Add("");
+            while (permissao.Count != 0)
+            {
+                cbxPermissao.Items.Add(permissao.Dequeue().ToString());
+            }
+        }
+
+        private void setDtpickers()
+        {
+            dtpickekAdmissaoInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickekAdmissaoInicio.Value = dtpickekAdmissaoInicio.MinDate;
+            dtpickekAdmissaoFinal.MinDate = dtpickekAdmissaoInicio.MinDate.AddDays(1);
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (dtpickekAdmissaoFinal.MinDate.AddDays(-1) == data)
+            {
+                dtpickekAdmissaoFinal.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+            }
+            else
+            {
+                dtpickekAdmissaoFinal.MaxDate = data;
+            }
+            dtpickekAdmissaoInicio.MaxDate = dtpickekAdmissaoFinal.MaxDate.AddDays(-1);
+            dtpickekAdmissaoFinal.Value = dtpickekAdmissaoFinal.MaxDate;
+        }
+
+        private void setDtpickersFerramenta()
+        {
+            dtpickerInicioFerramenta.MinDate = Convert.ToDateTime(Convert.ToDateTime(ferramentaD.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicioFerramenta.Value = dtpickerInicioFerramenta.MinDate;
+            dtpickerFinalFerramenta.MinDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (dtpickerFinalFerramenta.MinDate.AddDays(-1) == data)
+            {
+                dtpickerFinalFerramenta.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+            }
+            else
+            {
+                dtpickerFinalFerramenta.MaxDate = data;
+            }
+            dtpickerFinalFerramenta.Value = dtpickerFinalFerramenta.MaxDate;
+            dtpickerInicioFerramenta.MaxDate = dtpickerFinalFerramenta.MaxDate.AddDays(-1);
+        }
+
+
+        private void dtpickekAdmissaoInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickekAdmissaoInicio.Value >= dtpickekAdmissaoFinal.Value)
+            {
+                new Mensagem("A data inicial deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickekAdmissaoFinal.Value = dtpickekAdmissaoInicio.Value.AddDays(1);
+            }
+        }
+
+        private void dtpickekAdmissaoFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickekAdmissaoFinal.Value <= dtpickekAdmissaoInicio.Value)
+            {
+                new Mensagem("A data final deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickekAdmissaoInicio.Value = dtpickekAdmissaoFinal.Value.AddDays(-1);
+            }
+        }
+
+        private void btnLimparFuncionario_Click(object sender, EventArgs e)
+        {
+            tbxMatricula.Clear();
+            cbxFuncao.Text = "";
+            cbxPermissao.Text = "";
+        }
+
+        private void btnRedefinirPeriodoAdmissao_Click(object sender, EventArgs e)
+        {
+            setDtpickers();
+        }
+
+        private void tbxMatricula_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 i = Convert.ToInt32(tbxMatricula.Text);
+            }
+            catch
+            {
+                tbxMatricula.Text = "";
+            }
+        }
+
+        public void preencherCbxFabricante()
+        {
+            Queue fabricantes = ferramentaD.preencherCbxFabricante();
+            cbxFabricante.Items.Clear();
+            cbxFabricante.Items.Add("");
+            while (fabricantes.Count != 0)
+            {
+                cbxFabricante.Items.Add(fabricantes.Dequeue().ToString());
+            }
+        }
+
+        public void preencherCbxSituacao()
+        {
+            Queue situacao = ferramentaD.preencherCbxSituacao();
+            cbxSituacao.Items.Clear();
+            cbxSituacao.Items.Add("");
+            while (situacao.Count != 0)
+            {
+                cbxSituacao.Items.Add(situacao.Dequeue().ToString());
+            }
+        }
+
+        public void preencherCbxGrupo()
+        {
+            Queue grupos = ferramentaD.preencherCbxGrupo();
+            cbxGrupo.Items.Clear();
+            cbxGrupo.Items.Add("");
+            while (grupos.Count != 0)
+            {
+                cbxGrupo.Items.Add(grupos.Dequeue().ToString());
+            }
+
+        }
+
+        private void dtpickerInicioFerramenta_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerInicioFerramenta.Value >= dtpickerFinalFerramenta.Value)
+            {
+                new Mensagem("A data inicial deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerFinalFerramenta.Value = dtpickerInicioFerramenta.Value.AddDays(1);
+            }
+        }
+
+        private void dtpickerFinalFerramenta_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerFinalFerramenta.Value <= dtpickerInicioFerramenta.Value)
+            {
+                new Mensagem("A data final deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerInicioFerramenta.Value = dtpickerFinalFerramenta.Value.AddDays(-1);
+            }
+        }
+
+        private void btnRedPeriodoFerramenta_Click(object sender, EventArgs e)
+        {
+            setDtpickersFerramenta();
+        }
+
+        private void btnLimparFerramenta_Click(object sender, EventArgs e)
+        {
+            tbxCodigo.Clear();
+            cbxFabricante.Text = "";
+            cbxGrupo.Text = "";
+            cbxSituacao.Text = "";
+        }
+
+        private void dtpickerFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerFinal.Value <= dtpickerInicio.Value)
+            {
+                new Mensagem("A data final deve ser maior \nque a data de início!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
+            }
+        }
+
+        private void dtpickerInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpickerInicio.Value >= dtpickerFinal.Value)
+            {
+                new Mensagem("A data inicial deve ser menor \nque a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+                dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
+            }
+        }
+
+        private void setDtpickersRequisicao()
+        {
+            RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
+            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicio.Value = dtpickerInicio.MinDate;
+            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (dtpickerFinal.MinDate.AddDays(-1) == data)
+            {
+                dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+            }
+            else
+            {
+                dtpickerFinal.MaxDate = data;
+            }
+            dtpickerFinal.Value = dtpickerFinal.MaxDate;
+            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
+
+        }
+
+        private void tbxCodigoRequisicao_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 i = Convert.ToInt32(tbxCodigoRequisicao.Text);
+            }
+            catch
+            {
+                tbxCodigo.Text = "";
+            }
+        }
+
+        private void tbxCodigo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Int32 i = Convert.ToInt32(tbxCodigo.Text);
+            }
+            catch
+            {
+                tbxCodigo.Text = "";
+            }
+        }
+
+        private void preencherCbxSituacaoRequisicao()
+        {
+            cbxSituacaoRequisicao.Items.Add("");
+            cbxSituacaoRequisicao.Items.Add("Abertas");
+            cbxSituacaoRequisicao.Items.Add("Fechadas");
         }
     }
 }

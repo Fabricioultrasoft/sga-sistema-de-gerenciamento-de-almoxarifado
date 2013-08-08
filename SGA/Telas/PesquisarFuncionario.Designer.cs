@@ -45,19 +45,17 @@
             this.Função = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Permissao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbxPesqFunc = new System.Windows.Forms.GroupBox();
-            this.cbxPermissao = new System.Windows.Forms.ComboBox();
-            this.lblPermissao = new System.Windows.Forms.Label();
-            this.tbxMatricula = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnDetalhes = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNFuncionario = new System.Windows.Forms.Button();
             this.btnDesativar = new System.Windows.Forms.Button();
+            this.cbxPermissao = new System.Windows.Forms.ComboBox();
+            this.btnDetalhes = new System.Windows.Forms.Button();
+            this.lblPermissao = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.tbxMatricula = new System.Windows.Forms.TextBox();
+            this.btnNFuncionario = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.gbxLmtPerAdmissao.SuspendLayout();
             this.gbxPesqFunc.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNome
@@ -210,10 +208,14 @@
             // 
             // gbxPesqFunc
             // 
+            this.gbxPesqFunc.Controls.Add(this.btnDesativar);
             this.gbxPesqFunc.Controls.Add(this.cbxPermissao);
+            this.gbxPesqFunc.Controls.Add(this.btnDetalhes);
             this.gbxPesqFunc.Controls.Add(this.lblPermissao);
+            this.gbxPesqFunc.Controls.Add(this.btnEditar);
             this.gbxPesqFunc.Controls.Add(this.tbxMatricula);
-            this.gbxPesqFunc.Controls.Add(this.flowLayoutPanel1);
+            this.gbxPesqFunc.Controls.Add(this.btnNFuncionario);
+            this.gbxPesqFunc.Controls.Add(this.btnFechar);
             this.gbxPesqFunc.Controls.Add(this.listVFuncionario);
             this.gbxPesqFunc.Controls.Add(this.gbxLmtPerAdmissao);
             this.gbxPesqFunc.Controls.Add(this.btnLimpar);
@@ -229,6 +231,18 @@
             this.gbxPesqFunc.TabStop = false;
             this.gbxPesqFunc.Text = "Pesquisar Funcionário";
             // 
+            // btnDesativar
+            // 
+            this.btnDesativar.Image = global::SGA.Properties.Resources._1370637874_user_male_delete;
+            this.btnDesativar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDesativar.Location = new System.Drawing.Point(62, 548);
+            this.btnDesativar.Name = "btnDesativar";
+            this.btnDesativar.Size = new System.Drawing.Size(148, 44);
+            this.btnDesativar.TabIndex = 32;
+            this.btnDesativar.Text = "Desativar";
+            this.btnDesativar.UseVisualStyleBackColor = true;
+            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
+            // 
             // cbxPermissao
             // 
             this.cbxPermissao.FormattingEnabled = true;
@@ -237,6 +251,18 @@
             this.cbxPermissao.Size = new System.Drawing.Size(167, 24);
             this.cbxPermissao.TabIndex = 36;
             this.cbxPermissao.SelectedIndexChanged += new System.EventHandler(this.cbxPermissao_SelectedIndexChanged);
+            // 
+            // btnDetalhes
+            // 
+            this.btnDetalhes.Image = global::SGA.Properties.Resources._1370637053_cv;
+            this.btnDetalhes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDetalhes.Location = new System.Drawing.Point(216, 548);
+            this.btnDetalhes.Name = "btnDetalhes";
+            this.btnDetalhes.Size = new System.Drawing.Size(148, 44);
+            this.btnDetalhes.TabIndex = 28;
+            this.btnDetalhes.Text = "Detalhes";
+            this.btnDetalhes.UseVisualStyleBackColor = true;
+            this.btnDetalhes.Click += new System.EventHandler(this.btnDetalhes_Click);
             // 
             // lblPermissao
             // 
@@ -247,45 +273,11 @@
             this.lblPermissao.TabIndex = 35;
             this.lblPermissao.Text = "Permissão:";
             // 
-            // tbxMatricula
-            // 
-            this.tbxMatricula.Location = new System.Drawing.Point(116, 50);
-            this.tbxMatricula.Name = "tbxMatricula";
-            this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
-            this.tbxMatricula.TabIndex = 34;
-            this.tbxMatricula.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.tbxMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMatricula_KeyPress);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnDetalhes);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditar);
-            this.flowLayoutPanel1.Controls.Add(this.btnNFuncionario);
-            this.flowLayoutPanel1.Controls.Add(this.btnDesativar);
-            this.flowLayoutPanel1.Controls.Add(this.btnFechar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(70, 530);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(772, 53);
-            this.flowLayoutPanel1.TabIndex = 33;
-            // 
-            // btnDetalhes
-            // 
-            this.btnDetalhes.Image = global::SGA.Properties.Resources._1370637053_cv;
-            this.btnDetalhes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDetalhes.Location = new System.Drawing.Point(3, 3);
-            this.btnDetalhes.Name = "btnDetalhes";
-            this.btnDetalhes.Size = new System.Drawing.Size(148, 44);
-            this.btnDetalhes.TabIndex = 28;
-            this.btnDetalhes.Text = "Detalhes";
-            this.btnDetalhes.UseVisualStyleBackColor = true;
-            this.btnDetalhes.Click += new System.EventHandler(this.btnDetalhes_Click);
-            // 
             // btnEditar
             // 
             this.btnEditar.Image = global::SGA.Properties.Resources._1370637407_user_male_edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.Location = new System.Drawing.Point(157, 3);
+            this.btnEditar.Location = new System.Drawing.Point(370, 548);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(148, 44);
             this.btnEditar.TabIndex = 29;
@@ -293,11 +285,21 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // tbxMatricula
+            // 
+            this.tbxMatricula.Location = new System.Drawing.Point(116, 50);
+            this.tbxMatricula.MaxLength = 6;
+            this.tbxMatricula.Name = "tbxMatricula";
+            this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
+            this.tbxMatricula.TabIndex = 34;
+            this.tbxMatricula.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbxMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMatricula_KeyPress);
+            // 
             // btnNFuncionario
             // 
             this.btnNFuncionario.Image = global::SGA.Properties.Resources._1370637313_user_male_add;
             this.btnNFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNFuncionario.Location = new System.Drawing.Point(311, 3);
+            this.btnNFuncionario.Location = new System.Drawing.Point(524, 548);
             this.btnNFuncionario.Name = "btnNFuncionario";
             this.btnNFuncionario.Size = new System.Drawing.Size(148, 44);
             this.btnNFuncionario.TabIndex = 31;
@@ -306,23 +308,11 @@
             this.btnNFuncionario.UseVisualStyleBackColor = true;
             this.btnNFuncionario.Click += new System.EventHandler(this.btnNFuncionario_Click);
             // 
-            // btnDesativar
-            // 
-            this.btnDesativar.Image = global::SGA.Properties.Resources._1370637874_user_male_delete;
-            this.btnDesativar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDesativar.Location = new System.Drawing.Point(465, 3);
-            this.btnDesativar.Name = "btnDesativar";
-            this.btnDesativar.Size = new System.Drawing.Size(148, 44);
-            this.btnDesativar.TabIndex = 32;
-            this.btnDesativar.Text = "Desativar";
-            this.btnDesativar.UseVisualStyleBackColor = true;
-            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
-            // 
             // btnFechar
             // 
             this.btnFechar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFechar.Location = new System.Drawing.Point(619, 3);
+            this.btnFechar.Location = new System.Drawing.Point(678, 548);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(148, 44);
             this.btnFechar.TabIndex = 30;
@@ -360,7 +350,6 @@
             this.gbxLmtPerAdmissao.PerformLayout();
             this.gbxPesqFunc.ResumeLayout(false);
             this.gbxPesqFunc.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -386,7 +375,6 @@
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnNFuncionario;
         private System.Windows.Forms.Button btnDesativar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox tbxMatricula;
         private System.Windows.Forms.ColumnHeader Matricula;
         private System.Windows.Forms.ColumnHeader Nome;

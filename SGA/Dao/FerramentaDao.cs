@@ -522,7 +522,7 @@ namespace SGA.Dao
             {
                 if (objFerramenta.periodo[0] == "Aquisicao")
                 {
-                    comando = comando + " AND dt_aquisicao between '" + objFerramenta.periodo[1] + "' AND '" + objFerramenta.periodo[2] + "'";
+                    comando = comando + " AND dt_aquisicao between '" + Convert.ToDateTime(objFerramenta.periodo[1]) + "' AND '" +  Convert.ToDateTime(objFerramenta.periodo[2]) + "'";
                 }
             }
             if (objFerramenta.codSituacao + "" != "")

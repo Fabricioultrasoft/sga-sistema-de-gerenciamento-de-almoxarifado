@@ -60,7 +60,7 @@ namespace SGA.Telas
             get { return i_funcionarioRequisitante; }
             set { i_funcionarioRequisitante = value; }
         }
-        
+
 
         private void montarTela()
         {
@@ -95,7 +95,7 @@ namespace SGA.Telas
                 listVFerramenta.Items.Add(item);
             }
             preencherLstVfuncionario();
-            
+
         }
 
         private void preencherLstVfuncionario()
@@ -159,52 +159,16 @@ namespace SGA.Telas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Mensagem mensagem = new Mensagem("Entre com a senha do atendente.", "senha", SGA.Properties.Resources.key);
-            while (1 == 1)
+            if (arrayFerramentas.Count <= 0)
             {
-                mensagem.tbxSenha.Text = "";
-                mensagem.ShowDialog();
-                try
-                {
-
-                    if (mensagem.DialogResult == DialogResult.OK)
-                    {
-                        FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
-
-                        Funcionario funcionario = usuarioLogado;
-
-                        funcionario.senha = Criptografia.Encrypt(mensagem.texto);
-
-                        funcionarioDel.Logar(funcionario);
-
-                        break;
-
-                    }
-                    else
-                    {
-                        mensagem.DialogResult = DialogResult.Cancel;
-                        break;
-                    }
-                }
-                catch (Exception erro)
-                {
-                    if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
-                    {
-                        new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
-                    }
-                    else
-                    {
-                        new Mensagem(erro.Message, "informacao", SGA.Properties.Resources.erro).ShowDialog();
-                        break;
-                    }
-
-                }
+                new Mensagem("Adicione ao menos uma\n ferramenta para salvar \na requisição!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
             }
-            if (mensagem.DialogResult == DialogResult.OK)
+            else
             {
+
+                Mensagem mensagem = new Mensagem("Entre com a senha do atendente.", "senha", SGA.Properties.Resources.key);
                 while (1 == 1)
                 {
-                    mensagem = new Mensagem("Entre com a senha \nfuncionário requisitante.", "senha", SGA.Properties.Resources.key);
                     mensagem.tbxSenha.Text = "";
                     mensagem.ShowDialog();
                     try
@@ -214,26 +178,18 @@ namespace SGA.Telas
                         {
                             FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
 
-                            Funcionario funcionario = funcionarioRequisitante;
+                            Funcionario funcionario = usuarioLogado;
 
                             funcionario.senha = Criptografia.Encrypt(mensagem.texto);
 
                             funcionarioDel.Logar(funcionario);
-                            Requisicao requisicao = new Requisicao();
-                            requisicao.ferramentas = this.arrayFerramentas;
-                            requisicao.funcionario.Add(usuarioLogado);
-                            requisicao.funcionario.Add(funcionarioRequisitante);
 
-                            RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-                            requisicaoDel.gravarRequisicao(requisicao);
-
-                            new Mensagem("Requisição cadstrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
-                            this.DialogResult = DialogResult.OK;
                             break;
-                            
+
                         }
                         else
                         {
+                            mensagem.DialogResult = DialogResult.Cancel;
                             break;
                         }
                     }
@@ -250,15 +206,66 @@ namespace SGA.Telas
                         }
 
                     }
-
                 }
                 if (mensagem.DialogResult == DialogResult.OK)
                 {
-                    this.Close();
+                    while (1 == 1)
+                    {
+                        mensagem = new Mensagem("Entre com a senha \nfuncionário requisitante.", "senha", SGA.Properties.Resources.key);
+                        mensagem.tbxSenha.Text = "";
+                        mensagem.ShowDialog();
+                        try
+                        {
+
+                            if (mensagem.DialogResult == DialogResult.OK)
+                            {
+                                FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
+
+                                Funcionario funcionario = funcionarioRequisitante;
+
+                                funcionario.senha = Criptografia.Encrypt(mensagem.texto);
+
+                                funcionarioDel.Logar(funcionario);
+                                Requisicao requisicao = new Requisicao();
+                                requisicao.ferramentas = this.arrayFerramentas;
+                                requisicao.funcionario.Add(usuarioLogado);
+                                requisicao.funcionario.Add(funcionarioRequisitante);
+
+                                RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
+                                requisicaoDel.gravarRequisicao(requisicao);
+
+                                new Mensagem("Requisição cadstrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                                this.DialogResult = DialogResult.OK;
+                                break;
+
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        catch (Exception erro)
+                        {
+                            if (erro.Message == "Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!")
+                            {
+                                new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                            }
+                            else
+                            {
+                                new Mensagem(erro.Message, "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                                break;
+                            }
+
+                        }
+
+                    }
+                    if (mensagem.DialogResult == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
+
             }
-            
-            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -303,6 +310,10 @@ namespace SGA.Telas
             if (objFerramentaSelecionada == null)
             {
                 new Mensagem("Selecione uma ferramenta \n primeiro!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
+            }
+            else if (arrayFerramentas.Count <= 0)
+            {
+                new Mensagem("Não existe ferramentas na requisição!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
             }
             else
             {

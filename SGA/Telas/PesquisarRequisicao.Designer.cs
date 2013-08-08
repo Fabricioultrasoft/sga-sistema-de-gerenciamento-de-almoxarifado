@@ -246,6 +246,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(133, 66);
+            this.textBox3.MaxLength = 5;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(167, 23);
             this.textBox3.TabIndex = 40;
@@ -254,6 +255,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(565, 111);
+            this.textBox2.MaxLength = 6;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 23);
             this.textBox2.TabIndex = 39;
@@ -272,6 +274,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(565, 69);
+            this.textBox1.MaxLength = 6;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 23);
             this.textBox1.TabIndex = 37;
@@ -329,6 +332,7 @@
             // tbxNome
             // 
             this.tbxNome.Location = new System.Drawing.Point(565, 27);
+            this.tbxNome.MaxLength = 6;
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 4;

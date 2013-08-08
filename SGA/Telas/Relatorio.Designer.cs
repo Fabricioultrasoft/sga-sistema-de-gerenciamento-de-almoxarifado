@@ -80,9 +80,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtpickerFinal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dtpickerInicio = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.gbxTipoRelatorio = new System.Windows.Forms.GroupBox();
             this.rbtnFerramentasReqisitadas = new System.Windows.Forms.RadioButton();
@@ -246,6 +246,7 @@
             this.btnLimparFuncionario.TabIndex = 43;
             this.btnLimparFuncionario.Text = "Limpar";
             this.btnLimparFuncionario.UseVisualStyleBackColor = true;
+            this.btnLimparFuncionario.Click += new System.EventHandler(this.btnLimparFuncionario_Click);
             // 
             // cbxPermissao
             // 
@@ -285,6 +286,7 @@
             this.dtpickekAdmissaoFinal.Name = "dtpickekAdmissaoFinal";
             this.dtpickekAdmissaoFinal.Size = new System.Drawing.Size(99, 23);
             this.dtpickekAdmissaoFinal.TabIndex = 31;
+            this.dtpickekAdmissaoFinal.ValueChanged += new System.EventHandler(this.dtpickekAdmissaoFinal_ValueChanged);
             // 
             // label2
             // 
@@ -302,6 +304,7 @@
             this.dtpickekAdmissaoInicio.Name = "dtpickekAdmissaoInicio";
             this.dtpickekAdmissaoInicio.Size = new System.Drawing.Size(99, 23);
             this.dtpickekAdmissaoInicio.TabIndex = 29;
+            this.dtpickekAdmissaoInicio.ValueChanged += new System.EventHandler(this.dtpickekAdmissaoInicio_ValueChanged);
             // 
             // btnRedefinirPeriodoAdmissao
             // 
@@ -314,6 +317,7 @@
             this.btnRedefinirPeriodoAdmissao.Text = "Redefinir Período";
             this.btnRedefinirPeriodoAdmissao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRedefinirPeriodoAdmissao.UseVisualStyleBackColor = true;
+            this.btnRedefinirPeriodoAdmissao.Click += new System.EventHandler(this.btnRedefinirPeriodoAdmissao_Click);
             // 
             // lblMatricula
             // 
@@ -344,9 +348,12 @@
             // tbxMatricula
             // 
             this.tbxMatricula.Location = new System.Drawing.Point(205, 22);
+            this.tbxMatricula.MaxLength = 6;
             this.tbxMatricula.Name = "tbxMatricula";
             this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
             this.tbxMatricula.TabIndex = 40;
+            this.tbxMatricula.TextChanged += new System.EventHandler(this.tbxMatricula_TextChanged);
+            this.tbxMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMatricula_KeyPress);
             // 
             // lblFuncao
             // 
@@ -387,6 +394,7 @@
             this.btnLimparFerramenta.TabIndex = 46;
             this.btnLimparFerramenta.Text = "Limpar";
             this.btnLimparFerramenta.UseVisualStyleBackColor = true;
+            this.btnLimparFerramenta.Click += new System.EventHandler(this.btnLimparFerramenta_Click);
             // 
             // cbxSituacao
             // 
@@ -454,6 +462,7 @@
             this.dtpickerFinalFerramenta.Name = "dtpickerFinalFerramenta";
             this.dtpickerFinalFerramenta.Size = new System.Drawing.Size(99, 23);
             this.dtpickerFinalFerramenta.TabIndex = 31;
+            this.dtpickerFinalFerramenta.ValueChanged += new System.EventHandler(this.dtpickerFinalFerramenta_ValueChanged);
             // 
             // lblDtInicio
             // 
@@ -471,6 +480,7 @@
             this.dtpickerInicioFerramenta.Name = "dtpickerInicioFerramenta";
             this.dtpickerInicioFerramenta.Size = new System.Drawing.Size(99, 23);
             this.dtpickerInicioFerramenta.TabIndex = 29;
+            this.dtpickerInicioFerramenta.ValueChanged += new System.EventHandler(this.dtpickerInicioFerramenta_ValueChanged);
             // 
             // btnRedPeriodoFerramenta
             // 
@@ -483,13 +493,16 @@
             this.btnRedPeriodoFerramenta.Text = "Redefinir Período";
             this.btnRedPeriodoFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRedPeriodoFerramenta.UseVisualStyleBackColor = true;
+            this.btnRedPeriodoFerramenta.Click += new System.EventHandler(this.btnRedPeriodoFerramenta_Click);
             // 
             // tbxCodigo
             // 
             this.tbxCodigo.Location = new System.Drawing.Point(98, 45);
+            this.tbxCodigo.MaxLength = 5;
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(167, 23);
             this.tbxCodigo.TabIndex = 38;
+            this.tbxCodigo.TextChanged += new System.EventHandler(this.tbxCodigo_TextChanged);
             // 
             // cbxFabricante
             // 
@@ -584,6 +597,8 @@
             this.tbxCodigoRequisicao.Name = "tbxCodigoRequisicao";
             this.tbxCodigoRequisicao.Size = new System.Drawing.Size(167, 23);
             this.tbxCodigoRequisicao.TabIndex = 36;
+            this.tbxCodigoRequisicao.TextChanged += new System.EventHandler(this.tbxCodigoRequisicao_TextChanged);
+            this.tbxCodigoRequisicao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCodigoRequisicao_KeyPress);
             // 
             // label7
             // 
@@ -599,9 +614,9 @@
             this.gbxPeriodoRequisicao.Controls.Add(this.comboBox1);
             this.gbxPeriodoRequisicao.Controls.Add(this.label3);
             this.gbxPeriodoRequisicao.Controls.Add(this.label4);
-            this.gbxPeriodoRequisicao.Controls.Add(this.dateTimePicker3);
+            this.gbxPeriodoRequisicao.Controls.Add(this.dtpickerFinal);
             this.gbxPeriodoRequisicao.Controls.Add(this.label5);
-            this.gbxPeriodoRequisicao.Controls.Add(this.dateTimePicker4);
+            this.gbxPeriodoRequisicao.Controls.Add(this.dtpickerInicio);
             this.gbxPeriodoRequisicao.Controls.Add(this.button2);
             this.gbxPeriodoRequisicao.Location = new System.Drawing.Point(8, 164);
             this.gbxPeriodoRequisicao.Name = "gbxPeriodoRequisicao";
@@ -636,13 +651,14 @@
             this.label4.TabIndex = 40;
             this.label4.Text = "Tipo período:";
             // 
-            // dateTimePicker3
+            // dtpickerFinal
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(486, 59);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(99, 23);
-            this.dateTimePicker3.TabIndex = 31;
+            this.dtpickerFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpickerFinal.Location = new System.Drawing.Point(486, 59);
+            this.dtpickerFinal.Name = "dtpickerFinal";
+            this.dtpickerFinal.Size = new System.Drawing.Size(99, 23);
+            this.dtpickerFinal.TabIndex = 31;
+            this.dtpickerFinal.ValueChanged += new System.EventHandler(this.dtpickerFinal_ValueChanged);
             // 
             // label5
             // 
@@ -653,13 +669,14 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Data de início do período:";
             // 
-            // dateTimePicker4
+            // dtpickerInicio
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(486, 23);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(99, 23);
-            this.dateTimePicker4.TabIndex = 29;
+            this.dtpickerInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpickerInicio.Location = new System.Drawing.Point(486, 23);
+            this.dtpickerInicio.Name = "dtpickerInicio";
+            this.dtpickerInicio.Size = new System.Drawing.Size(99, 23);
+            this.dtpickerInicio.TabIndex = 29;
+            this.dtpickerInicio.ValueChanged += new System.EventHandler(this.dtpickerInicio_ValueChanged);
             // 
             // button2
             // 
@@ -801,9 +818,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtpickerFinal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dtpickerInicio;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbxSituacaoRequisicao;
         private System.Windows.Forms.Label label6;

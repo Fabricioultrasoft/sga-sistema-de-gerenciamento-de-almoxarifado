@@ -427,8 +427,8 @@ namespace SGA.Telas
             }
 
             objPesquisaFerramenta.periodo[0] = "Aquisicao";
-            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
-            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString();
+            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString();
             preencherListView();
         }
 

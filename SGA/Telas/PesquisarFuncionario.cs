@@ -51,7 +51,6 @@ namespace SGA.Telas
             set { i_usuarioLogado = value; }
         }
 
-        #region Registro de Eventos
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
@@ -134,15 +133,11 @@ namespace SGA.Telas
             }
         }
 
-        #endregion
-        #region Métodos da classe
         private void manterFuncionario(string tipo)
         {
             ManterFuncionario mFunc = new ManterFuncionario(tipo,objFuncionario, usuarioLogado);
             mFunc.ShowDialog();
         }
-        #endregion
-
 
         private void pesquisarFuncionario()
         {
@@ -168,8 +163,6 @@ namespace SGA.Telas
                 listVFuncionario.Items.Add(item);
             }
         }
-
-        
 
         private void listVFuncionario_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -265,7 +258,7 @@ namespace SGA.Telas
             } 
         }
 
-         private void preencherCbxPermissao()
+        private void preencherCbxPermissao()
         {
             Queue permissao = funcionarioD.preencherCbxPermissao();
             cbxPermissao.Items.Clear();
@@ -340,8 +333,8 @@ namespace SGA.Telas
                 new Mensagem("A data inicial deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
             }
-            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
-            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString();
+            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString();
             preencherListView();
         }
 
@@ -352,8 +345,8 @@ namespace SGA.Telas
                 new Mensagem("A data final deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
             }
-            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
-            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString();
+            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString();
             preencherListView();
         }
 
