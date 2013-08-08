@@ -74,10 +74,8 @@
             this.btnLimparRquisicao = new System.Windows.Forms.Button();
             this.cbxSituacaoRequisicao = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbxCodigoRequisicao = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gbxPeriodoRequisicao = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxTipoPeriodoRequisicao = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpickerFinal = new System.Windows.Forms.DateTimePicker();
@@ -154,7 +152,7 @@
             this.gbxFocoRelatório.Controls.Add(this.rbtnRequisicao);
             this.gbxFocoRelatório.Controls.Add(this.rbtnFerramenta);
             this.gbxFocoRelatório.Controls.Add(this.rbtnFuncionario);
-            this.gbxFocoRelatório.Location = new System.Drawing.Point(510, 29);
+            this.gbxFocoRelatório.Location = new System.Drawing.Point(209, 22);
             this.gbxFocoRelatório.Name = "gbxFocoRelatório";
             this.gbxFocoRelatório.Size = new System.Drawing.Size(151, 117);
             this.gbxFocoRelatório.TabIndex = 3;
@@ -188,6 +186,7 @@
             // rbtnFuncionario
             // 
             this.rbtnFuncionario.AutoSize = true;
+            this.rbtnFuncionario.Checked = true;
             this.rbtnFuncionario.Location = new System.Drawing.Point(25, 29);
             this.rbtnFuncionario.Name = "rbtnFuncionario";
             this.rbtnFuncionario.Size = new System.Drawing.Size(92, 20);
@@ -552,8 +551,6 @@
             this.tabPageRequisicao.Controls.Add(this.btnLimparRquisicao);
             this.tabPageRequisicao.Controls.Add(this.cbxSituacaoRequisicao);
             this.tabPageRequisicao.Controls.Add(this.label6);
-            this.tabPageRequisicao.Controls.Add(this.tbxCodigoRequisicao);
-            this.tabPageRequisicao.Controls.Add(this.label7);
             this.tabPageRequisicao.Controls.Add(this.gbxPeriodoRequisicao);
             this.tabPageRequisicao.Location = new System.Drawing.Point(4, 25);
             this.tabPageRequisicao.Name = "tabPageRequisicao";
@@ -573,11 +570,12 @@
             this.btnLimparRquisicao.TabIndex = 44;
             this.btnLimparRquisicao.Text = "Limpar";
             this.btnLimparRquisicao.UseVisualStyleBackColor = true;
+            this.btnLimparRquisicao.Click += new System.EventHandler(this.btnLimparRquisicao_Click);
             // 
             // cbxSituacaoRequisicao
             // 
             this.cbxSituacaoRequisicao.FormattingEnabled = true;
-            this.cbxSituacaoRequisicao.Location = new System.Drawing.Point(280, 94);
+            this.cbxSituacaoRequisicao.Location = new System.Drawing.Point(263, 69);
             this.cbxSituacaoRequisicao.Name = "cbxSituacaoRequisicao";
             this.cbxSituacaoRequisicao.Size = new System.Drawing.Size(167, 24);
             this.cbxSituacaoRequisicao.TabIndex = 39;
@@ -585,33 +583,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(150, 98);
+            this.label6.Location = new System.Drawing.Point(133, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 16);
             this.label6.TabIndex = 38;
             this.label6.Text = "Situação requisição:";
             // 
-            // tbxCodigoRequisicao
-            // 
-            this.tbxCodigoRequisicao.Location = new System.Drawing.Point(280, 44);
-            this.tbxCodigoRequisicao.Name = "tbxCodigoRequisicao";
-            this.tbxCodigoRequisicao.Size = new System.Drawing.Size(167, 23);
-            this.tbxCodigoRequisicao.TabIndex = 36;
-            this.tbxCodigoRequisicao.TextChanged += new System.EventHandler(this.tbxCodigoRequisicao_TextChanged);
-            this.tbxCodigoRequisicao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCodigoRequisicao_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(160, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 16);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Código requisição:";
-            // 
             // gbxPeriodoRequisicao
             // 
-            this.gbxPeriodoRequisicao.Controls.Add(this.comboBox1);
+            this.gbxPeriodoRequisicao.Controls.Add(this.cbxTipoPeriodoRequisicao);
             this.gbxPeriodoRequisicao.Controls.Add(this.label3);
             this.gbxPeriodoRequisicao.Controls.Add(this.label4);
             this.gbxPeriodoRequisicao.Controls.Add(this.dtpickerFinal);
@@ -625,13 +605,13 @@
             this.gbxPeriodoRequisicao.TabStop = false;
             this.gbxPeriodoRequisicao.Text = "Limitar período ";
             // 
-            // comboBox1
+            // cbxTipoPeriodoRequisicao
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 24);
-            this.comboBox1.TabIndex = 41;
+            this.cbxTipoPeriodoRequisicao.FormattingEnabled = true;
+            this.cbxTipoPeriodoRequisicao.Location = new System.Drawing.Point(127, 44);
+            this.cbxTipoPeriodoRequisicao.Name = "cbxTipoPeriodoRequisicao";
+            this.cbxTipoPeriodoRequisicao.Size = new System.Drawing.Size(167, 24);
+            this.cbxTipoPeriodoRequisicao.TabIndex = 41;
             // 
             // label3
             // 
@@ -689,13 +669,14 @@
             this.button2.Text = "Redefinir Período";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // gbxTipoRelatorio
             // 
             this.gbxTipoRelatorio.Controls.Add(this.rbtnFerramentasReqisitadas);
             this.gbxTipoRelatorio.Controls.Add(this.rbtnLista);
             this.gbxTipoRelatorio.Controls.Add(this.rbtnEventosSistema);
-            this.gbxTipoRelatorio.Location = new System.Drawing.Point(210, 29);
+            this.gbxTipoRelatorio.Location = new System.Drawing.Point(485, 22);
             this.gbxTipoRelatorio.Name = "gbxTipoRelatorio";
             this.gbxTipoRelatorio.Size = new System.Drawing.Size(265, 117);
             this.gbxTipoRelatorio.TabIndex = 2;
@@ -717,6 +698,7 @@
             // rbtnLista
             // 
             this.rbtnLista.AutoSize = true;
+            this.rbtnLista.Checked = true;
             this.rbtnLista.Location = new System.Drawing.Point(23, 55);
             this.rbtnLista.Name = "rbtnLista";
             this.rbtnLista.Size = new System.Drawing.Size(52, 20);
@@ -733,7 +715,6 @@
             this.rbtnEventosSistema.Name = "rbtnEventosSistema";
             this.rbtnEventosSistema.Size = new System.Drawing.Size(136, 20);
             this.rbtnEventosSistema.TabIndex = 0;
-            this.rbtnEventosSistema.TabStop = true;
             this.rbtnEventosSistema.Text = "Eventos no sistema";
             this.rbtnEventosSistema.UseVisualStyleBackColor = true;
             this.rbtnEventosSistema.CheckedChanged += new System.EventHandler(this.rbtnEventosSistema_CheckedChanged);
@@ -815,7 +796,7 @@
         private System.Windows.Forms.RadioButton rbtnLista;
         private System.Windows.Forms.RadioButton rbtnEventosSistema;
         private System.Windows.Forms.GroupBox gbxPeriodoRequisicao;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxTipoPeriodoRequisicao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpickerFinal;
@@ -824,8 +805,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbxSituacaoRequisicao;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbxCodigoRequisicao;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox gbxFiltrarDados;
         private System.Windows.Forms.Button btnLimparFerramenta;
         private System.Windows.Forms.Button btnLimparRquisicao;

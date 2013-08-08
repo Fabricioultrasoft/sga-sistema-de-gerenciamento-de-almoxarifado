@@ -150,37 +150,37 @@ namespace SGA
                 menuItemlFuncionario_Click(new object(), new EventArgs()); 
             }
 
-            if (e.KeyCode == Keys.F4)
+            if (e.KeyCode == Keys.F5)
             {
                 MenuItemNFerramenta_Click(new object(), new EventArgs());
             }
 
-            if (e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F6)
             {
                 menuItemlFerramenta_Click(new object(), new EventArgs()); 
             }
 
-             if (e.KeyCode == Keys.F6)
+             if (e.KeyCode == Keys.F7)
              {
                  menuItemNRequisição_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F7)
+             if (e.KeyCode == Keys.F8)
              {
                  menuItemLRequisicao_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F8)
+             if (e.KeyCode == Keys.F9)
              {
                  MenuItmRelatorios_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F9)
+             if (e.KeyCode == Keys.F10)
              {
                  MenuItmLogoff_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F10)
+             if (e.KeyCode == Keys.F11)
              {
                  MenuItmSair_Click(new object(), new EventArgs());
              }

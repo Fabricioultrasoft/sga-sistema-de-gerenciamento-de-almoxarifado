@@ -17,7 +17,7 @@ namespace SGA.Telas
         private FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
         private Requisicao i_objPesquisa = new Requisicao();
         private FerramentaDelegate ferramentaD = new FerramentaDelegate();
-        
+
         public Relatorio()
         {
             InitializeComponent();
@@ -41,6 +41,9 @@ namespace SGA.Telas
             preenchercbxTipoPeriodo();
             setDtpickersFerramenta();
             setDtpickersRequisicao();
+            preencherCbxSituacaoRequisicao();
+            preenchercbxTipoPeriodoRequisuicao();
+            mudancaFocoRelatorio();
         }
 
         private void preenchercbxTipoPeriodo()
@@ -48,62 +51,6 @@ namespace SGA.Telas
             cbxTipoPeriodoFerramenta.Items.Add("");
             cbxTipoPeriodoFerramenta.Items.Add("Aquisicao");
             cbxTipoPeriodoFerramenta.Items.Add("Desativação");
-        }
-
-        private void mudançaTipoRelatorio(RadioButton radiobutton)
-        {
-            rbtnFuncionario.Checked = true;
-
-            if (radiobutton == rbtnEventosSistema)
-            {
-                rbtnRequisicao.Enabled = false;
-                rbtnFerramenta.Enabled = true;
-                rbtnFuncionario.Enabled = true;
-            }
-            else if(radiobutton == rbtnLista)
-            {
-                rbtnRequisicao.Enabled = true;
-                rbtnFerramenta.Enabled = true;
-                rbtnFuncionario.Enabled = true;
-            }
-            else 
-            {
-                rbtnRequisicao.Enabled = false;
-                rbtnFerramenta.Checked = true;
-                rbtnFuncionario.Enabled = false;
-            }
-        }
-
-        private void mudancaFocoRelatorio(RadioButton radiobutton)
-        {
-            tabControl1.Controls.Remove(tabPageFerramenta);
-            tabControl1.Controls.Remove(tabPageRequisicao);
-            tabControl1.Controls.Remove(tabPageFuncionario);
-
-            if (radiobutton == rbtnFuncionario)
-            {
-                tabControl1.Controls.Add(tabPageFuncionario);
-            }
-            else if (radiobutton == rbtnFerramenta)
-            {
-                tabControl1.Controls.Add(tabPageFerramenta);
-            }
-            else
-            {
-                if (rbtnEventosSistema.Checked)
-                {
-                    tbxCodigo.Enabled = false;
-                    tbxMatricula.Enabled = false;
-                }
-                else
-                {
-                    tbxCodigo.Enabled = true;
-                    tbxMatricula.Enabled = true;
-                }
-                tabControl1.Controls.Add(tabPageFerramenta);
-                tabControl1.Controls.Add(tabPageRequisicao);
-                tabControl1.Controls.Add(tabPageFuncionario);
-            }
         }
 
         private void Relatorio_Load(object sender, EventArgs e)
@@ -124,50 +71,74 @@ namespace SGA.Telas
 
         private void rbtnEventosSistema_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnEventosSistema.Checked)
-            {
-                mudançaTipoRelatorio(rbtnEventosSistema);
-            }
+            mudancaFocoRelatorio();
         }
 
         private void rbtnLista_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnLista.Checked)
-            {
-                mudançaTipoRelatorio(rbtnLista);
-            }
+            mudancaFocoRelatorio();
         }
 
         private void rbtnFerramentasReqisitadas_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnFerramentasReqisitadas.Checked)
-            {
-                mudançaTipoRelatorio(rbtnFerramentasReqisitadas);
-            }
+            mudancaFocoRelatorio();
         }
 
         private void rbtnFuncionario_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnFuncionario.Checked)
-            {
-                mudancaFocoRelatorio(rbtnFuncionario);
-            }
+            mudancaFocoRelatorio();
         }
 
         private void rbtnFerramenta_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnFerramenta.Checked)
-            {
-                mudancaFocoRelatorio(rbtnFerramenta);
-            }
+            mudancaFocoRelatorio();
         }
 
         private void rbtnRequisicao_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtnRequisicao.Checked)
+            mudancaFocoRelatorio();
+        }
+
+        private void mudancaFocoRelatorio()
+        {
+            tabControl1.Controls.Remove(tabPageFerramenta);
+            tabControl1.Controls.Remove(tabPageFuncionario);
+            tabControl1.Controls.Remove(tabPageRequisicao);
+
+            rbtnFerramentasReqisitadas.Visible = false;
+
+            if (rbtnFuncionario.Checked)
             {
-                mudancaFocoRelatorio(rbtnRequisicao);
+                tabControl1.Controls.Add(tabPageFuncionario);
             }
+            else if (rbtnFerramenta.Checked)
+            {
+                tabControl1.Controls.Add(tabPageFerramenta);
+                rbtnFerramentasReqisitadas.Visible = true;
+            }
+            else
+            {
+                tabControl1.Controls.Add(tabPageFerramenta);
+                tabControl1.Controls.Add(tabPageFuncionario);
+                tabControl1.Controls.Add(tabPageRequisicao);
+            }
+
+            tbxMatricula.Enabled = true;
+            tbxCodigo.Enabled = true;
+            cbxSituacaoRequisicao.Enabled = true;
+
+
+            if (rbtnLista.Checked)
+            {
+                tbxMatricula.Enabled = false;
+                tbxCodigo.Enabled = false;
+            }
+            else if (rbtnFerramentasReqisitadas.Checked)
+            {
+                tbxCodigo.Enabled = false;
+                cbxSituacaoRequisicao.Enabled = false;
+            }
+
         }
 
         private void tbxCodigoRequisicao_KeyPress(object sender, KeyPressEventArgs e)
@@ -337,6 +308,7 @@ namespace SGA.Telas
         private void btnRedPeriodoFerramenta_Click(object sender, EventArgs e)
         {
             setDtpickersFerramenta();
+            cbxTipoPeriodoFerramenta.SelectedItem = "";
         }
 
         private void btnLimparFerramenta_Click(object sender, EventArgs e)
@@ -385,18 +357,6 @@ namespace SGA.Telas
 
         }
 
-        private void tbxCodigoRequisicao_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Int32 i = Convert.ToInt32(tbxCodigoRequisicao.Text);
-            }
-            catch
-            {
-                tbxCodigo.Text = "";
-            }
-        }
-
         private void tbxCodigo_TextChanged(object sender, EventArgs e)
         {
             try
@@ -414,6 +374,23 @@ namespace SGA.Telas
             cbxSituacaoRequisicao.Items.Add("");
             cbxSituacaoRequisicao.Items.Add("Abertas");
             cbxSituacaoRequisicao.Items.Add("Fechadas");
+        }
+        private void preenchercbxTipoPeriodoRequisuicao()
+        {
+            cbxTipoPeriodoRequisicao.Items.Add("");
+            cbxTipoPeriodoRequisicao.Items.Add("Criação");
+            cbxTipoPeriodoRequisicao.Items.Add("Baixa");
+        }
+
+        private void btnLimparRquisicao_Click(object sender, EventArgs e)
+        {
+            cbxSituacaoRequisicao.SelectedItem = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            setDtpickersRequisicao();
+            cbxTipoPeriodoRequisicao.SelectedItem = "";
         }
     }
 }
