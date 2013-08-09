@@ -446,5 +446,10 @@ namespace SGA.Telas
             setDtpickersRequisicao();
             cbxTipoPeriodoRequisicao.SelectedItem = "";
         }
+
+        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+            new TelaRelatorio().ShowDialog();
+        }
     }
 }

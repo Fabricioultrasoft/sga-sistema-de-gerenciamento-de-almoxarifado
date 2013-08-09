@@ -34,6 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -145,6 +147,12 @@
     <Compile Include="Telas\Relatorio.Designer.cs">
       <DependentUpon>Relatorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Telas\TelaRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaRelatorio.Designer.cs">
+      <DependentUpon>TelaRelatorio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Telas\CLogin.resx">
       <DependentUpon>CLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Relatorio.resx">
       <DependentUpon>Relatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaRelatorio.resx">
+      <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

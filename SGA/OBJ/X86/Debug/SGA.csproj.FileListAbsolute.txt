@@ -17,3 +17,4 @@ C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.Relatorio.resources
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.csproj.GenerateResource.Cache
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.exe
 C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.pdb
+C:\Users\carlos\Desktop\SGA\SGA\obj\x86\Debug\SGA.Telas.TelaRelatorio.resources
