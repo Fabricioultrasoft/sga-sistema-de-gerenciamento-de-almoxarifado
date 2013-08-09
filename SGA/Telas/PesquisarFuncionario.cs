@@ -338,8 +338,8 @@ namespace SGA.Telas
                 new Mensagem("A data inicial deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
             }
-            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString();
-            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString();
+            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
             preencherListView();
         }
 
@@ -350,17 +350,17 @@ namespace SGA.Telas
                 new Mensagem("A data final deve ser menor \n que a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
             }
-            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString();
-            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString();
+            objPesquisaFunc.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFunc.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
             preencherListView();
         }
 
         private void setDtpickers()
         {
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
             dtpickerInicio.Value = dtpickerInicio.MinDate;
             dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            dtpickerFinal.MaxDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            dtpickerFinal.MaxDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
             dtpickerFinal.Value = dtpickerFinal.MaxDate;
         }

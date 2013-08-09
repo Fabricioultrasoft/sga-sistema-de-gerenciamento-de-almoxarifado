@@ -413,8 +413,8 @@ namespace SGA.Telas
             }
 
             objPesquisaFerramenta.periodo[0] = "Aquisicao";
-            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
-            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
             preencherListView();
         }
 
@@ -427,17 +427,17 @@ namespace SGA.Telas
             }
 
             objPesquisaFerramenta.periodo[0] = "Aquisicao";
-            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString();
-            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString();
+            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
             preencherListView();
         }
 
         private void setDtpickers()
         {
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(ferramentaDel.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(ferramentaDel.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
             dtpickerInicio.Value = dtpickerInicio.MinDate;
             dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             if (dtpickerFinal.MinDate.AddDays(-1) == data)
             {
                 dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);

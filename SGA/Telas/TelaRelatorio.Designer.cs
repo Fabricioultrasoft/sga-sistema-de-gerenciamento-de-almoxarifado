@@ -59,10 +59,19 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+<<<<<<< .mine
+            reportDataSource1.Name = "RelatorioDataSet";
+            reportDataSource1.Value = this.tb_requisicaoBindingSource;
+=======
             reportDataSource1.Name = "GeraRelatorioFerramenta";
             reportDataSource1.Value = this.tb_ferramentaBindingSource;
+>>>>>>> .r30
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+<<<<<<< .mine
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+=======
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.Report2.rdlc";
+>>>>>>> .r30
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(930, 611);
