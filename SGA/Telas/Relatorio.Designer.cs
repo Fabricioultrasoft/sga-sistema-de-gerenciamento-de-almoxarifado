@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gbxrelatorio = new System.Windows.Forms.GroupBox();
+            this.btnGerarRelatorio = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimparTudo = new System.Windows.Forms.Button();
             this.gbxFocoRelatório = new System.Windows.Forms.GroupBox();
             this.rbtnRequisicao = new System.Windows.Forms.RadioButton();
             this.rbtnFerramenta = new System.Windows.Forms.RadioButton();
@@ -36,18 +39,21 @@
             this.gbxFiltrarDados = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFuncionario = new System.Windows.Forms.TabPage();
+            this.btnLimparFuncionario = new System.Windows.Forms.Button();
             this.cbxPermissao = new System.Windows.Forms.ComboBox();
             this.gbxPeriodoAdimissao = new System.Windows.Forms.GroupBox();
             this.lblpickerFinal = new System.Windows.Forms.Label();
             this.dtpickekAdmissaoFinal = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpickekAdmissaoInicio = new System.Windows.Forms.DateTimePicker();
+            this.btnRedefinirPeriodoAdmissao = new System.Windows.Forms.Button();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.cbxFuncao = new System.Windows.Forms.ComboBox();
             this.lblPermissao = new System.Windows.Forms.Label();
             this.tbxMatricula = new System.Windows.Forms.TextBox();
             this.lblFuncao = new System.Windows.Forms.Label();
             this.tabPageFerramenta = new System.Windows.Forms.TabPage();
+            this.btnLimparFerramenta = new System.Windows.Forms.Button();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.lblSituacao = new System.Windows.Forms.Label();
             this.gbxLmtPerAdmissao = new System.Windows.Forms.GroupBox();
@@ -57,6 +63,7 @@
             this.dtpickerFinalFerramenta = new System.Windows.Forms.DateTimePicker();
             this.lblDtInicio = new System.Windows.Forms.Label();
             this.dtpickerInicioFerramenta = new System.Windows.Forms.DateTimePicker();
+            this.btnRedPeriodoFerramenta = new System.Windows.Forms.Button();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.cbxFabricante = new System.Windows.Forms.ComboBox();
             this.lblGrupo = new System.Windows.Forms.Label();
@@ -64,6 +71,7 @@
             this.cbxGrupo = new System.Windows.Forms.ComboBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.tabPageRequisicao = new System.Windows.Forms.TabPage();
+            this.btnLimparRquisicao = new System.Windows.Forms.Button();
             this.cbxSituacaoRequisicao = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gbxPeriodoRequisicao = new System.Windows.Forms.GroupBox();
@@ -73,19 +81,13 @@
             this.dtpickerFinal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpickerInicio = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
             this.gbxTipoRelatorio = new System.Windows.Forms.GroupBox();
             this.rbtnFerramentasReqisitadas = new System.Windows.Forms.RadioButton();
             this.rbtnLista = new System.Windows.Forms.RadioButton();
             this.rbtnEventosSistema = new System.Windows.Forms.RadioButton();
-            this.btnGerarRelatorio = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnLimparTudo = new System.Windows.Forms.Button();
-            this.btnLimparFuncionario = new System.Windows.Forms.Button();
-            this.btnRedefinirPeriodoAdmissao = new System.Windows.Forms.Button();
-            this.btnLimparFerramenta = new System.Windows.Forms.Button();
-            this.btnRedPeriodoFerramenta = new System.Windows.Forms.Button();
-            this.btnLimparRquisicao = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cbxPapel = new System.Windows.Forms.ComboBox();
+            this.lblPapel = new System.Windows.Forms.Label();
             this.gbxrelatorio.SuspendLayout();
             this.gbxFocoRelatório.SuspendLayout();
             this.gbxFiltrarDados.SuspendLayout();
@@ -112,6 +114,41 @@
             this.gbxrelatorio.Size = new System.Drawing.Size(922, 620);
             this.gbxrelatorio.TabIndex = 0;
             this.gbxrelatorio.TabStop = false;
+            // 
+            // btnGerarRelatorio
+            // 
+            this.btnGerarRelatorio.Image = global::SGA.Properties.Resources._1375818175_Generate_tables1;
+            this.btnGerarRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(389, 555);
+            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
+            this.btnGerarRelatorio.Size = new System.Drawing.Size(148, 44);
+            this.btnGerarRelatorio.TabIndex = 47;
+            this.btnGerarRelatorio.Text = "Gerar Relatório";
+            this.btnGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarRelatorio.UseVisualStyleBackColor = true;
+            this.btnGerarRelatorio.Click += new System.EventHandler(this.btnGerarRelatorio_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.Location = new System.Drawing.Point(630, 555);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(148, 44);
+            this.btnCancelar.TabIndex = 46;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparTudo
+            // 
+            this.btnLimparTudo.Image = global::SGA.Properties.Resources._1375863032_edit_clear;
+            this.btnLimparTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparTudo.Location = new System.Drawing.Point(148, 555);
+            this.btnLimparTudo.Name = "btnLimparTudo";
+            this.btnLimparTudo.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparTudo.TabIndex = 45;
+            this.btnLimparTudo.Text = "Limpar Tudo";
+            this.btnLimparTudo.UseVisualStyleBackColor = true;
             // 
             // gbxFocoRelatório
             // 
@@ -185,6 +222,8 @@
             // 
             // tabPageFuncionario
             // 
+            this.tabPageFuncionario.Controls.Add(this.cbxPapel);
+            this.tabPageFuncionario.Controls.Add(this.lblPapel);
             this.tabPageFuncionario.Controls.Add(this.btnLimparFuncionario);
             this.tabPageFuncionario.Controls.Add(this.cbxPermissao);
             this.tabPageFuncionario.Controls.Add(this.gbxPeriodoAdimissao);
@@ -201,10 +240,22 @@
             this.tabPageFuncionario.Text = "Funcionário";
             this.tabPageFuncionario.UseVisualStyleBackColor = true;
             // 
+            // btnLimparFuncionario
+            // 
+            this.btnLimparFuncionario.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparFuncionario.Location = new System.Drawing.Point(647, 60);
+            this.btnLimparFuncionario.Name = "btnLimparFuncionario";
+            this.btnLimparFuncionario.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparFuncionario.TabIndex = 43;
+            this.btnLimparFuncionario.Text = "Limpar";
+            this.btnLimparFuncionario.UseVisualStyleBackColor = true;
+            this.btnLimparFuncionario.Click += new System.EventHandler(this.btnLimparFuncionario_Click);
+            // 
             // cbxPermissao
             // 
             this.cbxPermissao.FormattingEnabled = true;
-            this.cbxPermissao.Location = new System.Drawing.Point(205, 125);
+            this.cbxPermissao.Location = new System.Drawing.Point(109, 125);
             this.cbxPermissao.Name = "cbxPermissao";
             this.cbxPermissao.Size = new System.Drawing.Size(167, 24);
             this.cbxPermissao.TabIndex = 42;
@@ -259,10 +310,23 @@
             this.dtpickekAdmissaoInicio.TabIndex = 29;
             this.dtpickekAdmissaoInicio.ValueChanged += new System.EventHandler(this.dtpickekAdmissaoInicio_ValueChanged);
             // 
+            // btnRedefinirPeriodoAdmissao
+            // 
+            this.btnRedefinirPeriodoAdmissao.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
+            this.btnRedefinirPeriodoAdmissao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedefinirPeriodoAdmissao.Location = new System.Drawing.Point(605, 28);
+            this.btnRedefinirPeriodoAdmissao.Name = "btnRedefinirPeriodoAdmissao";
+            this.btnRedefinirPeriodoAdmissao.Size = new System.Drawing.Size(148, 44);
+            this.btnRedefinirPeriodoAdmissao.TabIndex = 28;
+            this.btnRedefinirPeriodoAdmissao.Text = "Redefinir Período";
+            this.btnRedefinirPeriodoAdmissao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRedefinirPeriodoAdmissao.UseVisualStyleBackColor = true;
+            this.btnRedefinirPeriodoAdmissao.Click += new System.EventHandler(this.btnRedefinirPeriodoAdmissao_Click);
+            // 
             // lblMatricula
             // 
             this.lblMatricula.AutoSize = true;
-            this.lblMatricula.Location = new System.Drawing.Point(134, 25);
+            this.lblMatricula.Location = new System.Drawing.Point(38, 25);
             this.lblMatricula.Name = "lblMatricula";
             this.lblMatricula.Size = new System.Drawing.Size(65, 16);
             this.lblMatricula.TabIndex = 37;
@@ -271,7 +335,7 @@
             // cbxFuncao
             // 
             this.cbxFuncao.FormattingEnabled = true;
-            this.cbxFuncao.Location = new System.Drawing.Point(205, 71);
+            this.cbxFuncao.Location = new System.Drawing.Point(109, 71);
             this.cbxFuncao.Name = "cbxFuncao";
             this.cbxFuncao.Size = new System.Drawing.Size(167, 24);
             this.cbxFuncao.TabIndex = 39;
@@ -279,7 +343,7 @@
             // lblPermissao
             // 
             this.lblPermissao.AutoSize = true;
-            this.lblPermissao.Location = new System.Drawing.Point(124, 128);
+            this.lblPermissao.Location = new System.Drawing.Point(28, 128);
             this.lblPermissao.Name = "lblPermissao";
             this.lblPermissao.Size = new System.Drawing.Size(72, 16);
             this.lblPermissao.TabIndex = 41;
@@ -287,7 +351,7 @@
             // 
             // tbxMatricula
             // 
-            this.tbxMatricula.Location = new System.Drawing.Point(205, 22);
+            this.tbxMatricula.Location = new System.Drawing.Point(109, 22);
             this.tbxMatricula.MaxLength = 6;
             this.tbxMatricula.Name = "tbxMatricula";
             this.tbxMatricula.Size = new System.Drawing.Size(167, 23);
@@ -298,7 +362,7 @@
             // lblFuncao
             // 
             this.lblFuncao.AutoSize = true;
-            this.lblFuncao.Location = new System.Drawing.Point(142, 75);
+            this.lblFuncao.Location = new System.Drawing.Point(46, 75);
             this.lblFuncao.Name = "lblFuncao";
             this.lblFuncao.Size = new System.Drawing.Size(54, 16);
             this.lblFuncao.TabIndex = 38;
@@ -323,6 +387,18 @@
             this.tabPageFerramenta.TabIndex = 1;
             this.tabPageFerramenta.Text = "Ferramenta";
             this.tabPageFerramenta.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparFerramenta
+            // 
+            this.btnLimparFerramenta.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparFerramenta.Location = new System.Drawing.Point(649, 53);
+            this.btnLimparFerramenta.Name = "btnLimparFerramenta";
+            this.btnLimparFerramenta.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparFerramenta.TabIndex = 46;
+            this.btnLimparFerramenta.Text = "Limpar";
+            this.btnLimparFerramenta.UseVisualStyleBackColor = true;
+            this.btnLimparFerramenta.Click += new System.EventHandler(this.btnLimparFerramenta_Click);
             // 
             // cbxSituacao
             // 
@@ -410,6 +486,19 @@
             this.dtpickerInicioFerramenta.TabIndex = 29;
             this.dtpickerInicioFerramenta.ValueChanged += new System.EventHandler(this.dtpickerInicioFerramenta_ValueChanged);
             // 
+            // btnRedPeriodoFerramenta
+            // 
+            this.btnRedPeriodoFerramenta.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
+            this.btnRedPeriodoFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRedPeriodoFerramenta.Location = new System.Drawing.Point(611, 22);
+            this.btnRedPeriodoFerramenta.Name = "btnRedPeriodoFerramenta";
+            this.btnRedPeriodoFerramenta.Size = new System.Drawing.Size(148, 44);
+            this.btnRedPeriodoFerramenta.TabIndex = 28;
+            this.btnRedPeriodoFerramenta.Text = "Redefinir Período";
+            this.btnRedPeriodoFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRedPeriodoFerramenta.UseVisualStyleBackColor = true;
+            this.btnRedPeriodoFerramenta.Click += new System.EventHandler(this.btnRedPeriodoFerramenta_Click);
+            // 
             // tbxCodigo
             // 
             this.tbxCodigo.Location = new System.Drawing.Point(98, 45);
@@ -475,6 +564,18 @@
             this.tabPageRequisicao.TabIndex = 2;
             this.tabPageRequisicao.Text = "Requisição";
             this.tabPageRequisicao.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparRquisicao
+            // 
+            this.btnLimparRquisicao.Image = global::SGA.Properties.Resources._1370631243_eraser;
+            this.btnLimparRquisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimparRquisicao.Location = new System.Drawing.Point(513, 58);
+            this.btnLimparRquisicao.Name = "btnLimparRquisicao";
+            this.btnLimparRquisicao.Size = new System.Drawing.Size(148, 44);
+            this.btnLimparRquisicao.TabIndex = 44;
+            this.btnLimparRquisicao.Text = "Limpar";
+            this.btnLimparRquisicao.UseVisualStyleBackColor = true;
+            this.btnLimparRquisicao.Click += new System.EventHandler(this.btnLimparRquisicao_Click);
             // 
             // cbxSituacaoRequisicao
             // 
@@ -562,6 +663,19 @@
             this.dtpickerInicio.TabIndex = 29;
             this.dtpickerInicio.ValueChanged += new System.EventHandler(this.dtpickerInicio_ValueChanged);
             // 
+            // button2
+            // 
+            this.button2.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(624, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 44);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Redefinir Período";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // gbxTipoRelatorio
             // 
             this.gbxTipoRelatorio.Controls.Add(this.rbtnFerramentasReqisitadas);
@@ -610,115 +724,22 @@
             this.rbtnEventosSistema.UseVisualStyleBackColor = true;
             this.rbtnEventosSistema.CheckedChanged += new System.EventHandler(this.rbtnEventosSistema_CheckedChanged);
             // 
-            // btnGerarRelatorio
+            // cbxPapel
             // 
-            this.btnGerarRelatorio.Image = global::SGA.Properties.Resources._1375818175_Generate_tables1;
-            this.btnGerarRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGerarRelatorio.Location = new System.Drawing.Point(389, 555);
-            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
-            this.btnGerarRelatorio.Size = new System.Drawing.Size(148, 44);
-            this.btnGerarRelatorio.TabIndex = 47;
-            this.btnGerarRelatorio.Text = "Gerar Relatório";
-            this.btnGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGerarRelatorio.UseVisualStyleBackColor = true;
-            this.btnGerarRelatorio.Click += new System.EventHandler(this.btnGerarRelatorio_Click);
+            this.cbxPapel.FormattingEnabled = true;
+            this.cbxPapel.Location = new System.Drawing.Point(457, 71);
+            this.cbxPapel.Name = "cbxPapel";
+            this.cbxPapel.Size = new System.Drawing.Size(167, 24);
+            this.cbxPapel.TabIndex = 45;
             // 
-            // btnCancelar
+            // lblPapel
             // 
-            this.btnCancelar.Image = global::SGA.Properties.Resources._1370597340_button_cancel;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.Location = new System.Drawing.Point(630, 555);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(148, 44);
-            this.btnCancelar.TabIndex = 46;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparTudo
-            // 
-            this.btnLimparTudo.Image = global::SGA.Properties.Resources._1375863032_edit_clear;
-            this.btnLimparTudo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparTudo.Location = new System.Drawing.Point(148, 555);
-            this.btnLimparTudo.Name = "btnLimparTudo";
-            this.btnLimparTudo.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparTudo.TabIndex = 45;
-            this.btnLimparTudo.Text = "Limpar Tudo";
-            this.btnLimparTudo.UseVisualStyleBackColor = true;
-            // 
-            // btnLimparFuncionario
-            // 
-            this.btnLimparFuncionario.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparFuncionario.Location = new System.Drawing.Point(478, 61);
-            this.btnLimparFuncionario.Name = "btnLimparFuncionario";
-            this.btnLimparFuncionario.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparFuncionario.TabIndex = 43;
-            this.btnLimparFuncionario.Text = "Limpar";
-            this.btnLimparFuncionario.UseVisualStyleBackColor = true;
-            this.btnLimparFuncionario.Click += new System.EventHandler(this.btnLimparFuncionario_Click);
-            // 
-            // btnRedefinirPeriodoAdmissao
-            // 
-            this.btnRedefinirPeriodoAdmissao.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
-            this.btnRedefinirPeriodoAdmissao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRedefinirPeriodoAdmissao.Location = new System.Drawing.Point(605, 28);
-            this.btnRedefinirPeriodoAdmissao.Name = "btnRedefinirPeriodoAdmissao";
-            this.btnRedefinirPeriodoAdmissao.Size = new System.Drawing.Size(148, 44);
-            this.btnRedefinirPeriodoAdmissao.TabIndex = 28;
-            this.btnRedefinirPeriodoAdmissao.Text = "Redefinir Período";
-            this.btnRedefinirPeriodoAdmissao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRedefinirPeriodoAdmissao.UseVisualStyleBackColor = true;
-            this.btnRedefinirPeriodoAdmissao.Click += new System.EventHandler(this.btnRedefinirPeriodoAdmissao_Click);
-            // 
-            // btnLimparFerramenta
-            // 
-            this.btnLimparFerramenta.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparFerramenta.Location = new System.Drawing.Point(649, 53);
-            this.btnLimparFerramenta.Name = "btnLimparFerramenta";
-            this.btnLimparFerramenta.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparFerramenta.TabIndex = 46;
-            this.btnLimparFerramenta.Text = "Limpar";
-            this.btnLimparFerramenta.UseVisualStyleBackColor = true;
-            this.btnLimparFerramenta.Click += new System.EventHandler(this.btnLimparFerramenta_Click);
-            // 
-            // btnRedPeriodoFerramenta
-            // 
-            this.btnRedPeriodoFerramenta.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
-            this.btnRedPeriodoFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRedPeriodoFerramenta.Location = new System.Drawing.Point(611, 22);
-            this.btnRedPeriodoFerramenta.Name = "btnRedPeriodoFerramenta";
-            this.btnRedPeriodoFerramenta.Size = new System.Drawing.Size(148, 44);
-            this.btnRedPeriodoFerramenta.TabIndex = 28;
-            this.btnRedPeriodoFerramenta.Text = "Redefinir Período";
-            this.btnRedPeriodoFerramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRedPeriodoFerramenta.UseVisualStyleBackColor = true;
-            this.btnRedPeriodoFerramenta.Click += new System.EventHandler(this.btnRedPeriodoFerramenta_Click);
-            // 
-            // btnLimparRquisicao
-            // 
-            this.btnLimparRquisicao.Image = global::SGA.Properties.Resources._1370631243_eraser;
-            this.btnLimparRquisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparRquisicao.Location = new System.Drawing.Point(513, 58);
-            this.btnLimparRquisicao.Name = "btnLimparRquisicao";
-            this.btnLimparRquisicao.Size = new System.Drawing.Size(148, 44);
-            this.btnLimparRquisicao.TabIndex = 44;
-            this.btnLimparRquisicao.Text = "Limpar";
-            this.btnLimparRquisicao.UseVisualStyleBackColor = true;
-            this.btnLimparRquisicao.Click += new System.EventHandler(this.btnLimparRquisicao_Click);
-            // 
-            // button2
-            // 
-            this.button2.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(624, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 44);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Redefinir Período";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.lblPapel.AutoSize = true;
+            this.lblPapel.Location = new System.Drawing.Point(327, 75);
+            this.lblPapel.Name = "lblPapel";
+            this.lblPapel.Size = new System.Drawing.Size(124, 16);
+            this.lblPapel.TabIndex = 44;
+            this.lblPapel.Text = "Papel na requisição:";
             // 
             // Relatorio
             // 
@@ -817,5 +838,7 @@
         private System.Windows.Forms.RadioButton rbtnFerramentasReqisitadas;
         private System.Windows.Forms.Button btnGerarRelatorio;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cbxPapel;
+        private System.Windows.Forms.Label lblPapel;
     }
 }

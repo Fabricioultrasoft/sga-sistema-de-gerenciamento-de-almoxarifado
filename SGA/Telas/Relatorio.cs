@@ -44,6 +44,7 @@ namespace SGA.Telas
             preencherCbxSituacaoRequisicao();
             preenchercbxTipoPeriodoRequisuicao();
             mudancaFocoRelatorio();
+            preencherCbxPapel();
         }
 
         private void preenchercbxTipoPeriodo()
@@ -113,6 +114,8 @@ namespace SGA.Telas
             dtpickekAdmissaoInicio.Enabled = true;
             tbxMatricula.Enabled = true;
             tbxCodigo.Enabled = true;
+            cbxPapel.Visible = false;
+            lblPapel.Visible = false;
 
             rbtnFerramentasReqisitadas.Visible = false;
 
@@ -143,6 +146,8 @@ namespace SGA.Telas
             }
             else
             {
+                cbxPapel.Visible = true;
+                lblPapel.Visible = false;
                 cbxSituacaoRequisicao.Enabled = true;
                 tbxMatricula.Enabled = true;
                 tbxCodigo.Enabled = true;
@@ -250,6 +255,7 @@ namespace SGA.Telas
             tbxMatricula.Clear();
             cbxFuncao.Text = "";
             cbxPermissao.Text = "";
+            cbxPapel.SelectedItem = "";
         }
 
         private void btnRedefinirPeriodoAdmissao_Click(object sender, EventArgs e)
@@ -447,9 +453,41 @@ namespace SGA.Telas
             cbxTipoPeriodoRequisicao.SelectedItem = "";
         }
 
+        private void preencherCbxPapel()
+        {
+            cbxPapel.Items.Add("");
+            cbxPapel.Items.Add("Requisitante");
+            cbxPapel.Items.Add("Saída");
+            cbxPapel.Items.Add("Baixa");
+        }
+
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            new TelaRelatorio().ShowDialog();
+            Funcionario funcionario = new Funcionario();
+            Ferramenta ferramenta = new Ferramenta();
+            Requisicao requisicao = new Requisicao();
+
+            if(tbxMatricula.Text != "")
+            funcionario.matricula = Convert.ToInt32(tbxMatricula.Text);
+
+            funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+            funcionario.no_permissao = cbxPermissao.Text;
+            funcionario.papel = cbxPapel.SelectedItem.ToString();
+            funcionario.periodo[0] = dtpickekAdmissaoInicio.Value.ToString();
+            funcionario.periodo[1] = dtpickekAdmissaoFinal.Value.ToString();
+
+            ferramenta.codFerramenta = tbxCodigo.Text;
+            ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+            ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
+            ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+            ferramenta.periodo[0] = cbxTipoPeriodoFerramenta.SelectedItem.ToString();
+            ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
+            ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+
+            requisicao.situacao = cbxSituacaoRequisicao.Text;
+            requisicao.tipoPeriodo = cbxTipoPeriodoRequisicao.Text;
+            requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+            requisicao.periodo[1] = dtpickerFinal.Value.ToString();
         }
     }
 }

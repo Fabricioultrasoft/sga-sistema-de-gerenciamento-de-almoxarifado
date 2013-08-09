@@ -19,6 +19,13 @@ namespace SGA.Entity
         private int i_nu_seq_usuario;
         private string[] i_periodo = { "", "" };
         private string i_chaveUsuario;
+        private string i_papel;
+
+        public string papel
+        {
+            get { return i_papel; }
+            set { i_papel = value; }
+        }
         
         public int matricula
         {

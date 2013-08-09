@@ -140,17 +140,17 @@ namespace SGA
         #region Teclas de Atalho
         private void Menu_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            if (e.KeyCode == Keys.F2 && funcionario.no_permissao == "Administrador")
             {
                 menuItemNFuncionario_Click(new object(), new EventArgs());
             }
 
-            if (e.KeyCode == Keys.F3)
+            if (e.KeyCode == Keys.F3 && funcionario.no_permissao != "Usuário comum")
             {
                 menuItemlFuncionario_Click(new object(), new EventArgs()); 
             }
 
-            if (e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F5 && funcionario.no_permissao == "Administrador")
             {
                 MenuItemNFerramenta_Click(new object(), new EventArgs());
             }
@@ -160,17 +160,17 @@ namespace SGA
                 menuItemlFerramenta_Click(new object(), new EventArgs()); 
             }
 
-             if (e.KeyCode == Keys.F7)
+            if (e.KeyCode == Keys.F7 && funcionario.no_permissao != "Usuário comum")
              {
                  menuItemNRequisição_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F8)
+            if (e.KeyCode == Keys.F8 && funcionario.no_permissao != "Usuário comum")
              {
                  menuItemLRequisicao_Click(new object(), new EventArgs());
              }
 
-             if (e.KeyCode == Keys.F9)
+             if (e.KeyCode == Keys.F9 && funcionario.no_permissao == "Administrador")
              {
                  MenuItmRelatorios_Click(new object(), new EventArgs());
              }
