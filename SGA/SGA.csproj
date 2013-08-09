@@ -73,6 +73,11 @@
     <Compile Include="Entity\Funcionario.cs" />
     <Compile Include="Entity\Ferramenta.cs" />
     <Compile Include="Entity\Requisicao.cs" />
+    <Compile Include="RequisiçãoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RequisiçãoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Telas\CLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,9 +204,11 @@
     <EmbeddedResource Include="Telas\Relatorio.resx">
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Report1.rdlc" />
     <EmbeddedResource Include="Telas\TelaRelatorio.resx">
       <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -213,6 +220,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="RequisiçãoDataSet.xsc">
+      <DependentUpon>RequisiçãoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RequisiçãoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RequisiçãoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RequisiçãoDataSet.xss">
+      <DependentUpon>RequisiçãoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\1370631243_eraser.png" />
   </ItemGroup>
   <ItemGroup>

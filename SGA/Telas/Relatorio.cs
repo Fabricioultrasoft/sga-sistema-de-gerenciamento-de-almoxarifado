@@ -463,7 +463,7 @@ namespace SGA.Telas
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
+            /*Funcionario funcionario = new Funcionario();
             Ferramenta ferramenta = new Ferramenta();
             Requisicao requisicao = new Requisicao();
 
@@ -487,7 +487,9 @@ namespace SGA.Telas
             requisicao.situacao = cbxSituacaoRequisicao.Text;
             requisicao.tipoPeriodo = cbxTipoPeriodoRequisicao.Text;
             requisicao.periodo[0] = dtpickerInicio.Value.ToString();
-            requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+            requisicao.periodo[1] = dtpickerFinal.Value.ToString();*/
+            TelaRelatorio tela = new TelaRelatorio();
+            tela.ShowDialog();
         }
     }
 }

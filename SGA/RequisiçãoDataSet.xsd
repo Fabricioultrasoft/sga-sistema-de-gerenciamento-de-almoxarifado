@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RequisiçãoDataSet" targetNamespace="http://tempuri.org/RequisiçãoDataSet.xsd" xmlns:mstns="http://tempuri.org/RequisiçãoDataSet.xsd" xmlns="http://tempuri.org/RequisiçãoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_requisicaoTableAdapter" GeneratorDataComponentClassName="tb_requisicaoTableAdapter" Name="tb_requisicao" UserDataComponentName="tb_requisicaoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitante,
+                             (SELECT        no_funcionario
+                               FROM            tb_funcionario
+                               WHERE        (mat_funcionario = r.fk_func_requisitante)),
+                             (SELECT        tb_funcao.no_funcao
+                               FROM            tb_funcao INNER JOIN
+                                                         tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_funcao.nu_seq_funcao
+                               WHERE        (tb_funcionario_5.mat_funcionario = r.fk_func_requisitante)), r.fk_func_saida_ferr,
+                             (SELECT        no_funcionario
+                               FROM            tb_funcionario AS tb_funcionario_4
+                               WHERE        (mat_funcionario = r.fk_func_saida_ferr)),
+                             (SELECT        tb_funcao_2.no_funcao
+                               FROM            tb_funcao AS tb_funcao_2 INNER JOIN
+                                                         tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao
+                               WHERE        (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_func_baixa_ferr,
+                             (SELECT        no_funcionario
+                               FROM            tb_funcionario AS tb_funcionario_2
+                               WHERE        (mat_funcionario = r.fk_func_baixa_ferr)),
+                             (SELECT        tb_funcao_1.no_funcao
+                               FROM            tb_funcao AS tb_funcao_1 INNER JOIN
+                                                         tb_funcionario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao
+                               WHERE        (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))
+FROM            tb_requisicao AS r INNER JOIN
+                         tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN
+                         tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+                         tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = de.nu_seq_descricao INNER JOIN
+                         tb_grupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nu_seq_requisicao" DataSetColumn="nu_seq_requisicao" />
+              <Mapping SourceColumn="fk_ferramenta" DataSetColumn="fk_ferramenta" />
+              <Mapping SourceColumn="no_grupo" DataSetColumn="no_grupo" />
+              <Mapping SourceColumn="no_fabricante" DataSetColumn="no_fabricante" />
+              <Mapping SourceColumn="no_ferramenta" DataSetColumn="no_ferramenta" />
+              <Mapping SourceColumn="dt_saida_requisicao" DataSetColumn="dt_saida_requisicao" />
+              <Mapping SourceColumn="dt_baixa_requisicao" DataSetColumn="dt_baixa_requisicao" />
+              <Mapping SourceColumn="fk_func_requisitante" DataSetColumn="fk_func_requisitante" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
+              <Mapping SourceColumn="Column2" DataSetColumn="Column2" />
+              <Mapping SourceColumn="fk_func_saida_ferr" DataSetColumn="fk_func_saida_ferr" />
+              <Mapping SourceColumn="Column3" DataSetColumn="Column3" />
+              <Mapping SourceColumn="Column4" DataSetColumn="Column4" />
+              <Mapping SourceColumn="fk_func_baixa_ferr" DataSetColumn="fk_func_baixa_ferr" />
+              <Mapping SourceColumn="Column5" DataSetColumn="Column5" />
+              <Mapping SourceColumn="Column6" DataSetColumn="Column6" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RequisiçãoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RequisiçãoDataSet" msprop:Generator_UserDSName="RequisiçãoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_requisicao" msprop:Generator_TableClassName="tb_requisicaoDataTable" msprop:Generator_TableVarName="tabletb_requisicao" msprop:Generator_TablePropName="tb_requisicao" msprop:Generator_RowDeletingName="tb_requisicaoRowDeleting" msprop:Generator_RowChangingName="tb_requisicaoRowChanging" msprop:Generator_RowEvHandlerName="tb_requisicaoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_requisicaoRowDeleted" msprop:Generator_UserTableName="tb_requisicao" msprop:Generator_RowChangedName="tb_requisicaoRowChanged" msprop:Generator_RowEvArgName="tb_requisicaoRowChangeEvent" msprop:Generator_RowClassName="tb_requisicaoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nu_seq_requisicao" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnu_seq_requisicao" msprop:Generator_ColumnPropNameInRow="nu_seq_requisicao" msprop:Generator_ColumnPropNameInTable="nu_seq_requisicaoColumn" msprop:Generator_UserColumnName="nu_seq_requisicao" type="xs:int" />
+              <xs:element name="fk_ferramenta" msprop:Generator_ColumnVarNameInTable="columnfk_ferramenta" msprop:Generator_ColumnPropNameInRow="fk_ferramenta" msprop:Generator_ColumnPropNameInTable="fk_ferramentaColumn" msprop:Generator_UserColumnName="fk_ferramenta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_grupo" msprop:Generator_ColumnVarNameInTable="columnno_grupo" msprop:Generator_ColumnPropNameInRow="no_grupo" msprop:Generator_ColumnPropNameInTable="no_grupoColumn" msprop:Generator_UserColumnName="no_grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_fabricante" msprop:Generator_ColumnVarNameInTable="columnno_fabricante" msprop:Generator_ColumnPropNameInRow="no_fabricante" msprop:Generator_ColumnPropNameInTable="no_fabricanteColumn" msprop:Generator_UserColumnName="no_fabricante">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_ferramenta" msprop:Generator_ColumnVarNameInTable="columnno_ferramenta" msprop:Generator_ColumnPropNameInRow="no_ferramenta" msprop:Generator_ColumnPropNameInTable="no_ferramentaColumn" msprop:Generator_UserColumnName="no_ferramenta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_saida_requisicao" msprop:Generator_ColumnVarNameInTable="columndt_saida_requisicao" msprop:Generator_ColumnPropNameInRow="dt_saida_requisicao" msprop:Generator_ColumnPropNameInTable="dt_saida_requisicaoColumn" msprop:Generator_UserColumnName="dt_saida_requisicao" type="xs:dateTime" />
+              <xs:element name="dt_baixa_requisicao" msprop:Generator_ColumnVarNameInTable="columndt_baixa_requisicao" msprop:Generator_ColumnPropNameInRow="dt_baixa_requisicao" msprop:Generator_ColumnPropNameInTable="dt_baixa_requisicaoColumn" msprop:Generator_UserColumnName="dt_baixa_requisicao" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fk_func_requisitante" msprop:Generator_ColumnVarNameInTable="columnfk_func_requisitante" msprop:Generator_ColumnPropNameInRow="fk_func_requisitante" msprop:Generator_ColumnPropNameInTable="fk_func_requisitanteColumn" msprop:Generator_UserColumnName="fk_func_requisitante" type="xs:int" />
+              <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Column2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn2" msprop:Generator_ColumnPropNameInRow="Column2" msprop:Generator_ColumnPropNameInTable="Column2Column" msprop:Generator_UserColumnName="Column2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fk_func_saida_ferr" msprop:Generator_ColumnVarNameInTable="columnfk_func_saida_ferr" msprop:Generator_ColumnPropNameInRow="fk_func_saida_ferr" msprop:Generator_ColumnPropNameInTable="fk_func_saida_ferrColumn" msprop:Generator_UserColumnName="fk_func_saida_ferr" type="xs:int" />
+              <xs:element name="Column3" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn3" msprop:Generator_ColumnPropNameInRow="Column3" msprop:Generator_ColumnPropNameInTable="Column3Column" msprop:Generator_UserColumnName="Column3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Column4" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn4" msprop:Generator_ColumnPropNameInRow="Column4" msprop:Generator_ColumnPropNameInTable="Column4Column" msprop:Generator_UserColumnName="Column4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fk_func_baixa_ferr" msprop:Generator_ColumnVarNameInTable="columnfk_func_baixa_ferr" msprop:Generator_ColumnPropNameInRow="fk_func_baixa_ferr" msprop:Generator_ColumnPropNameInTable="fk_func_baixa_ferrColumn" msprop:Generator_UserColumnName="fk_func_baixa_ferr" type="xs:int" minOccurs="0" />
+              <xs:element name="Column5" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn5" msprop:Generator_ColumnPropNameInRow="Column5" msprop:Generator_ColumnPropNameInTable="Column5Column" msprop:Generator_UserColumnName="Column5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Column6" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn6" msprop:Generator_ColumnPropNameInRow="Column6" msprop:Generator_ColumnPropNameInTable="Column6Column" msprop:Generator_UserColumnName="Column6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_requisicao" />
+      <xs:field xpath="mstns:nu_seq_requisicao" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

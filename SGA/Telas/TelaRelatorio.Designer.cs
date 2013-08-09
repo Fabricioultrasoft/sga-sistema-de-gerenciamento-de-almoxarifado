@@ -28,16 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tb_requisicaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.requisiçãoDataSet = new SGA.RequisiçãoDataSet();
+            this.tableAdapterManager = new SGA.RequisiçãoDataSetTableAdapters.TableAdapterManager();
+            this.tb_requisicaoTableAdapter = new SGA.RequisiçãoDataSetTableAdapters.tb_requisicaoTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_requisicaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.tb_requisicaoBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(930, 611);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.ZoomPercent = 75;
+            // 
+            // tb_requisicaoBindingSource
+            // 
+            this.tb_requisicaoBindingSource.DataMember = "tb_requisicao";
+            this.tb_requisicaoBindingSource.DataSource = this.requisiçãoDataSet;
+            // 
+            // requisiçãoDataSet
+            // 
+            this.requisiçãoDataSet.DataSetName = "RequisiçãoDataSet";
+            this.requisiçãoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = SGA.RequisiçãoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tb_requisicaoTableAdapter
+            // 
+            this.tb_requisicaoTableAdapter.ClearBeforeFill = true;
             // 
             // TelaRelatorio
             // 
@@ -51,6 +84,8 @@
             this.Name = "TelaRelatorio";
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.TelaRelatorio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tb_requisicaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -58,5 +93,9 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private RequisiçãoDataSet requisiçãoDataSet;
+        private RequisiçãoDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private RequisiçãoDataSetTableAdapters.tb_requisicaoTableAdapter tb_requisicaoTableAdapter;
+        private System.Windows.Forms.BindingSource tb_requisicaoBindingSource;
     }
 }
