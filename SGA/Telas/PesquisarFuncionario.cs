@@ -35,9 +35,14 @@ namespace SGA.Telas
 
         private void montarTela()
         {
+            if (usuarioLogado.no_permissao == "")
+            {
+
+            }
             setDtpickers();
             if (tipoTela == "adicionar")
             {
+                if(usuarioLogado.no_permissao == "")
                 btnEditar.Visible = false;
                 btnNFuncionario.Text = "Salvar seleção";
                 btnNFuncionario.Image = SGA.Properties.Resources._1370629123_button_30;

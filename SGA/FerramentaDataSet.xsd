@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FerramentaDataSet" targetNamespace="http://tempuri.org/FerramentaDataSet.xsd" xmlns:mstns="http://tempuri.org/FerramentaDataSet.xsd" xmlns="http://tempuri.org/FerramentaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_ferramentaTableAdapter" GeneratorDataComponentClassName="tb_ferramentaTableAdapter" Name="tb_ferramenta" UserDataComponentName="tb_ferramentaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fe.cod_ferramenta, fe.dt_aquisicao, fe.nu_serie, fe.dt_desativacao, sf.no_situacao, d.no_ferramenta, fa.no_fabricante, g.no_grupo
+FROM            tb_ferramenta AS fe INNER JOIN
+                         tb_descricao_ferramenta AS d ON fe.fk_descricao_ferramenta = d.nu_seq_descricao INNER JOIN
+                         tb_fabricante AS fa ON fe.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+                         tb_grupo_ferramenta AS g ON d.fk_grupo = g.nu_seq_grupo INNER JOIN
+                         tb_situacao_ferramenta AS sf ON fe.fk_situacao = sf.nu_seq_situacao
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cod_ferramenta" DataSetColumn="cod_ferramenta" />
+              <Mapping SourceColumn="dt_aquisicao" DataSetColumn="dt_aquisicao" />
+              <Mapping SourceColumn="dt_desativacao" DataSetColumn="dt_desativacao" />
+              <Mapping SourceColumn="nu_serie" DataSetColumn="nu_serie" />
+              <Mapping SourceColumn="no_situacao" DataSetColumn="no_situacao" />
+              <Mapping SourceColumn="no_ferramenta" DataSetColumn="no_ferramenta" />
+              <Mapping SourceColumn="no_fabricante" DataSetColumn="no_fabricante" />
+              <Mapping SourceColumn="no_grupo" DataSetColumn="no_grupo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCodDtiaDtfaFabGruSit" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCodDtiaDtfaFabGruSit" GeneratorSourceName="FillByCodDtiaDtfaFabGruSit" GetMethodModifier="Public" GetMethodName="GetDataByCodDtiaDtfaFabGruSit" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCodDtiaDtfaFabGruSit" UserSourceName="FillByCodDtiaDtfaFabGruSit">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fe.cod_ferramenta, fe.dt_aquisicao, fe.nu_serie, fe.dt_desativacao, sf.no_situacao, d.no_ferramenta, fa.no_fabricante, g.no_grupo
+FROM            tb_ferramenta AS fe INNER JOIN
+                         tb_descricao_ferramenta AS d ON fe.fk_descricao_ferramenta = d.nu_seq_descricao INNER JOIN
+                         tb_fabricante AS fa ON fe.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+                         tb_grupo_ferramenta AS g ON d.fk_grupo = g.nu_seq_grupo INNER JOIN
+                         tb_situacao_ferramenta AS sf ON fe.fk_situacao = sf.nu_seq_situacao
+WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta LIKE '%' + @codigo + '%') AND (fe.dt_aquisicao BETWEEN @dtInicioAquisicao AND 
+                         @dtFinalAquisicao) AND (fa.no_fabricante LIKE '%' + @fabricante + '%') AND (g.no_grupo LIKE '%' + @categoria + '%')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="situacao" ColumnName="no_situacao" DataSourceName="sga.dbo.tb_situacao_ferramenta" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@situacao" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_situacao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="codigo" ColumnName="cod_ferramenta" DataSourceName="sga.dbo.tb_ferramenta" DataTypeServer="varchar(5)" DbType="AnsiString" Direction="Input" ParameterName="@codigo" Precision="0" ProviderType="VarChar" Scale="0" Size="5" SourceColumn="cod_ferramenta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtInicioAquisicao" ColumnName="dt_aquisicao" DataSourceName="sga.dbo.tb_ferramenta" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtInicioAquisicao" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_aquisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtFinalAquisicao" ColumnName="dt_aquisicao" DataSourceName="sga.dbo.tb_ferramenta" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtFinalAquisicao" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_aquisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fabricante" ColumnName="no_fabricante" DataSourceName="sga.dbo.tb_fabricante" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@fabricante" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_fabricante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="categoria" ColumnName="no_grupo" DataSourceName="sga.dbo.tb_grupo_ferramenta" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@categoria" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_grupo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FerramentaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FerramentaDataSet" msprop:Generator_UserDSName="FerramentaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_ferramenta" msprop:Generator_TableClassName="tb_ferramentaDataTable" msprop:Generator_TableVarName="tabletb_ferramenta" msprop:Generator_RowChangedName="tb_ferramentaRowChanged" msprop:Generator_TablePropName="tb_ferramenta" msprop:Generator_RowDeletingName="tb_ferramentaRowDeleting" msprop:Generator_RowChangingName="tb_ferramentaRowChanging" msprop:Generator_RowEvHandlerName="tb_ferramentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_ferramentaRowDeleted" msprop:Generator_RowClassName="tb_ferramentaRow" msprop:Generator_UserTableName="tb_ferramenta" msprop:Generator_RowEvArgName="tb_ferramentaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cod_ferramenta" msprop:Generator_ColumnVarNameInTable="columncod_ferramenta" msprop:Generator_ColumnPropNameInRow="cod_ferramenta" msprop:Generator_ColumnPropNameInTable="cod_ferramentaColumn" msprop:Generator_UserColumnName="cod_ferramenta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_aquisicao" msprop:Generator_ColumnVarNameInTable="columndt_aquisicao" msprop:Generator_ColumnPropNameInRow="dt_aquisicao" msprop:Generator_ColumnPropNameInTable="dt_aquisicaoColumn" msprop:Generator_UserColumnName="dt_aquisicao" type="xs:dateTime" />
+              <xs:element name="dt_desativacao" msprop:Generator_ColumnVarNameInTable="columndt_desativacao" msprop:Generator_ColumnPropNameInRow="dt_desativacao" msprop:Generator_ColumnPropNameInTable="dt_desativacaoColumn" msprop:Generator_UserColumnName="dt_desativacao" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nu_serie" msprop:Generator_ColumnVarNameInTable="columnnu_serie" msprop:Generator_ColumnPropNameInRow="nu_serie" msprop:Generator_ColumnPropNameInTable="nu_serieColumn" msprop:Generator_UserColumnName="nu_serie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_situacao" msprop:Generator_ColumnVarNameInTable="columnno_situacao" msprop:Generator_ColumnPropNameInRow="no_situacao" msprop:Generator_ColumnPropNameInTable="no_situacaoColumn" msprop:Generator_UserColumnName="no_situacao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_ferramenta" msprop:Generator_ColumnVarNameInTable="columnno_ferramenta" msprop:Generator_ColumnPropNameInRow="no_ferramenta" msprop:Generator_ColumnPropNameInTable="no_ferramentaColumn" msprop:Generator_UserColumnName="no_ferramenta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_fabricante" msprop:Generator_ColumnVarNameInTable="columnno_fabricante" msprop:Generator_ColumnPropNameInRow="no_fabricante" msprop:Generator_ColumnPropNameInTable="no_fabricanteColumn" msprop:Generator_UserColumnName="no_fabricante">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_grupo" msprop:Generator_ColumnVarNameInTable="columnno_grupo" msprop:Generator_ColumnPropNameInRow="no_grupo" msprop:Generator_ColumnPropNameInTable="no_grupoColumn" msprop:Generator_UserColumnName="no_grupo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tb_ferramenta" />
+      <xs:field xpath="mstns:cod_ferramenta" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

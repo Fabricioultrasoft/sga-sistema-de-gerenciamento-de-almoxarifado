@@ -547,10 +547,11 @@ namespace SGA.Dao
                 comando = comando + " AND cod_ferramenta NOT IN(SELECT cod_ferramenta FROM tb_ferramenta INNER JOIN tb_requisicao ON(cod_ferramenta = fk_ferramenta))";
             }
 
-            SqlCommand selectFerr = new SqlCommand("SELECT fe.cod_ferramenta, fe.dt_aquisicao, fe.nu_serie, fe.dt_desativacao, fe.imagem, sf.no_situacao, d.no_ferramenta," +
+            string queryBase = "SELECT fe.cod_ferramenta, fe.dt_aquisicao, fe.nu_serie, fe.dt_desativacao, fe.imagem, sf.no_situacao, d.no_ferramenta," +
             " fa.no_fabricante, g.no_grupo FROM tb_ferramenta fe INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao)" +
             " INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)INNER JOIN tb_grupo_ferramenta g" +
-            " ON (d.fk_grupo = g.nu_seq_grupo) INNER JOIN tb_situacao_ferramenta sf ON(fe.fk_situacao = sf.nu_seq_situacao) WHERE sf.no_situacao <> 'Desativada' " + comando, Conexao.con());
+            " ON (d.fk_grupo = g.nu_seq_grupo) INNER JOIN tb_situacao_ferramenta sf ON(fe.fk_situacao = sf.nu_seq_situacao) WHERE sf.no_situacao <> 'Desativada' ";
+            SqlCommand selectFerr = new SqlCommand(queryBase + comando, Conexao.con());
 
             Conexao.con().Open();
             SqlDataReader linha = selectFerr.ExecuteReader();

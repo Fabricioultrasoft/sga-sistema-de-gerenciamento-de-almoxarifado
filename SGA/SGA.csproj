@@ -73,6 +73,16 @@
     <Compile Include="Entity\Funcionario.cs" />
     <Compile Include="Entity\Ferramenta.cs" />
     <Compile Include="Entity\Requisicao.cs" />
+    <Compile Include="FerramentaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FerramentaMRquisitadaesgaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RequisiçãoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,10 +215,34 @@
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Report1.rdlc" />
+    <EmbeddedResource Include="Telas\Report2.rdlc" />
+    <EmbeddedResource Include="Telas\ReportFerramentaMaisRequisitada.rdlc" />
     <EmbeddedResource Include="Telas\TelaRelatorio.resx">
       <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="FerramentaDataSet.xsc">
+      <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FerramentaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FerramentaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FerramentaDataSet.xss">
+      <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FerramentaMRquisitadaesgaDataSet.xsc">
+      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FerramentaMRquisitadaesgaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FerramentaMRquisitadaesgaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FerramentaMRquisitadaesgaDataSet.xss">
+      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
