@@ -71,35 +71,32 @@ namespace SGA.Telas
 
         private void rbtnEventosSistema_CheckedChanged(object sender, EventArgs e)
         {
-            mudarTipoRelatorio();
+            mudancaFocoRelatorio();
         }
 
         private void rbtnLista_CheckedChanged(object sender, EventArgs e)
         {
-            mudarTipoRelatorio();
+            mudancaFocoRelatorio();
         }
 
         private void rbtnFerramentasReqisitadas_CheckedChanged(object sender, EventArgs e)
         {
-            mudarTipoRelatorio();
+            mudancaFocoRelatorio();
         }
 
         private void rbtnFuncionario_CheckedChanged(object sender, EventArgs e)
         {
             mudancaFocoRelatorio();
-            rbtnLista.Checked = true;
         }
 
         private void rbtnFerramenta_CheckedChanged(object sender, EventArgs e)
         {
             mudancaFocoRelatorio();
-            rbtnLista.Checked = true;
         }
 
         private void rbtnRequisicao_CheckedChanged(object sender, EventArgs e)
         {
             mudancaFocoRelatorio();
-            rbtnLista.Checked = true;
         }
 
         private void mudancaFocoRelatorio()
@@ -107,44 +104,57 @@ namespace SGA.Telas
             tabControl1.Controls.Remove(tabPageFerramenta);
             tabControl1.Controls.Remove(tabPageFuncionario);
             tabControl1.Controls.Remove(tabPageRequisicao);
+            btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
+            btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
+            cbxTipoPeriodoFerramenta.Enabled = true;
+            dtpickerInicioFerramenta.Enabled = true;
+            dtpickerFinalFerramenta.Enabled = true;
+            dtpickekAdmissaoFinal.Enabled = true;
+            dtpickekAdmissaoInicio.Enabled = true;
+            tbxMatricula.Enabled = true;
+            tbxCodigo.Enabled = true;
 
             rbtnFerramentasReqisitadas.Visible = false;
 
             if (rbtnFuncionario.Checked)
             {
                 tabControl1.Controls.Add(tabPageFuncionario);
+                if (rbtnLista.Checked)
+                {
+                    tbxMatricula.Enabled = false;
+                }
             }
             else if (rbtnFerramenta.Checked)
             {
                 tabControl1.Controls.Add(tabPageFerramenta);
                 rbtnFerramentasReqisitadas.Visible = true;
+                if (rbtnLista.Checked)
+                {
+                    tbxCodigo.Enabled = false;
+                }
+                else if (rbtnFerramentasReqisitadas.Checked)
+                {
+                    tabControl1.Controls.Add(tabPageFuncionario);
+                    tabControl1.Controls.Add(tabPageRequisicao);
+
+                    tbxCodigo.Enabled = false;
+                    cbxSituacaoRequisicao.Enabled = false;
+                }
             }
             else
             {
+                cbxSituacaoRequisicao.Enabled = true;
+                tbxMatricula.Enabled = true;
+                tbxCodigo.Enabled = true;
+                cbxTipoPeriodoFerramenta.Enabled = false;
+                dtpickerInicioFerramenta.Enabled = false;
+                dtpickerFinalFerramenta.Enabled = false;
+                dtpickekAdmissaoFinal.Enabled = false;
+                dtpickekAdmissaoInicio.Enabled = false;
                 tabControl1.Controls.Add(tabPageFerramenta);
-                tabControl1.Controls.Add(tabPageFuncionario);
                 tabControl1.Controls.Add(tabPageRequisicao);
+                tabControl1.Controls.Add(tabPageFuncionario);
             }
-            mudarTipoRelatorio();
-        }
-        private void mudarTipoRelatorio()
-        {
-            tbxMatricula.Enabled = true;
-            tbxCodigo.Enabled = true;
-            cbxSituacaoRequisicao.Enabled = true;
-
-
-            if (rbtnLista.Checked)
-            {
-                tbxMatricula.Enabled = false;
-                tbxCodigo.Enabled = false;
-            }
-            else if (rbtnFerramentasReqisitadas.Checked)
-            {
-                tbxCodigo.Enabled = false;
-                cbxSituacaoRequisicao.Enabled = false;
-            }
-
         }
 
         private void tbxCodigoRequisicao_KeyPress(object sender, KeyPressEventArgs e)
@@ -256,6 +266,26 @@ namespace SGA.Telas
             catch
             {
                 tbxMatricula.Text = "";
+            }
+            if (tbxMatricula.Text != "")
+            {
+                cbxFuncao.Enabled = false;
+                cbxPermissao.Enabled = false;
+                dtpickekAdmissaoFinal.Enabled = false;
+                dtpickekAdmissaoInicio.Enabled = false;
+                cbxFuncao.Text = "";
+                cbxPermissao.Text = "";
+                setDtpickers();
+            }
+            else
+            {
+                cbxFuncao.Enabled = true;
+                cbxPermissao.Enabled = true;
+                if(!rbtnRequisicao.Checked)
+                {
+                    dtpickekAdmissaoFinal.Enabled = true;
+                    dtpickekAdmissaoInicio.Enabled = true;
+                }
             }
         }
 
@@ -373,20 +403,24 @@ namespace SGA.Telas
                 cbxTipoPeriodoFerramenta.Enabled = false;
                 dtpickerInicioFerramenta.Enabled = false;
                 dtpickerFinalFerramenta.Enabled = false;
+                cbxFabricante.Text = "";
+                cbxGrupo.Text = "";
+                cbxSituacao.Text = "";
+                btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
             }
             else
             {
                 cbxGrupo.Enabled = true;
                 cbxFabricante.Enabled = true;
                 cbxSituacao.Enabled = true;
-                cbxTipoPeriodoFerramenta.Enabled = true;
-                dtpickerInicioFerramenta.Enabled = true;
-                dtpickerFinalFerramenta.Enabled = true;
+                if (!rbtnRequisicao.Checked)
+                {
+                    cbxTipoPeriodoFerramenta.Enabled = true;
+                    dtpickerInicioFerramenta.Enabled = true;
+                    dtpickerFinalFerramenta.Enabled = true;
+                }
             }
-            cbxFabricante.Text = "";
-            cbxGrupo.Text = "";
-            cbxSituacao.Text = "";
-            btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
+            
         }
 
         private void preencherCbxSituacaoRequisicao()
