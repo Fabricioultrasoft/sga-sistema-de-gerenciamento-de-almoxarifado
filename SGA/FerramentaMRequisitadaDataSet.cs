@@ -6,8 +6,9 @@
 }
 
 namespace SGA.FerramentaMRequisitadaDataSetTableAdapters {
-    
-    
-    public partial class tb_ferramentaTableAdapter {
+
+
+    public partial class FerramentaMRequisitadasTableAdapter
+    {
     }
 }

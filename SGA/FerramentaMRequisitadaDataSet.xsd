@@ -7,13 +7,13 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_ferramentaTableAdapter" GeneratorDataComponentClassName="tb_ferramentaTableAdapter" Name="tb_ferramenta" UserDataComponentName="tb_ferramentaTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FerramentaMRequisitadasTableAdapter" GeneratorDataComponentClassName="FerramentaMRequisitadasTableAdapter" Name="FerramentaMRequisitadas" UserDataComponentName="FerramentaMRequisitadasTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) as NRequisições  FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
-WHERE f.cod_ferramenta = fe.cod_ferramenta) as NRequisições 
+                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
+WHERE f.cod_ferramenta = fe.cod_ferramenta)
 FROM tb_ferramenta fe 
 INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
 INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
@@ -32,7 +32,7 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
               <Mapping SourceColumn="no_ferramenta" DataSetColumn="no_ferramenta" />
               <Mapping SourceColumn="no_fabricante" DataSetColumn="no_fabricante" />
               <Mapping SourceColumn="no_grupo" DataSetColumn="no_grupo" />
-              <Mapping SourceColumn="NRequisições" DataSetColumn="NRequisições" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -44,7 +44,7 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
   <xs:element name="FerramentaMRequisitadaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FerramentaMRequisitadaDataSet" msprop:Generator_UserDSName="FerramentaMRequisitadaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tb_ferramenta" msprop:Generator_TableClassName="tb_ferramentaDataTable" msprop:Generator_TableVarName="tabletb_ferramenta" msprop:Generator_TablePropName="tb_ferramenta" msprop:Generator_RowDeletingName="tb_ferramentaRowDeleting" msprop:Generator_RowChangingName="tb_ferramentaRowChanging" msprop:Generator_RowEvHandlerName="tb_ferramentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_ferramentaRowDeleted" msprop:Generator_UserTableName="tb_ferramenta" msprop:Generator_RowChangedName="tb_ferramentaRowChanged" msprop:Generator_RowEvArgName="tb_ferramentaRowChangeEvent" msprop:Generator_RowClassName="tb_ferramentaRow">
+        <xs:element name="FerramentaMRequisitadas" msprop:Generator_TableClassName="FerramentaMRequisitadasDataTable" msprop:Generator_TableVarName="tableFerramentaMRequisitadas" msprop:Generator_RowChangedName="FerramentaMRequisitadasRowChanged" msprop:Generator_TablePropName="FerramentaMRequisitadas" msprop:Generator_RowDeletingName="FerramentaMRequisitadasRowDeleting" msprop:Generator_RowChangingName="FerramentaMRequisitadasRowChanging" msprop:Generator_RowEvHandlerName="FerramentaMRequisitadasRowChangeEventHandler" msprop:Generator_RowDeletedName="FerramentaMRequisitadasRowDeleted" msprop:Generator_RowClassName="FerramentaMRequisitadasRow" msprop:Generator_UserTableName="FerramentaMRequisitadas" msprop:Generator_RowEvArgName="FerramentaMRequisitadasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_ferramenta" msprop:Generator_ColumnVarNameInTable="columncod_ferramenta" msprop:Generator_ColumnPropNameInRow="cod_ferramenta" msprop:Generator_ColumnPropNameInTable="cod_ferramentaColumn" msprop:Generator_UserColumnName="cod_ferramenta">
@@ -82,14 +82,14 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NRequisições" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNRequisições" msprop:Generator_ColumnPropNameInRow="NRequisições" msprop:Generator_ColumnPropNameInTable="NRequisiçõesColumn" msprop:Generator_UserColumnName="NRequisições" type="xs:int" minOccurs="0" />
+              <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tb_ferramenta" />
+      <xs:selector xpath=".//mstns:FerramentaMRequisitadas" />
       <xs:field xpath="mstns:cod_ferramenta" />
     </xs:unique>
   </xs:element>
