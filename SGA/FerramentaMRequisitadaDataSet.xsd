@@ -7,12 +7,12 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FerramentaMRequisitadasTableAdapter" GeneratorDataComponentClassName="FerramentaMRequisitadasTableAdapter" Name="FerramentaMRequisitadas" UserDataComponentName="FerramentaMRequisitadasTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FerramentasMRequisitadasTableAdapter" GeneratorDataComponentClassName="FerramentasMRequisitadasTableAdapter" Name="FerramentasMRequisitadas" UserDataComponentName="FerramentasMRequisitadasTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
+                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, fe.dt_aquisicao, fe.dt_desativacao,  d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
 WHERE f.cod_ferramenta = fe.cod_ferramenta)
 FROM tb_ferramenta fe 
 INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
@@ -28,6 +28,8 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="cod_ferramenta" DataSetColumn="cod_ferramenta" />
+              <Mapping SourceColumn="dt_aquisicao" DataSetColumn="dt_aquisicao" />
+              <Mapping SourceColumn="dt_desativacao" DataSetColumn="dt_desativacao" />
               <Mapping SourceColumn="nu_serie" DataSetColumn="nu_serie" />
               <Mapping SourceColumn="no_ferramenta" DataSetColumn="no_ferramenta" />
               <Mapping SourceColumn="no_fabricante" DataSetColumn="no_fabricante" />
@@ -44,7 +46,7 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
   <xs:element name="FerramentaMRequisitadaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FerramentaMRequisitadaDataSet" msprop:Generator_UserDSName="FerramentaMRequisitadaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="FerramentaMRequisitadas" msprop:Generator_TableClassName="FerramentaMRequisitadasDataTable" msprop:Generator_TableVarName="tableFerramentaMRequisitadas" msprop:Generator_RowChangedName="FerramentaMRequisitadasRowChanged" msprop:Generator_TablePropName="FerramentaMRequisitadas" msprop:Generator_RowDeletingName="FerramentaMRequisitadasRowDeleting" msprop:Generator_RowChangingName="FerramentaMRequisitadasRowChanging" msprop:Generator_RowEvHandlerName="FerramentaMRequisitadasRowChangeEventHandler" msprop:Generator_RowDeletedName="FerramentaMRequisitadasRowDeleted" msprop:Generator_RowClassName="FerramentaMRequisitadasRow" msprop:Generator_UserTableName="FerramentaMRequisitadas" msprop:Generator_RowEvArgName="FerramentaMRequisitadasRowChangeEvent">
+        <xs:element name="FerramentasMRequisitadas" msprop:Generator_TableClassName="FerramentasMRequisitadasDataTable" msprop:Generator_TableVarName="tableFerramentasMRequisitadas" msprop:Generator_RowChangedName="FerramentasMRequisitadasRowChanged" msprop:Generator_TablePropName="FerramentasMRequisitadas" msprop:Generator_RowDeletingName="FerramentasMRequisitadasRowDeleting" msprop:Generator_RowChangingName="FerramentasMRequisitadasRowChanging" msprop:Generator_RowEvHandlerName="FerramentasMRequisitadasRowChangeEventHandler" msprop:Generator_RowDeletedName="FerramentasMRequisitadasRowDeleted" msprop:Generator_RowClassName="FerramentasMRequisitadasRow" msprop:Generator_UserTableName="FerramentasMRequisitadas" msprop:Generator_RowEvArgName="FerramentasMRequisitadasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_ferramenta" msprop:Generator_ColumnVarNameInTable="columncod_ferramenta" msprop:Generator_ColumnPropNameInRow="cod_ferramenta" msprop:Generator_ColumnPropNameInTable="cod_ferramentaColumn" msprop:Generator_UserColumnName="cod_ferramenta">
@@ -54,6 +56,8 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="dt_aquisicao" msprop:Generator_ColumnVarNameInTable="columndt_aquisicao" msprop:Generator_ColumnPropNameInRow="dt_aquisicao" msprop:Generator_ColumnPropNameInTable="dt_aquisicaoColumn" msprop:Generator_UserColumnName="dt_aquisicao" type="xs:dateTime" />
+              <xs:element name="dt_desativacao" msprop:Generator_ColumnVarNameInTable="columndt_desativacao" msprop:Generator_ColumnPropNameInRow="dt_desativacao" msprop:Generator_ColumnPropNameInTable="dt_desativacaoColumn" msprop:Generator_UserColumnName="dt_desativacao" type="xs:dateTime" minOccurs="0" />
               <xs:element name="nu_serie" msprop:Generator_ColumnVarNameInTable="columnnu_serie" msprop:Generator_ColumnPropNameInRow="nu_serie" msprop:Generator_ColumnPropNameInTable="nu_serieColumn" msprop:Generator_UserColumnName="nu_serie" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -89,7 +93,7 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:FerramentaMRequisitadas" />
+      <xs:selector xpath=".//mstns:FerramentasMRequisitadas" />
       <xs:field xpath="mstns:cod_ferramenta" />
     </xs:unique>
   </xs:element>

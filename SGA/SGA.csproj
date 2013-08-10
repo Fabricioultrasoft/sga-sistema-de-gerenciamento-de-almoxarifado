@@ -81,10 +81,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FerramentaMRequisitadaDataSet.cs">
-      <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FerramentaMRequisitadaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
