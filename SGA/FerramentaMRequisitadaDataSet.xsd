@@ -12,18 +12,15 @@
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, d.no_ferramenta, fa.no_fabricante, g.no_grupo,
-                             (SELECT        COUNT(r.nu_seq_requisicao) AS Expr1
-                               FROM            tb_requisicao AS r ,
-                                                         tb_ferramenta AS f WHERE f.cod_ferramenta = r.fk_ferramenta
-                               AND(f.cod_ferramenta = re.fk_ferramenta))
-FROM            tb_ferramenta AS fe INNER JOIN
-                         tb_descricao_ferramenta AS d ON fe.fk_descricao_ferramenta = d.nu_seq_descricao INNER JOIN
-                         tb_fabricante AS fa ON fe.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
-                         tb_grupo_ferramenta AS g ON d.fk_grupo = g.nu_seq_grupo INNER JOIN
-                         tb_requisicao AS re ON re.fk_ferramenta = fe.cod_ferramenta INNER JOIN
-                         tb_funcionario AS fu ON fu.mat_funcionario = re.fk_func_requisitante INNER JOIN
-                         tb_funcao AS fun ON fun.nu_seq_funcao = fu.fk_funcao</CommandText>
+                    <CommandText>SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) as NRequisições  FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
+WHERE f.cod_ferramenta = fe.cod_ferramenta) as NRequisições 
+FROM tb_ferramenta fe 
+INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
+INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
+INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo) 
+INNER JOIN tb_requisicao re ON(re.fk_ferramenta = fe.cod_ferramenta)
+INNER JOIN tb_funcionario fu ON(fu.mat_funcionario = re.fk_func_requisitante)
+INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -35,7 +32,7 @@ FROM            tb_ferramenta AS fe INNER JOIN
               <Mapping SourceColumn="no_ferramenta" DataSetColumn="no_ferramenta" />
               <Mapping SourceColumn="no_fabricante" DataSetColumn="no_fabricante" />
               <Mapping SourceColumn="no_grupo" DataSetColumn="no_grupo" />
-              <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
+              <Mapping SourceColumn="NRequisições" DataSetColumn="NRequisições" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -47,7 +44,7 @@ FROM            tb_ferramenta AS fe INNER JOIN
   <xs:element name="FerramentaMRequisitadaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FerramentaMRequisitadaDataSet" msprop:Generator_UserDSName="FerramentaMRequisitadaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tb_ferramenta" msprop:Generator_TableClassName="tb_ferramentaDataTable" msprop:Generator_TableVarName="tabletb_ferramenta" msprop:Generator_RowChangedName="tb_ferramentaRowChanged" msprop:Generator_TablePropName="tb_ferramenta" msprop:Generator_RowDeletingName="tb_ferramentaRowDeleting" msprop:Generator_RowChangingName="tb_ferramentaRowChanging" msprop:Generator_RowEvHandlerName="tb_ferramentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_ferramentaRowDeleted" msprop:Generator_RowClassName="tb_ferramentaRow" msprop:Generator_UserTableName="tb_ferramenta" msprop:Generator_RowEvArgName="tb_ferramentaRowChangeEvent">
+        <xs:element name="tb_ferramenta" msprop:Generator_TableClassName="tb_ferramentaDataTable" msprop:Generator_TableVarName="tabletb_ferramenta" msprop:Generator_TablePropName="tb_ferramenta" msprop:Generator_RowDeletingName="tb_ferramentaRowDeleting" msprop:Generator_RowChangingName="tb_ferramentaRowChanging" msprop:Generator_RowEvHandlerName="tb_ferramentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_ferramentaRowDeleted" msprop:Generator_UserTableName="tb_ferramenta" msprop:Generator_RowChangedName="tb_ferramentaRowChanged" msprop:Generator_RowEvArgName="tb_ferramentaRowChangeEvent" msprop:Generator_RowClassName="tb_ferramentaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_ferramenta" msprop:Generator_ColumnVarNameInTable="columncod_ferramenta" msprop:Generator_ColumnPropNameInRow="cod_ferramenta" msprop:Generator_ColumnPropNameInTable="cod_ferramentaColumn" msprop:Generator_UserColumnName="cod_ferramenta">
@@ -85,7 +82,7 @@ FROM            tb_ferramenta AS fe INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:int" minOccurs="0" />
+              <xs:element name="NRequisições" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNRequisições" msprop:Generator_ColumnPropNameInRow="NRequisições" msprop:Generator_ColumnPropNameInTable="NRequisiçõesColumn" msprop:Generator_UserColumnName="NRequisições" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
