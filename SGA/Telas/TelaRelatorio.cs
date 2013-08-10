@@ -20,6 +20,8 @@ namespace SGA.Telas
 
         private void TelaRelatorio_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
+            this.tb_requisicaoTableAdapter.Fill(this.requisiçãoDataSet.tb_requisicao);
             // TODO: esta linha de código carrega dados na tabela 'ferramentaDataSet.tb_ferramenta'. Você pode movê-la ou removê-la conforme necessário.
             this.tb_ferramentaTableAdapter.Fill(this.ferramentaDataSet.tb_ferramenta);
             System.Drawing.Printing.PageSettings NovasDimensoes = new System.Drawing.Printing.PageSettings();
@@ -30,7 +32,7 @@ namespace SGA.Telas
 
             reportViewer1.SetPageSettings(NovasDimensoes);
             // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
-            this.tb_requisicaoTableAdapter.Fill(this.requisiçãoDataSet.tb_requisicao);
+            
 
             this.reportViewer1.RefreshReport();
         }

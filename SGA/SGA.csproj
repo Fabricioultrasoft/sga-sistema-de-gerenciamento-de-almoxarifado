@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SGA</RootNamespace>
     <AssemblyName>SGA</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -32,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -78,10 +81,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FerramentaMRquisitadaesgaDataSet.Designer.cs">
+    <Compile Include="FerramentaMRequisitadaDataSet.cs">
+      <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FerramentaMRequisitadaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+      <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="RequisiçãoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -174,6 +181,7 @@
     <EmbeddedResource Include="Telas\EditarComboBox.resx">
       <DependentUpon>EditarComboBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Telas\FerramentaMRequisitada.rdlc" />
     <EmbeddedResource Include="Telas\Mensagem.resx">
       <DependentUpon>Mensagem.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,9 +222,9 @@
     <EmbeddedResource Include="Telas\Relatorio.resx">
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RelatorioRequisição.rdlc" />
     <EmbeddedResource Include="Telas\Report1.rdlc" />
     <EmbeddedResource Include="Telas\Report2.rdlc" />
-    <EmbeddedResource Include="Telas\ReportFerramentaMaisRequisitada.rdlc" />
     <EmbeddedResource Include="Telas\TelaRelatorio.resx">
       <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,16 +240,16 @@
     <None Include="FerramentaDataSet.xss">
       <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="FerramentaMRquisitadaesgaDataSet.xsc">
-      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+    <None Include="FerramentaMRequisitadaDataSet.xsc">
+      <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="FerramentaMRquisitadaesgaDataSet.xsd">
+    <None Include="FerramentaMRequisitadaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FerramentaMRquisitadaesgaDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>FerramentaMRequisitadaDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="FerramentaMRquisitadaesgaDataSet.xss">
-      <DependentUpon>FerramentaMRquisitadaesgaDataSet.xsd</DependentUpon>
+    <None Include="FerramentaMRequisitadaDataSet.xss">
+      <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
