@@ -38,7 +38,6 @@
             this.tb_ferramentaTableAdapter = new SGA.FerramentaDataSetTableAdapters.tb_ferramentaTableAdapter();
             this.tbferramentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ferramentaMRequisitadaDataSet = new SGA.FerramentaMRequisitadaDataSet();
-            this.ferramentaMRequisitadaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ferramentasMRequisitadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ferramentasMRequisitadasTableAdapter = new SGA.FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).BeginInit();
@@ -46,7 +45,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbferramentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,15 +94,10 @@
             this.ferramentaMRequisitadaDataSet.DataSetName = "FerramentaMRequisitadaDataSet";
             this.ferramentaMRequisitadaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ferramentaMRequisitadaDataSetBindingSource
-            // 
-            this.ferramentaMRequisitadaDataSetBindingSource.DataSource = this.ferramentaMRequisitadaDataSet;
-            this.ferramentaMRequisitadaDataSetBindingSource.Position = 0;
-            // 
             // ferramentasMRequisitadasBindingSource
             // 
             this.ferramentasMRequisitadasBindingSource.DataMember = "FerramentasMRequisitadas";
-            this.ferramentasMRequisitadasBindingSource.DataSource = this.ferramentaMRequisitadaDataSetBindingSource;
+            this.ferramentasMRequisitadasBindingSource.DataSource = this.ferramentaMRequisitadaDataSet;
             // 
             // ferramentasMRequisitadasTableAdapter
             // 
@@ -127,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbferramentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -142,7 +134,6 @@
         private System.Windows.Forms.BindingSource tbferramentaBindingSource;
         private FerramentaDataSet ferramentaDataSet;
         private FerramentaDataSetTableAdapters.tb_ferramentaTableAdapter tb_ferramentaTableAdapter;
-        private System.Windows.Forms.BindingSource ferramentaMRequisitadaDataSetBindingSource;
         private FerramentaMRequisitadaDataSet ferramentaMRequisitadaDataSet;
         private System.Windows.Forms.BindingSource ferramentasMRequisitadasBindingSource;
         private FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter ferramentasMRequisitadasTableAdapter;

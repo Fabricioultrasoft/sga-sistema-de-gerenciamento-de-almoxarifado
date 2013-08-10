@@ -2238,7 +2238,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.92715in</Height>
+    <Height>3.70537in</Height>
     <Style />
   </Body>
   <Width>7.97693in</Width>
@@ -2303,28 +2303,31 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.66174cm</Height>
+      <Height>0.59118cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="PageNumber">
+        <Textbox Name="TotalPages">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!PageNumber</Value>
-                  <Style />
+                  <Value>=Globals!TotalPages</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.03528cm</Top>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Left>18.30822cm</Left>
+          <Height>0.49417cm</Height>
+          <Width>1.95319cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2335,25 +2338,26 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="TotalPages">
+        <Textbox Name="PageNumber">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!TotalPages</Value>
-                  <Style />
+                  <Value>=Globals!PageNumber</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0.03528cm</Top>
-          <Left>17.76141cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.05292cm</Top>
+          <Height>0.47653cm</Height>
+          <Width>2.12958cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>

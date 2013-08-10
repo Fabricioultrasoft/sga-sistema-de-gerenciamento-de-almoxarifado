@@ -20,6 +20,8 @@ namespace SGA.Telas
 
         private void TelaRelatorio_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas' table. You can move, or remove it, as needed.
+            this.ferramentasMRequisitadasTableAdapter.Fill(this.ferramentaMRequisitadaDataSet.FerramentasMRequisitadas);
             // TODO: esta linha de código carrega dados na tabela 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas'. Você pode movê-la ou removê-la conforme necessário.
             this.ferramentasMRequisitadasTableAdapter.Fill(this.ferramentaMRequisitadaDataSet.FerramentasMRequisitadas);
             // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
@@ -27,10 +29,10 @@ namespace SGA.Telas
             // TODO: esta linha de código carrega dados na tabela 'ferramentaDataSet.tb_ferramenta'. Você pode movê-la ou removê-la conforme necessário.
             this.tb_ferramentaTableAdapter.Fill(this.ferramentaDataSet.tb_ferramenta);
             System.Drawing.Printing.PageSettings NovasDimensoes = new System.Drawing.Printing.PageSettings();
-            NovasDimensoes.Margins.Bottom = 8;
-            NovasDimensoes.Margins.Left = 8;
-            NovasDimensoes.Margins.Right = 8;
-            NovasDimensoes.Margins.Top = 8;
+            NovasDimensoes.Margins.Bottom = 7;
+            NovasDimensoes.Margins.Left = 7;
+            NovasDimensoes.Margins.Right = 7;
+            NovasDimensoes.Margins.Top = 7;
 
             reportViewer1.SetPageSettings(NovasDimensoes);
             // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
