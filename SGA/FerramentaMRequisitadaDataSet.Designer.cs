@@ -281,10 +281,6 @@ namespace SGA {
             
             private global::System.Data.DataColumn columncod_ferramenta;
             
-            private global::System.Data.DataColumn columndt_aquisicao;
-            
-            private global::System.Data.DataColumn columndt_desativacao;
-            
             private global::System.Data.DataColumn columnnu_serie;
             
             private global::System.Data.DataColumn columnno_ferramenta;
@@ -293,7 +289,11 @@ namespace SGA {
             
             private global::System.Data.DataColumn columnno_grupo;
             
-            private global::System.Data.DataColumn columnColumn1;
+            private global::System.Data.DataColumn columndt_aquisicao;
+            
+            private global::System.Data.DataColumn columndt_desativacao;
+            
+            private global::System.Data.DataColumn columnNRequisicoes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -338,22 +338,6 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn dt_aquisicaoColumn {
-                get {
-                    return this.columndt_aquisicao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn dt_desativacaoColumn {
-                get {
-                    return this.columndt_desativacao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn nu_serieColumn {
                 get {
                     return this.columnnu_serie;
@@ -386,9 +370,25 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Column1Column {
+            public global::System.Data.DataColumn dt_aquisicaoColumn {
                 get {
-                    return this.columnColumn1;
+                    return this.columndt_aquisicao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dt_desativacaoColumn {
+                get {
+                    return this.columndt_desativacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NRequisicoesColumn {
+                get {
+                    return this.columnNRequisicoes;
                 }
             }
             
@@ -429,17 +429,17 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FerramentasMRequisitadasRow AddFerramentasMRequisitadasRow(string cod_ferramenta, System.DateTime dt_aquisicao, System.DateTime dt_desativacao, string nu_serie, string no_ferramenta, string no_fabricante, string no_grupo, int Column1) {
+            public FerramentasMRequisitadasRow AddFerramentasMRequisitadasRow(string cod_ferramenta, string nu_serie, string no_ferramenta, string no_fabricante, string no_grupo, System.DateTime dt_aquisicao, System.DateTime dt_desativacao, int NRequisicoes) {
                 FerramentasMRequisitadasRow rowFerramentasMRequisitadasRow = ((FerramentasMRequisitadasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cod_ferramenta,
-                        dt_aquisicao,
-                        dt_desativacao,
                         nu_serie,
                         no_ferramenta,
                         no_fabricante,
                         no_grupo,
-                        Column1};
+                        dt_aquisicao,
+                        dt_desativacao,
+                        NRequisicoes};
                 rowFerramentasMRequisitadasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFerramentasMRequisitadasRow);
                 return rowFerramentasMRequisitadasRow;
@@ -470,13 +470,13 @@ namespace SGA {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columncod_ferramenta = base.Columns["cod_ferramenta"];
-                this.columndt_aquisicao = base.Columns["dt_aquisicao"];
-                this.columndt_desativacao = base.Columns["dt_desativacao"];
                 this.columnnu_serie = base.Columns["nu_serie"];
                 this.columnno_ferramenta = base.Columns["no_ferramenta"];
                 this.columnno_fabricante = base.Columns["no_fabricante"];
                 this.columnno_grupo = base.Columns["no_grupo"];
-                this.columnColumn1 = base.Columns["Column1"];
+                this.columndt_aquisicao = base.Columns["dt_aquisicao"];
+                this.columndt_desativacao = base.Columns["dt_desativacao"];
+                this.columnNRequisicoes = base.Columns["NRequisicoes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,10 +484,6 @@ namespace SGA {
             private void InitClass() {
                 this.columncod_ferramenta = new global::System.Data.DataColumn("cod_ferramenta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncod_ferramenta);
-                this.columndt_aquisicao = new global::System.Data.DataColumn("dt_aquisicao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndt_aquisicao);
-                this.columndt_desativacao = new global::System.Data.DataColumn("dt_desativacao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndt_desativacao);
                 this.columnnu_serie = new global::System.Data.DataColumn("nu_serie", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnu_serie);
                 this.columnno_ferramenta = new global::System.Data.DataColumn("no_ferramenta", typeof(string), null, global::System.Data.MappingType.Element);
@@ -496,14 +492,17 @@ namespace SGA {
                 base.Columns.Add(this.columnno_fabricante);
                 this.columnno_grupo = new global::System.Data.DataColumn("no_grupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnno_grupo);
-                this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnColumn1);
+                this.columndt_aquisicao = new global::System.Data.DataColumn("dt_aquisicao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndt_aquisicao);
+                this.columndt_desativacao = new global::System.Data.DataColumn("dt_desativacao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndt_desativacao);
+                this.columnNRequisicoes = new global::System.Data.DataColumn("NRequisicoes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNRequisicoes);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncod_ferramenta}, true));
                 this.columncod_ferramenta.AllowDBNull = false;
                 this.columncod_ferramenta.Unique = true;
                 this.columncod_ferramenta.MaxLength = 5;
-                this.columndt_aquisicao.AllowDBNull = false;
                 this.columnnu_serie.MaxLength = 50;
                 this.columnno_ferramenta.AllowDBNull = false;
                 this.columnno_ferramenta.MaxLength = 50;
@@ -511,7 +510,8 @@ namespace SGA {
                 this.columnno_fabricante.MaxLength = 50;
                 this.columnno_grupo.AllowDBNull = false;
                 this.columnno_grupo.MaxLength = 50;
-                this.columnColumn1.ReadOnly = true;
+                this.columndt_aquisicao.AllowDBNull = false;
+                this.columnNRequisicoes.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -665,34 +665,6 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime dt_aquisicao {
-                get {
-                    return ((global::System.DateTime)(this[this.tableFerramentasMRequisitadas.dt_aquisicaoColumn]));
-                }
-                set {
-                    this[this.tableFerramentasMRequisitadas.dt_aquisicaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime dt_desativacao {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'dt_desativacao\' in table \'FerramentasMRequisitadas\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string nu_serie {
                 get {
                     try {
@@ -742,30 +714,47 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Column1 {
+            public System.DateTime dt_aquisicao {
+                get {
+                    return ((global::System.DateTime)(this[this.tableFerramentasMRequisitadas.dt_aquisicaoColumn]));
+                }
+                set {
+                    this[this.tableFerramentasMRequisitadas.dt_aquisicaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime dt_desativacao {
                 get {
                     try {
-                        return ((int)(this[this.tableFerramentasMRequisitadas.Column1Column]));
+                        return ((global::System.DateTime)(this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Column1\' in table \'FerramentasMRequisitadas\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'dt_desativacao\' in table \'FerramentasMRequisitadas\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableFerramentasMRequisitadas.Column1Column] = value;
+                    this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isdt_desativacaoNull() {
-                return this.IsNull(this.tableFerramentasMRequisitadas.dt_desativacaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setdt_desativacaoNull() {
-                this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn] = global::System.Convert.DBNull;
+            public int NRequisicoes {
+                get {
+                    try {
+                        return ((int)(this[this.tableFerramentasMRequisitadas.NRequisicoesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NRequisicoes\' in table \'FerramentasMRequisitadas\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableFerramentasMRequisitadas.NRequisicoesColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -782,14 +771,26 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsColumn1Null() {
-                return this.IsNull(this.tableFerramentasMRequisitadas.Column1Column);
+            public bool Isdt_desativacaoNull() {
+                return this.IsNull(this.tableFerramentasMRequisitadas.dt_desativacaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetColumn1Null() {
-                this[this.tableFerramentasMRequisitadas.Column1Column] = global::System.Convert.DBNull;
+            public void Setdt_desativacaoNull() {
+                this[this.tableFerramentasMRequisitadas.dt_desativacaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNRequisicoesNull() {
+                return this.IsNull(this.tableFerramentasMRequisitadas.NRequisicoesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNRequisicoesNull() {
+                this[this.tableFerramentasMRequisitadas.NRequisicoesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -953,13 +954,13 @@ namespace SGA.FerramentaMRequisitadaDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "FerramentasMRequisitadas";
             tableMapping.ColumnMappings.Add("cod_ferramenta", "cod_ferramenta");
-            tableMapping.ColumnMappings.Add("dt_aquisicao", "dt_aquisicao");
-            tableMapping.ColumnMappings.Add("dt_desativacao", "dt_desativacao");
             tableMapping.ColumnMappings.Add("nu_serie", "nu_serie");
             tableMapping.ColumnMappings.Add("no_ferramenta", "no_ferramenta");
             tableMapping.ColumnMappings.Add("no_fabricante", "no_fabricante");
             tableMapping.ColumnMappings.Add("no_grupo", "no_grupo");
-            tableMapping.ColumnMappings.Add("Column1", "Column1");
+            tableMapping.ColumnMappings.Add("dt_aquisicao", "dt_aquisicao");
+            tableMapping.ColumnMappings.Add("dt_desativacao", "dt_desativacao");
+            tableMapping.ColumnMappings.Add("NRequisicoes", "NRequisicoes");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -976,15 +977,16 @@ namespace SGA.FerramentaMRequisitadaDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, fe.dt_aquisicao, fe.dt_desativacao,  d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
-WHERE f.cod_ferramenta = fe.cod_ferramenta)
+            this._commandCollection[0].CommandText = @"SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, fe.dt_aquisicao, fe.dt_desativacao, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
+WHERE f.cod_ferramenta = fe.cod_ferramenta) as NRequisicoes 
 FROM tb_ferramenta fe 
 INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
 INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
 INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo) 
 INNER JOIN tb_requisicao re ON(re.fk_ferramenta = fe.cod_ferramenta)
 INNER JOIN tb_funcionario fu ON(fu.mat_funcionario = re.fk_func_requisitante)
-INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)";
+INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)
+";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

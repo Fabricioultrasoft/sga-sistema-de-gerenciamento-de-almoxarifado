@@ -6,37 +6,37 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.86059cm</Width>
+              <Width>1.6055cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.46031cm</Width>
+              <Width>3.93547cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.46031cm</Width>
+              <Width>2.07667cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.46031cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.46031cm</Width>
+              <Width>2.09431cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.58378cm</Width>
+              <Width>2.51764cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.07767cm</Width>
+              <Width>2.8175cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.6367cm</Width>
+              <Width>2.55292cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.48672cm</Height>
+              <Height>0.51181cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox42">
+                    <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -46,6 +46,7 @@
                               <Value>Código</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -54,7 +55,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -70,7 +71,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox43">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -80,6 +81,7 @@
                               <Value>Ferramenta</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -88,7 +90,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox43</rd:DefaultName>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -104,16 +106,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox44">
+                    <Textbox Name="Textbox22">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nº Série</Value>
+                              <Value>Nº de Série</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -122,7 +125,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox44</rd:DefaultName>
+                      <rd:DefaultName>Textbox22</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -138,7 +141,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox45">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -148,6 +151,7 @@
                               <Value>Fabricante</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -156,7 +160,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -172,7 +176,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox46">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -182,6 +186,7 @@
                               <Value>Categoria</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -190,7 +195,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -206,7 +211,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox47">
+                    <Textbox Name="Textbox12">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -216,6 +221,7 @@
                               <Value>Data de Aquisição</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -224,7 +230,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox47</rd:DefaultName>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -240,7 +246,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox48">
+                    <Textbox Name="Textbox13">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -250,6 +256,7 @@
                               <Value>Data de Desativação</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -258,7 +265,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox48</rd:DefaultName>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -274,7 +281,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox49">
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -284,6 +291,7 @@
                               <Value>Nº de Requisições</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -292,7 +300,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox49</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -309,7 +317,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.56638cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -323,7 +331,6 @@
                               <Value>=Fields!cod_ferramenta.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -357,7 +364,6 @@
                               <Value>=Fields!no_ferramenta.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -391,7 +397,6 @@
                               <Value>=Fields!nu_serie.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -425,7 +430,6 @@
                               <Value>=Fields!no_fabricante.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -459,7 +463,6 @@
                               <Value>=Fields!no_grupo.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -493,7 +496,6 @@
                               <Value>=Fields!dt_aquisicao.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                                 <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
@@ -528,7 +530,6 @@
                               <Value>=Fields!dt_desativacao.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                                 <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
@@ -553,17 +554,16 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Column1">
+                    <Textbox Name="NRequisicoes">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Column1.Value</Value>
+                              <Value>=Fields!NRequisicoes.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <FontWeight>Light</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -572,7 +572,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Column1</rd:DefaultName>
+                      <rd:DefaultName>NRequisicoes</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -585,49 +585,6 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.1cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox29">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox29</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                        </Border>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>0.5pt</PaddingLeft>
-                        <PaddingRight>0.5pt</PaddingRight>
-                        <PaddingTop>0.5pt</PaddingTop>
-                        <PaddingBottom>0.5pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>8</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -646,32 +603,49 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="cod_ferramenta">
+              <Group Name="Requisições">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!cod_ferramenta.Value</GroupExpression>
+                  <GroupExpression>=Fields!NRequisicoes.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!cod_ferramenta.Value</Value>
+                  <Value>=Fields!NRequisicoes.Value</Value>
+                  <Direction>Descending</Direction>
                 </SortExpression>
               </SortExpressions>
               <TablixMembers>
-                <TablixMember />
-                <TablixMember />
+                <TablixMember>
+                  <Group Name="Ferramentas">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!cod_ferramenta.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!cod_ferramenta.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
               </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>RequisitadasDataSet</DataSetName>
-        <Top>0.02822cm</Top>
-        <Left>0.1cm</Left>
-        <Height>1.1531cm</Height>
-        <Width>20cm</Width>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!NRequisicoes.Value</Value>
+            <Direction>Descending</Direction>
+          </SortExpression>
+        </SortExpressions>
+        <Top>0.03528cm</Top>
+        <Height>1.11181cm</Height>
+        <Width>20.1cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -682,7 +656,7 @@
     <Height>1.52833in</Height>
     <Style />
   </Body>
-  <Width>7.92804in</Width>
+  <Width>7.93544in</Width>
   <Page>
     <PageHeader>
       <Height>2.36361cm</Height>
@@ -765,6 +739,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>18.21736cm</Left>
           <Height>0.45889cm</Height>
           <Width>1.88264cm</Width>
@@ -848,14 +823,6 @@
           <DataField>cod_ferramenta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="dt_aquisicao">
-          <DataField>dt_aquisicao</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="dt_desativacao">
-          <DataField>dt_desativacao</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="nu_serie">
           <DataField>nu_serie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -872,14 +839,22 @@
           <DataField>no_grupo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Column1">
-          <DataField>Column1</DataField>
+        <Field Name="dt_aquisicao">
+          <DataField>dt_aquisicao</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="dt_desativacao">
+          <DataField>dt_desativacao</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="NRequisicoes">
+          <DataField>NRequisicoes</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>FerramentaMRequisitadaDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\carlos\Desktop\SGA\SGA\FerramentaMRequisitadaDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\FerramentaMRequisitadaDataSet.xsd</rd:SchemaPath>
         <rd:TableName>FerramentasMRequisitadas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
