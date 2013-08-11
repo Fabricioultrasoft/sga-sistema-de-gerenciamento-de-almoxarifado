@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GeraRelatorioFuncionario" targetNamespace="http://tempuri.org/GeraRelatorioFuncionario.xsd" xmlns:mstns="http://tempuri.org/GeraRelatorioFuncionario.xsd" xmlns="http://tempuri.org/GeraRelatorioFuncionario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RelatorioFuncionarioTableAdapter" GeneratorDataComponentClassName="RelatorioFuncionarioTableAdapter" Name="RelatorioFuncionario" UserDataComponentName="RelatorioFuncionarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT f.mat_funcionario 
+ 	 ,f.no_funcionario 
+ 	 ,f.dt_ins_funcionario 
+  ,fu.no_funcao 
+  ,p.no_permissao 
+  FROM tb_funcionario f 
+  INNER JOIN tb_funcao fu ON(f.fk_funcao = fu.nu_seq_funcao) 
+  INNER JOIN tb_usuario u ON(f.mat_funcionario = u.fk_funcionario) 
+  INNER JOIN tb_permissao p ON(u.fk_permissao = p.nu_seq_permissao) 
+  WHERE f.ativo &lt;&gt; '0'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="mat_funcionario" DataSetColumn="mat_funcionario" />
+              <Mapping SourceColumn="no_funcionario" DataSetColumn="no_funcionario" />
+              <Mapping SourceColumn="dt_ins_funcionario" DataSetColumn="dt_ins_funcionario" />
+              <Mapping SourceColumn="no_funcao" DataSetColumn="no_funcao" />
+              <Mapping SourceColumn="no_permissao" DataSetColumn="no_permissao" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GeraRelatorioFuncionario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GeraRelatorioFuncionario" msprop:Generator_UserDSName="GeraRelatorioFuncionario">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RelatorioFuncionario" msprop:Generator_TableClassName="RelatorioFuncionarioDataTable" msprop:Generator_TableVarName="tableRelatorioFuncionario" msprop:Generator_RowChangedName="RelatorioFuncionarioRowChanged" msprop:Generator_TablePropName="RelatorioFuncionario" msprop:Generator_RowDeletingName="RelatorioFuncionarioRowDeleting" msprop:Generator_RowChangingName="RelatorioFuncionarioRowChanging" msprop:Generator_RowEvHandlerName="RelatorioFuncionarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RelatorioFuncionarioRowDeleted" msprop:Generator_RowClassName="RelatorioFuncionarioRow" msprop:Generator_UserTableName="RelatorioFuncionario" msprop:Generator_RowEvArgName="RelatorioFuncionarioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mat_funcionario" msprop:Generator_ColumnVarNameInTable="columnmat_funcionario" msprop:Generator_ColumnPropNameInRow="mat_funcionario" msprop:Generator_ColumnPropNameInTable="mat_funcionarioColumn" msprop:Generator_UserColumnName="mat_funcionario" type="xs:int" />
+              <xs:element name="no_funcionario" msprop:Generator_ColumnVarNameInTable="columnno_funcionario" msprop:Generator_ColumnPropNameInRow="no_funcionario" msprop:Generator_ColumnPropNameInTable="no_funcionarioColumn" msprop:Generator_UserColumnName="no_funcionario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_ins_funcionario" msprop:Generator_ColumnVarNameInTable="columndt_ins_funcionario" msprop:Generator_ColumnPropNameInRow="dt_ins_funcionario" msprop:Generator_ColumnPropNameInTable="dt_ins_funcionarioColumn" msprop:Generator_UserColumnName="dt_ins_funcionario" type="xs:dateTime" />
+              <xs:element name="no_funcao" msprop:Generator_ColumnVarNameInTable="columnno_funcao" msprop:Generator_ColumnPropNameInRow="no_funcao" msprop:Generator_ColumnPropNameInTable="no_funcaoColumn" msprop:Generator_UserColumnName="no_funcao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="no_permissao" msprop:Generator_ColumnVarNameInTable="columnno_permissao" msprop:Generator_ColumnPropNameInRow="no_permissao" msprop:Generator_ColumnPropNameInTable="no_permissaoColumn" msprop:Generator_UserColumnName="no_permissao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RelatorioFuncionario" />
+      <xs:field xpath="mstns:mat_funcionario" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

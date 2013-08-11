@@ -90,6 +90,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GeraRelatorioFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeraRelatorioFuncionario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LogOperacaoFerramenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogOperacaoFerramenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LogOperacaoFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogOperacaoFuncionario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RequisiçãoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +197,9 @@
       <DependentUpon>EditarComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\FerramentaMRequisitada.rdlc" />
+    <EmbeddedResource Include="Telas\ListaFuncionario.rdlc" />
+    <EmbeddedResource Include="Telas\LogFerramenta.rdlc" />
+    <EmbeddedResource Include="Telas\LogFuncionario.rdlc" />
     <EmbeddedResource Include="Telas\Mensagem.resx">
       <DependentUpon>Mensagem.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,8 +241,7 @@
       <DependentUpon>Relatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\RelatorioRequisição.rdlc" />
-    <EmbeddedResource Include="Telas\Report1.rdlc" />
-    <EmbeddedResource Include="Telas\Report2.rdlc" />
+    <EmbeddedResource Include="Telas\ListaDeFerramentas.rdlc" />
     <EmbeddedResource Include="Telas\TelaRelatorio.resx">
       <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +267,39 @@
     </None>
     <None Include="FerramentaMRequisitadaDataSet.xss">
       <DependentUpon>FerramentaMRequisitadaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GeraRelatorioFuncionario.xsc">
+      <DependentUpon>GeraRelatorioFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="GeraRelatorioFuncionario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GeraRelatorioFuncionario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GeraRelatorioFuncionario.xss">
+      <DependentUpon>GeraRelatorioFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="LogOperacaoFerramenta.xsc">
+      <DependentUpon>LogOperacaoFerramenta.xsd</DependentUpon>
+    </None>
+    <None Include="LogOperacaoFerramenta.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LogOperacaoFerramenta.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LogOperacaoFerramenta.xss">
+      <DependentUpon>LogOperacaoFerramenta.xsd</DependentUpon>
+    </None>
+    <None Include="LogOperacaoFuncionario.xsc">
+      <DependentUpon>LogOperacaoFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="LogOperacaoFuncionario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LogOperacaoFuncionario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LogOperacaoFuncionario.xss">
+      <DependentUpon>LogOperacaoFuncionario.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
