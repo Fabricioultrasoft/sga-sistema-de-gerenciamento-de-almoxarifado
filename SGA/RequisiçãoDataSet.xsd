@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_requisicaoTableAdapter" GeneratorDataComponentClassName="tb_requisicaoTableAdapter" Name="tb_requisicao" UserDataComponentName="tb_requisicaoTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListaDeRequisiçãoTableAdapter" GeneratorDataComponentClassName="ListaDeRequisiçãoTableAdapter" Name="ListaDeRequisição" UserDataComponentName="ListaDeRequisiçãoTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -72,7 +72,7 @@ FROM            tb_requisicao AS r INNER JOIN
   <xs:element name="RequisiçãoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RequisiçãoDataSet" msprop:Generator_UserDSName="RequisiçãoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tb_requisicao" msprop:Generator_TableClassName="tb_requisicaoDataTable" msprop:Generator_TableVarName="tabletb_requisicao" msprop:Generator_RowChangedName="tb_requisicaoRowChanged" msprop:Generator_TablePropName="tb_requisicao" msprop:Generator_RowDeletingName="tb_requisicaoRowDeleting" msprop:Generator_RowChangingName="tb_requisicaoRowChanging" msprop:Generator_RowEvHandlerName="tb_requisicaoRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_requisicaoRowDeleted" msprop:Generator_RowClassName="tb_requisicaoRow" msprop:Generator_UserTableName="tb_requisicao" msprop:Generator_RowEvArgName="tb_requisicaoRowChangeEvent">
+        <xs:element name="ListaDeRequisição" msprop:Generator_TableClassName="ListaDeRequisiçãoDataTable" msprop:Generator_TableVarName="tableListaDeRequisição" msprop:Generator_TablePropName="ListaDeRequisição" msprop:Generator_RowDeletingName="ListaDeRequisiçãoRowDeleting" msprop:Generator_RowChangingName="ListaDeRequisiçãoRowChanging" msprop:Generator_RowEvHandlerName="ListaDeRequisiçãoRowChangeEventHandler" msprop:Generator_RowDeletedName="ListaDeRequisiçãoRowDeleted" msprop:Generator_UserTableName="ListaDeRequisição" msprop:Generator_RowChangedName="ListaDeRequisiçãoRowChanged" msprop:Generator_RowEvArgName="ListaDeRequisiçãoRowChangeEvent" msprop:Generator_RowClassName="ListaDeRequisiçãoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nu_seq_requisicao" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnu_seq_requisicao" msprop:Generator_ColumnPropNameInRow="nu_seq_requisicao" msprop:Generator_ColumnPropNameInTable="nu_seq_requisicaoColumn" msprop:Generator_UserColumnName="nu_seq_requisicao" type="xs:int" />
@@ -157,7 +157,7 @@ FROM            tb_requisicao AS r INNER JOIN
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tb_requisicao" />
+      <xs:selector xpath=".//mstns:ListaDeRequisição" />
       <xs:field xpath="mstns:nu_seq_requisicao" />
     </xs:unique>
   </xs:element>

@@ -20,6 +20,10 @@ namespace SGA.Telas
 
         private void TelaRelatorio_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'requisiçãoDataSet.ListaDeRequisição' table. You can move, or remove it, as needed.
+            this.listaDeRequisiçãoTableAdapter.Fill(this.requisiçãoDataSet.ListaDeRequisição);
+            // TODO: This line of code loads data into the 'ferramentaDataSet.ListaDeFerramentas' table. You can move, or remove it, as needed.
+            this.listaDeFerramentasTableAdapter.Fill(this.ferramentaDataSet.ListaDeFerramentas);
             // TODO: This line of code loads data into the 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas' table. You can move, or remove it, as needed.
             this.ferramentasMRequisitadasTableAdapter.Fill(this.ferramentaMRequisitadaDataSet.FerramentasMRequisitadas);
             // TODO: esta linha de código carrega dados na tabela 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas'. Você pode movê-la ou removê-la conforme necessário.

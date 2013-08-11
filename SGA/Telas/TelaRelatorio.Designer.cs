@@ -30,78 +30,78 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.ferramentaDataSet = new SGA.FerramentaDataSet();
-            this.tb_requisicaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.requisiçãoDataSet = new SGA.RequisiçãoDataSet();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.tb_requisicaoTableAdapter = new SGA.RequisiçãoDataSetTableAdapters.tb_requisicaoTableAdapter();
-            this.tb_ferramentaTableAdapter = new SGA.FerramentaDataSetTableAdapters.tb_ferramentaTableAdapter();
-            this.tbferramentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ferramentaMRequisitadaDataSet = new SGA.FerramentaMRequisitadaDataSet();
             this.ferramentasMRequisitadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ferramentaMRequisitadaDataSet = new SGA.FerramentaMRequisitadaDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ferramentasMRequisitadasTableAdapter = new SGA.FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_requisicaoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbferramentaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).BeginInit();
+            this.ferramentaDataSet = new SGA.FerramentaDataSet();
+            this.requisiçãoDataSet = new SGA.RequisiçãoDataSet();
+            this.listaDeFerramentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listaDeFerramentasTableAdapter = new SGA.FerramentaDataSetTableAdapters.ListaDeFerramentasTableAdapter();
+            this.listaDeRequisiçãoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listaDeRequisiçãoTableAdapter = new SGA.RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeFerramentasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ferramentaDataSet
-            // 
-            this.ferramentaDataSet.DataSetName = "FerramentaDataSet";
-            this.ferramentaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tb_requisicaoBindingSource
-            // 
-            this.tb_requisicaoBindingSource.DataMember = "tb_requisicao";
-            this.tb_requisicaoBindingSource.DataSource = this.requisiçãoDataSet;
-            // 
-            // requisiçãoDataSet
-            // 
-            this.requisiçãoDataSet.DataSetName = "RequisiçãoDataSet";
-            this.requisiçãoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "RequisitadasDataSet";
-            reportDataSource1.Value = this.ferramentasMRequisitadasBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.FerramentaMRequisitada.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(930, 611);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.ZoomPercent = 75;
-            // 
-            // tb_requisicaoTableAdapter
-            // 
-            this.tb_requisicaoTableAdapter.ClearBeforeFill = true;
-            // 
-            // tb_ferramentaTableAdapter
-            // 
-            this.tb_ferramentaTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbferramentaBindingSource
-            // 
-            this.tbferramentaBindingSource.DataMember = "tb_ferramenta";
-            this.tbferramentaBindingSource.DataSource = this.ferramentaDataSet;
-            // 
-            // ferramentaMRequisitadaDataSet
-            // 
-            this.ferramentaMRequisitadaDataSet.DataSetName = "FerramentaMRequisitadaDataSet";
-            this.ferramentaMRequisitadaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ferramentasMRequisitadasBindingSource
             // 
             this.ferramentasMRequisitadasBindingSource.DataMember = "FerramentasMRequisitadas";
             this.ferramentasMRequisitadasBindingSource.DataSource = this.ferramentaMRequisitadaDataSet;
             // 
+            // ferramentaMRequisitadaDataSet
+            // 
+            this.ferramentaMRequisitadaDataSet.DataSetName = "FerramentaMRequisitadaDataSet";
+            this.ferramentaMRequisitadaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "GeraRelatorioRequisicao";
+            reportDataSource1.Value = this.listaDeRequisiçãoBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(930, 611);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.ZoomPercent = 75;
+            // 
             // ferramentasMRequisitadasTableAdapter
             // 
             this.ferramentasMRequisitadasTableAdapter.ClearBeforeFill = true;
+            // 
+            // ferramentaDataSet
+            // 
+            this.ferramentaDataSet.DataSetName = "FerramentaDataSet";
+            this.ferramentaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // requisiçãoDataSet
+            // 
+            this.requisiçãoDataSet.DataSetName = "RequisiçãoDataSet";
+            this.requisiçãoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // listaDeFerramentasBindingSource
+            // 
+            this.listaDeFerramentasBindingSource.DataMember = "ListaDeFerramentas";
+            this.listaDeFerramentasBindingSource.DataSource = this.ferramentaDataSet;
+            // 
+            // listaDeFerramentasTableAdapter
+            // 
+            this.listaDeFerramentasTableAdapter.ClearBeforeFill = true;
+            // 
+            // listaDeRequisiçãoBindingSource
+            // 
+            this.listaDeRequisiçãoBindingSource.DataMember = "ListaDeRequisição";
+            this.listaDeRequisiçãoBindingSource.DataSource = this.requisiçãoDataSet;
+            // 
+            // listaDeRequisiçãoTableAdapter
+            // 
+            this.listaDeRequisiçãoTableAdapter.ClearBeforeFill = true;
             // 
             // TelaRelatorio
             // 
@@ -115,12 +115,12 @@
             this.Name = "TelaRelatorio";
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.TelaRelatorio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_requisicaoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbferramentaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeFerramentasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,13 +129,13 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private RequisiçãoDataSet requisiçãoDataSet;
-        private RequisiçãoDataSetTableAdapters.tb_requisicaoTableAdapter tb_requisicaoTableAdapter;
-        private System.Windows.Forms.BindingSource tb_requisicaoBindingSource;
-        private System.Windows.Forms.BindingSource tbferramentaBindingSource;
         private FerramentaDataSet ferramentaDataSet;
-        private FerramentaDataSetTableAdapters.tb_ferramentaTableAdapter tb_ferramentaTableAdapter;
         private FerramentaMRequisitadaDataSet ferramentaMRequisitadaDataSet;
         private System.Windows.Forms.BindingSource ferramentasMRequisitadasBindingSource;
         private FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter ferramentasMRequisitadasTableAdapter;
+        private System.Windows.Forms.BindingSource listaDeFerramentasBindingSource;
+        private FerramentaDataSetTableAdapters.ListaDeFerramentasTableAdapter listaDeFerramentasTableAdapter;
+        private System.Windows.Forms.BindingSource listaDeRequisiçãoBindingSource;
+        private RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter listaDeRequisiçãoTableAdapter;
     }
 }

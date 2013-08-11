@@ -2226,7 +2226,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>RelatorioDataSet</DataSetName>
+        <DataSetName>GeraRelatorioRequisicao</DataSetName>
         <Top>0.03528cm</Top>
         <Left>0.37123cm</Left>
         <Height>5.14509cm</Height>
@@ -2396,7 +2396,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="RelatorioDataSet">
+    <DataSet Name="GeraRelatorioRequisicao">
       <Query>
         <DataSourceName>RequisiçãoDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -2470,10 +2470,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>RequisiçãoDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Diego\Documents\Visual Studio 2010\Projects\SGA\SGA\RequisiçãoDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>tb_requisicao</rd:TableName>
+        <rd:TableName>ListaDeRequisição</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tb_requisicaoTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ListaDeRequisiçãoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

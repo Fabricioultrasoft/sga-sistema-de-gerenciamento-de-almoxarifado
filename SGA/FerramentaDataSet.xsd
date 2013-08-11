@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="sgaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sgaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SGA.Properties.Settings.GlobalReference.Default.sgaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tb_ferramentaTableAdapter" GeneratorDataComponentClassName="tb_ferramentaTableAdapter" Name="tb_ferramenta" UserDataComponentName="tb_ferramentaTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListaDeFerramentasTableAdapter" GeneratorDataComponentClassName="ListaDeFerramentasTableAdapter" Name="ListaDeFerramentas" UserDataComponentName="ListaDeFerramentasTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -67,7 +67,7 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
   <xs:element name="FerramentaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FerramentaDataSet" msprop:Generator_UserDSName="FerramentaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tb_ferramenta" msprop:Generator_TableClassName="tb_ferramentaDataTable" msprop:Generator_TableVarName="tabletb_ferramenta" msprop:Generator_TablePropName="tb_ferramenta" msprop:Generator_RowDeletingName="tb_ferramentaRowDeleting" msprop:Generator_RowChangingName="tb_ferramentaRowChanging" msprop:Generator_RowEvHandlerName="tb_ferramentaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_ferramentaRowDeleted" msprop:Generator_UserTableName="tb_ferramenta" msprop:Generator_RowChangedName="tb_ferramentaRowChanged" msprop:Generator_RowEvArgName="tb_ferramentaRowChangeEvent" msprop:Generator_RowClassName="tb_ferramentaRow">
+        <xs:element name="ListaDeFerramentas" msprop:Generator_TableClassName="ListaDeFerramentasDataTable" msprop:Generator_TableVarName="tableListaDeFerramentas" msprop:Generator_RowChangedName="ListaDeFerramentasRowChanged" msprop:Generator_TablePropName="ListaDeFerramentas" msprop:Generator_RowDeletingName="ListaDeFerramentasRowDeleting" msprop:Generator_RowChangingName="ListaDeFerramentasRowChanging" msprop:Generator_RowEvHandlerName="ListaDeFerramentasRowChangeEventHandler" msprop:Generator_RowDeletedName="ListaDeFerramentasRowDeleted" msprop:Generator_RowClassName="ListaDeFerramentasRow" msprop:Generator_UserTableName="ListaDeFerramentas" msprop:Generator_RowEvArgName="ListaDeFerramentasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cod_ferramenta" msprop:Generator_ColumnVarNameInTable="columncod_ferramenta" msprop:Generator_ColumnPropNameInRow="cod_ferramenta" msprop:Generator_ColumnPropNameInTable="cod_ferramentaColumn" msprop:Generator_UserColumnName="cod_ferramenta">
@@ -120,7 +120,7 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tb_ferramenta" />
+      <xs:selector xpath=".//mstns:ListaDeFerramentas" />
       <xs:field xpath="mstns:cod_ferramenta" />
     </xs:unique>
   </xs:element>
