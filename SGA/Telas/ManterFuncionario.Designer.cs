@@ -144,6 +144,7 @@
             // tbxNome
             // 
             this.tbxNome.Location = new System.Drawing.Point(226, 110);
+            this.tbxNome.MaxLength = 50;
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 14;

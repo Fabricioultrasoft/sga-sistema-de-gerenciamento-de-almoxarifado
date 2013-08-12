@@ -70,6 +70,7 @@ namespace SGA.Telas
                 default:
                     {
                         this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                        tbxSenha.MaxLength = 50;
                     }
                     break;
             }

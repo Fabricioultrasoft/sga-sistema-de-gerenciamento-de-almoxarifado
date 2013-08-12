@@ -29,7 +29,6 @@ namespace SGA.Telas
             set { i_objPesquisa = value; }
         }
 
-
         private void montarTela()
         {
             preencherCbxFuncao();
@@ -58,6 +57,7 @@ namespace SGA.Telas
         {
             montarTela();
         }
+
         private void preencherCbxFuncao()
         {
             FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
@@ -72,32 +72,47 @@ namespace SGA.Telas
 
         private void rbtnEventosSistema_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            if (rbtnEventosSistema.Checked)
+                mudancaFocoRelatorio();
         }
 
         private void rbtnLista_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            if (rbtnLista.Checked)
+                mudancaFocoRelatorio();
         }
 
         private void rbtnFerramentasReqisitadas_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            if (rbtnFerramentasReqisitadas.Checked)
+                mudancaFocoRelatorio();
         }
 
         private void rbtnFuncionario_CheckedChanged(object sender, EventArgs e)
         {
-            rbtnLista.Checked = true;
+            if (rbtnFuncionario.Checked)
+            {
+                rbtnLista.Checked = false;
+                rbtnLista.Checked = true;
+            }
         }
 
         private void rbtnFerramenta_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            if (rbtnFerramenta.Checked)
+            {
+                rbtnLista.Checked = false;
+                rbtnLista.Checked = true;
+            }
         }
 
         private void rbtnRequisicao_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            if (rbtnRequisicao.Checked)
+            {
+                rbtnLista.Checked = false;
+                rbtnLista.Checked = true;
+            }
         }
 
         private void mudancaFocoRelatorio()
@@ -121,7 +136,11 @@ namespace SGA.Telas
 
             if (rbtnFuncionario.Checked)
             {
+                lblPermissao.Visible = true;
+                cbxPermissao.Visible = true;
+                rbtnEventosSistema.Visible = true;
                 tabControl1.Controls.Add(tabPageFuncionario);
+
                 if (rbtnLista.Checked)
                 {
                     tbxMatricula.Enabled = false;
@@ -129,8 +148,12 @@ namespace SGA.Telas
             }
             else if (rbtnFerramenta.Checked)
             {
+                cbxSituacao.Visible = true;
+                lblSituacao.Visible = true;
                 tabControl1.Controls.Add(tabPageFerramenta);
                 rbtnFerramentasReqisitadas.Visible = true;
+                rbtnEventosSistema.Visible = true;
+
                 if (rbtnLista.Checked)
                 {
                     tbxCodigo.Enabled = false;
@@ -140,14 +163,28 @@ namespace SGA.Telas
                     tabControl1.Controls.Add(tabPageFuncionario);
                     tabControl1.Controls.Add(tabPageRequisicao);
 
+                    cbxPapel.Visible = true;
+                    lblPapel.Visible = true;
+
                     tbxCodigo.Enabled = false;
                     cbxSituacaoRequisicao.Enabled = false;
+
+                    cbxTipoPeriodoFerramenta.Enabled = false;
+                    dtpickerInicioFerramenta.Enabled = false;
+                    dtpickerFinalFerramenta.Enabled = false;
+                    dtpickekAdmissaoFinal.Enabled = false;
+                    dtpickekAdmissaoInicio.Enabled = false;
                 }
             }
-            else
+            else if (rbtnRequisicao.Checked)
             {
+                lblPermissao.Visible = false;
+                cbxPermissao.Visible = false;
+                cbxSituacao.Visible = false;
+                lblSituacao.Visible = false;
+                rbtnEventosSistema.Visible = false;
                 cbxPapel.Visible = true;
-                lblPapel.Visible = false;
+                lblPapel.Visible = true;
                 cbxSituacaoRequisicao.Enabled = true;
                 tbxMatricula.Enabled = true;
                 tbxCodigo.Enabled = true;
@@ -282,12 +319,15 @@ namespace SGA.Telas
                 cbxFuncao.Text = "";
                 cbxPermissao.Text = "";
                 setDtpickers();
+                cbxPapel.Enabled = true;
             }
             else
             {
+                cbxPapel.Enabled = false;
+                cbxPapel.SelectedItem = "";
                 cbxFuncao.Enabled = true;
                 cbxPermissao.Enabled = true;
-                if(!rbtnRequisicao.Checked)
+                if (rbtnFuncionario.Checked)
                 {
                     dtpickekAdmissaoFinal.Enabled = true;
                     dtpickekAdmissaoInicio.Enabled = true;
@@ -426,7 +466,7 @@ namespace SGA.Telas
                     dtpickerFinalFerramenta.Enabled = true;
                 }
             }
-            
+
         }
 
         private void preencherCbxSituacaoRequisicao()

@@ -39,6 +39,8 @@
             this.gbxFiltrarDados = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFuncionario = new System.Windows.Forms.TabPage();
+            this.cbxPapel = new System.Windows.Forms.ComboBox();
+            this.lblPapel = new System.Windows.Forms.Label();
             this.btnLimparFuncionario = new System.Windows.Forms.Button();
             this.cbxPermissao = new System.Windows.Forms.ComboBox();
             this.gbxPeriodoAdimissao = new System.Windows.Forms.GroupBox();
@@ -86,8 +88,6 @@
             this.rbtnFerramentasReqisitadas = new System.Windows.Forms.RadioButton();
             this.rbtnLista = new System.Windows.Forms.RadioButton();
             this.rbtnEventosSistema = new System.Windows.Forms.RadioButton();
-            this.cbxPapel = new System.Windows.Forms.ComboBox();
-            this.lblPapel = new System.Windows.Forms.Label();
             this.gbxrelatorio.SuspendLayout();
             this.gbxFocoRelatório.SuspendLayout();
             this.gbxFiltrarDados.SuspendLayout();
@@ -165,7 +165,7 @@
             // rbtnRequisicao
             // 
             this.rbtnRequisicao.AutoSize = true;
-            this.rbtnRequisicao.Location = new System.Drawing.Point(25, 81);
+            this.rbtnRequisicao.Location = new System.Drawing.Point(25, 29);
             this.rbtnRequisicao.Name = "rbtnRequisicao";
             this.rbtnRequisicao.Size = new System.Drawing.Size(87, 20);
             this.rbtnRequisicao.TabIndex = 2;
@@ -177,7 +177,7 @@
             // rbtnFerramenta
             // 
             this.rbtnFerramenta.AutoSize = true;
-            this.rbtnFerramenta.Location = new System.Drawing.Point(25, 55);
+            this.rbtnFerramenta.Location = new System.Drawing.Point(25, 81);
             this.rbtnFerramenta.Name = "rbtnFerramenta";
             this.rbtnFerramenta.Size = new System.Drawing.Size(93, 20);
             this.rbtnFerramenta.TabIndex = 1;
@@ -190,7 +190,7 @@
             // 
             this.rbtnFuncionario.AutoSize = true;
             this.rbtnFuncionario.Checked = true;
-            this.rbtnFuncionario.Location = new System.Drawing.Point(25, 29);
+            this.rbtnFuncionario.Location = new System.Drawing.Point(26, 55);
             this.rbtnFuncionario.Name = "rbtnFuncionario";
             this.rbtnFuncionario.Size = new System.Drawing.Size(92, 20);
             this.rbtnFuncionario.TabIndex = 0;
@@ -239,6 +239,23 @@
             this.tabPageFuncionario.TabIndex = 0;
             this.tabPageFuncionario.Text = "Funcionário";
             this.tabPageFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // cbxPapel
+            // 
+            this.cbxPapel.FormattingEnabled = true;
+            this.cbxPapel.Location = new System.Drawing.Point(446, 22);
+            this.cbxPapel.Name = "cbxPapel";
+            this.cbxPapel.Size = new System.Drawing.Size(167, 24);
+            this.cbxPapel.TabIndex = 45;
+            // 
+            // lblPapel
+            // 
+            this.lblPapel.AutoSize = true;
+            this.lblPapel.Location = new System.Drawing.Point(316, 26);
+            this.lblPapel.Name = "lblPapel";
+            this.lblPapel.Size = new System.Drawing.Size(124, 16);
+            this.lblPapel.TabIndex = 44;
+            this.lblPapel.Text = "Papel na requisição:";
             // 
             // btnLimparFuncionario
             // 
@@ -704,7 +721,7 @@
             // 
             this.rbtnLista.AutoSize = true;
             this.rbtnLista.Checked = true;
-            this.rbtnLista.Location = new System.Drawing.Point(23, 55);
+            this.rbtnLista.Location = new System.Drawing.Point(23, 29);
             this.rbtnLista.Name = "rbtnLista";
             this.rbtnLista.Size = new System.Drawing.Size(52, 20);
             this.rbtnLista.TabIndex = 1;
@@ -716,30 +733,13 @@
             // rbtnEventosSistema
             // 
             this.rbtnEventosSistema.AutoSize = true;
-            this.rbtnEventosSistema.Location = new System.Drawing.Point(23, 29);
+            this.rbtnEventosSistema.Location = new System.Drawing.Point(23, 55);
             this.rbtnEventosSistema.Name = "rbtnEventosSistema";
             this.rbtnEventosSistema.Size = new System.Drawing.Size(136, 20);
             this.rbtnEventosSistema.TabIndex = 0;
             this.rbtnEventosSistema.Text = "Eventos no sistema";
             this.rbtnEventosSistema.UseVisualStyleBackColor = true;
             this.rbtnEventosSistema.CheckedChanged += new System.EventHandler(this.rbtnEventosSistema_CheckedChanged);
-            // 
-            // cbxPapel
-            // 
-            this.cbxPapel.FormattingEnabled = true;
-            this.cbxPapel.Location = new System.Drawing.Point(457, 71);
-            this.cbxPapel.Name = "cbxPapel";
-            this.cbxPapel.Size = new System.Drawing.Size(167, 24);
-            this.cbxPapel.TabIndex = 45;
-            // 
-            // lblPapel
-            // 
-            this.lblPapel.AutoSize = true;
-            this.lblPapel.Location = new System.Drawing.Point(327, 75);
-            this.lblPapel.Name = "lblPapel";
-            this.lblPapel.Size = new System.Drawing.Size(124, 16);
-            this.lblPapel.TabIndex = 44;
-            this.lblPapel.Text = "Papel na requisição:";
             // 
             // Relatorio
             // 

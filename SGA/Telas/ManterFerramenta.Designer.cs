@@ -255,6 +255,7 @@
             // 
             this.tbxNuSerie.Location = new System.Drawing.Point(147, 241);
             this.tbxNuSerie.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tbxNuSerie.MaxLength = 50;
             this.tbxNuSerie.Name = "tbxNuSerie";
             this.tbxNuSerie.Size = new System.Drawing.Size(167, 23);
             this.tbxNuSerie.TabIndex = 9;
@@ -263,6 +264,7 @@
             // 
             this.tbxNome.Location = new System.Drawing.Point(147, 94);
             this.tbxNome.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tbxNome.MaxLength = 50;
             this.tbxNome.Name = "tbxNome";
             this.tbxNome.Size = new System.Drawing.Size(167, 23);
             this.tbxNome.TabIndex = 7;
