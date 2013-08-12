@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SGA.Telas;
 using SGA.Properties;
 using SGA.Entity;
+using SGA.Dao;
 
 namespace SGA
 {
@@ -53,6 +54,15 @@ namespace SGA
             Mensagem mensagen = new Mensagem("Deseja sair do aplicativo?", "confirma", Resources.interrogacao);
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
+                if (back.FuncBack)
+                {
+                    MessageBox.Show("Fazer Backup");
+                }
+                else
+                {
+                    MessageBox.Show("Não fazer Backup");
+                }
+
                 Application.Exit();
             }
         }
@@ -101,7 +111,7 @@ namespace SGA
                     }
                     else
                     {
-                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova",new Requisicao());
+                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova", new Requisicao());
                         cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
                         cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
                         cRequisicao.ShowDialog();
@@ -148,7 +158,7 @@ namespace SGA
 
             if (e.KeyCode == Keys.F3 && funcionario.no_permissao != "Usuário comum")
             {
-                menuItemlFuncionario_Click(new object(), new EventArgs()); 
+                menuItemlFuncionario_Click(new object(), new EventArgs());
             }
 
             if (e.KeyCode == Keys.F5 && funcionario.no_permissao == "Administrador")
@@ -158,37 +168,37 @@ namespace SGA
 
             if (e.KeyCode == Keys.F6)
             {
-                menuItemlFerramenta_Click(new object(), new EventArgs()); 
+                menuItemlFerramenta_Click(new object(), new EventArgs());
             }
 
             if (e.KeyCode == Keys.F7 && funcionario.no_permissao != "Usuário comum")
-             {
-                 menuItemNRequisição_Click(new object(), new EventArgs());
-             }
+            {
+                menuItemNRequisição_Click(new object(), new EventArgs());
+            }
 
             if (e.KeyCode == Keys.F8 && funcionario.no_permissao != "Usuário comum")
-             {
-                 menuItemLRequisicao_Click(new object(), new EventArgs());
-             }
+            {
+                menuItemLRequisicao_Click(new object(), new EventArgs());
+            }
 
-             if (e.KeyCode == Keys.F9 && funcionario.no_permissao == "Administrador")
-             {
-                 MenuItmRelatorios_Click(new object(), new EventArgs());
-             }
+            if (e.KeyCode == Keys.F9 && funcionario.no_permissao == "Administrador")
+            {
+                MenuItmRelatorios_Click(new object(), new EventArgs());
+            }
 
-             if (e.KeyCode == Keys.F10)
-             {
-                 MenuItmLogoff_Click(new object(), new EventArgs());
-             }
+            if (e.KeyCode == Keys.F10)
+            {
+                MenuItmLogoff_Click(new object(), new EventArgs());
+            }
 
-             if (e.KeyCode == Keys.F11)
-             {
-                 MenuItmSair_Click(new object(), new EventArgs());
-             }
+            if (e.KeyCode == Keys.F11)
+            {
+                MenuItmSair_Click(new object(), new EventArgs());
+            }
 
-             if (e.KeyCode == Keys.F1)
-             {
-             }
+            if (e.KeyCode == Keys.F1)
+            {
+            }
 
         }
         #endregion

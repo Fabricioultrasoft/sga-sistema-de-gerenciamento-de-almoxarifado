@@ -974,7 +974,7 @@ namespace SGA.FerramentaMRequisitadaDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, fe.dt_aquisicao, fe.dt_desativacao, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
@@ -988,6 +988,29 @@ INNER JOIN tb_funcionario fu ON(fu.mat_funcionario = re.fk_func_requisitante)
 INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)
 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT DISTINCT fe.cod_ferramenta, fe.nu_serie, fe.dt_aquisicao, fe.dt_desativacao, d.no_ferramenta, fa.no_fabricante, g.no_grupo, (SELECT COUNT(nu_seq_requisicao) FROM tb_requisicao r INNER JOIN tb_ferramenta f ON(f.cod_ferramenta = r.fk_ferramenta) 
+WHERE f.cod_ferramenta = fe.cod_ferramenta) as NRequisicoes 
+FROM tb_ferramenta fe 
+INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
+INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
+INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo) 
+INNER JOIN tb_requisicao re ON(re.fk_ferramenta = fe.cod_ferramenta)
+INNER JOIN tb_funcionario fu ON(fu.mat_funcionario = re.fk_func_requisitante)
+INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)
+WHERE g.no_grupo LIKE(@categoria)
+AND fa.no_fabricante LIKE(@fabricante)
+AND CAST(fu.mat_funcionario AS VARCHAR) LIKE(@matricula)
+AND fun.no_funcao LIKE(@funcao)
+AND re.dt_saida_requisicao BETWEEN @dtin AND @dtFim";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@matricula", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFim", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1009,6 +1032,82 @@ INNER JOIN tb_funcao fun ON(fun.nu_seq_funcao = fu.fk_funcao)
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable dataTable = new FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCatFabMatFunDtInDtOut(FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable dataTable, string categoria, string fabricante, string matricula, string funcao, System.DateTime dtin, System.DateTime dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(categoria));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            if ((matricula == null)) {
+                throw new global::System.ArgumentNullException("matricula");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(matricula));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtin));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFim));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable GetDataByCatFabMatFunDtInDtOut(string categoria, string fabricante, string matricula, string funcao, System.DateTime dtin, System.DateTime dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(categoria));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            if ((matricula == null)) {
+                throw new global::System.ArgumentNullException("matricula");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(matricula));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtin));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFim));
             FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable dataTable = new FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

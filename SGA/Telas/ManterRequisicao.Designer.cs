@@ -30,22 +30,22 @@
         {
             this.gbxNRequisicao = new System.Windows.Forms.GroupBox();
             this.gbxFuncBaixa = new System.Windows.Forms.GroupBox();
-            this.listViewFuncSaida = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gbxFuncSaida = new System.Windows.Forms.GroupBox();
             this.listViewFuncBaixa = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gbxFuncSaida = new System.Windows.Forms.GroupBox();
+            this.listViewFuncSaida = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbxFerramenta = new System.Windows.Forms.GroupBox();
             this.listVFerramenta = new System.Windows.Forms.ListView();
             this.codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.fabricante = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoverFerr = new System.Windows.Forms.Button();
             this.btnAddFerramenta = new System.Windows.Forms.Button();
             this.pbxFerramenta = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -89,6 +89,50 @@
             this.gbxFuncBaixa.TabStop = false;
             this.gbxFuncBaixa.Text = "Funcionário Baixa";
             // 
+            // listViewFuncBaixa
+            // 
+            this.listViewFuncBaixa.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.listViewFuncBaixa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listViewFuncBaixa.FullRowSelect = true;
+            this.listViewFuncBaixa.GridLines = true;
+            this.listViewFuncBaixa.LabelWrap = false;
+            this.listViewFuncBaixa.Location = new System.Drawing.Point(6, 22);
+            this.listViewFuncBaixa.Name = "listViewFuncBaixa";
+            this.listViewFuncBaixa.Size = new System.Drawing.Size(357, 68);
+            this.listViewFuncBaixa.TabIndex = 37;
+            this.listViewFuncBaixa.UseCompatibleStateImageBehavior = false;
+            this.listViewFuncBaixa.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Matrícula";
+            this.columnHeader1.Width = 76;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 170;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Função";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 105;
+            // 
+            // gbxFuncSaida
+            // 
+            this.gbxFuncSaida.Controls.Add(this.listViewFuncSaida);
+            this.gbxFuncSaida.Location = new System.Drawing.Point(541, 13);
+            this.gbxFuncSaida.Name = "gbxFuncSaida";
+            this.gbxFuncSaida.Size = new System.Drawing.Size(369, 102);
+            this.gbxFuncSaida.TabIndex = 38;
+            this.gbxFuncSaida.TabStop = false;
+            this.gbxFuncSaida.Text = "Funcionário Saída";
+            // 
             // listViewFuncSaida
             // 
             this.listViewFuncSaida.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -124,54 +168,10 @@
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 105;
             // 
-            // gbxFuncSaida
-            // 
-            this.gbxFuncSaida.Controls.Add(this.listViewFuncSaida);
-            this.gbxFuncSaida.Location = new System.Drawing.Point(541, 13);
-            this.gbxFuncSaida.Name = "gbxFuncSaida";
-            this.gbxFuncSaida.Size = new System.Drawing.Size(369, 102);
-            this.gbxFuncSaida.TabIndex = 38;
-            this.gbxFuncSaida.TabStop = false;
-            this.gbxFuncSaida.Text = "Funcionário Saída";
-            // 
-            // listViewFuncBaixa
-            // 
-            this.listViewFuncBaixa.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.listViewFuncBaixa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listViewFuncBaixa.FullRowSelect = true;
-            this.listViewFuncBaixa.GridLines = true;
-            this.listViewFuncBaixa.LabelWrap = false;
-            this.listViewFuncBaixa.Location = new System.Drawing.Point(6, 22);
-            this.listViewFuncBaixa.Name = "listViewFuncBaixa";
-            this.listViewFuncBaixa.Size = new System.Drawing.Size(357, 68);
-            this.listViewFuncBaixa.TabIndex = 37;
-            this.listViewFuncBaixa.UseCompatibleStateImageBehavior = false;
-            this.listViewFuncBaixa.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Matrícula";
-            this.columnHeader1.Width = 76;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nome";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 170;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Função";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 105;
-            // 
             // gbxFerramenta
             // 
             this.gbxFerramenta.Controls.Add(this.listVFerramenta);
-            this.gbxFerramenta.Controls.Add(this.button1);
+            this.gbxFerramenta.Controls.Add(this.btnRemoverFerr);
             this.gbxFerramenta.Controls.Add(this.btnAddFerramenta);
             this.gbxFerramenta.Controls.Add(this.pbxFerramenta);
             this.gbxFerramenta.Location = new System.Drawing.Point(6, 214);
@@ -221,17 +221,17 @@
             this.categoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.categoria.Width = 164;
             // 
-            // button1
+            // btnRemoverFerr
             // 
-            this.button1.Image = global::SGA.Properties.Resources._1370629558_minus;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(327, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 44);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Retirar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRemoverFerr.Image = global::SGA.Properties.Resources._1370629558_minus;
+            this.btnRemoverFerr.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRemoverFerr.Location = new System.Drawing.Point(327, 298);
+            this.btnRemoverFerr.Name = "btnRemoverFerr";
+            this.btnRemoverFerr.Size = new System.Drawing.Size(148, 44);
+            this.btnRemoverFerr.TabIndex = 14;
+            this.btnRemoverFerr.Text = "Retirar";
+            this.btnRemoverFerr.UseVisualStyleBackColor = true;
+            this.btnRemoverFerr.Click += new System.EventHandler(this.btnRemoverFerr_Click);
             // 
             // btnAddFerramenta
             // 
@@ -367,7 +367,7 @@
         private System.Windows.Forms.PictureBox pbxFerramenta;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoverFerr;
         private System.Windows.Forms.ListView listVFerramenta;
         private System.Windows.Forms.ColumnHeader codigo;
         private System.Windows.Forms.ColumnHeader nome;

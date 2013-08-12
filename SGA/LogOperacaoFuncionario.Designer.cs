@@ -1197,7 +1197,7 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT l.nu_seq_log
@@ -1213,6 +1213,29 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
   ,[cod_requisicao]
   FROM [sga].[dbo].[tb_logOperacoesCriticas] l";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT l.nu_seq_log
+  ,l.descricao_log
+  ,l.matricula_ator
+  ,(SELECT TOP 1 no_funcionario FROM tb_funcionario WHERE mat_funcionario = l.matricula_ator) as no_func_ator
+  ,(SELECT TOP 1 no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario = l.matricula_ator) AS funcao_ator
+  ,l.dt_log
+  ,mat_funcionario
+  ,(SELECT TOP 1 no_funcionario FROM tb_funcionario WHERE mat_funcionario = l.mat_funcionario) as no_funcionario
+  ,(SELECT TOP 1 no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario =l.mat_funcionario) AS funcao_funcionario
+  ,[cod_ferramenta]
+  ,[cod_requisicao]
+  FROM [sga].[dbo].[tb_logOperacoesCriticas] l  INNER JOIN tb_funcao fun ON (l.fk_funcao = fun.nu_seq_funcao) INNER JOIN tb_usuario u ON (l.mat_funcionario = u.fk_funcionario) INNER JOIN tb_permissao pe ON (u.fk_permissao = pe.nu_seq_permissao)
+
+ WHERE l.ativo <> '0' AND fun.no_funcao LIKE(@funcao)
+  AND pe.no_permissao LIKE(@permissao)
+  AND l.dt_ins_funcionario BETWEEN @dtini AND @dtFim";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permissao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_permissao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtini", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFim", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1234,6 +1257,78 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable = new LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByS(LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable, string funcao, string permissao, object dtini, object dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+            }
+            if ((permissao == null)) {
+                throw new global::System.ArgumentNullException("permissao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+            }
+            if ((dtini == null)) {
+                throw new global::System.ArgumentNullException("dtini");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(dtini));
+            }
+            if ((dtFim == null)) {
+                throw new global::System.ArgumentNullException("dtFim");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((object)(dtFim));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable GetDataByS(string funcao, string permissao, object dtini, object dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+            }
+            if ((permissao == null)) {
+                throw new global::System.ArgumentNullException("permissao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+            }
+            if ((dtini == null)) {
+                throw new global::System.ArgumentNullException("dtini");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(dtini));
+            }
+            if ((dtFim == null)) {
+                throw new global::System.ArgumentNullException("dtFim");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((object)(dtFim));
+            }
             LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable = new LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

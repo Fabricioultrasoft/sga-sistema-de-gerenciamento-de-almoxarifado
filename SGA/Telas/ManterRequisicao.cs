@@ -82,7 +82,7 @@ namespace SGA.Telas
                 btnAddFerramenta.Enabled = false;
                 btnAlterar.Enabled = false;
                 btnSalvar.Enabled = false;
-                button1.Enabled = false;
+                btnRemoverFerr.Enabled = false;
 
                 if (funcionarioBaixa.matricula == 0)
                     gbxFuncBaixa.Visible = false;
@@ -305,7 +305,7 @@ namespace SGA.Telas
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRemoverFerr_Click(object sender, EventArgs e)
         {
             if (objFerramentaSelecionada == null)
             {

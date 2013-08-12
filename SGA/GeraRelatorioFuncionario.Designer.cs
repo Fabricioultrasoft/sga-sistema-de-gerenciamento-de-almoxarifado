@@ -840,7 +840,7 @@ namespace SGA.GeraRelatorioFuncionarioTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT f.mat_funcionario 
@@ -854,6 +854,26 @@ namespace SGA.GeraRelatorioFuncionarioTableAdapters {
   INNER JOIN tb_permissao p ON(u.fk_permissao = p.nu_seq_permissao) 
   WHERE f.ativo <> '0'";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT f.mat_funcionario 
+ 	 ,f.no_funcionario 
+ 	 ,f.dt_ins_funcionario 
+  ,fu.no_funcao 
+  ,p.no_permissao 
+  FROM tb_funcionario f 
+  INNER JOIN tb_funcao fu ON(f.fk_funcao = fu.nu_seq_funcao) 
+  INNER JOIN tb_usuario u ON(f.mat_funcionario = u.fk_funcionario) 
+  INNER JOIN tb_permissao p ON(u.fk_permissao = p.nu_seq_permissao) 
+ 
+ WHERE f.ativo <> '0' AND fu.no_funcao LIKE(@funcao)
+  AND p.no_permissao LIKE(@permissao)
+  AND f.dt_ins_funcionario BETWEEN @dtini AND @dtFim";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permissao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_permissao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtini", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_ins_funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFim", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_ins_funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -875,6 +895,58 @@ namespace SGA.GeraRelatorioFuncionarioTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GeraRelatorioFuncionario.RelatorioFuncionarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GeraRelatorioFuncionario.RelatorioFuncionarioDataTable dataTable = new GeraRelatorioFuncionario.RelatorioFuncionarioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByFunPermDtInDtOut(GeraRelatorioFuncionario.RelatorioFuncionarioDataTable dataTable, string funcao, string permissao, System.DateTime dtini, System.DateTime dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+            }
+            if ((permissao == null)) {
+                throw new global::System.ArgumentNullException("permissao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+            }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtini));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFim));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GeraRelatorioFuncionario.RelatorioFuncionarioDataTable GetDataByFunPermDtInDtOut(string funcao, string permissao, System.DateTime dtini, System.DateTime dtFim) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+            }
+            if ((permissao == null)) {
+                throw new global::System.ArgumentNullException("permissao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+            }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtini));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFim));
             GeraRelatorioFuncionario.RelatorioFuncionarioDataTable dataTable = new GeraRelatorioFuncionario.RelatorioFuncionarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

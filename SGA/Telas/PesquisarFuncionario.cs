@@ -107,7 +107,7 @@ namespace SGA.Telas
             {
                 if (objFuncionario == null)
                 {
-                    new Mensagem("Selecione um item primeiro.", "informacao", Resources.atencao).ShowDialog();
+                    new Mensagem("Selecione um funcionário para prosseguir!", "informacao", Resources.atencao).ShowDialog();
                 }
                 else
                 {
@@ -120,7 +120,15 @@ namespace SGA.Telas
         {
             if (objFuncionario == null)
             {
-                new Mensagem("Selecione um item primeiro.", "informacao", Resources.atencao).ShowDialog();
+                if (tipoTela != "adicionar")
+                {
+                    new Mensagem("Selecione um funcionário!", "informacao", Resources.atencao).ShowDialog();
+                }
+                else
+                {
+                    new Mensagem("Selecione um funcionário!", "informacao", Resources.atencao).ShowDialog();
+                }
+
             }
             else
             {
