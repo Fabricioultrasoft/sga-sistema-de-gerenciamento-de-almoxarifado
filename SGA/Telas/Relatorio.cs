@@ -43,7 +43,6 @@ namespace SGA.Telas
             preencherCbxSituacaoRequisicao();
             preenchercbxTipoPeriodoRequisuicao();
             mudancaFocoRelatorio();
-            preencherCbxPapel();
         }
 
         private void preenchercbxTipoPeriodo()
@@ -129,9 +128,7 @@ namespace SGA.Telas
             dtpickekAdmissaoInicio.Enabled = true;
             tbxMatricula.Enabled = true;
             tbxCodigo.Enabled = true;
-            cbxPapel.Visible = false;
-            lblPapel.Visible = false;
-
+          
             rbtnFerramentasReqisitadas.Visible = false;
 
             if (rbtnFuncionario.Checked)
@@ -163,9 +160,6 @@ namespace SGA.Telas
                     tabControl1.Controls.Add(tabPageFuncionario);
                     tabControl1.Controls.Add(tabPageRequisicao);
 
-                    cbxPapel.Visible = true;
-                    lblPapel.Visible = true;
-
                     tbxCodigo.Enabled = false;
                     cbxSituacaoRequisicao.Enabled = false;
 
@@ -183,8 +177,6 @@ namespace SGA.Telas
                 cbxSituacao.Visible = false;
                 lblSituacao.Visible = false;
                 rbtnEventosSistema.Visible = false;
-                cbxPapel.Visible = true;
-                lblPapel.Visible = true;
                 cbxSituacaoRequisicao.Enabled = true;
                 tbxMatricula.Enabled = true;
                 tbxCodigo.Enabled = true;
@@ -292,7 +284,6 @@ namespace SGA.Telas
             tbxMatricula.Clear();
             cbxFuncao.Text = "";
             cbxPermissao.Text = "";
-            cbxPapel.SelectedItem = "";
         }
 
         private void btnRedefinirPeriodoAdmissao_Click(object sender, EventArgs e)
@@ -319,12 +310,9 @@ namespace SGA.Telas
                 cbxFuncao.Text = "";
                 cbxPermissao.Text = "";
                 setDtpickers();
-                cbxPapel.Enabled = true;
             }
             else
             {
-                cbxPapel.Enabled = false;
-                cbxPapel.SelectedItem = "";
                 cbxFuncao.Enabled = true;
                 cbxPermissao.Enabled = true;
                 if (rbtnFuncionario.Checked)
@@ -491,14 +479,6 @@ namespace SGA.Telas
         {
             setDtpickersRequisicao();
             cbxTipoPeriodoRequisicao.SelectedItem = "";
-        }
-
-        private void preencherCbxPapel()
-        {
-            cbxPapel.Items.Add("");
-            cbxPapel.Items.Add("Requisitante");
-            cbxPapel.Items.Add("Saída");
-            cbxPapel.Items.Add("Baixa");
         }
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)

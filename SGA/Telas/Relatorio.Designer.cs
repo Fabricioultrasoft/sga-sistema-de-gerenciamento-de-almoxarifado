@@ -39,8 +39,6 @@
             this.gbxFiltrarDados = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFuncionario = new System.Windows.Forms.TabPage();
-            this.cbxPapel = new System.Windows.Forms.ComboBox();
-            this.lblPapel = new System.Windows.Forms.Label();
             this.btnLimparFuncionario = new System.Windows.Forms.Button();
             this.cbxPermissao = new System.Windows.Forms.ComboBox();
             this.gbxPeriodoAdimissao = new System.Windows.Forms.GroupBox();
@@ -222,8 +220,6 @@
             // 
             // tabPageFuncionario
             // 
-            this.tabPageFuncionario.Controls.Add(this.cbxPapel);
-            this.tabPageFuncionario.Controls.Add(this.lblPapel);
             this.tabPageFuncionario.Controls.Add(this.btnLimparFuncionario);
             this.tabPageFuncionario.Controls.Add(this.cbxPermissao);
             this.tabPageFuncionario.Controls.Add(this.gbxPeriodoAdimissao);
@@ -239,23 +235,6 @@
             this.tabPageFuncionario.TabIndex = 0;
             this.tabPageFuncionario.Text = "Funcionário";
             this.tabPageFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // cbxPapel
-            // 
-            this.cbxPapel.FormattingEnabled = true;
-            this.cbxPapel.Location = new System.Drawing.Point(446, 22);
-            this.cbxPapel.Name = "cbxPapel";
-            this.cbxPapel.Size = new System.Drawing.Size(167, 24);
-            this.cbxPapel.TabIndex = 45;
-            // 
-            // lblPapel
-            // 
-            this.lblPapel.AutoSize = true;
-            this.lblPapel.Location = new System.Drawing.Point(316, 26);
-            this.lblPapel.Name = "lblPapel";
-            this.lblPapel.Size = new System.Drawing.Size(124, 16);
-            this.lblPapel.TabIndex = 44;
-            this.lblPapel.Text = "Papel na requisição:";
             // 
             // btnLimparFuncionario
             // 
@@ -838,7 +817,5 @@
         private System.Windows.Forms.RadioButton rbtnFerramentasReqisitadas;
         private System.Windows.Forms.Button btnGerarRelatorio;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cbxPapel;
-        private System.Windows.Forms.Label lblPapel;
     }
 }
