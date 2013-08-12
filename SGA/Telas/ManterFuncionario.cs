@@ -80,7 +80,7 @@ namespace SGA.Telas
                 btnRedefinirSenha.Visible = true;
 
             }
-            else if (tipoTela == "adicionar")
+            else if (tipoTela == "adicionar" || funcionarioLogado.no_permissao != "Administrador")
             {
                 btnRedefinirSenha.Visible = false;
                 btnSalvar.Enabled = false;

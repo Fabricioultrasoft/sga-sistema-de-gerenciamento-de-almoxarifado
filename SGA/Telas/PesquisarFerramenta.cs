@@ -92,6 +92,12 @@ namespace SGA.Telas
                 btnDetalhes.Image = SGA.Properties.Resources._1374804631_Checkbox_Full;
                 lblSituacao.Visible = false;
             }
+            if (usuarioLogado.no_permissao != "Administrador")
+            {
+                btnNFerramenta.Visible = false;
+                btnEditar.Visible = false;
+                btnDesativar.Visible = false;
+            }
         }
 
         public Ferramenta objPesquisaFerramenta

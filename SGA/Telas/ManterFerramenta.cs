@@ -231,7 +231,10 @@ namespace SGA.Telas
                     btnCancelar.Image = SGA.Properties.Resources._1370593393_Check;
                 }
             }
-            
+            if (usuarioLogado.no_permissao != "Administrador")
+            {
+                btnSalvar.Visible = false;
+            }
         }
 
         public void preencherCbxFabricante()

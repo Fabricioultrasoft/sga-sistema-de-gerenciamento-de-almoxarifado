@@ -22,8 +22,8 @@ namespace SGA.Telas
         private Funcionario i_usuarioLogado;
         private string tipoTela = "";
 
-        private FuncionarioDelegate funcionarioD = new FuncionarioDelegate(); 
-       
+        private FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
+
         public PesquisarFuncionario(Funcionario func, string tipoT)
         {
             InitializeComponent();
@@ -35,17 +35,18 @@ namespace SGA.Telas
 
         private void montarTela()
         {
-            if (usuarioLogado.no_permissao == "")
-            {
-
-            }
             setDtpickers();
             if (tipoTela == "adicionar")
             {
-                if(usuarioLogado.no_permissao == "")
                 btnEditar.Visible = false;
                 btnNFuncionario.Text = "Salvar seleção";
                 btnNFuncionario.Image = SGA.Properties.Resources._1370629123_button_30;
+                btnDesativar.Visible = false;
+            }
+            else if (usuarioLogado.no_permissao != "Administrador")
+            {
+                btnEditar.Visible = false;
+                btnNFuncionario.Visible = false;
                 btnDesativar.Visible = false;
             }
         }
@@ -100,7 +101,7 @@ namespace SGA.Telas
                 telaEdicao.ShowDialog();
                 preencherListView();
                 objFuncionario = null;
-                
+
             }
             else
             {
@@ -140,7 +141,7 @@ namespace SGA.Telas
 
         private void manterFuncionario(string tipo)
         {
-            ManterFuncionario mFunc = new ManterFuncionario(tipo,objFuncionario, usuarioLogado);
+            ManterFuncionario mFunc = new ManterFuncionario(tipo, objFuncionario, usuarioLogado);
             mFunc.ShowDialog();
         }
 
@@ -164,7 +165,7 @@ namespace SGA.Telas
 
             foreach (Funcionario fu in funcionarios)
             {
-                var item = new ListViewItem(new [] {Convert.ToString(fu.matricula), fu.nome, fu.no_funcao, fu.no_permissao});
+                var item = new ListViewItem(new[] { Convert.ToString(fu.matricula), fu.nome, fu.no_funcao, fu.no_permissao });
                 listVFuncionario.Items.Add(item);
             }
         }
@@ -260,7 +261,7 @@ namespace SGA.Telas
             while (funcao.Count != 0)
             {
                 cbxFuncao.Items.Add(funcao.Dequeue().ToString());
-            } 
+            }
         }
 
         private void preencherCbxPermissao()
@@ -271,7 +272,7 @@ namespace SGA.Telas
             while (permissao.Count != 0)
             {
                 cbxPermissao.Items.Add(permissao.Dequeue().ToString());
-            } 
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

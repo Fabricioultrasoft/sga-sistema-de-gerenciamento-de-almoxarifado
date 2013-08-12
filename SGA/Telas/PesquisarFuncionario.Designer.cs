@@ -235,7 +235,7 @@
             // 
             this.btnDesativar.Image = global::SGA.Properties.Resources._1370637874_user_male_delete;
             this.btnDesativar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDesativar.Location = new System.Drawing.Point(62, 548);
+            this.btnDesativar.Location = new System.Drawing.Point(524, 548);
             this.btnDesativar.Name = "btnDesativar";
             this.btnDesativar.Size = new System.Drawing.Size(148, 44);
             this.btnDesativar.TabIndex = 32;
@@ -256,7 +256,7 @@
             // 
             this.btnDetalhes.Image = global::SGA.Properties.Resources._1370637053_cv;
             this.btnDetalhes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDetalhes.Location = new System.Drawing.Point(216, 548);
+            this.btnDetalhes.Location = new System.Drawing.Point(62, 548);
             this.btnDetalhes.Name = "btnDetalhes";
             this.btnDetalhes.Size = new System.Drawing.Size(148, 44);
             this.btnDetalhes.TabIndex = 28;
@@ -299,7 +299,7 @@
             // 
             this.btnNFuncionario.Image = global::SGA.Properties.Resources._1370637313_user_male_add;
             this.btnNFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNFuncionario.Location = new System.Drawing.Point(524, 548);
+            this.btnNFuncionario.Location = new System.Drawing.Point(216, 548);
             this.btnNFuncionario.Name = "btnNFuncionario";
             this.btnNFuncionario.Size = new System.Drawing.Size(148, 44);
             this.btnNFuncionario.TabIndex = 31;
