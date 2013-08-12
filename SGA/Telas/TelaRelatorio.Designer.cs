@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.logOperacaoFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.logOperacaoFuncionario = new SGA.LogOperacaoFuncionario();
             this.listaOperacaoFerramentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.logOperacaoFerramenta = new SGA.LogOperacaoFerramenta();
             this.ferramentasMRequisitadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,9 +48,9 @@
             this.geraRelatorioFuncionario = new SGA.GeraRelatorioFuncionario();
             this.relatorioFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.relatorioFuncionarioTableAdapter = new SGA.GeraRelatorioFuncionarioTableAdapters.RelatorioFuncionarioTableAdapter();
-            this.logOperacaoFuncionario = new SGA.LogOperacaoFuncionario();
-            this.logOperacaoFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.logOperacaoFuncionarioTableAdapter = new SGA.LogOperacaoFuncionarioTableAdapters.LogOperacaoFuncionarioTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaOperacaoFerramentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFerramenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).BeginInit();
@@ -59,9 +61,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.geraRelatorioFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relatorioFuncionarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // logOperacaoFuncionarioBindingSource
+            // 
+            this.logOperacaoFuncionarioBindingSource.DataMember = "LogOperacaoFuncionario";
+            this.logOperacaoFuncionarioBindingSource.DataSource = this.logOperacaoFuncionario;
+            // 
+            // logOperacaoFuncionario
+            // 
+            this.logOperacaoFuncionario.DataSetName = "LogOperacaoFuncionario";
+            this.logOperacaoFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // listaOperacaoFerramentaBindingSource
             // 
@@ -86,10 +96,10 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "LogOperacaoFuncionario";
-            reportDataSource1.Value = this.logOperacaoFuncionarioBindingSource;
+            reportDataSource1.Name = "GeraRelatorioRequisicao";
+            reportDataSource1.Value = this.listaDeRequisiçãoBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.LogFuncionario.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(930, 611);
@@ -146,16 +156,6 @@
             // 
             this.relatorioFuncionarioTableAdapter.ClearBeforeFill = true;
             // 
-            // logOperacaoFuncionario
-            // 
-            this.logOperacaoFuncionario.DataSetName = "LogOperacaoFuncionario";
-            this.logOperacaoFuncionario.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // logOperacaoFuncionarioBindingSource
-            // 
-            this.logOperacaoFuncionarioBindingSource.DataMember = "LogOperacaoFuncionario";
-            this.logOperacaoFuncionarioBindingSource.DataSource = this.logOperacaoFuncionario;
-            // 
             // logOperacaoFuncionarioTableAdapter
             // 
             this.logOperacaoFuncionarioTableAdapter.ClearBeforeFill = true;
@@ -172,6 +172,8 @@
             this.Name = "TelaRelatorio";
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.TelaRelatorio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaOperacaoFerramentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFerramenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).EndInit();
@@ -182,8 +184,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.geraRelatorioFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relatorioFuncionarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
