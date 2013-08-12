@@ -101,6 +101,10 @@ namespace SGA.Telas
                 cbxSituacao.SelectedItem = "Disponível";
                 cbxSituacao.Enabled = false;
             }
+            if (usuarioLogado.no_permissao == "Atendente")
+            {
+                btnNFerramenta.Visible = true;
+            }
         }
 
         public Ferramenta objPesquisaFerramenta
