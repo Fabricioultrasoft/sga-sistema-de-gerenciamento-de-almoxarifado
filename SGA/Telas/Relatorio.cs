@@ -41,7 +41,6 @@ namespace SGA.Telas
             setDtpickersFerramenta();
             setDtpickersRequisicao();
             preencherCbxSituacaoRequisicao();
-            preenchercbxTipoPeriodoRequisuicao();
             mudancaFocoRelatorio();
         }
 
@@ -128,6 +127,8 @@ namespace SGA.Telas
             dtpickekAdmissaoInicio.Enabled = true;
             tbxMatricula.Enabled = true;
             tbxCodigo.Enabled = true;
+            lblPermissao.Visible = true;
+            cbxPermissao.Visible = true;
           
             rbtnFerramentasReqisitadas.Visible = false;
 
@@ -159,6 +160,11 @@ namespace SGA.Telas
                 {
                     tabControl1.Controls.Add(tabPageFuncionario);
                     tabControl1.Controls.Add(tabPageRequisicao);
+
+                    lblSituacao.Visible = false;
+                    cbxSituacao.Visible = false;
+                    lblPermissao.Visible = false;
+                    cbxPermissao.Visible = false;
 
                     tbxCodigo.Enabled = false;
                     cbxSituacaoRequisicao.Enabled = false;
@@ -463,13 +469,7 @@ namespace SGA.Telas
             cbxSituacaoRequisicao.Items.Add("Abertas");
             cbxSituacaoRequisicao.Items.Add("Fechadas");
         }
-        private void preenchercbxTipoPeriodoRequisuicao()
-        {
-            cbxTipoPeriodoRequisicao.Items.Add("");
-            cbxTipoPeriodoRequisicao.Items.Add("Criação");
-            cbxTipoPeriodoRequisicao.Items.Add("Baixa");
-        }
-
+        
         private void btnLimparRquisicao_Click(object sender, EventArgs e)
         {
             cbxSituacaoRequisicao.SelectedItem = "";
@@ -478,7 +478,6 @@ namespace SGA.Telas
         private void button2_Click(object sender, EventArgs e)
         {
             setDtpickersRequisicao();
-            cbxTipoPeriodoRequisicao.SelectedItem = "";
         }
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)

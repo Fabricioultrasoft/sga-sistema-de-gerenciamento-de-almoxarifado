@@ -75,9 +75,7 @@
             this.cbxSituacaoRequisicao = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gbxPeriodoRequisicao = new System.Windows.Forms.GroupBox();
-            this.cbxTipoPeriodoRequisicao = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dtpickerFinal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpickerInicio = new System.Windows.Forms.DateTimePicker();
@@ -565,7 +563,7 @@
             // 
             this.btnLimparRquisicao.Image = global::SGA.Properties.Resources._1370631243_eraser;
             this.btnLimparRquisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparRquisicao.Location = new System.Drawing.Point(513, 58);
+            this.btnLimparRquisicao.Location = new System.Drawing.Point(512, 68);
             this.btnLimparRquisicao.Name = "btnLimparRquisicao";
             this.btnLimparRquisicao.Size = new System.Drawing.Size(148, 44);
             this.btnLimparRquisicao.TabIndex = 44;
@@ -576,7 +574,7 @@
             // cbxSituacaoRequisicao
             // 
             this.cbxSituacaoRequisicao.FormattingEnabled = true;
-            this.cbxSituacaoRequisicao.Location = new System.Drawing.Point(263, 69);
+            this.cbxSituacaoRequisicao.Location = new System.Drawing.Point(262, 79);
             this.cbxSituacaoRequisicao.Name = "cbxSituacaoRequisicao";
             this.cbxSituacaoRequisicao.Size = new System.Drawing.Size(167, 24);
             this.cbxSituacaoRequisicao.TabIndex = 39;
@@ -584,7 +582,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(133, 73);
+            this.label6.Location = new System.Drawing.Point(132, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 16);
             this.label6.TabIndex = 38;
@@ -592,50 +590,31 @@
             // 
             // gbxPeriodoRequisicao
             // 
-            this.gbxPeriodoRequisicao.Controls.Add(this.cbxTipoPeriodoRequisicao);
             this.gbxPeriodoRequisicao.Controls.Add(this.label3);
-            this.gbxPeriodoRequisicao.Controls.Add(this.label4);
             this.gbxPeriodoRequisicao.Controls.Add(this.dtpickerFinal);
             this.gbxPeriodoRequisicao.Controls.Add(this.label5);
             this.gbxPeriodoRequisicao.Controls.Add(this.dtpickerInicio);
             this.gbxPeriodoRequisicao.Controls.Add(this.button2);
             this.gbxPeriodoRequisicao.Location = new System.Drawing.Point(8, 164);
             this.gbxPeriodoRequisicao.Name = "gbxPeriodoRequisicao";
-            this.gbxPeriodoRequisicao.Size = new System.Drawing.Size(804, 99);
+            this.gbxPeriodoRequisicao.Size = new System.Drawing.Size(804, 78);
             this.gbxPeriodoRequisicao.TabIndex = 28;
             this.gbxPeriodoRequisicao.TabStop = false;
-            this.gbxPeriodoRequisicao.Text = "Limitar período ";
-            // 
-            // cbxTipoPeriodoRequisicao
-            // 
-            this.cbxTipoPeriodoRequisicao.FormattingEnabled = true;
-            this.cbxTipoPeriodoRequisicao.Location = new System.Drawing.Point(127, 44);
-            this.cbxTipoPeriodoRequisicao.Name = "cbxTipoPeriodoRequisicao";
-            this.cbxTipoPeriodoRequisicao.Size = new System.Drawing.Size(167, 24);
-            this.cbxTipoPeriodoRequisicao.TabIndex = 41;
+            this.gbxPeriodoRequisicao.Text = "Limitar período requisição";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 62);
+            this.label3.Location = new System.Drawing.Point(347, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 16);
             this.label3.TabIndex = 32;
             this.label3.Text = "Data final do período:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 16);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Tipo período:";
-            // 
             // dtpickerFinal
             // 
             this.dtpickerFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpickerFinal.Location = new System.Drawing.Point(486, 59);
+            this.dtpickerFinal.Location = new System.Drawing.Point(486, 29);
             this.dtpickerFinal.Name = "dtpickerFinal";
             this.dtpickerFinal.Size = new System.Drawing.Size(99, 23);
             this.dtpickerFinal.TabIndex = 31;
@@ -644,7 +623,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(325, 28);
+            this.label5.Location = new System.Drawing.Point(15, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 16);
             this.label5.TabIndex = 30;
@@ -653,7 +632,7 @@
             // dtpickerInicio
             // 
             this.dtpickerInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpickerInicio.Location = new System.Drawing.Point(486, 23);
+            this.dtpickerInicio.Location = new System.Drawing.Point(176, 29);
             this.dtpickerInicio.Name = "dtpickerInicio";
             this.dtpickerInicio.Size = new System.Drawing.Size(99, 23);
             this.dtpickerInicio.TabIndex = 29;
@@ -663,7 +642,7 @@
             // 
             this.button2.Image = global::SGA.Properties.Resources._1370631673_gnome_mime_text_x_vcalendar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(624, 29);
+            this.button2.Location = new System.Drawing.Point(636, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 44);
             this.button2.TabIndex = 28;
@@ -797,9 +776,7 @@
         private System.Windows.Forms.RadioButton rbtnLista;
         private System.Windows.Forms.RadioButton rbtnEventosSistema;
         private System.Windows.Forms.GroupBox gbxPeriodoRequisicao;
-        private System.Windows.Forms.ComboBox cbxTipoPeriodoRequisicao;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpickerFinal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpickerInicio;
