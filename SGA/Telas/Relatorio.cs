@@ -87,7 +87,7 @@ namespace SGA.Telas
 
         private void rbtnFuncionario_CheckedChanged(object sender, EventArgs e)
         {
-            mudancaFocoRelatorio();
+            rbtnLista.Checked = true;
         }
 
         private void rbtnFerramenta_CheckedChanged(object sender, EventArgs e)
