@@ -97,6 +97,9 @@ namespace SGA.Telas
                 btnNFerramenta.Visible = false;
                 btnEditar.Visible = false;
                 btnDesativar.Visible = false;
+                checkBoxEcluiveis.Visible = false;
+                cbxSituacao.SelectedItem = "Disponível";
+                cbxSituacao.Enabled = false;
             }
         }
 

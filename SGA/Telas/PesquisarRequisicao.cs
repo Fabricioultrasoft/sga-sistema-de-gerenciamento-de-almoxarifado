@@ -69,6 +69,13 @@ namespace SGA.Telas
             setDtpickers();
 
             preencherListViewRequisicao();
+            if (usuarioLogado.no_permissao == "Usuario_comum")
+            {
+                btnNFerramenta.Visible = false;
+                btnDesativar.Visible = false;
+                textBox2.Text = usuarioLogado.matricula + "";
+                textBox2.Enabled = false;
+            }
         }
 
         private void preencherListViewRequisicao()

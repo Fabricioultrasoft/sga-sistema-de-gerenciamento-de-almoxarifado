@@ -104,6 +104,8 @@ namespace SGA.Telas
                 tbxNome.Enabled = false;
                 cbxFuncao.Enabled = false;
                 cbxPermissao.Enabled = false;
+                cbxFuncao.SelectedItem = objFuncionario.no_funcao;
+                cbxPermissao.SelectedItem = objFuncionario.no_permissao;
             }
             
         }

@@ -35,6 +35,7 @@ namespace SGA
                 menuItemNFerramenta.Visible = false;
                 menuItemlFuncionario.Text = "Detalhes";
                 MenuItmRelatorios.Visible = false;
+                menuItmNRequisição.Visible = false;
             }
         }
 
