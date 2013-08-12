@@ -12,33 +12,35 @@
               <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitante,
-                             (SELECT        no_funcionario
-                               FROM            tb_funcionario
-                               WHERE        (mat_funcionario = r.fk_func_requisitante)),
-                             (SELECT        tb_funcao.no_funcao
-                               FROM            tb_funcao INNER JOIN
-                                                         tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_funcao.nu_seq_funcao
-                               WHERE        (tb_funcionario_5.mat_funcionario = r.fk_func_requisitante)), r.fk_func_saida_ferr,
-                             (SELECT        no_funcionario
-                               FROM            tb_funcionario AS tb_funcionario_4
-                               WHERE        (mat_funcionario = r.fk_func_saida_ferr)),
-                             (SELECT        tb_funcao_2.no_funcao
-                               FROM            tb_funcao AS tb_funcao_2 INNER JOIN
-                                                         tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao
-                               WHERE        (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_func_baixa_ferr,
-                             (SELECT        no_funcionario
-                               FROM            tb_funcionario AS tb_funcionario_2
-                               WHERE        (mat_funcionario = r.fk_func_baixa_ferr)),
-                             (SELECT        tb_funcao_1.no_funcao
-                               FROM            tb_funcao AS tb_funcao_1 INNER JOIN
-                                                         tb_funcionario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao
-                               WHERE        (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))
-FROM            tb_requisicao AS r INNER JOIN
-                         tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN
-                         tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
-                         tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = de.nu_seq_descricao INNER JOIN
-                         tb_grupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo</CommandText>
+                    <CommandText>SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitante,
+  (SELECT no_funcionario
+  FROM tb_funcionario
+  WHERE (mat_funcionario = r.fk_func_requisitante)),
+  (SELECT tb_funcao.no_funcao
+  FROM tb_funcao INNER JOIN
+  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_funcao.nu_seq_funcao
+  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requisitante) )AS no_funcao, r.fk_func_saida_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_4
+  WHERE (mat_funcionario = r.fk_func_saida_ferr)),
+  (SELECT tb_funcao_2.no_funcao
+  FROM tb_funcao AS tb_funcao_2 INNER JOIN
+  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao
+  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_func_baixa_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_2
+  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),
+  (SELECT tb_funcao_1.no_funcao
+  FROM tb_funcao AS tb_funcao_1 INNER JOIN
+  tb_funcionario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao
+  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))
+FROM tb_requisicao AS r INNER JOIN
+  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN
+  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = de.nu_seq_descricao INNER JOIN
+  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo INNER JOIN
+  tb_funcionario ON r.fk_func_requisitante = tb_funcionario.mat_funcionario INNER JOIN
+  tb_funcao ON tb_funcionario.fk_funcao = tb_funcao.nu_seq_funcao</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -60,9 +62,114 @@ FROM            tb_requisicao AS r INNER JOIN
               <Mapping SourceColumn="Column4" DataSetColumn="Column4" />
               <Mapping SourceColumn="fk_func_baixa_ferr" DataSetColumn="fk_func_baixa_ferr" />
               <Mapping SourceColumn="Column5" DataSetColumn="Column5" />
-              <Mapping SourceColumn="Column6" DataSetColumn="Column6" />
+              <Mapping SourceColumn="no_funcao" DataSetColumn="no_funcao" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAbertas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAbertas" GeneratorSourceName="FillByAbertas" GetMethodModifier="Public" GetMethodName="GetDataByAbertas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAbertas" UserSourceName="FillByAbertas">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitante,
+  (SELECT no_funcionario
+  FROM tb_funcionario
+  WHERE (mat_funcionario = r.fk_func_requisitante)),
+  (SELECT tb_funcao.no_funcao
+  FROM tb_funcao INNER JOIN
+  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_funcao.nu_seq_funcao
+  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requisitante) )AS no_funcao, r.fk_func_saida_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_4
+  WHERE (mat_funcionario = r.fk_func_saida_ferr)),
+  (SELECT tb_funcao_2.no_funcao
+  FROM tb_funcao AS tb_funcao_2 INNER JOIN
+  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao
+  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_func_baixa_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_2
+  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),
+  (SELECT tb_funcao_1.no_funcao
+  FROM tb_funcao AS tb_funcao_1 INNER JOIN
+  tb_funcionario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao
+  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))
+FROM tb_requisicao AS r INNER JOIN
+  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN
+  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = de.nu_seq_descricao INNER JOIN
+  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo INNER JOIN
+  tb_funcionario ON r.fk_func_requisitante = tb_funcionario.mat_funcionario INNER JOIN
+  tb_funcao ON tb_funcionario.fk_funcao = tb_funcao.nu_seq_funcao
+WHERE f.cod_ferramenta LIKE(@codferramenta)
+  AND fa.no_fabricante LIKE(@fabricante)
+  AND gr.no_grupo LIKE(@categoria)
+  AND tb_funcao.no_funcao LIKE(@funcao)
+  AND r.dt_baixa_requisicao IS NULL
+  AND r.dt_saida_requisicao BETWEEN @dtIni AND @dtFin 
+  AND( CAST(r.fk_func_requisitante AS VARCHAR) LIKE(@mat)
+  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)
+  OR CAST(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="codferramenta" ColumnName="cod_ferramenta" DataSourceName="sga.dbo.tb_ferramenta" DataTypeServer="varchar(5)" DbType="AnsiString" Direction="Input" ParameterName="@codferramenta" Precision="0" ProviderType="VarChar" Scale="0" Size="5" SourceColumn="cod_ferramenta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fabricante" ColumnName="no_fabricante" DataSourceName="sga.dbo.tb_fabricante" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@fabricante" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_fabricante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="categoria" ColumnName="no_grupo" DataSourceName="sga.dbo.tb_grupo_ferramenta" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@categoria" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_grupo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="funcao" ColumnName="no_funcao" DataSourceName="sga.dbo.tb_funcao" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@funcao" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_funcao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtIni" ColumnName="dt_saida_requisicao" DataSourceName="sga.dbo.tb_requisicao" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtIni" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_saida_requisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtFin" ColumnName="dt_saida_requisicao" DataSourceName="sga.dbo.tb_requisicao" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtFin" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_saida_requisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="mat" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@mat" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBaixadas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBaixadas" GeneratorSourceName="FillByBaixadas" GetMethodModifier="Public" GetMethodName="GetDataByBaixadas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBaixadas" UserSourceName="FillByBaixadas">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitante,
+  (SELECT no_funcionario
+  FROM tb_funcionario
+  WHERE (mat_funcionario = r.fk_func_requisitante)),
+  (SELECT tb_funcao.no_funcao
+  FROM tb_funcao INNER JOIN
+  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_funcao.nu_seq_funcao
+  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requisitante) )AS no_funcao, r.fk_func_saida_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_4
+  WHERE (mat_funcionario = r.fk_func_saida_ferr)),
+  (SELECT tb_funcao_2.no_funcao
+  FROM tb_funcao AS tb_funcao_2 INNER JOIN
+  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao
+  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_func_baixa_ferr,
+  (SELECT no_funcionario
+  FROM tb_funcionario AS tb_funcionario_2
+  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),
+  (SELECT tb_funcao_1.no_funcao
+  FROM tb_funcao AS tb_funcao_1 INNER JOIN
+  tb_funcionario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao
+  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))
+FROM tb_requisicao AS r INNER JOIN
+  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN
+  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
+  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = de.nu_seq_descricao INNER JOIN
+  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo INNER JOIN
+  tb_funcionario ON r.fk_func_requisitante = tb_funcionario.mat_funcionario INNER JOIN
+  tb_funcao ON tb_funcionario.fk_funcao = tb_funcao.nu_seq_funcao
+WHERE f.cod_ferramenta LIKE(@codferramenta)
+  AND fa.no_fabricante LIKE(@fabricante)
+  AND gr.no_grupo LIKE(@fabricante)
+  AND tb_funcao.no_funcao LIKE(@fabricante)
+  AND r.dt_baixa_requisicao IS NOT NULL
+  AND r.dt_saida_requisicao BETWEEN @dtIni AND @dtFin 
+  AND( CAST(r.fk_func_requisitante AS VARCHAR) LIKE(@mat)
+  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)
+  OR CAST(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="codferramenta" ColumnName="cod_ferramenta" DataSourceName="sga.dbo.tb_ferramenta" DataTypeServer="varchar(5)" DbType="AnsiString" Direction="Input" ParameterName="@codferramenta" Precision="0" ProviderType="VarChar" Scale="0" Size="5" SourceColumn="cod_ferramenta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fabricante" ColumnName="no_fabricante" DataSourceName="sga.dbo.tb_fabricante" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@fabricante" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="no_fabricante" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtIni" ColumnName="dt_saida_requisicao" DataSourceName="sga.dbo.tb_requisicao" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtIni" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_saida_requisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="dtFin" ColumnName="dt_saida_requisicao" DataSourceName="sga.dbo.tb_requisicao" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@dtFin" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="dt_saida_requisicao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="mat" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@mat" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -72,7 +179,7 @@ FROM            tb_requisicao AS r INNER JOIN
   <xs:element name="RequisiçãoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RequisiçãoDataSet" msprop:Generator_UserDSName="RequisiçãoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ListaDeRequisição" msprop:Generator_TableClassName="ListaDeRequisiçãoDataTable" msprop:Generator_TableVarName="tableListaDeRequisição" msprop:Generator_TablePropName="ListaDeRequisição" msprop:Generator_RowDeletingName="ListaDeRequisiçãoRowDeleting" msprop:Generator_RowChangingName="ListaDeRequisiçãoRowChanging" msprop:Generator_RowEvHandlerName="ListaDeRequisiçãoRowChangeEventHandler" msprop:Generator_RowDeletedName="ListaDeRequisiçãoRowDeleted" msprop:Generator_UserTableName="ListaDeRequisição" msprop:Generator_RowChangedName="ListaDeRequisiçãoRowChanged" msprop:Generator_RowEvArgName="ListaDeRequisiçãoRowChangeEvent" msprop:Generator_RowClassName="ListaDeRequisiçãoRow">
+        <xs:element name="ListaDeRequisição" msprop:Generator_TableClassName="ListaDeRequisiçãoDataTable" msprop:Generator_TableVarName="tableListaDeRequisição" msprop:Generator_RowChangedName="ListaDeRequisiçãoRowChanged" msprop:Generator_TablePropName="ListaDeRequisição" msprop:Generator_RowDeletingName="ListaDeRequisiçãoRowDeleting" msprop:Generator_RowChangingName="ListaDeRequisiçãoRowChanging" msprop:Generator_RowEvHandlerName="ListaDeRequisiçãoRowChangeEventHandler" msprop:Generator_RowDeletedName="ListaDeRequisiçãoRowDeleted" msprop:Generator_RowClassName="ListaDeRequisiçãoRow" msprop:Generator_UserTableName="ListaDeRequisição" msprop:Generator_RowEvArgName="ListaDeRequisiçãoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nu_seq_requisicao" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnu_seq_requisicao" msprop:Generator_ColumnPropNameInRow="nu_seq_requisicao" msprop:Generator_ColumnPropNameInTable="nu_seq_requisicaoColumn" msprop:Generator_UserColumnName="nu_seq_requisicao" type="xs:int" />
@@ -144,7 +251,7 @@ FROM            tb_requisicao AS r INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Column6" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn6" msprop:Generator_ColumnPropNameInRow="Column6" msprop:Generator_ColumnPropNameInTable="Column6Column" msprop:Generator_UserColumnName="Column6" minOccurs="0">
+              <xs:element name="no_funcao" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnno_funcao" msprop:Generator_ColumnPropNameInRow="no_funcao" msprop:Generator_ColumnPropNameInTable="no_funcaoColumn" msprop:Generator_UserColumnName="no_funcao" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

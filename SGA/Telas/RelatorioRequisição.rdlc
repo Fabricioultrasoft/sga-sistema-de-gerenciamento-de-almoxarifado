@@ -1570,14 +1570,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Column6">
+                    <Textbox Name="no_funcao">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Column6.Value</Value>
+                              <Value>=Fields!no_funcao.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -1588,7 +1588,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Column6</rd:DefaultName>
+                      <rd:DefaultName>no_funcao</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2462,8 +2462,8 @@
           <DataField>Column5</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Column6">
-          <DataField>Column6</DataField>
+        <Field Name="no_funcao">
+          <DataField>no_funcao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

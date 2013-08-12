@@ -309,7 +309,7 @@ namespace SGA {
             
             private global::System.Data.DataColumn columnColumn5;
             
-            private global::System.Data.DataColumn columnColumn6;
+            private global::System.Data.DataColumn columnno_funcao;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -466,9 +466,9 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Column6Column {
+            public global::System.Data.DataColumn no_funcaoColumn {
                 get {
-                    return this.columnColumn6;
+                    return this.columnno_funcao;
                 }
             }
             
@@ -509,7 +509,7 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ListaDeRequisiçãoRow AddListaDeRequisiçãoRow(string fk_ferramenta, string no_grupo, string no_fabricante, string no_ferramenta, System.DateTime dt_saida_requisicao, System.DateTime dt_baixa_requisicao, int fk_func_requisitante, string Column1, string Column2, int fk_func_saida_ferr, string Column3, string Column4, int fk_func_baixa_ferr, string Column5, string Column6) {
+            public ListaDeRequisiçãoRow AddListaDeRequisiçãoRow(string fk_ferramenta, string no_grupo, string no_fabricante, string no_ferramenta, System.DateTime dt_saida_requisicao, System.DateTime dt_baixa_requisicao, int fk_func_requisitante, string Column1, string Column2, int fk_func_saida_ferr, string Column3, string Column4, int fk_func_baixa_ferr, string Column5, string no_funcao) {
                 ListaDeRequisiçãoRow rowListaDeRequisiçãoRow = ((ListaDeRequisiçãoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -527,7 +527,7 @@ namespace SGA {
                         Column4,
                         fk_func_baixa_ferr,
                         Column5,
-                        Column6};
+                        no_funcao};
                 rowListaDeRequisiçãoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowListaDeRequisiçãoRow);
                 return rowListaDeRequisiçãoRow;
@@ -572,7 +572,7 @@ namespace SGA {
                 this.columnColumn4 = base.Columns["Column4"];
                 this.columnfk_func_baixa_ferr = base.Columns["fk_func_baixa_ferr"];
                 this.columnColumn5 = base.Columns["Column5"];
-                this.columnColumn6 = base.Columns["Column6"];
+                this.columnno_funcao = base.Columns["no_funcao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -608,8 +608,8 @@ namespace SGA {
                 base.Columns.Add(this.columnfk_func_baixa_ferr);
                 this.columnColumn5 = new global::System.Data.DataColumn("Column5", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColumn5);
-                this.columnColumn6 = new global::System.Data.DataColumn("Column6", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnColumn6);
+                this.columnno_funcao = new global::System.Data.DataColumn("no_funcao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnno_funcao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnu_seq_requisicao}, true));
                 this.columnnu_seq_requisicao.AutoIncrement = true;
@@ -639,8 +639,8 @@ namespace SGA {
                 this.columnColumn4.MaxLength = 50;
                 this.columnColumn5.ReadOnly = true;
                 this.columnColumn5.MaxLength = 50;
-                this.columnColumn6.ReadOnly = true;
-                this.columnColumn6.MaxLength = 50;
+                this.columnno_funcao.ReadOnly = true;
+                this.columnno_funcao.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -985,17 +985,17 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Column6 {
+            public string no_funcao {
                 get {
                     try {
-                        return ((string)(this[this.tableListaDeRequisição.Column6Column]));
+                        return ((string)(this[this.tableListaDeRequisição.no_funcaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Column6\' in table \'ListaDeRequisição\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'no_funcao\' in table \'ListaDeRequisição\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableListaDeRequisição.Column6Column] = value;
+                    this[this.tableListaDeRequisição.no_funcaoColumn] = value;
                 }
             }
             
@@ -1085,14 +1085,14 @@ namespace SGA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsColumn6Null() {
-                return this.IsNull(this.tableListaDeRequisição.Column6Column);
+            public bool Isno_funcaoNull() {
+                return this.IsNull(this.tableListaDeRequisição.no_funcaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetColumn6Null() {
-                this[this.tableListaDeRequisição.Column6Column] = global::System.Convert.DBNull;
+            public void Setno_funcaoNull() {
+                this[this.tableListaDeRequisição.no_funcaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1270,7 +1270,7 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Column4", "Column4");
             tableMapping.ColumnMappings.Add("fk_func_baixa_ferr", "fk_func_baixa_ferr");
             tableMapping.ColumnMappings.Add("Column5", "Column5");
-            tableMapping.ColumnMappings.Add("Column6", "Column6");
+            tableMapping.ColumnMappings.Add("no_funcao", "no_funcao");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1284,42 +1284,107 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante" +
-                ", de.no_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requ" +
-                "isitante,\r\n                             (SELECT        no_funcionario\r\n         " +
-                "                      FROM            tb_funcionario\r\n                          " +
-                "     WHERE        (mat_funcionario = r.fk_func_requisitante)),\r\n                " +
-                "             (SELECT        tb_funcao.no_funcao\r\n                               " +
-                "FROM            tb_funcao INNER JOIN\r\n                                          " +
-                "               tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao " +
-                "= tb_funcao.nu_seq_funcao\r\n                               WHERE        (tb_funci" +
-                "onario_5.mat_funcionario = r.fk_func_requisitante)), r.fk_func_saida_ferr,\r\n    " +
-                "                         (SELECT        no_funcionario\r\n                        " +
-                "       FROM            tb_funcionario AS tb_funcionario_4\r\n                     " +
-                "          WHERE        (mat_funcionario = r.fk_func_saida_ferr)),\r\n             " +
-                "                (SELECT        tb_funcao_2.no_funcao\r\n                          " +
-                "     FROM            tb_funcao AS tb_funcao_2 INNER JOIN\r\n                      " +
-                "                                   tb_funcionario AS tb_funcionario_3 ON tb_func" +
-                "ionario_3.fk_funcao = tb_funcao_2.nu_seq_funcao\r\n                               " +
-                "WHERE        (tb_funcionario_3.mat_funcionario = r.fk_func_saida_ferr)), r.fk_fu" +
-                "nc_baixa_ferr,\r\n                             (SELECT        no_funcionario\r\n    " +
-                "                           FROM            tb_funcionario AS tb_funcionario_2\r\n " +
-                "                              WHERE        (mat_funcionario = r.fk_func_baixa_fe" +
-                "rr)),\r\n                             (SELECT        tb_funcao_1.no_funcao\r\n      " +
-                "                         FROM            tb_funcao AS tb_funcao_1 INNER JOIN\r\n  " +
-                "                                                       tb_funcionario AS tb_func" +
-                "ionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_funcao\r\n           " +
-                "                    WHERE        (tb_funcionario_1.mat_funcionario = r.fk_func_b" +
-                "aixa_ferr))\r\nFROM            tb_requisicao AS r INNER JOIN\r\n                    " +
-                "     tb_ferramenta AS f ON r.fk_ferramenta = f.cod_ferramenta INNER JOIN\r\n      " +
-                "                   tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabricante" +
-                " INNER JOIN\r\n                         tb_descricao_ferramenta AS de ON f.fk_desc" +
-                "ricao_ferramenta = de.nu_seq_descricao INNER JOIN\r\n                         tb_g" +
-                "rupo_ferramenta AS gr ON de.fk_grupo = gr.nu_seq_grupo";
+            this._commandCollection[0].CommandText = "SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no" +
+                "_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitant" +
+                "e,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario\r\n  WHERE (mat_funcionario = " +
+                "r.fk_func_requisitante)),\r\n  (SELECT tb_funcao.no_funcao\r\n  FROM tb_funcao INNER" +
+                " JOIN\r\n  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_f" +
+                "uncao.nu_seq_funcao\r\n  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requi" +
+                "sitante) )AS no_funcao, r.fk_func_saida_ferr,\r\n  (SELECT no_funcionario\r\n  FROM " +
+                "tb_funcionario AS tb_funcionario_4\r\n  WHERE (mat_funcionario = r.fk_func_saida_f" +
+                "err)),\r\n  (SELECT tb_funcao_2.no_funcao\r\n  FROM tb_funcao AS tb_funcao_2 INNER J" +
+                "OIN\r\n  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_fun" +
+                "cao_2.nu_seq_funcao\r\n  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida" +
+                "_ferr)), r.fk_func_baixa_ferr,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario " +
+                "AS tb_funcionario_2\r\n  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),\r\n  (SELE" +
+                "CT tb_funcao_1.no_funcao\r\n  FROM tb_funcao AS tb_funcao_1 INNER JOIN\r\n  tb_funci" +
+                "onario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_fu" +
+                "ncao\r\n  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))\r\nFROM t" +
+                "b_requisicao AS r INNER JOIN\r\n  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_fe" +
+                "rramenta INNER JOIN\r\n  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabric" +
+                "ante INNER JOIN\r\n  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = " +
+                "de.nu_seq_descricao INNER JOIN\r\n  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr." +
+                "nu_seq_grupo INNER JOIN\r\n  tb_funcionario ON r.fk_func_requisitante = tb_funcion" +
+                "ario.mat_funcionario INNER JOIN\r\n  tb_funcao ON tb_funcionario.fk_funcao = tb_fu" +
+                "ncao.nu_seq_funcao";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no" +
+                "_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitant" +
+                "e,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario\r\n  WHERE (mat_funcionario = " +
+                "r.fk_func_requisitante)),\r\n  (SELECT tb_funcao.no_funcao\r\n  FROM tb_funcao INNER" +
+                " JOIN\r\n  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_f" +
+                "uncao.nu_seq_funcao\r\n  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requi" +
+                "sitante) )AS no_funcao, r.fk_func_saida_ferr,\r\n  (SELECT no_funcionario\r\n  FROM " +
+                "tb_funcionario AS tb_funcionario_4\r\n  WHERE (mat_funcionario = r.fk_func_saida_f" +
+                "err)),\r\n  (SELECT tb_funcao_2.no_funcao\r\n  FROM tb_funcao AS tb_funcao_2 INNER J" +
+                "OIN\r\n  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_fun" +
+                "cao_2.nu_seq_funcao\r\n  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida" +
+                "_ferr)), r.fk_func_baixa_ferr,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario " +
+                "AS tb_funcionario_2\r\n  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),\r\n  (SELE" +
+                "CT tb_funcao_1.no_funcao\r\n  FROM tb_funcao AS tb_funcao_1 INNER JOIN\r\n  tb_funci" +
+                "onario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_fu" +
+                "ncao\r\n  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))\r\nFROM t" +
+                "b_requisicao AS r INNER JOIN\r\n  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_fe" +
+                "rramenta INNER JOIN\r\n  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabric" +
+                "ante INNER JOIN\r\n  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = " +
+                "de.nu_seq_descricao INNER JOIN\r\n  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr." +
+                "nu_seq_grupo INNER JOIN\r\n  tb_funcionario ON r.fk_func_requisitante = tb_funcion" +
+                "ario.mat_funcionario INNER JOIN\r\n  tb_funcao ON tb_funcionario.fk_funcao = tb_fu" +
+                "ncao.nu_seq_funcao\r\nWHERE f.cod_ferramenta LIKE(@codferramenta)\r\n  AND fa.no_fab" +
+                "ricante LIKE(@fabricante)\r\n  AND gr.no_grupo LIKE(@categoria)\r\n  AND tb_funcao.n" +
+                "o_funcao LIKE(@funcao)\r\n  AND r.dt_baixa_requisicao IS NULL\r\n  AND r.dt_saida_re" +
+                "quisicao BETWEEN @dtIni AND @dtFin \r\n  AND( CAST(r.fk_func_requisitante AS VARCH" +
+                "AR) LIKE(@mat)\r\n  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)\r\n  OR CAST" +
+                "(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codferramenta", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtIni", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mat", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT r.nu_seq_requisicao, r.fk_ferramenta, gr.no_grupo, fa.no_fabricante, de.no" +
+                "_ferramenta, r.dt_saida_requisicao, r.dt_baixa_requisicao, r.fk_func_requisitant" +
+                "e,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario\r\n  WHERE (mat_funcionario = " +
+                "r.fk_func_requisitante)),\r\n  (SELECT tb_funcao.no_funcao\r\n  FROM tb_funcao INNER" +
+                " JOIN\r\n  tb_funcionario AS tb_funcionario_5 ON tb_funcionario_5.fk_funcao = tb_f" +
+                "uncao.nu_seq_funcao\r\n  WHERE (tb_funcionario_5.mat_funcionario = r.fk_func_requi" +
+                "sitante) )AS no_funcao, r.fk_func_saida_ferr,\r\n  (SELECT no_funcionario\r\n  FROM " +
+                "tb_funcionario AS tb_funcionario_4\r\n  WHERE (mat_funcionario = r.fk_func_saida_f" +
+                "err)),\r\n  (SELECT tb_funcao_2.no_funcao\r\n  FROM tb_funcao AS tb_funcao_2 INNER J" +
+                "OIN\r\n  tb_funcionario AS tb_funcionario_3 ON tb_funcionario_3.fk_funcao = tb_fun" +
+                "cao_2.nu_seq_funcao\r\n  WHERE (tb_funcionario_3.mat_funcionario = r.fk_func_saida" +
+                "_ferr)), r.fk_func_baixa_ferr,\r\n  (SELECT no_funcionario\r\n  FROM tb_funcionario " +
+                "AS tb_funcionario_2\r\n  WHERE (mat_funcionario = r.fk_func_baixa_ferr)),\r\n  (SELE" +
+                "CT tb_funcao_1.no_funcao\r\n  FROM tb_funcao AS tb_funcao_1 INNER JOIN\r\n  tb_funci" +
+                "onario AS tb_funcionario_1 ON tb_funcionario_1.fk_funcao = tb_funcao_1.nu_seq_fu" +
+                "ncao\r\n  WHERE (tb_funcionario_1.mat_funcionario = r.fk_func_baixa_ferr))\r\nFROM t" +
+                "b_requisicao AS r INNER JOIN\r\n  tb_ferramenta AS f ON r.fk_ferramenta = f.cod_fe" +
+                "rramenta INNER JOIN\r\n  tb_fabricante AS fa ON f.fk_fabricante = fa.nu_seq_fabric" +
+                "ante INNER JOIN\r\n  tb_descricao_ferramenta AS de ON f.fk_descricao_ferramenta = " +
+                "de.nu_seq_descricao INNER JOIN\r\n  tb_grupo_ferramenta AS gr ON de.fk_grupo = gr." +
+                "nu_seq_grupo INNER JOIN\r\n  tb_funcionario ON r.fk_func_requisitante = tb_funcion" +
+                "ario.mat_funcionario INNER JOIN\r\n  tb_funcao ON tb_funcionario.fk_funcao = tb_fu" +
+                "ncao.nu_seq_funcao\r\nWHERE f.cod_ferramenta LIKE(@codferramenta)\r\n  AND fa.no_fab" +
+                "ricante LIKE(@fabricante)\r\n  AND gr.no_grupo LIKE(@fabricante)\r\n  AND tb_funcao." +
+                "no_funcao LIKE(@fabricante)\r\n  AND r.dt_baixa_requisicao IS NOT NULL\r\n  AND r.dt" +
+                "_saida_requisicao BETWEEN @dtIni AND @dtFin \r\n  AND( CAST(r.fk_func_requisitante" +
+                " AS VARCHAR) LIKE(@mat)\r\n  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)\r\n" +
+                "  OR CAST(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codferramenta", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtIni", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mat", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1341,6 +1406,158 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual RequisiçãoDataSet.ListaDeRequisiçãoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAbertas(RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable, string codferramenta, string fabricante, string categoria, string funcao, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codferramenta == null)) {
+                throw new global::System.ArgumentNullException("codferramenta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codferramenta));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(categoria));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFin));
+            if ((mat == null)) {
+                throw new global::System.ArgumentNullException("mat");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(mat));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RequisiçãoDataSet.ListaDeRequisiçãoDataTable GetDataByAbertas(string codferramenta, string fabricante, string categoria, string funcao, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codferramenta == null)) {
+                throw new global::System.ArgumentNullException("codferramenta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codferramenta));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(categoria));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFin));
+            if ((mat == null)) {
+                throw new global::System.ArgumentNullException("mat");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(mat));
+            }
+            RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBaixadas(RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable, string codferramenta, string fabricante, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((codferramenta == null)) {
+                throw new global::System.ArgumentNullException("codferramenta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codferramenta));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFin));
+            if ((mat == null)) {
+                throw new global::System.ArgumentNullException("mat");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(mat));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RequisiçãoDataSet.ListaDeRequisiçãoDataTable GetDataByBaixadas(string codferramenta, string fabricante, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((codferramenta == null)) {
+                throw new global::System.ArgumentNullException("codferramenta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codferramenta));
+            }
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
+            }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFin));
+            if ((mat == null)) {
+                throw new global::System.ArgumentNullException("mat");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(mat));
+            }
             RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
