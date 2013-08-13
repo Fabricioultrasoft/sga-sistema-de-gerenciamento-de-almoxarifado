@@ -26,8 +26,8 @@ namespace SGA.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=KELLY-VAIO\\SQLEXPRESS;Initial Catalog=sga;Persist Security Info=True;" +
-            "User ID=sa;Password=180985")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=sga;Persist Security Info=True;User ID=s" +
+            "a;Password=123456")]
         public string sgaConnectionString {
             get {
                 return ((string)(this["sgaConnectionString"]));
