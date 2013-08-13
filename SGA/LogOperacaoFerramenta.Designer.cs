@@ -1086,7 +1086,7 @@ namespace SGA.LogOperacaoFerramentaTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT l.nu_seq_log
@@ -1108,6 +1108,33 @@ INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
 INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo)
 WHERE l.cod_ferramenta = fe.cod_ferramenta";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT l.nu_seq_log
+  ,l.descricao_log
+  ,l.matricula_ator
+  ,l.dt_log
+  ,l.mat_funcionario
+  ,fe.cod_ferramenta
+  ,fe.nu_serie
+  ,fe.dt_aquisicao
+  ,fe.dt_desativacao
+  ,d.no_ferramenta
+  ,fa.no_fabricante
+  ,g.no_grupo
+  FROM tb_logOperacoesCriticas l
+ 	 ,tb_ferramenta fe 
+INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
+INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
+INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo)
+WHERE l.cod_ferramenta = fe.cod_ferramenta AND (fe.cod_ferramenta LIKE  @codigo ) AND (fe.dt_aquisicao BETWEEN @dtInicioAquisicao AND 
+  @dtFinalAquisicao) AND (fa.no_fabricante LIKE @fabricante) AND (g.no_grupo LIKE @categoria)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtInicioAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFinalAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1129,6 +1156,70 @@ WHERE l.cod_ferramenta = fe.cod_ferramenta";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable = new LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCodDtInDtOutFabCat(LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable, string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codigo == null)) {
+                throw new global::System.ArgumentNullException("codigo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigo));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
+            }
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable GetDataByCodDtInDtOutFabCat(string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((codigo == null)) {
+                throw new global::System.ArgumentNullException("codigo");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigo));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
+            if ((fabricante == null)) {
+                throw new global::System.ArgumentNullException("fabricante");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
+            }
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
+            }
             LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable = new LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
