@@ -18,7 +18,7 @@ namespace SGA
             //Application.Run(new Menu());
             while (1 == 1)
             {
-                Login login = new Login();
+                CredencialAcesso login = new CredencialAcesso();
                 
                 Application.Run(login);
                 Menu menu = new Menu(login.funcionario);

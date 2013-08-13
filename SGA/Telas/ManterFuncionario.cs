@@ -214,7 +214,7 @@ namespace SGA.Telas
 
         private void btnOpcaoFuncao_Click(object sender, EventArgs e)
         {
-            EditarComboBox telaEditar = new EditarComboBox("funcao");
+            MultiAuxiliar telaEditar = new MultiAuxiliar("funcao");
             telaEditar.ShowDialog();
             preencherCbxFuncao();
         }

@@ -298,14 +298,14 @@ namespace SGA.Telas
 
         private void btnAddCategoria_Click(object sender, EventArgs e)
         {
-            EditarComboBox edtCategoria = new EditarComboBox("categoria");
+            MultiAuxiliar edtCategoria = new MultiAuxiliar("categoria");
             edtCategoria.ShowDialog();
             preencherCbxGrupo();
         }
 
         private void btnAddFabricante_Click(object sender, EventArgs e)
         {
-            EditarComboBox edtFabricante = new EditarComboBox("fabricante");
+            MultiAuxiliar edtFabricante = new MultiAuxiliar("fabricante");
             edtFabricante.ShowDialog();
             preencherCbxFabricante();
         }

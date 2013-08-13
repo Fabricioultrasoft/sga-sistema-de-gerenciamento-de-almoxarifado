@@ -116,11 +116,11 @@
     <Compile Include="Telas\CLogin.Designer.cs">
       <DependentUpon>CLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\EditarComboBox.cs">
+    <Compile Include="Telas\MultiAuxiliar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\EditarComboBox.Designer.cs">
-      <DependentUpon>EditarComboBox.cs</DependentUpon>
+    <Compile Include="Telas\MultiAuxiliar.Designer.cs">
+      <DependentUpon>MultiAuxiliar.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\Mensagem.cs">
       <SubType>Form</SubType>
@@ -152,11 +152,11 @@
     <Compile Include="Telas\ManterRequisicao.Designer.cs">
       <DependentUpon>ManterRequisicao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Login.cs">
+    <Compile Include="Telas\CredencialAcesso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Telas\CredencialAcesso.Designer.cs">
+      <DependentUpon>CredencialAcesso.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\Menu.cs">
       <SubType>Form</SubType>
@@ -193,8 +193,8 @@
     <EmbeddedResource Include="Telas\CLogin.resx">
       <DependentUpon>CLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\EditarComboBox.resx">
-      <DependentUpon>EditarComboBox.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\MultiAuxiliar.resx">
+      <DependentUpon>MultiAuxiliar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\FerramentaMRequisitada.rdlc" />
     <EmbeddedResource Include="Telas\ListaFuncionario.rdlc" />
@@ -215,8 +215,8 @@
     <EmbeddedResource Include="Telas\ManterRequisicao.resx">
       <DependentUpon>ManterRequisicao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Telas\CredencialAcesso.resx">
+      <DependentUpon>CredencialAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
