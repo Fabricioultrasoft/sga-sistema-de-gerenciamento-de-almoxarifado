@@ -15,9 +15,10 @@ namespace SGA.Telas
     public partial class CLogin : Form
     {
         public Funcionario func = new Funcionario();
+
+
         public CLogin(Funcionario funcionario)
         {
-            
             func = funcionario;
             InitializeComponent();
         }
@@ -40,6 +41,7 @@ namespace SGA.Telas
                     FuncionarioDelegate funcionarioDel = new FuncionarioDelegate();
                     funcionarioDel.inserirSenha(func);
                     new Mensagem("Senha cadastrada com sucesso!", "informacao", Resources.ok).ShowDialog();
+                    func.alteracao = true;
                     this.Close();
                 }
                 catch (Exception erro)

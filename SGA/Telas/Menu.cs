@@ -52,15 +52,14 @@ namespace SGA
         private void MenuItmSair_Click(object sender, EventArgs e)
         {
             Mensagem mensagen = new Mensagem("Deseja sair do aplicativo?", "confirma", Resources.interrogacao);
-            if (funcionario.alteracao)
-            {
-                new Mensagem("Alteração Feita!", "confirma", Resources.interrogacao).ShowDialog();
-            }
-
+            
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
-
-                Application.Exit();
+                if (funcionario.alteracao)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                this.Close();
             }
         }
 
@@ -69,7 +68,14 @@ namespace SGA
             Mensagem mensagen = new Mensagem("Deseja continuar?", "confirma", Resources.interrogacao);
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
-                this.DialogResult = DialogResult.OK;
+                if (funcionario.alteracao)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.Retry;
+                }
                 this.Close();
             }
         }

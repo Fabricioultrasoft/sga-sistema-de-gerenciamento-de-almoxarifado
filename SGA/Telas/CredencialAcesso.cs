@@ -19,13 +19,16 @@ namespace SGA
     {
         private ToolTip i_toolTip = new ToolTip();
         private Funcionario i_funcionario;
-
-        public CredencialAcesso()
+        
+        public CredencialAcesso(Funcionario funcAlterado)
         {
             InitializeComponent();
             this.AcceptButton = btnLogar;
+            funcionario = funcAlterado;
             //this.btnLogar.DialogResult = DialogResult.OK;
         }
+
+       
 
         public ToolTip toolTip
         {
@@ -68,6 +71,7 @@ namespace SGA
                             new Mensagem("Por favor!\n Cadastre uma senha!", "informacao", Resources.atencao).ShowDialog();
                             CLogin CadLogin = new CLogin(funcionario);
                             CadLogin.ShowDialog();
+                            funcionario.alteracao = CadLogin.func.alteracao;
                             tbxSenha.Clear();
                         }
                         else
