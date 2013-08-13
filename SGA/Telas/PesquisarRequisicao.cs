@@ -335,6 +335,7 @@ namespace SGA.Telas
                         cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
                         cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
                         cRequisicao.ShowDialog();
+                        usuarioLogado = cRequisicao.usuarioLogado;
                         if (cRequisicao.DialogResult == DialogResult.Cancel)
                         {
                             break;
@@ -389,6 +390,7 @@ namespace SGA.Telas
                             requisicaoDel.finalizarRequisicao(objRequisicao);
 
                             new Mensagem("Requisição finalizada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            usuarioLogado.alteracao = true;
                             break;
                         }
                         else

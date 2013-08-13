@@ -143,6 +143,7 @@ namespace SGA.Telas
                 {
                     ManterFerramenta telaDetalhes = new ManterFerramenta("Detalhes", objFerramenta, usuarioLogado);
                     telaDetalhes.ShowDialog();
+                    usuarioLogado = telaDetalhes.usuarioLogado;
                     pbxFerramenta.Image = null;
                     objFerramenta = null;
                     montarTela();
@@ -186,6 +187,7 @@ namespace SGA.Telas
             {
                 ManterFerramenta telaDetalhes = new ManterFerramenta("Edicao", objFerramenta, usuarioLogado);
                 telaDetalhes.ShowDialog();
+                usuarioLogado = telaDetalhes.usuarioLogado;
                 pbxFerramenta.Image = null;
                 objFerramenta = null;
                 montarTela();
@@ -199,6 +201,7 @@ namespace SGA.Telas
                 Ferramenta ferr = new Ferramenta();
                 ManterFerramenta novaFerr = new ManterFerramenta("cadastro", ferr, usuarioLogado);
                 novaFerr.ShowDialog();
+                usuarioLogado = novaFerr.usuarioLogado;
                 pbxFerramenta.Image = null;
             }
             else
@@ -347,6 +350,7 @@ namespace SGA.Telas
                             FerramentaDelegate ferramentaDel = new FerramentaDelegate();
                             ferramentaDel.desativaFerramenta(objFerramenta);
                             new Mensagem("Registro excluído com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            usuarioLogado.alteracao = true;
                             break;
 
                         }

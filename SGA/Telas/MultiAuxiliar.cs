@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SGA.Properties;
 using SGA.Delegate;
 using System.Collections;
+using SGA.Entity;
 
 namespace SGA.Telas
 {
@@ -16,14 +17,21 @@ namespace SGA.Telas
     {
         private string i_tipoTela;
         private string i_itemSelecionado = "";
+        private Funcionario i_usuarioLogado;
 
-        public MultiAuxiliar(string tipo)
+        public MultiAuxiliar(string tipo, Funcionario func)
         {
             InitializeComponent();
             tipoTela = tipo;
+            usuarioLogado = func;
             montarTela();
         }
 
+        public Funcionario usuarioLogado
+        {
+            get { return i_usuarioLogado; }
+            set { i_usuarioLogado = value; }
+        }
 
         public string tipoTela
         {
@@ -96,6 +104,7 @@ namespace SGA.Telas
                 {
                     manterCbx("insert", itemSelecionado, nova.texto);
                     new Mensagem("Registro salvo com sucesso!", "informacao", Resources.ok).ShowDialog();
+                    usuarioLogado.alteracao = true;
                     preencherLstv();
                 }
                 catch (Exception erro)
@@ -140,6 +149,7 @@ namespace SGA.Telas
                     {
                         manterCbx("update", itemSelecionado, nova.texto);
                         new Mensagem("Registro alterado com sucesso!", "informacao", Resources.ok).ShowDialog();
+                        usuarioLogado.alteracao = true;
                         preencherLstv();
                     }
                     catch (Exception erro)
@@ -226,6 +236,7 @@ namespace SGA.Telas
                     {
                         manterCbx("delete", itemSelecionado, nova.texto);
                         new Mensagem("Registro excluído com Sucesso!", "informacao", Resources.ok).ShowDialog();
+                        usuarioLogado.alteracao = true;
                         preencherLstv();
                     }
                     catch (Exception erro)

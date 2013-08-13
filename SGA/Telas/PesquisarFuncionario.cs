@@ -86,6 +86,7 @@ namespace SGA.Telas
             {
                 ManterFuncionario telaEdicao = new ManterFuncionario("Edicao", objFuncionario, usuarioLogado);
                 telaEdicao.ShowDialog();
+                usuarioLogado = telaEdicao.funcionarioLogado;
                 preencherListView();
                 objFuncionario = null;
             }
@@ -99,6 +100,7 @@ namespace SGA.Telas
 
                 ManterFuncionario telaEdicao = new ManterFuncionario("Cadastro", func, usuarioLogado);
                 telaEdicao.ShowDialog();
+                usuarioLogado = telaEdicao.funcionarioLogado;
                 preencherListView();
                 objFuncionario = null;
 
@@ -233,6 +235,7 @@ namespace SGA.Telas
                             FuncionarioDelegate funcionarioD = new FuncionarioDelegate();
                             funcionarioD.desativaFuncionario(objFuncionario);
                             new Mensagem("Funcionário desativado com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            usuarioLogado.alteracao = true;
                             break;
 
                         }

@@ -183,6 +183,7 @@ namespace SGA.Telas
 
                                 funcionarioD.inserirFuncionario(funcionario);
                                 new Mensagem("Registro salvo com sucesso!", "informacao", Resources.ok).ShowDialog();
+                                funcionarioLogado.alteracao = true;
                                 objFuncionario = new Funcionario();
                                 montarTela();
                             }
@@ -196,6 +197,7 @@ namespace SGA.Telas
                     {
                         funcionarioD.editarFuncionario(funcionario);
                         new Mensagem("Registro alterado com sucesso!", "informacao", Resources.ok).ShowDialog();
+                        funcionarioLogado.alteracao = true;
                         this.Close();
                     }
                 }
@@ -214,8 +216,9 @@ namespace SGA.Telas
 
         private void btnOpcaoFuncao_Click(object sender, EventArgs e)
         {
-            MultiAuxiliar telaEditar = new MultiAuxiliar("funcao");
+            MultiAuxiliar telaEditar = new MultiAuxiliar("funcao",funcionarioLogado);
             telaEditar.ShowDialog();
+            funcionarioLogado = telaEditar.usuarioLogado;
             preencherCbxFuncao();
         }
         #endregion
@@ -331,6 +334,7 @@ namespace SGA.Telas
                 objFuncionario.chaveUsuario = funcionarioLogado.matricula.ToString();
                 funcionarioDele.redefinirSenha(objFuncionario);
                 new Mensagem("Senha redefinida!", "informacao", Resources.ok).ShowDialog();
+                funcionarioLogado.alteracao = true;
                 this.Close();
             }
            

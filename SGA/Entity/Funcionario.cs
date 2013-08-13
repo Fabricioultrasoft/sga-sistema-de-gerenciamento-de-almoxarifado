@@ -20,6 +20,13 @@ namespace SGA.Entity
         private string[] i_periodo = { "", "" };
         private string i_chaveUsuario;
         private string i_papel;
+        private bool i_alteracao = false;
+
+        public bool alteracao
+        {
+            get { return i_alteracao; }
+            set { i_alteracao = value; }
+        }
 
         public string papel
         {

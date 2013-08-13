@@ -91,10 +91,12 @@ namespace SGA.Telas
                         {
                             new Mensagem("Registro alterado com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
                             this.Close();
+                            usuarioLogado.alteracao = true;
                         }
                         else
                         {
                             new Mensagem("Registro salvo com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                            usuarioLogado.alteracao = true;
                             ferramenta = new Ferramenta();
                             montarTela();
                         }
@@ -298,15 +300,17 @@ namespace SGA.Telas
 
         private void btnAddCategoria_Click(object sender, EventArgs e)
         {
-            MultiAuxiliar edtCategoria = new MultiAuxiliar("categoria");
+            MultiAuxiliar edtCategoria = new MultiAuxiliar("categoria", usuarioLogado);
             edtCategoria.ShowDialog();
+            usuarioLogado = edtCategoria.usuarioLogado;
             preencherCbxGrupo();
         }
 
         private void btnAddFabricante_Click(object sender, EventArgs e)
         {
-            MultiAuxiliar edtFabricante = new MultiAuxiliar("fabricante");
+            MultiAuxiliar edtFabricante = new MultiAuxiliar("fabricante", usuarioLogado);
             edtFabricante.ShowDialog();
+            usuarioLogado = edtFabricante.usuarioLogado;
             preencherCbxFabricante();
         }
 

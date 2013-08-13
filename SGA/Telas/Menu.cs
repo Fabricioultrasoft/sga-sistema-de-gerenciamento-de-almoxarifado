@@ -52,16 +52,13 @@ namespace SGA
         private void MenuItmSair_Click(object sender, EventArgs e)
         {
             Mensagem mensagen = new Mensagem("Deseja sair do aplicativo?", "confirma", Resources.interrogacao);
+            if (funcionario.alteracao)
+            {
+                new Mensagem("Alteração Feita!", "confirma", Resources.interrogacao).ShowDialog();
+            }
+
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
-                if (back.FuncBack)
-                {
-                    MessageBox.Show("Fazer Backup");
-                }
-                else
-                {
-                    MessageBox.Show("Não fazer Backup");
-                }
 
                 Application.Exit();
             }
@@ -82,6 +79,7 @@ namespace SGA
             Funcionario objFuncionario = new Funcionario();
             ManterFuncionario cadastrofunc = new ManterFuncionario("Cadastro", objFuncionario, funcionario);
             cadastrofunc.ShowDialog();
+            funcionario = cadastrofunc.funcionarioLogado;
         }
 
         private void MenuItemNFerramenta_Click(object sender, EventArgs e)
@@ -89,12 +87,15 @@ namespace SGA
             Ferramenta objFerramenta = new Ferramenta();
             ManterFerramenta cadastroF = new ManterFerramenta("", objFerramenta, funcionario);
             cadastroF.ShowDialog();
+            funcionario = cadastroF.usuarioLogado;
         }
 
         private void menuItemNRequisição_Click(object sender, EventArgs e)
         {
             while (1 == 1)
             {
+                ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova", new Requisicao());
+
                 PesquisarFerramenta pFerramenta = new PesquisarFerramenta(funcionario, "adicionar");
                 pFerramenta.ShowDialog();
                 if (pFerramenta.DialogResult == DialogResult.Cancel)
@@ -111,7 +112,6 @@ namespace SGA
                     }
                     else
                     {
-                        ManterRequisicao cRequisicao = new ManterRequisicao(funcionario, "nova", new Requisicao());
                         cRequisicao.arrayFerramentas = pFerramenta.arrayFerramentasRequsicao;
                         cRequisicao.funcionarioRequisitante = pFuncionario.objFuncionario;
                         cRequisicao.ShowDialog();
@@ -121,6 +121,7 @@ namespace SGA
                         }
                     }
                 }
+                funcionario = cRequisicao.usuarioLogado;
             }
         }
 
@@ -135,6 +136,7 @@ namespace SGA
             {
                 PesquisarFuncionario pesquisaFunc = new PesquisarFuncionario(funcionario, "");
                 pesquisaFunc.ShowDialog();
+                funcionario = pesquisaFunc.usuarioLogado;
             }
         }
 
@@ -142,6 +144,7 @@ namespace SGA
         {
             PesquisarFerramenta pFerramenta = new PesquisarFerramenta(funcionario, "pesquisa");
             pFerramenta.ShowDialog();
+            funcionario = pFerramenta.usuarioLogado;
         }
 
         #endregion
@@ -209,6 +212,7 @@ namespace SGA
         {
             PesquisarRequisicao pRequisicao = new PesquisarRequisicao(funcionario);
             pRequisicao.ShowDialog();
+            funcionario = pRequisicao.usuarioLogado;
         }
 
         private void Menu_Load(object sender, EventArgs e)
