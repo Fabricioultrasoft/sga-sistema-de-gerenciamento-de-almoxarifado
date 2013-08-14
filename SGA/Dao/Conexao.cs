@@ -94,8 +94,7 @@ namespace SGA.Dao
                 BackupDeviceItem objDevice = new BackupDeviceItem();
                 objDevice.DeviceType = DeviceType.File;
                 objDevice.Name = path;
-                objBackup.Checksum = true;
-                objBackup.ExpirationDate = DateTime.Now;
+                objBackup.Checksum = true;                
                 objBackup.Incremental = false;
                 objBackup.Devices.Add(objDevice);
                 objBackup.Initialize = true;
