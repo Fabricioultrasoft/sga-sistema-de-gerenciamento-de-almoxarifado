@@ -289,7 +289,7 @@ namespace SGA.Dao
 
             if (func.periodo[0] + "" != "")
             {
-                codigo = codigo + " AND dt_ins_funcionario BETWEEN '" + Convert.ToDateTime(func.periodo[0]) + "' AND '" + Convert.ToDateTime(func.periodo[1]) + "'";
+                codigo = codigo + " AND dt_ins_funcionario BETWEEN '" + Convert.ToDateTime(func.periodo[0]).ToString("yyyy-MM-dd HH:mm:ss") + "' AND '" + Convert.ToDateTime(func.periodo[1]).ToString("yyyy-MM-dd HH:mm:ss") + "'";
             }
 
             Queue arrayFuncionario = new Queue();

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using SGA.Entity;
 using SGA.Properties;
 using SGA.Telas;
+using SGA.Dao;
 
 namespace SGA
 {
@@ -46,7 +47,7 @@ namespace SGA
             }
             if (funcionariosAlterado.alteracao)
             {
-                new Mensagem("Alteração Feita !", "informacao", Resources.erro).ShowDialog();
+                Conexao.backup();
             }
         }
     }

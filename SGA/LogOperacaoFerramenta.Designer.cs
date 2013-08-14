@@ -1122,19 +1122,21 @@ WHERE l.cod_ferramenta = fe.cod_ferramenta";
   ,d.no_ferramenta
   ,fa.no_fabricante
   ,g.no_grupo
-  FROM tb_logOperacoesCriticas l
+   FROM tb_logOperacoesCriticas l
  	 ,tb_ferramenta fe 
 INNER JOIN tb_descricao_ferramenta d ON(fe.fk_descricao_ferramenta = d.nu_seq_descricao) 
 INNER JOIN tb_fabricante fa ON(fe.fk_fabricante = fa.nu_seq_fabricante)
-INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo)
-WHERE l.cod_ferramenta = fe.cod_ferramenta AND (fe.cod_ferramenta LIKE  @codigo ) AND (fe.dt_aquisicao BETWEEN @dtInicioAquisicao AND 
-  @dtFinalAquisicao) AND (fa.no_fabricante LIKE @fabricante) AND (g.no_grupo LIKE @categoria)";
+INNER JOIN tb_grupo_ferramenta g ON (d.fk_grupo = g.nu_seq_grupo) INNER JOIN tb_situacao_ferramenta sit ON (fe.fk_situacao = sit.nu_seq_situacao)
+WHERE l.cod_ferramenta = fe.cod_ferramenta AND sit.no_situacao LIKE @situacao AND fe.cod_ferramenta LIKE @codigo 
+AND fa.no_fabricante LIKE @fab AND g.no_grupo LIKE @cat AND fe.dt_aquisicao BETWEEN @dtinicio AND 
+  @dtfinal";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@situacao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_situacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtInicioAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFinalAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fab", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cat", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtinicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtfinal", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1165,28 +1167,34 @@ WHERE l.cod_ferramenta = fe.cod_ferramenta AND (fe.cod_ferramenta LIKE  @codigo 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCodDtInDtOutFabCat(LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable, string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+        public virtual int FillBySitCodFabCatDtInDtOut(LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable, string situacao, string codigo, string fab, string cat, System.DateTime dtinicio, System.DateTime dtfinal) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((situacao == null)) {
+                throw new global::System.ArgumentNullException("situacao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(situacao));
+            }
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigo));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(codigo));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
-            if ((fabricante == null)) {
-                throw new global::System.ArgumentNullException("fabricante");
+            if ((fab == null)) {
+                throw new global::System.ArgumentNullException("fab");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fab));
             }
-            if ((categoria == null)) {
-                throw new global::System.ArgumentNullException("categoria");
+            if ((cat == null)) {
+                throw new global::System.ArgumentNullException("cat");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cat));
             }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtinicio));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtfinal));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1198,28 +1206,34 @@ WHERE l.cod_ferramenta = fe.cod_ferramenta AND (fe.cod_ferramenta LIKE  @codigo 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable GetDataByCodDtInDtOutFabCat(string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+        public virtual LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable GetDataBySitCodFabCatDtInDtOut(string situacao, string codigo, string fab, string cat, System.DateTime dtinicio, System.DateTime dtfinal) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((situacao == null)) {
+                throw new global::System.ArgumentNullException("situacao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(situacao));
+            }
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(codigo));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(codigo));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
-            if ((fabricante == null)) {
-                throw new global::System.ArgumentNullException("fabricante");
+            if ((fab == null)) {
+                throw new global::System.ArgumentNullException("fab");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fab));
             }
-            if ((categoria == null)) {
-                throw new global::System.ArgumentNullException("categoria");
+            if ((cat == null)) {
+                throw new global::System.ArgumentNullException("cat");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(cat));
             }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtinicio));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtfinal));
             LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable dataTable = new LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

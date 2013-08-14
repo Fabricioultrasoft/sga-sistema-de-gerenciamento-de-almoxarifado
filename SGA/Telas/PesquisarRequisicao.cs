@@ -266,17 +266,17 @@ namespace SGA.Telas
                 dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
             }
 
-            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
+            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
             preencherListViewRequisicao();
         }
 
         private void setDtpickers()
         {
             RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
             dtpickerInicio.Value = dtpickerInicio.MinDate;
             dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             if (dtpickerFinal.MinDate.AddDays(-1) == data)
             {
                 dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);

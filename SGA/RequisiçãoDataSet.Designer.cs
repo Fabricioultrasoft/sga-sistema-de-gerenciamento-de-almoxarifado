@@ -1374,14 +1374,16 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
                 "nu_seq_grupo INNER JOIN\r\n  tb_funcionario ON r.fk_func_requisitante = tb_funcion" +
                 "ario.mat_funcionario INNER JOIN\r\n  tb_funcao ON tb_funcionario.fk_funcao = tb_fu" +
                 "ncao.nu_seq_funcao\r\nWHERE f.cod_ferramenta LIKE(@codferramenta)\r\n  AND fa.no_fab" +
-                "ricante LIKE(@fabricante)\r\n  AND gr.no_grupo LIKE(@fabricante)\r\n  AND tb_funcao." +
-                "no_funcao LIKE(@fabricante)\r\n  AND r.dt_baixa_requisicao IS NOT NULL\r\n  AND r.dt" +
-                "_saida_requisicao BETWEEN @dtIni AND @dtFin \r\n  AND( CAST(r.fk_func_requisitante" +
-                " AS VARCHAR) LIKE(@mat)\r\n  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)\r\n" +
-                "  OR CAST(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))";
+                "ricante LIKE(@fabricante)\r\n  AND gr.no_grupo LIKE(@categoria)\r\n  AND tb_funcao.n" +
+                "o_funcao LIKE(@funcao)\r\n  AND r.dt_baixa_requisicao IS NOT NULL\r\n  AND r.dt_said" +
+                "a_requisicao BETWEEN @dtIni AND @dtFin \r\n  AND( CAST(r.fk_func_requisitante AS V" +
+                "ARCHAR) LIKE(@mat)\r\n  OR CAST(r.fk_func_saida_ferr AS VARCHAR) LIKE(@mat)\r\n  OR " +
+                "CAST(r.fk_func_baixa_ferr AS VARCHAR) LIKE(@mat))";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codferramenta", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtIni", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_saida_requisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mat", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1503,7 +1505,7 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBaixadas(RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable, string codferramenta, string fabricante, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+        public virtual int FillByBaixadas(RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable, string codferramenta, string fabricante, string categoria, string funcao, System.DateTime dtIni, System.DateTime dtFin, string mat) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((codferramenta == null)) {
                 throw new global::System.ArgumentNullException("codferramenta");
@@ -1517,13 +1519,25 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
             }
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtIni));
-            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFin));
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(categoria));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFin));
             if ((mat == null)) {
                 throw new global::System.ArgumentNullException("mat");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(mat));
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(mat));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1536,7 +1550,7 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual RequisiçãoDataSet.ListaDeRequisiçãoDataTable GetDataByBaixadas(string codferramenta, string fabricante, System.DateTime dtIni, System.DateTime dtFin, string mat) {
+        public virtual RequisiçãoDataSet.ListaDeRequisiçãoDataTable GetDataByBaixadas(string codferramenta, string fabricante, string categoria, string funcao, System.DateTime dtIni, System.DateTime dtFin, string mat) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((codferramenta == null)) {
                 throw new global::System.ArgumentNullException("codferramenta");
@@ -1550,13 +1564,25 @@ namespace SGA.RequisiçãoDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fabricante));
             }
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtIni));
-            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFin));
+            if ((categoria == null)) {
+                throw new global::System.ArgumentNullException("categoria");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(categoria));
+            }
+            if ((funcao == null)) {
+                throw new global::System.ArgumentNullException("funcao");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(funcao));
+            }
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtIni));
+            this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(dtFin));
             if ((mat == null)) {
                 throw new global::System.ArgumentNullException("mat");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(mat));
+                this.Adapter.SelectCommand.Parameters[6].Value = ((string)(mat));
             }
             RequisiçãoDataSet.ListaDeRequisiçãoDataTable dataTable = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
             this.Adapter.Fill(dataTable);

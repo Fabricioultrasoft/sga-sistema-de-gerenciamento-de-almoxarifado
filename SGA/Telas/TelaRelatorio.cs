@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
+using SGA.Entity;
+using SGA.Properties;
 
 namespace SGA.Telas
 {
@@ -15,43 +17,196 @@ namespace SGA.Telas
         public TelaRelatorio()
         {
 
-           InitializeComponent();
-            
+            InitializeComponent();
+
         }
 
         private void TelaRelatorio_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'logOperacaoFuncionario._LogOperacaoFuncionario' table. You can move, or remove it, as needed.
-            this.logOperacaoFuncionarioTableAdapter.Fill(this.logOperacaoFuncionario._LogOperacaoFuncionario);
-            // TODO: This line of code loads data into the 'geraRelatorioFuncionario.RelatorioFuncionario' table. You can move, or remove it, as needed.
-            this.relatorioFuncionarioTableAdapter.Fill(this.geraRelatorioFuncionario.RelatorioFuncionario);
-            // TODO: This line of code loads data into the 'logOperacaoFerramenta.ListaOperacaoFerramenta' table. You can move, or remove it, as needed.
-            this.listaOperacaoFerramentaTableAdapter.Fill(this.logOperacaoFerramenta.ListaOperacaoFerramenta);
-            // TODO: This line of code loads data into the 'requisiçãoDataSet.ListaDeRequisição' table. You can move, or remove it, as needed.
-            this.listaDeRequisiçãoTableAdapter.Fill(this.requisiçãoDataSet.ListaDeRequisição);
-            // TODO: This line of code loads data into the 'ferramentaDataSet.ListaDeFerramentas' table. You can move, or remove it, as needed.
-            this.listaDeFerramentasTableAdapter.Fill(this.ferramentaDataSet.ListaDeFerramentas);
-            // TODO: This line of code loads data into the 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas' table. You can move, or remove it, as needed.
-            this.ferramentasMRequisitadasTableAdapter.Fill(this.ferramentaMRequisitadaDataSet.FerramentasMRequisitadas);
-            // TODO: esta linha de código carrega dados na tabela 'ferramentaMRequisitadaDataSet.FerramentasMRequisitadas'. Você pode movê-la ou removê-la conforme necessário.
-            this.ferramentasMRequisitadasTableAdapter.Fill(this.ferramentaMRequisitadaDataSet.FerramentasMRequisitadas);
-            // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
-            
-            // TODO: esta linha de código carrega dados na tabela 'ferramentaDataSet.tb_ferramenta'. Você pode movê-la ou removê-la conforme necessário.
             System.Drawing.Printing.PageSettings NovasMargens = new System.Drawing.Printing.PageSettings();
             NovasMargens.Margins.Bottom = 4;
             NovasMargens.Margins.Left = 4;
             NovasMargens.Margins.Right = 4;
             NovasMargens.Margins.Top = 4;
-
             reportViewer1.SetPageSettings(NovasMargens);
             this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
-            this.reportViewer1.ZoomPercent = 75;
+            this.reportViewer1.ZoomPercent = 100;
 
-            // TODO: This line of code loads data into the 'requisiçãoDataSet.tb_requisicao' table. You can move, or remove it, as needed.
+        }
+
+        public void ListaFuncionario(Funcionario funcionario, string tipo)
+        {
+            if (tipo == "lista") // Lista de Funcionários
+            {
+
+                GeraRelatorioFuncionarioTableAdapters.RelatorioFuncionarioTableAdapter adaptador = new GeraRelatorioFuncionarioTableAdapters.RelatorioFuncionarioTableAdapter();
+                GeraRelatorioFuncionario.RelatorioFuncionarioDataTable tabela = new GeraRelatorioFuncionario.RelatorioFuncionarioDataTable();
+
+                adaptador.FillByFunPermDtInDtOut(tabela, "%" + funcionario.no_funcao + "%", "%" + funcionario.no_permissao + "%", Convert.ToDateTime(funcionario.periodo[0]), Convert.ToDateTime(funcionario.periodo[1]));
+
+                ReportDataSource NovaFonteDados = new ReportDataSource("FuncionarioDataSet", (DataTable)tabela);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.ListaFuncionario.rdlc";
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+            }
+            else // Log de Funcionários
+            {
+
+                LogOperacaoFuncionarioTableAdapters.LogOperacaoFuncionarioTableAdapter adaptador = new LogOperacaoFuncionarioTableAdapters.LogOperacaoFuncionarioTableAdapter();
+                LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable tabela = new LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable();
+
+                adaptador.FillByMatFunPerDtInDtOut(tabela, "%" + funcionario.matricula + "%", "%" + funcionario.no_funcao + "%", "%" + funcionario.no_permissao + "%", Convert.ToDateTime(funcionario.periodo[0]), Convert.ToDateTime(funcionario.periodo[1]));
+
+                if (funcionario.matricula == 0) // Caso matricula zero, consulta será em branco no campo matricula!
+                {
+                    adaptador.FillByMatFunPerDtInDtOut(tabela, "%%", "%" + funcionario.no_funcao + "%", "%" + funcionario.no_permissao + "%", Convert.ToDateTime(funcionario.periodo[0]), Convert.ToDateTime(funcionario.periodo[1]));
+                }
+                else
+                {
+                    adaptador.FillByMatFunPerDtInDtOut(tabela, "%" + funcionario.matricula + "%", "%" + funcionario.no_funcao + "%", "%" + funcionario.no_permissao + "%", Convert.ToDateTime(funcionario.periodo[0]), Convert.ToDateTime(funcionario.periodo[1]));
+                }
+
+
+                ReportDataSource NovaFonteDados = new ReportDataSource("LogOperacaoFuncionario", (DataTable)tabela);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.LogFuncionario.rdlc";
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+
+            }
+        }
+
+        public void ListaFerramentas(Ferramenta ferramenta, Funcionario funcionario, Requisicao requisicao, string tipo)
+        {
+            if (tipo == "lista")
+            {
+                FerramentaDataSetTableAdapters.ListaDeFerramentasTableAdapter adaptador = new FerramentaDataSetTableAdapters.ListaDeFerramentasTableAdapter();
+                FerramentaDataSet.ListaDeFerramentasDataTable tabela = new FerramentaDataSet.ListaDeFerramentasDataTable();
+
+                adaptador.FillByDtiaDtfaFabGruSit(tabela, "%" + ferramenta.codSituacao + "%", Convert.ToDateTime(ferramenta.periodo[0]), Convert.ToDateTime(ferramenta.periodo[1]), "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%");
+
+                ReportDataSource NovaFonteDados = new ReportDataSource("GeraRelatorioFerramenta", (DataTable)tabela);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.ListaDeFerramentas.rdlc";
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+            }
+            else if (tipo == "log")
+            {
+                LogOperacaoFerramentaTableAdapters.ListaOperacaoFerramentaTableAdapter adaptador = new LogOperacaoFerramentaTableAdapters.ListaOperacaoFerramentaTableAdapter();
+                LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable tabela = new LogOperacaoFerramenta.ListaOperacaoFerramentaDataTable();
+
+                adaptador.FillBySitCodFabCatDtInDtOut(tabela, "%" + ferramenta.codSituacao + "%", "%" + ferramenta.codFerramenta + "%", "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%", Convert.ToDateTime(ferramenta.periodo[0]), Convert.ToDateTime(ferramenta.periodo[1]));
+
+                ReportDataSource NovaFonteDados = new ReportDataSource("LogFerramentaDataSet", (DataTable)tabela);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.LogFerramenta.rdlc";
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+
+            }
+            else
+            {
+                if (funcionario.matricula == 0)
+                {
+                    FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter adaptador = new FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter();
+                    FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable tabela = new FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable();
+
+                    adaptador.FillByCatFabMatFunDtInDtOut(tabela, "%" + ferramenta.codGrupo + "%", "%" + ferramenta.codFabricante + "%", "%%", "%" + funcionario.no_funcao + "%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]));
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("RequisitadasDataSet", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.FerramentaMRequisitada.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+                else
+                {
+                    FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter adaptador = new FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter();
+                    FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable tabela = new FerramentaMRequisitadaDataSet.FerramentasMRequisitadasDataTable();
+
+                    adaptador.FillByCatFabMatFunDtInDtOut(tabela, "%" + ferramenta.codGrupo + "%", "%" + ferramenta.codFabricante + "%", "%" + funcionario.matricula.ToString() + "%", "%%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]));
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("RequisitadasDataSet", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.FerramentaMRequisitada.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+
+            }
+        }
+
+        public void ListaRequisicao(Ferramenta ferramenta, Funcionario funcionario, Requisicao requisicao, string tipo)
+        {
             
+            if (tipo == "Abertas") // Requisições abertas
+            {
+                if (funcionario.matricula == 0) // Matricula vazia
+                {
 
-            this.reportViewer1.RefreshReport();
+                    RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter adaptador = new RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
+                    RequisiçãoDataSet.ListaDeRequisiçãoDataTable tabela = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+                    adaptador.FillByAbertas(tabela, "%" + ferramenta.codFerramenta + "%", "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%", "%" + funcionario.no_funcao + "%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]), "%%");
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("GeraRelatorioRequisicao", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+                else // Matricula preenchida
+                {
+                    RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter adaptador = new RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
+                    RequisiçãoDataSet.ListaDeRequisiçãoDataTable tabela = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+                    adaptador.FillByAbertas(tabela, "%" + ferramenta.codFerramenta + "%", "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%", "%" + funcionario.no_funcao + "%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]), "%" + funcionario.matricula + "%");
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("GeraRelatorioRequisicao", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+            }
+            else // Requisições baixadas
+            {
+                if (funcionario.matricula == 0) // Matricula vazia!
+                {
+
+                    RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter adaptador = new RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
+                    RequisiçãoDataSet.ListaDeRequisiçãoDataTable tabela = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+                    adaptador.FillByBaixadas(tabela, "%" + ferramenta.codFerramenta + "%", "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%", "%" + funcionario.no_funcao + "%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]), "%%");
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("GeraRelatorioRequisicao", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+                else // Matricula preenchida
+                {
+                    RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter adaptador = new RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
+                    RequisiçãoDataSet.ListaDeRequisiçãoDataTable tabela = new RequisiçãoDataSet.ListaDeRequisiçãoDataTable();
+                    adaptador.FillByBaixadas(tabela, "%" + ferramenta.codFerramenta + "%", "%" + ferramenta.codFabricante + "%", "%" + ferramenta.codGrupo + "%", "%" + funcionario.no_funcao + "%", Convert.ToDateTime(requisicao.periodo[0]), Convert.ToDateTime(requisicao.periodo[1]), "%" + funcionario.matricula + "%");
+
+                    ReportDataSource NovaFonteDados = new ReportDataSource("GeraRelatorioRequisicao", (DataTable)tabela);
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(NovaFonteDados);
+                    reportViewer1.LocalReport.ReportEmbeddedResource = "SGA.Telas.RelatorioRequisição.rdlc";
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
+                }
+            }
         }
     }
 }

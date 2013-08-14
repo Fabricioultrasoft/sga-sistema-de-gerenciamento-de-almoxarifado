@@ -975,11 +975,10 @@ FROM            tb_ferramenta AS fe INNER JOIN
                          tb_fabricante AS fa ON fe.fk_fabricante = fa.nu_seq_fabricante INNER JOIN
                          tb_grupo_ferramenta AS g ON d.fk_grupo = g.nu_seq_grupo INNER JOIN
                          tb_situacao_ferramenta AS sf ON fe.fk_situacao = sf.nu_seq_situacao
-WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta LIKE '%' + @codigo + '%') AND (fe.dt_aquisicao BETWEEN @dtInicioAquisicao AND 
+WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.dt_aquisicao BETWEEN @dtInicioAquisicao AND 
                          @dtFinalAquisicao) AND (fa.no_fabricante LIKE '%' + @fabricante + '%') AND (g.no_grupo LIKE '%' + @categoria + '%')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@situacao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_situacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "cod_ferramenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtInicioAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFinalAquisicao", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_aquisicao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fabricante", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_fabricante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1014,7 +1013,7 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCodDtiaDtfaFabGruSit(FerramentaDataSet.ListaDeFerramentasDataTable dataTable, string situacao, string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+        public virtual int FillByDtiaDtfaFabGruSit(FerramentaDataSet.ListaDeFerramentasDataTable dataTable, string situacao, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((situacao == null)) {
                 throw new global::System.ArgumentNullException("situacao");
@@ -1022,25 +1021,19 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(situacao));
             }
-            if ((codigo == null)) {
-                throw new global::System.ArgumentNullException("codigo");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(codigo));
-            }
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtInicioAquisicao));
-            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFinalAquisicao));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
             if ((fabricante == null)) {
                 throw new global::System.ArgumentNullException("fabricante");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fabricante));
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
             }
             if ((categoria == null)) {
                 throw new global::System.ArgumentNullException("categoria");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(categoria));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1053,7 +1046,7 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FerramentaDataSet.ListaDeFerramentasDataTable GetDataByCodDtiaDtfaFabGruSit(string situacao, string codigo, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
+        public virtual FerramentaDataSet.ListaDeFerramentasDataTable GetDataByDtiaDtfaFabGruSit(string situacao, System.DateTime dtInicioAquisicao, System.DateTime dtFinalAquisicao, string fabricante, string categoria) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((situacao == null)) {
                 throw new global::System.ArgumentNullException("situacao");
@@ -1061,25 +1054,19 @@ WHERE        (sf.no_situacao LIKE '%' + @situacao + '%') AND (fe.cod_ferramenta 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(situacao));
             }
-            if ((codigo == null)) {
-                throw new global::System.ArgumentNullException("codigo");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(codigo));
-            }
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtInicioAquisicao));
-            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtFinalAquisicao));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dtInicioAquisicao));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(dtFinalAquisicao));
             if ((fabricante == null)) {
                 throw new global::System.ArgumentNullException("fabricante");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(fabricante));
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(fabricante));
             }
             if ((categoria == null)) {
                 throw new global::System.ArgumentNullException("categoria");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(categoria));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(categoria));
             }
             FerramentaDataSet.ListaDeFerramentasDataTable dataTable = new FerramentaDataSet.ListaDeFerramentasDataTable();
             this.Adapter.Fill(dataTable);

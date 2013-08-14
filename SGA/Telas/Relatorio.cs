@@ -60,6 +60,7 @@ namespace SGA.Telas
             {
                 cbxFuncao.Items.Add(funcao.Dequeue().ToString());
             }
+            cbxFuncao.SelectedItem = "";
         }
 
         private void rbtnEventosSistema_CheckedChanged(object sender, EventArgs e)
@@ -219,18 +220,21 @@ namespace SGA.Telas
             Queue permissao = funcionarioD.preencherCbxPermissao();
             cbxPermissao.Items.Clear();
             cbxPermissao.Items.Add("");
+                        
             while (permissao.Count != 0)
             {
                 cbxPermissao.Items.Add(permissao.Dequeue().ToString());
             }
+            cbxPermissao.SelectedItem = "";
+            
         }
 
         private void setDtpickers()
         {
-            dtpickekAdmissaoInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd"));
+            dtpickekAdmissaoInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
             dtpickekAdmissaoInicio.Value = dtpickekAdmissaoInicio.MinDate;
             dtpickekAdmissaoFinal.MinDate = dtpickekAdmissaoInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             if (dtpickekAdmissaoFinal.MinDate.AddDays(-1) == data)
             {
                 dtpickekAdmissaoFinal.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
@@ -333,6 +337,8 @@ namespace SGA.Telas
             {
                 cbxFabricante.Items.Add(fabricantes.Dequeue().ToString());
             }
+
+            cbxFabricante.SelectedItem = "";
         }
 
         public void preencherCbxSituacao()
@@ -344,6 +350,7 @@ namespace SGA.Telas
             {
                 cbxSituacao.Items.Add(situacao.Dequeue().ToString());
             }
+            cbxSituacao.SelectedItem = "";
         }
 
         public void preencherCbxGrupo()
@@ -356,6 +363,7 @@ namespace SGA.Telas
                 cbxGrupo.Items.Add(grupos.Dequeue().ToString());
             }
 
+            cbxGrupo.SelectedItem = "";
         }
 
         private void dtpickerInicioFerramenta_ValueChanged(object sender, EventArgs e)
@@ -474,23 +482,52 @@ namespace SGA.Telas
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
+            
             Funcionario funcionario = new Funcionario();
             Ferramenta ferramenta = new Ferramenta();
             Requisicao requisicao = new Requisicao();
-           
+
             if (rbtnFuncionario.Checked)
             {
-                cbxFuncao.SelectedItem.ToString();
-                cbxPermissao.SelectedItem.ToString();
-                dtpickekAdmissaoInicio.Value.ToString();
-                dtpickekAdmissaoFinal.Value.ToString();
+
                 if (rbtnLista.Checked) //lista funcionario
                 {
-
+                    funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                    funcionario.no_permissao = cbxPermissao.SelectedItem.ToString();
+                    funcionario.periodo[0] = dtpickekAdmissaoInicio.Value.ToString();
+                    funcionario.periodo[1] = dtpickekAdmissaoFinal.Value.ToString();
+                   
+                    TelaRelatorio objRelatorio = new TelaRelatorio();
+                    objRelatorio.ListaFuncionario(funcionario, "lista");
+                    objRelatorio.ShowDialog();
                 }
                 else //log funcionario
                 {
-                    tbxMatricula.ToString();
+                    if (String.IsNullOrWhiteSpace(tbxMatricula.Text)) // Caso Matricula vazia
+                    {
+                        funcionario.matricula = funcionario.matricula = 0;
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        funcionario.no_permissao = cbxPermissao.SelectedItem.ToString();
+                        funcionario.periodo[0] = dtpickekAdmissaoInicio.Value.ToString();
+                        funcionario.periodo[1] = dtpickekAdmissaoFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaFuncionario(funcionario, "log");
+                        objRelatorio.ShowDialog();
+                    }
+                    else // Caso matricula preenchida!
+                    {
+                        funcionario.matricula = Convert.ToInt16(tbxMatricula.Text);
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        funcionario.no_permissao = cbxPermissao.SelectedItem.ToString();
+                        funcionario.periodo[0] = dtpickekAdmissaoInicio.Value.ToString();
+                        funcionario.periodo[1] = dtpickekAdmissaoFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaFuncionario(funcionario,"log");
+                        objRelatorio.ShowDialog();
+                    }
+                    
                 }
             }
             else if (rbtnFerramenta.Checked)
@@ -501,44 +538,137 @@ namespace SGA.Telas
                     ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
                     ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
                     ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
-                    ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
-                    ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+                    ferramenta.periodo[0] = dtpickerInicioFerramenta.Value.ToString();
+                    ferramenta.periodo[1] = dtpickerFinalFerramenta.Value.ToString();
+
+                    TelaRelatorio objRelatorio = new TelaRelatorio();
+                    objRelatorio.ListaFerramentas(ferramenta, funcionario, requisicao, "lista");
+                    objRelatorio.ShowDialog();
+
                 }
                 else if (rbtnEventosSistema.Checked)//log Ferramenta
                 {
                     ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
                     ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
                     ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
-                    ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
-                    ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+                    ferramenta.periodo[0] = dtpickerInicioFerramenta.Value.ToString();
+                    ferramenta.periodo[1] = dtpickerFinalFerramenta.Value.ToString();
                     ferramenta.codFerramenta = tbxCodigo.Text;
 
+                    TelaRelatorio objRelatorio = new TelaRelatorio();
+                    objRelatorio.ListaFerramentas(ferramenta, funcionario, requisicao, "log");
+                    objRelatorio.ShowDialog();
+
+                }
+                else // Mais Requisitada
+                {
+                    if (String.IsNullOrWhiteSpace(tbxMatricula.Text))
+                    {
+                        funcionario.matricula = 0;
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();                        
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaFerramentas(ferramenta, funcionario, requisicao, "Mais requisitada");
+                        objRelatorio.ShowDialog();
+                    }
+                    else
+                    {
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                        funcionario.matricula = Convert.ToInt16(tbxMatricula.Text);
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaFerramentas(ferramenta, funcionario, requisicao, "Mais requisitada");
+                        objRelatorio.ShowDialog();
+                    }
+                    
+                }
+            }
+            else // Requisição
+            {
+                requisicao.situacao = cbxSituacaoRequisicao.SelectedItem.ToString();
+                if (requisicao.situacao == "Abertas")
+                {
+                    if (String.IsNullOrWhiteSpace(tbxMatricula.Text))
+                    {
+                        funcionario.matricula = 0;
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFerramenta = tbxCodigo.Text;
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaRequisicao(ferramenta, funcionario, requisicao, requisicao.situacao);
+                        objRelatorio.ShowDialog();
+                    }
+                    else
+                    {
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFerramenta = tbxCodigo.Text;
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                        funcionario.matricula = Convert.ToInt16(tbxMatricula.Text);
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaRequisicao(ferramenta, funcionario, requisicao, requisicao.situacao);
+                        objRelatorio.ShowDialog();
+                    }
                 }
                 else
                 {
-                    ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
-                    ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
-                    tbxMatricula.ToString();
-                    cbxFuncao.SelectedItem.ToString();
-                    requisicao.periodo[0] = dtpickerInicio.Value.ToString();
-                    requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+                    if (String.IsNullOrWhiteSpace(tbxMatricula.Text))
+                    {
+                        funcionario.matricula = 0;
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFerramenta = tbxCodigo.Text;
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaRequisicao(ferramenta, funcionario, requisicao, requisicao.situacao);
+                        objRelatorio.ShowDialog();
+                    }
+                    else
+                    {
+                        ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                        ferramenta.codFerramenta = tbxCodigo.Text;
+                        ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                        funcionario.matricula = Convert.ToInt16(tbxMatricula.Text);
+                        funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
+                        requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                        requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+
+                        TelaRelatorio objRelatorio = new TelaRelatorio();
+                        objRelatorio.ListaRequisicao(ferramenta, funcionario, requisicao, requisicao.situacao);
+                        objRelatorio.ShowDialog();
+                    }
                 }
-            }
-            else
-            {
-                ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
-                ferramenta.codFerramenta = tbxCodigo.Text;
-                ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
-                tbxMatricula.ToString();
-                cbxFuncao.SelectedItem.ToString();
-                cbxSituacaoRequisicao.SelectedItem.ToString();
-                requisicao.periodo[0] = dtpickerInicio.Value.ToString();
-                requisicao.periodo[1] = dtpickerFinal.Value.ToString();
-            }
+                
+                
+            }                        
+        }
 
-            TelaRelatorio tela = new TelaRelatorio();
-            tela.ShowDialog();
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void btnLimparTudo_Click(object sender, EventArgs e)
+        {
+            //Implementar
         }
     }
 }

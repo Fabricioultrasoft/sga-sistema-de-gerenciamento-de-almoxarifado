@@ -1221,21 +1221,23 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
   ,(SELECT TOP 1 no_funcionario FROM tb_funcionario WHERE mat_funcionario = l.matricula_ator) as no_func_ator
   ,(SELECT TOP 1 no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario = l.matricula_ator) AS funcao_ator
   ,l.dt_log
-  ,mat_funcionario
+  ,l.mat_funcionario
   ,(SELECT TOP 1 no_funcionario FROM tb_funcionario WHERE mat_funcionario = l.mat_funcionario) as no_funcionario
   ,(SELECT TOP 1 no_funcao FROM tb_funcao INNER JOIN tb_funcionario ON(fk_funcao = nu_seq_funcao) WHERE mat_funcionario =l.mat_funcionario) AS funcao_funcionario
   ,[cod_ferramenta]
   ,[cod_requisicao]
-  FROM [sga].[dbo].[tb_logOperacoesCriticas] l  INNER JOIN tb_funcao fun ON (l.fk_funcao = fun.nu_seq_funcao) INNER JOIN tb_usuario u ON (l.mat_funcionario = u.fk_funcionario) INNER JOIN tb_permissao pe ON (u.fk_permissao = pe.nu_seq_permissao)
+ FROM [sga].[dbo].[tb_logOperacoesCriticas] l  INNER JOIN tb_funcionario fu ON (l.mat_funcionario = fu.mat_funcionario) INNER JOIN tb_funcao fun ON (fu.fk_funcao = fun.nu_seq_funcao) INNER JOIN tb_usuario u ON (u.fk_funcionario = fu.mat_funcionario) INNER JOIN tb_permissao per ON (per.nu_seq_permissao = u.fk_permissao)
 
- WHERE l.ativo <> '0' AND fun.no_funcao LIKE(@funcao)
-  AND pe.no_permissao LIKE(@permissao)
-  AND l.dt_ins_funcionario BETWEEN @dtini AND @dtFim";
+ WHERE fu.ativo <> '0' AND CAST(fu.mat_funcionario AS VARCHAR) LIKE @matricula AND 
+  fun.no_funcao LIKE @funcao
+  AND per.no_permissao LIKE @permissao
+  AND fu.dt_ins_funcionario BETWEEN @dtinicio AND @dtfinal";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@matricula", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@funcao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_funcao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permissao", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "no_permissao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtini", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtFim", global::System.Data.SqlDbType.Variant, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtinicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_ins_funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtfinal", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dt_ins_funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1266,32 +1268,28 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByS(LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable, string funcao, string permissao, object dtini, object dtFim) {
+        public virtual int FillByMatFunPerDtInDtOut(LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable, string matricula, string funcao, string permissao, System.DateTime dtinicio, System.DateTime dtfinal) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((matricula == null)) {
+                throw new global::System.ArgumentNullException("matricula");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(matricula));
+            }
             if ((funcao == null)) {
                 throw new global::System.ArgumentNullException("funcao");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(funcao));
             }
             if ((permissao == null)) {
                 throw new global::System.ArgumentNullException("permissao");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(permissao));
             }
-            if ((dtini == null)) {
-                throw new global::System.ArgumentNullException("dtini");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(dtini));
-            }
-            if ((dtFim == null)) {
-                throw new global::System.ArgumentNullException("dtFim");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((object)(dtFim));
-            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtinicio));
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtfinal));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1303,32 +1301,28 @@ SELECT nu_seq_log, descricao_log, matricula_ator, (SELECT TOP (1) no_funcionario
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable GetDataByS(string funcao, string permissao, object dtini, object dtFim) {
+        public virtual LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable GetDataByMatFunPerDtInDtOut(string matricula, string funcao, string permissao, System.DateTime dtinicio, System.DateTime dtfinal) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((matricula == null)) {
+                throw new global::System.ArgumentNullException("matricula");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(matricula));
+            }
             if ((funcao == null)) {
                 throw new global::System.ArgumentNullException("funcao");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(funcao));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(funcao));
             }
             if ((permissao == null)) {
                 throw new global::System.ArgumentNullException("permissao");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(permissao));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(permissao));
             }
-            if ((dtini == null)) {
-                throw new global::System.ArgumentNullException("dtini");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(dtini));
-            }
-            if ((dtFim == null)) {
-                throw new global::System.ArgumentNullException("dtFim");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((object)(dtFim));
-            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(dtinicio));
+            this.Adapter.SelectCommand.Parameters[4].Value = ((System.DateTime)(dtfinal));
             LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable dataTable = new LogOperacaoFuncionario.LogOperacaoFuncionarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

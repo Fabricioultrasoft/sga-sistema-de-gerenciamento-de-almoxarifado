@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.listaDeRequisiçãoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.requisiçãoDataSet = new SGA.RequisiçãoDataSet();
             this.logOperacaoFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.logOperacaoFuncionario = new SGA.LogOperacaoFuncionario();
             this.listaOperacaoFerramentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -39,16 +41,16 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ferramentasMRequisitadasTableAdapter = new SGA.FerramentaMRequisitadaDataSetTableAdapters.FerramentasMRequisitadasTableAdapter();
             this.ferramentaDataSet = new SGA.FerramentaDataSet();
-            this.requisiçãoDataSet = new SGA.RequisiçãoDataSet();
             this.listaDeFerramentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaDeFerramentasTableAdapter = new SGA.FerramentaDataSetTableAdapters.ListaDeFerramentasTableAdapter();
-            this.listaDeRequisiçãoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaDeRequisiçãoTableAdapter = new SGA.RequisiçãoDataSetTableAdapters.ListaDeRequisiçãoTableAdapter();
             this.listaOperacaoFerramentaTableAdapter = new SGA.LogOperacaoFerramentaTableAdapters.ListaOperacaoFerramentaTableAdapter();
             this.geraRelatorioFuncionario = new SGA.GeraRelatorioFuncionario();
             this.relatorioFuncionarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.relatorioFuncionarioTableAdapter = new SGA.GeraRelatorioFuncionarioTableAdapters.RelatorioFuncionarioTableAdapter();
             this.logOperacaoFuncionarioTableAdapter = new SGA.LogOperacaoFuncionarioTableAdapters.LogOperacaoFuncionarioTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaOperacaoFerramentaBindingSource)).BeginInit();
@@ -56,12 +58,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaDeFerramentasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.geraRelatorioFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relatorioFuncionarioBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // listaDeRequisiçãoBindingSource
+            // 
+            this.listaDeRequisiçãoBindingSource.DataMember = "ListaDeRequisição";
+            this.listaDeRequisiçãoBindingSource.DataSource = this.requisiçãoDataSet;
+            // 
+            // requisiçãoDataSet
+            // 
+            this.requisiçãoDataSet.DataSetName = "RequisiçãoDataSet";
+            this.requisiçãoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // logOperacaoFuncionarioBindingSource
             // 
@@ -115,11 +125,6 @@
             this.ferramentaDataSet.DataSetName = "FerramentaDataSet";
             this.ferramentaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // requisiçãoDataSet
-            // 
-            this.requisiçãoDataSet.DataSetName = "RequisiçãoDataSet";
-            this.requisiçãoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // listaDeFerramentasBindingSource
             // 
             this.listaDeFerramentasBindingSource.DataMember = "ListaDeFerramentas";
@@ -128,11 +133,6 @@
             // listaDeFerramentasTableAdapter
             // 
             this.listaDeFerramentasTableAdapter.ClearBeforeFill = true;
-            // 
-            // listaDeRequisiçãoBindingSource
-            // 
-            this.listaDeRequisiçãoBindingSource.DataMember = "ListaDeRequisição";
-            this.listaDeRequisiçãoBindingSource.DataSource = this.requisiçãoDataSet;
             // 
             // listaDeRequisiçãoTableAdapter
             // 
@@ -170,8 +170,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TelaRelatorio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.TelaRelatorio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOperacaoFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaOperacaoFerramentaBindingSource)).EndInit();
@@ -179,9 +182,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ferramentasMRequisitadasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaMRequisitadaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ferramentaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.requisiçãoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaDeFerramentasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaDeRequisiçãoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.geraRelatorioFuncionario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relatorioFuncionarioBindingSource)).EndInit();
             this.ResumeLayout(false);

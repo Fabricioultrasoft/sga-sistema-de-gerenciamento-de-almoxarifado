@@ -132,6 +132,7 @@
             this.btnCancelar.TabIndex = 46;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimparTudo
             // 
@@ -143,6 +144,7 @@
             this.btnLimparTudo.TabIndex = 45;
             this.btnLimparTudo.Text = "Limpar Tudo";
             this.btnLimparTudo.UseVisualStyleBackColor = true;
+            this.btnLimparTudo.Click += new System.EventHandler(this.btnLimparTudo_Click);
             // 
             // gbxFocoRelatório
             // 

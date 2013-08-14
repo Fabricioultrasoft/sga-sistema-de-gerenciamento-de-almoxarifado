@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System.Configuration;
 
 
 namespace SGA.Dao
@@ -10,7 +13,9 @@ namespace SGA.Dao
     class Conexao
     {
         //cria um objeto
-        private static SqlConnection conexao = new SqlConnection(@"Data Source=.\SQLEXPRESS; Initial Catalog = sga; Integrated Security = false; User ID = sa ; Password = root");
+
+        private static SqlConnection conexao = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString);
+
         //cria um metodo para passar o objeto
         public static SqlConnection con()
         {
@@ -62,31 +67,46 @@ namespace SGA.Dao
 
         public static void backup()
         {
-           
+
             string caminho = System.IO.Directory.GetCurrentDirectory();
 
             caminho = caminho + @"\Backup";
+            if (!System.IO.Directory.Exists(caminho))
+            {
+                System.IO.Directory.CreateDirectory(caminho);
+            }
 
-            var caminho2 = caminho + @"\SGA-" + System.DateTime.Now.ToString("dd-MM-yyy") + @".bkp";
+            var path = caminho + @"\SGA-" + System.DateTime.Now.ToString("dd-MM-yyy") + @".bkp";
 
             try
             {
-                SqlCommand backup = new SqlCommand("BACKUP DATABASE sga " +
-                                           "TO  DISK = '" + @"C:\Backup.bkp " + "'" +
-                                                "WITH " +
-                                           "NOINIT," +
-                                           "NAME = N'northwind-Full Database Backup'," +
-                                           "SKIP,  STATS = 10", Conexao.con());
-                ;
-                Conexao.con().Open();
-                backup.ExecuteNonQuery();
-                Conexao.con().Close();
+                SqlConnection objConexao = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString.ToString());
+                ServerConnection objServers = new ServerConnection(objConexao);
+
+                Server objServer = new Server(objServers);
+                objServer.ConnectionContext.Connect();
+                string edition = objServer.Information.Edition;
+                Microsoft.SqlServer.Management.Smo.Backup objBackup = new Backup();
+                objBackup.Action = BackupActionType.Database;
+                objBackup.Database = "sga";
+                objBackup.MediaName = "FileSystem";
+
+                BackupDeviceItem objDevice = new BackupDeviceItem();
+                objDevice.DeviceType = DeviceType.File;
+                objDevice.Name = path;
+                objBackup.Checksum = true;
+                objBackup.ExpirationDate = DateTime.Now;
+                objBackup.Incremental = false;
+                objBackup.Devices.Add(objDevice);
+                objBackup.Initialize = true;
+                objBackup.SqlBackup(objServer);
+                objBackup.Devices.Remove(objDevice);
 
             }
-            catch (Exception e)
+            catch (Exception err)
             {
 
-                throw new Exception(e.Message);
+                throw new Exception(err.Message);
             }
         }
     }
