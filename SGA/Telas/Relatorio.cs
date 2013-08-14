@@ -37,19 +37,13 @@ namespace SGA.Telas
             preencherCbxGrupo();
             preencherCbxSituacao();
             preencherCbxFabricante();
-            preenchercbxTipoPeriodo();
             setDtpickersFerramenta();
             setDtpickersRequisicao();
             preencherCbxSituacaoRequisicao();
             mudancaFocoRelatorio();
         }
 
-        private void preenchercbxTipoPeriodo()
-        {
-            cbxTipoPeriodoFerramenta.Items.Add("");
-            cbxTipoPeriodoFerramenta.Items.Add("Aquisicao");
-            cbxTipoPeriodoFerramenta.Items.Add("Desativação");
-        }
+
 
         private void Relatorio_Load(object sender, EventArgs e)
         {
@@ -120,7 +114,6 @@ namespace SGA.Telas
             tabControl1.Controls.Remove(tabPageRequisicao);
             btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
             btnRedPeriodoFerramenta_Click(new object(), new EventArgs());
-            cbxTipoPeriodoFerramenta.Enabled = true;
             dtpickerInicioFerramenta.Enabled = true;
             dtpickerFinalFerramenta.Enabled = true;
             dtpickekAdmissaoFinal.Enabled = true;
@@ -129,7 +122,7 @@ namespace SGA.Telas
             tbxCodigo.Enabled = true;
             lblPermissao.Visible = true;
             cbxPermissao.Visible = true;
-          
+
             rbtnFerramentasReqisitadas.Visible = false;
 
             if (rbtnFuncionario.Checked)
@@ -146,6 +139,8 @@ namespace SGA.Telas
             }
             else if (rbtnFerramenta.Checked)
             {
+                btnLimparFerramenta.Enabled = true;
+
                 cbxSituacao.Visible = true;
                 lblSituacao.Visible = true;
                 tabControl1.Controls.Add(tabPageFerramenta);
@@ -161,6 +156,8 @@ namespace SGA.Telas
                     tabControl1.Controls.Add(tabPageFuncionario);
                     tabControl1.Controls.Add(tabPageRequisicao);
 
+                    btnLimparFerramenta.Enabled = false;
+
                     lblSituacao.Visible = false;
                     cbxSituacao.Visible = false;
                     lblPermissao.Visible = false;
@@ -169,7 +166,6 @@ namespace SGA.Telas
                     tbxCodigo.Enabled = false;
                     cbxSituacaoRequisicao.Enabled = false;
 
-                    cbxTipoPeriodoFerramenta.Enabled = false;
                     dtpickerInicioFerramenta.Enabled = false;
                     dtpickerFinalFerramenta.Enabled = false;
                     dtpickekAdmissaoFinal.Enabled = false;
@@ -186,7 +182,6 @@ namespace SGA.Telas
                 cbxSituacaoRequisicao.Enabled = true;
                 tbxMatricula.Enabled = true;
                 tbxCodigo.Enabled = true;
-                cbxTipoPeriodoFerramenta.Enabled = false;
                 dtpickerInicioFerramenta.Enabled = false;
                 dtpickerFinalFerramenta.Enabled = false;
                 dtpickekAdmissaoFinal.Enabled = false;
@@ -384,7 +379,6 @@ namespace SGA.Telas
         private void btnRedPeriodoFerramenta_Click(object sender, EventArgs e)
         {
             setDtpickersFerramenta();
-            cbxTipoPeriodoFerramenta.SelectedItem = "";
         }
 
         private void btnLimparFerramenta_Click(object sender, EventArgs e)
@@ -440,7 +434,6 @@ namespace SGA.Telas
                 cbxGrupo.Enabled = false;
                 cbxFabricante.Enabled = false;
                 cbxSituacao.Enabled = false;
-                cbxTipoPeriodoFerramenta.Enabled = false;
                 dtpickerInicioFerramenta.Enabled = false;
                 dtpickerFinalFerramenta.Enabled = false;
                 cbxFabricante.Text = "";
@@ -455,7 +448,6 @@ namespace SGA.Telas
                 cbxSituacao.Enabled = true;
                 if (!rbtnRequisicao.Checked)
                 {
-                    cbxTipoPeriodoFerramenta.Enabled = true;
                     dtpickerInicioFerramenta.Enabled = true;
                     dtpickerFinalFerramenta.Enabled = true;
                 }
@@ -469,7 +461,7 @@ namespace SGA.Telas
             cbxSituacaoRequisicao.Items.Add("Abertas");
             cbxSituacaoRequisicao.Items.Add("Fechadas");
         }
-        
+
         private void btnLimparRquisicao_Click(object sender, EventArgs e)
         {
             cbxSituacaoRequisicao.SelectedItem = "";
@@ -482,33 +474,71 @@ namespace SGA.Telas
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            /*Funcionario funcionario = new Funcionario();
+            Funcionario funcionario = new Funcionario();
             Ferramenta ferramenta = new Ferramenta();
             Requisicao requisicao = new Requisicao();
+           
+            if (rbtnFuncionario.Checked)
+            {
+                cbxFuncao.SelectedItem.ToString();
+                cbxPermissao.SelectedItem.ToString();
+                dtpickekAdmissaoInicio.Value.ToString();
+                dtpickekAdmissaoFinal.Value.ToString();
+                if (rbtnLista.Checked) //lista funcionario
+                {
 
-            if(tbxMatricula.Text != "")
-            funcionario.matricula = Convert.ToInt32(tbxMatricula.Text);
+                }
+                else //log funcionario
+                {
+                    tbxMatricula.ToString();
+                }
+            }
+            else if (rbtnFerramenta.Checked)
+            {
 
-            funcionario.no_funcao = cbxFuncao.SelectedItem.ToString();
-            funcionario.no_permissao = cbxPermissao.Text;
-            funcionario.papel = cbxPapel.SelectedItem.ToString();
-            funcionario.periodo[0] = dtpickekAdmissaoInicio.Value.ToString();
-            funcionario.periodo[1] = dtpickekAdmissaoFinal.Value.ToString();
+                if (rbtnLista.Checked)//lista Ferramenta
+                {
+                    ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                    ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
+                    ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                    ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
+                    ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+                }
+                else if (rbtnEventosSistema.Checked)//log Ferramenta
+                {
+                    ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                    ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
+                    ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                    ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
+                    ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+                    ferramenta.codFerramenta = tbxCodigo.Text;
 
-            ferramenta.codFerramenta = tbxCodigo.Text;
-            ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
-            ferramenta.codSituacao = cbxSituacao.SelectedItem.ToString();
-            ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
-            ferramenta.periodo[0] = cbxTipoPeriodoFerramenta.SelectedItem.ToString();
-            ferramenta.periodo[1] = dtpickerInicioFerramenta.Value.ToString();
-            ferramenta.periodo[2] = dtpickerFinalFerramenta.Value.ToString();
+                }
+                else
+                {
+                    ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                    ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                    tbxMatricula.ToString();
+                    cbxFuncao.SelectedItem.ToString();
+                    requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                    requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+                }
+            }
+            else
+            {
+                ferramenta.codGrupo = cbxGrupo.SelectedItem.ToString();
+                ferramenta.codFerramenta = tbxCodigo.Text;
+                ferramenta.codFabricante = cbxFabricante.SelectedItem.ToString();
+                tbxMatricula.ToString();
+                cbxFuncao.SelectedItem.ToString();
+                cbxSituacaoRequisicao.SelectedItem.ToString();
+                requisicao.periodo[0] = dtpickerInicio.Value.ToString();
+                requisicao.periodo[1] = dtpickerFinal.Value.ToString();
+            }
 
-            requisicao.situacao = cbxSituacaoRequisicao.Text;
-            requisicao.tipoPeriodo = cbxTipoPeriodoRequisicao.Text;
-            requisicao.periodo[0] = dtpickerInicio.Value.ToString();
-            requisicao.periodo[1] = dtpickerFinal.Value.ToString();*/
             TelaRelatorio tela = new TelaRelatorio();
             tela.ShowDialog();
+
         }
     }
 }

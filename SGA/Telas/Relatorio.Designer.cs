@@ -57,9 +57,7 @@
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.lblSituacao = new System.Windows.Forms.Label();
             this.gbxLmtPerAdmissao = new System.Windows.Forms.GroupBox();
-            this.cbxTipoPeriodoFerramenta = new System.Windows.Forms.ComboBox();
             this.lbldtpickerFinal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtpickerFinalFerramenta = new System.Windows.Forms.DateTimePicker();
             this.lblDtInicio = new System.Windows.Forms.Label();
             this.dtpickerInicioFerramenta = new System.Windows.Forms.DateTimePicker();
@@ -386,7 +384,7 @@
             // 
             this.btnLimparFerramenta.Image = global::SGA.Properties.Resources._1370631243_eraser;
             this.btnLimparFerramenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimparFerramenta.Location = new System.Drawing.Point(649, 53);
+            this.btnLimparFerramenta.Location = new System.Drawing.Point(632, 62);
             this.btnLimparFerramenta.Name = "btnLimparFerramenta";
             this.btnLimparFerramenta.Size = new System.Drawing.Size(148, 44);
             this.btnLimparFerramenta.TabIndex = 46;
@@ -397,7 +395,7 @@
             // cbxSituacao
             // 
             this.cbxSituacao.FormattingEnabled = true;
-            this.cbxSituacao.Location = new System.Drawing.Point(435, 84);
+            this.cbxSituacao.Location = new System.Drawing.Point(418, 93);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(167, 24);
             this.cbxSituacao.TabIndex = 45;
@@ -405,7 +403,7 @@
             // lblSituacao
             // 
             this.lblSituacao.AutoSize = true;
-            this.lblSituacao.Location = new System.Drawing.Point(371, 87);
+            this.lblSituacao.Location = new System.Drawing.Point(354, 96);
             this.lblSituacao.Name = "lblSituacao";
             this.lblSituacao.Size = new System.Drawing.Size(62, 16);
             this.lblSituacao.TabIndex = 44;
@@ -413,50 +411,31 @@
             // 
             // gbxLmtPerAdmissao
             // 
-            this.gbxLmtPerAdmissao.Controls.Add(this.cbxTipoPeriodoFerramenta);
             this.gbxLmtPerAdmissao.Controls.Add(this.lbldtpickerFinal);
-            this.gbxLmtPerAdmissao.Controls.Add(this.label1);
             this.gbxLmtPerAdmissao.Controls.Add(this.dtpickerFinalFerramenta);
             this.gbxLmtPerAdmissao.Controls.Add(this.lblDtInicio);
             this.gbxLmtPerAdmissao.Controls.Add(this.dtpickerInicioFerramenta);
             this.gbxLmtPerAdmissao.Controls.Add(this.btnRedPeriodoFerramenta);
             this.gbxLmtPerAdmissao.Location = new System.Drawing.Point(21, 173);
             this.gbxLmtPerAdmissao.Name = "gbxLmtPerAdmissao";
-            this.gbxLmtPerAdmissao.Size = new System.Drawing.Size(776, 87);
+            this.gbxLmtPerAdmissao.Size = new System.Drawing.Size(776, 80);
             this.gbxLmtPerAdmissao.TabIndex = 45;
             this.gbxLmtPerAdmissao.TabStop = false;
-            this.gbxLmtPerAdmissao.Text = "Limitar período ";
-            // 
-            // cbxTipoPeriodoFerramenta
-            // 
-            this.cbxTipoPeriodoFerramenta.FormattingEnabled = true;
-            this.cbxTipoPeriodoFerramenta.Location = new System.Drawing.Point(119, 37);
-            this.cbxTipoPeriodoFerramenta.Name = "cbxTipoPeriodoFerramenta";
-            this.cbxTipoPeriodoFerramenta.Size = new System.Drawing.Size(167, 24);
-            this.cbxTipoPeriodoFerramenta.TabIndex = 47;
+            this.gbxLmtPerAdmissao.Text = "Limitar período de aquisição";
             // 
             // lbldtpickerFinal
             // 
             this.lbldtpickerFinal.AutoSize = true;
-            this.lbldtpickerFinal.Location = new System.Drawing.Point(333, 50);
+            this.lbldtpickerFinal.Location = new System.Drawing.Point(333, 34);
             this.lbldtpickerFinal.Name = "lbldtpickerFinal";
             this.lbldtpickerFinal.Size = new System.Drawing.Size(132, 16);
             this.lbldtpickerFinal.TabIndex = 32;
             this.lbldtpickerFinal.Text = "Data final do período:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 16);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Tipo período:";
-            // 
             // dtpickerFinalFerramenta
             // 
             this.dtpickerFinalFerramenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpickerFinalFerramenta.Location = new System.Drawing.Point(482, 47);
+            this.dtpickerFinalFerramenta.Location = new System.Drawing.Point(482, 31);
             this.dtpickerFinalFerramenta.Name = "dtpickerFinalFerramenta";
             this.dtpickerFinalFerramenta.Size = new System.Drawing.Size(99, 23);
             this.dtpickerFinalFerramenta.TabIndex = 31;
@@ -465,7 +444,7 @@
             // lblDtInicio
             // 
             this.lblDtInicio.AutoSize = true;
-            this.lblDtInicio.Location = new System.Drawing.Point(310, 18);
+            this.lblDtInicio.Location = new System.Drawing.Point(17, 34);
             this.lblDtInicio.Name = "lblDtInicio";
             this.lblDtInicio.Size = new System.Drawing.Size(155, 16);
             this.lblDtInicio.TabIndex = 30;
@@ -474,7 +453,7 @@
             // dtpickerInicioFerramenta
             // 
             this.dtpickerInicioFerramenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpickerInicioFerramenta.Location = new System.Drawing.Point(482, 15);
+            this.dtpickerInicioFerramenta.Location = new System.Drawing.Point(189, 31);
             this.dtpickerInicioFerramenta.Name = "dtpickerInicioFerramenta";
             this.dtpickerInicioFerramenta.Size = new System.Drawing.Size(99, 23);
             this.dtpickerInicioFerramenta.TabIndex = 29;
@@ -495,7 +474,7 @@
             // 
             // tbxCodigo
             // 
-            this.tbxCodigo.Location = new System.Drawing.Point(98, 45);
+            this.tbxCodigo.Location = new System.Drawing.Point(81, 54);
             this.tbxCodigo.MaxLength = 5;
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(167, 23);
@@ -505,7 +484,7 @@
             // cbxFabricante
             // 
             this.cbxFabricante.FormattingEnabled = true;
-            this.cbxFabricante.Location = new System.Drawing.Point(435, 45);
+            this.cbxFabricante.Location = new System.Drawing.Point(418, 54);
             this.cbxFabricante.Name = "cbxFabricante";
             this.cbxFabricante.Size = new System.Drawing.Size(167, 24);
             this.cbxFabricante.TabIndex = 43;
@@ -513,7 +492,7 @@
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(50, 87);
+            this.lblGrupo.Location = new System.Drawing.Point(33, 96);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(47, 16);
             this.lblGrupo.TabIndex = 40;
@@ -522,7 +501,7 @@
             // lblFabricante
             // 
             this.lblFabricante.AutoSize = true;
-            this.lblFabricante.Location = new System.Drawing.Point(360, 48);
+            this.lblFabricante.Location = new System.Drawing.Point(343, 57);
             this.lblFabricante.Name = "lblFabricante";
             this.lblFabricante.Size = new System.Drawing.Size(73, 16);
             this.lblFabricante.TabIndex = 42;
@@ -531,7 +510,7 @@
             // cbxGrupo
             // 
             this.cbxGrupo.FormattingEnabled = true;
-            this.cbxGrupo.Location = new System.Drawing.Point(98, 84);
+            this.cbxGrupo.Location = new System.Drawing.Point(81, 93);
             this.cbxGrupo.Name = "cbxGrupo";
             this.cbxGrupo.Size = new System.Drawing.Size(167, 24);
             this.cbxGrupo.TabIndex = 41;
@@ -539,7 +518,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(45, 48);
+            this.lblCodigo.Location = new System.Drawing.Point(28, 57);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(52, 16);
             this.lblCodigo.TabIndex = 39;
@@ -757,8 +736,6 @@
         private System.Windows.Forms.Label lblDtInicio;
         private System.Windows.Forms.DateTimePicker dtpickerInicioFerramenta;
         private System.Windows.Forms.Button btnRedPeriodoFerramenta;
-        private System.Windows.Forms.ComboBox cbxTipoPeriodoFerramenta;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbxPeriodoAdimissao;
         private System.Windows.Forms.Label lblpickerFinal;
         private System.Windows.Forms.DateTimePicker dtpickekAdmissaoFinal;
