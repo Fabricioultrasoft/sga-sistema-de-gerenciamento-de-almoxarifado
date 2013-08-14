@@ -468,6 +468,7 @@ namespace SGA.Telas
             cbxSituacaoRequisicao.Items.Add("");
             cbxSituacaoRequisicao.Items.Add("Abertas");
             cbxSituacaoRequisicao.Items.Add("Fechadas");
+            cbxSituacaoRequisicao.SelectedItem = "";
         }
 
         private void btnLimparRquisicao_Click(object sender, EventArgs e)
