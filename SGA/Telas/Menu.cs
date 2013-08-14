@@ -55,10 +55,6 @@ namespace SGA
             
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
-                if (funcionario.alteracao)
-                {
-                    this.DialogResult = DialogResult.OK;
-                }
                 this.Close();
             }
         }
@@ -72,10 +68,7 @@ namespace SGA
                 {
                     this.DialogResult = DialogResult.OK;
                 }
-                else
-                {
-                    this.DialogResult = DialogResult.Retry;
-                }
+                
                 this.Close();
             }
         }

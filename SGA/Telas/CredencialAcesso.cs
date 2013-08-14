@@ -49,7 +49,7 @@ namespace SGA
             mensagem.ShowDialog();
             if (mensagem.DialogResult == DialogResult.OK)
             {
-                Application.Exit();
+                this.Close();
             }
         }
         
