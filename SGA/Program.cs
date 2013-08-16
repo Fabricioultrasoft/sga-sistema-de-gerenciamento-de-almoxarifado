@@ -36,11 +36,9 @@ namespace SGA
                     Application.Run(menu);
                 }
 
-                if (menu.DialogResult == DialogResult.OK)
-                {
-                    funcionariosAlterado = menu.funcionario;
-                }
-                else
+                funcionariosAlterado = menu.funcionario;
+
+                if (menu.DialogResult != DialogResult.OK)
                 {
                     break;
                 }

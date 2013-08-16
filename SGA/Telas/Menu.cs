@@ -30,6 +30,7 @@ namespace SGA
                 menuItemNFuncionario.Visible = false;
                 menuItemNFerramenta.Visible = false;
                 MenuItmRelatorios.Visible = false;
+               
             } if (funcionario.no_permissao == "Usuario_comum")
             {
                 menuItemNFuncionario.Visible = false;
@@ -64,11 +65,8 @@ namespace SGA
             Mensagem mensagen = new Mensagem("Deseja continuar?", "confirma", Resources.interrogacao);
             if (mensagen.ShowDialog() == DialogResult.OK)
             {
-                if (funcionario.alteracao)
-                {
-                    this.DialogResult = DialogResult.OK;
-                }
-                
+                this.DialogResult = DialogResult.OK;
+
                 this.Close();
             }
         }
@@ -200,6 +198,7 @@ namespace SGA
 
             if (e.KeyCode == Keys.F1)
             {
+                MenuItmAjuda_Click(new object(), new EventArgs());
             }
 
         }
@@ -224,6 +223,14 @@ namespace SGA
         {
             Relatorio relatorio = new Relatorio();
             relatorio.ShowDialog();
+        }
+
+        private void MenuItmAjuda_Click(object sender, EventArgs e)
+        {
+            var diretorio = System.IO.Directory.GetCurrentDirectory();
+            var diretorio2 = diretorio + @"\sga.chm";
+
+            Help.ShowHelp(this, diretorio2);
         }
 
     }

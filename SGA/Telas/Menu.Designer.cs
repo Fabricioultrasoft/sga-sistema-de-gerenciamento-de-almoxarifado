@@ -41,6 +41,7 @@
             this.MenuItmRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItmLogoff = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItmSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItmAjuda = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.MenuItmFerramenta,
             this.MenuItmRequisicao,
             this.MenuItmRelatorios,
+            this.MenuItmAjuda,
             this.MenuItmLogoff,
             this.MenuItmSair});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -158,6 +160,13 @@
             this.MenuItmSair.Text = "Sair  (F11)";
             this.MenuItmSair.Click += new System.EventHandler(this.MenuItmSair_Click);
             // 
+            // MenuItmAjuda
+            // 
+            this.MenuItmAjuda.Name = "MenuItmAjuda";
+            this.MenuItmAjuda.Size = new System.Drawing.Size(81, 32);
+            this.MenuItmAjuda.Text = "Ajuda (F1)";
+            this.MenuItmAjuda.Click += new System.EventHandler(this.MenuItmAjuda_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -196,5 +205,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuItmNRequisição;
         private System.Windows.Forms.ToolStripMenuItem menuItemLRequisicao;
         public System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuItmAjuda;
     }
 }

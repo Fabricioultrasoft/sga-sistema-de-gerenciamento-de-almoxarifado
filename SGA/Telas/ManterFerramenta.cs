@@ -113,7 +113,7 @@ namespace SGA.Telas
         private void btnPImagem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Imagens JPEG (*.JPG)|*.jpg|Imagens BMP (*.bmp)|*.bmp";
+            openFileDialog1.Filter = "Imagens JPEG (*.JPG)|*.jpg";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 tbxCImagem.Text = "";

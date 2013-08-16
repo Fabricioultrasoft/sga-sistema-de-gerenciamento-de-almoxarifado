@@ -103,7 +103,7 @@ namespace SGA.Telas
             }
             if (usuarioLogado.no_permissao == "Atendente")
             {
-                btnNFerramenta.Visible = true;
+                btnNFerramenta.Visible = false;
             }
         }
 
@@ -444,17 +444,17 @@ namespace SGA.Telas
             }
 
             objPesquisaFerramenta.periodo[0] = "Aquisicao";
-            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString();
+            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString();
             preencherListView();
         }
 
         private void setDtpickers()
         {
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(ferramentaDel.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
+            dtpickerInicio.MinDate = Convert.ToDateTime(ferramentaDel.setDateTimerPicker());
             dtpickerInicio.Value = dtpickerInicio.MinDate;
             dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            DateTime data = Convert.ToDateTime(System.DateTime.Now);
             if (dtpickerFinal.MinDate.AddDays(-1) == data)
             {
                 dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);

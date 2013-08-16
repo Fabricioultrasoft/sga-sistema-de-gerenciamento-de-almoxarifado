@@ -185,7 +185,7 @@ namespace SGA.Telas
                                 new Mensagem("Registro salvo com sucesso!", "informacao", Resources.ok).ShowDialog();
                                 funcionarioLogado.alteracao = true;
                                 objFuncionario = new Funcionario();
-                                montarTela();
+                                montarTela();                                
                             }
                             catch (Exception erro)
                             {
