@@ -430,8 +430,8 @@ namespace SGA.Telas
             }
 
             objPesquisaFerramenta.periodo[0] = "Aquisicao";
-            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
-            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaFerramenta.periodo[1] = dtpickerInicio.Value.ToString();
+            objPesquisaFerramenta.periodo[2] = dtpickerFinal.Value.ToString();
             preencherListView();
         }
 
@@ -451,21 +451,33 @@ namespace SGA.Telas
 
         private void setDtpickers()
         {
-            dtpickerInicio.MinDate = Convert.ToDateTime(ferramentaDel.setDateTimerPicker());
-            dtpickerInicio.Value = dtpickerInicio.MinDate;
-            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now);
-            if (dtpickerFinal.MinDate.AddDays(-1) == data)
+            if (ferramentaDel.setDateTimerPicker() != "")
             {
-                dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                dtpickerInicio.Enabled = true;
+                dtpickerFinal.Enabled = true;
+                dtpickerInicio.MinDate = Convert.ToDateTime(ferramentaDel.setDateTimerPicker());
+                dtpickerInicio.Value = dtpickerInicio.MinDate;
+                dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+                DateTime data = Convert.ToDateTime(System.DateTime.Now);
+
+
+                if (dtpickerInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                }
+                else
+                {
+                    dtpickerFinal.MaxDate = data;
+                }
+                dtpickerFinal.Value = dtpickerFinal.MaxDate;
+                dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
             }
             else
             {
-                dtpickerFinal.MaxDate = data;
+                dtpickerInicio.Enabled = false;
+                dtpickerFinal.Enabled = false;
             }
-            dtpickerFinal.Value = dtpickerFinal.MaxDate;
-            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
-
+          
         }
 
         private void btnRedPeriodo_Click(object sender, EventArgs e)

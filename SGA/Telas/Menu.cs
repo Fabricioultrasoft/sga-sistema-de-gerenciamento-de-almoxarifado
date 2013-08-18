@@ -228,7 +228,7 @@ namespace SGA
         private void MenuItmAjuda_Click(object sender, EventArgs e)
         {
             var diretorio = System.IO.Directory.GetCurrentDirectory();
-            var diretorio2 = diretorio + @"\sga.chm";
+            var diretorio2 = diretorio + @"\SGA.chm";
 
             Help.ShowHelp(this, diretorio2);
         }

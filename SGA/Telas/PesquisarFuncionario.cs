@@ -369,12 +369,33 @@ namespace SGA.Telas
 
         private void setDtpickers()
         {
-            dtpickerInicio.MinDate = Convert.ToDateTime(funcionarioD.setDateTimerPicker());
-            dtpickerInicio.Value = dtpickerInicio.MinDate;
-            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            dtpickerFinal.MaxDate = Convert.ToDateTime(System.DateTime.Now);
-            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
-            dtpickerFinal.Value = dtpickerFinal.MaxDate;
+            if (funcionarioD.setDateTimerPicker() != "")
+            {
+                dtpickerInicio.Enabled = true;
+                dtpickerFinal.Enabled = true;
+                dtpickerInicio.MinDate = Convert.ToDateTime(funcionarioD.setDateTimerPicker());
+                dtpickerInicio.Value = dtpickerInicio.MinDate;
+                dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+                
+                DateTime data = Convert.ToDateTime(System.DateTime.Now);
+
+                if (dtpickerInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickerFinal.MaxDate = dtpickerFinal.MinDate.AddDays(1);
+                }
+                else
+                {
+                   dtpickerFinal.MaxDate = data;
+                }
+
+                dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
+                dtpickerFinal.Value = dtpickerFinal.MaxDate;
+            }
+            else
+            {
+                dtpickerFinal.Enabled = false;
+                dtpickerInicio.Enabled = false;
+            }
         }
 
         private void btnRedPeriodo_Click(object sender, EventArgs e)

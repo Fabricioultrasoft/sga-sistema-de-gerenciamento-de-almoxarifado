@@ -241,8 +241,8 @@ namespace SGA.Telas
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             objPesquisaRequisicao.tipoPeriodo = comboBox1.SelectedItem.ToString();
-            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
-            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd");
+            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString();
+            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString();
             preencherListViewRequisicao();
         }
 
@@ -254,7 +254,7 @@ namespace SGA.Telas
                 dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
             }
 
-            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString("yyyy-MM-dd");
+            objPesquisaRequisicao.periodo[1] = dtpickerFinal.Value.ToString();
             preencherListViewRequisicao();
         }
 
@@ -266,27 +266,39 @@ namespace SGA.Telas
                 dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
             }
 
-            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            objPesquisaRequisicao.periodo[0] = dtpickerInicio.Value.ToString();
             preencherListViewRequisicao();
         }
 
         private void setDtpickers()
         {
             RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
-            dtpickerInicio.Value = dtpickerInicio.MinDate;
-            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            if (dtpickerFinal.MinDate.AddDays(-1) == data)
+            if (requisicaoDel.setDateTimerPicker() != "")
             {
-                dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                dtpickerInicio.Enabled = true;
+                dtpickerFinal.Enabled = true;
+                dtpickerInicio.MinDate = Convert.ToDateTime(requisicaoDel.setDateTimerPicker());
+                dtpickerInicio.Value = dtpickerInicio.MinDate;
+                dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+                DateTime data = System.DateTime.Now;
+
+                if (dtpickerInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                }
+                else
+                {
+                    dtpickerFinal.MaxDate = data;
+                }
+                dtpickerFinal.Value = dtpickerFinal.MaxDate;
+                dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
             }
             else
             {
-                dtpickerFinal.MaxDate = data;
+                dtpickerInicio.Enabled = false;
+                dtpickerFinal.Enabled = false;
             }
-            dtpickerFinal.Value = dtpickerFinal.MaxDate;
-            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
+            
 
         }
 

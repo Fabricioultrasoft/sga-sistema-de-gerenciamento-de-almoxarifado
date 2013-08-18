@@ -14,7 +14,7 @@ namespace SGA.Dao
     {
         //cria um objeto
 
-        private static SqlConnection conexao = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString);
+        private static SqlConnection conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["sga"].ConnectionString);
 
         //cria um metodo para passar o objeto
         public static SqlConnection con()
@@ -80,7 +80,7 @@ namespace SGA.Dao
 
             try
             {
-                SqlConnection objConexao = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString.ToString());
+                SqlConnection objConexao = new SqlConnection(ConfigurationManager.ConnectionStrings["sga"].ConnectionString);
                 ServerConnection objServers = new ServerConnection(objConexao);
 
                 Server objServer = new Server(objServers);

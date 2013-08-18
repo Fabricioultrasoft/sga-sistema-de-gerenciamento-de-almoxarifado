@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListaOperacaoFerramentaTableAdapter" GeneratorDataComponentClassName="ListaOperacaoFerramentaTableAdapter" Name="ListaOperacaoFerramenta" UserDataComponentName="ListaOperacaoFerramentaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT l.nu_seq_log
@@ -50,7 +50,7 @@ WHERE l.cod_ferramenta = fe.cod_ferramenta</CommandText>
               <Mapping SourceColumn="no_grupo" DataSetColumn="no_grupo" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySitCodFabCatDtInDtOut" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySitCodFabCatDtInDtOut" GeneratorSourceName="FillBySitCodFabCatDtInDtOut" GetMethodModifier="Public" GetMethodName="GetDataBySitCodFabCatDtInDtOut" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySitCodFabCatDtInDtOut" UserSourceName="FillBySitCodFabCatDtInDtOut">
+              <DbSource ConnectionRef="sgaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySitCodFabCatDtInDtOut" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySitCodFabCatDtInDtOut" GeneratorSourceName="FillBySitCodFabCatDtInDtOut" GetMethodModifier="Public" GetMethodName="GetDataBySitCodFabCatDtInDtOut" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySitCodFabCatDtInDtOut" UserSourceName="FillBySitCodFabCatDtInDtOut">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT l.nu_seq_log

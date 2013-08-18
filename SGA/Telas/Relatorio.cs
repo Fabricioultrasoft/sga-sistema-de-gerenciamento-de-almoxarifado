@@ -231,38 +231,64 @@ namespace SGA.Telas
 
         private void setDtpickers()
         {
-            dtpickekAdmissaoInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(funcionarioD.setDateTimerPicker()).ToString("yyyy-MM-dd HH:mm:ss"));
-            dtpickekAdmissaoInicio.Value = dtpickekAdmissaoInicio.MinDate;
-            dtpickekAdmissaoFinal.MinDate = dtpickekAdmissaoInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            if (dtpickekAdmissaoFinal.MinDate.AddDays(-1) == data)
+            if (funcionarioD.setDateTimerPicker() != "")
             {
-                dtpickekAdmissaoFinal.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+                dtpickekAdmissaoInicio.Enabled = true;
+                dtpickekAdmissaoFinal.Enabled = true;
+                dtpickekAdmissaoInicio.MinDate = Convert.ToDateTime(funcionarioD.setDateTimerPicker());
+                dtpickekAdmissaoInicio.Value = dtpickekAdmissaoInicio.MinDate;
+                dtpickekAdmissaoFinal.MinDate = dtpickekAdmissaoInicio.MinDate.AddDays(1);
+                DateTime data = Convert.ToDateTime(System.DateTime.Now);
+
+                if (dtpickekAdmissaoInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickekAdmissaoFinal.MaxDate = dtpickekAdmissaoInicio.MinDate.AddDays(1);
+                }
+                else
+                {
+                    dtpickekAdmissaoFinal.MaxDate = data;
+
+                }
+                dtpickekAdmissaoInicio.MaxDate = dtpickekAdmissaoFinal.MaxDate.AddDays(-1);
+                dtpickekAdmissaoFinal.Value = dtpickekAdmissaoFinal.MaxDate;
             }
             else
             {
-                dtpickekAdmissaoFinal.MaxDate = data;
+                dtpickekAdmissaoInicio.Enabled = false;
+                dtpickekAdmissaoFinal.Enabled = false;
             }
-            dtpickekAdmissaoInicio.MaxDate = dtpickekAdmissaoFinal.MaxDate.AddDays(-1);
-            dtpickekAdmissaoFinal.Value = dtpickekAdmissaoFinal.MaxDate;
+           
         }
 
         private void setDtpickersFerramenta()
         {
-            dtpickerInicioFerramenta.MinDate = Convert.ToDateTime(Convert.ToDateTime(ferramentaD.setDateTimerPicker()).ToString("yyyy-MM-dd"));
-            dtpickerInicioFerramenta.Value = dtpickerInicioFerramenta.MinDate;
-            dtpickerFinalFerramenta.MinDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
-            if (dtpickerFinalFerramenta.MinDate.AddDays(-1) == data)
+            if (ferramentaD.setDateTimerPicker() != "")
             {
-                dtpickerFinalFerramenta.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+                dtpickerInicioFerramenta.Enabled = true;
+                dtpickerFinalFerramenta.Enabled = true;
+                dtpickerInicioFerramenta.MinDate = Convert.ToDateTime(ferramentaD.setDateTimerPicker());
+                dtpickerInicioFerramenta.Value = dtpickerInicioFerramenta.MinDate;
+                dtpickerFinalFerramenta.MinDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+                DateTime data = Convert.ToDateTime(System.DateTime.Now);
+                if (dtpickekAdmissaoInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickerFinalFerramenta.MaxDate = dtpickerInicioFerramenta.MinDate.AddDays(1);
+                }
+                else
+                {
+
+                    dtpickerFinalFerramenta.MaxDate = data;
+
+                }
+                dtpickerFinalFerramenta.Value = dtpickerFinalFerramenta.MaxDate;
+                dtpickerInicioFerramenta.MaxDate = dtpickerFinalFerramenta.MaxDate.AddDays(-1);
             }
             else
             {
-                dtpickerFinalFerramenta.MaxDate = data;
+                dtpickerInicioFerramenta.Enabled = false;
+                dtpickerFinalFerramenta.Enabled = false;   
             }
-            dtpickerFinalFerramenta.Value = dtpickerFinalFerramenta.MaxDate;
-            dtpickerInicioFerramenta.MaxDate = dtpickerFinalFerramenta.MaxDate.AddDays(-1);
+           
         }
 
 
@@ -418,20 +444,32 @@ namespace SGA.Telas
         private void setDtpickersRequisicao()
         {
             RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-            dtpickerInicio.MinDate = Convert.ToDateTime(Convert.ToDateTime(requisicaoDel.setDateTimerPicker()).ToString("yyyy-MM-dd"));
-            dtpickerInicio.Value = dtpickerInicio.MinDate;
-            dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
-            DateTime data = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));
-            if (dtpickerFinal.MinDate.AddDays(-1) == data)
+            if (requisicaoDel.setDateTimerPicker() != "")
             {
-                dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                dtpickerInicio.Enabled = true;
+                dtpickerFinal.Enabled = true;
+                dtpickerInicio.MinDate = Convert.ToDateTime(requisicaoDel.setDateTimerPicker());
+                dtpickerInicio.Value = dtpickerInicio.MinDate;
+                dtpickerFinal.MinDate = dtpickerInicio.MinDate.AddDays(1);
+                DateTime data = System.DateTime.Now;
+
+                if (dtpickerInicio.MinDate.ToString("yyyy-MM-dd") == data.ToString("yyyy-MM-dd"))
+                {
+                    dtpickerFinal.MaxDate = dtpickerInicio.MinDate.AddDays(1);
+                }
+                else
+                {
+                    dtpickerFinal.MaxDate = data;
+                }
+                dtpickerFinal.Value = dtpickerFinal.MaxDate;
+                dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
             }
             else
             {
-                dtpickerFinal.MaxDate = data;
+                dtpickerInicio.Enabled = false;
+                dtpickerFinal.Enabled = false;
             }
-            dtpickerFinal.Value = dtpickerFinal.MaxDate;
-            dtpickerInicio.MaxDate = dtpickerFinal.MaxDate.AddDays(-1);
+            
 
         }
 
