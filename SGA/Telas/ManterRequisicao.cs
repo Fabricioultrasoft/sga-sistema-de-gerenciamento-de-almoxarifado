@@ -234,7 +234,7 @@ namespace SGA.Telas
                                 RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
                                 requisicaoDel.gravarRequisicao(requisicao);
 
-                                new Mensagem("Requisição cadstrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                                new Mensagem("Requisição cadastrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
                                 usuarioLogado.alteracao = true;
                                 this.DialogResult = DialogResult.OK;
                                 break;

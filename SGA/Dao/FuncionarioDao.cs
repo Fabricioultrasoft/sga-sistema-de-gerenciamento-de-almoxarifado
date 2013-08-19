@@ -37,7 +37,7 @@ namespace SGA.Dao
             Conexao.gravarLog("Cadastro", func.chaveUsuario, func.matricula + "", "", "");
         }
 
-        public void inserirSenha(Funcionario func) 
+        public void inserirSenha(Funcionario func)
         {
             SqlCommand insertUsuario = new SqlCommand("UPDATE tb_usuario SET senha_usuario = @senha WHERE fk_funcionario = @fk_funcionario", Conexao.con());
 
@@ -54,7 +54,7 @@ namespace SGA.Dao
             SqlCommand updateSenha = new SqlCommand("UPDATE tb_usuario SET senha_usuario = '' WHERE fk_funcionario = @fk_funcionario", Conexao.con());
 
             updateSenha.Parameters.AddWithValue("@fk_funcionario", func.matricula);
-            
+
             Conexao.con().Open();
             updateSenha.ExecuteNonQuery();
             Conexao.con().Close();
@@ -100,6 +100,11 @@ namespace SGA.Dao
                 func.senha = ler["senha_usuario"].ToString();
                 senha = func.senha;
             }
+            if (func.senha == "")
+            {
+                func.senha = "invalida";
+            }
+	
             ler.Close();
             Conexao.con().Close();
 

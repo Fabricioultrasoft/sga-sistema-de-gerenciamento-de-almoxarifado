@@ -431,7 +431,7 @@ namespace SGA.Telas
 
         private void dtpickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpickerInicio.Value >= dtpickerFinal.Value)
+            if (dtpickerInicio.Value > dtpickerFinal.Value)
             {
                 new Mensagem("A data inicial deve ser menor \nque a data final!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerFinal.Value = dtpickerInicio.Value.AddDays(1);
@@ -445,7 +445,7 @@ namespace SGA.Telas
 
         private void dtpickerFinal_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpickerFinal.Value <= dtpickerInicio.Value)
+            if (dtpickerFinal.Value < dtpickerInicio.Value)
             {
                 new Mensagem("A data final deve ser maior \nque a data de início!", "informacao", SGA.Properties.Resources.atencao).ShowDialog();
                 dtpickerInicio.Value = dtpickerFinal.Value.AddDays(-1);
