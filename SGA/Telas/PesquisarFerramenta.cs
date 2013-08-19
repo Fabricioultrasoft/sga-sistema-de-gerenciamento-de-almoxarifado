@@ -103,7 +103,15 @@ namespace SGA.Telas
             }
             if (usuarioLogado.no_permissao == "Atendente")
             {
-                btnNFerramenta.Visible = false;
+                if (tipoTela == "adicionar")
+                {
+                    btnNFerramenta.Visible = true;
+                }
+                else
+                {
+                    btnNFerramenta.Visible = false;
+                }
+
             }
         }
 
@@ -477,7 +485,7 @@ namespace SGA.Telas
                 dtpickerInicio.Enabled = false;
                 dtpickerFinal.Enabled = false;
             }
-          
+
         }
 
         private void btnRedPeriodo_Click(object sender, EventArgs e)

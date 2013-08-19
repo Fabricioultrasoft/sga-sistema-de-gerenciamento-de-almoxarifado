@@ -13,10 +13,12 @@ namespace SGA
     {
         /// <summary>
         /// The main entry point for the application.
+        
         /// </summary>
         [STAThread]
         static void Main()
         {
+            bool verificador = false;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Funcionario funcionariosAlterado = new Funcionario();
@@ -38,12 +40,17 @@ namespace SGA
 
                 funcionariosAlterado = menu.funcionario;
 
+                if (funcionariosAlterado.alteracao)
+                {
+                    verificador = true;
+                }
+
                 if (menu.DialogResult != DialogResult.OK)
                 {
                     break;
                 }
             }
-            if (funcionariosAlterado.alteracao)
+            if (verificador)
             {
                 Conexao.backup();
             }

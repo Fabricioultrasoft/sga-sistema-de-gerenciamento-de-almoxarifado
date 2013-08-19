@@ -69,7 +69,7 @@ namespace SGA.Telas
             setDtpickers();
 
             preencherListViewRequisicao();
-            if (usuarioLogado.no_permissao == "Usuario_comum")
+            if (usuarioLogado.no_permissao == "Usuário Comum")
             {
                 btnNFerramenta.Visible = false;
                 btnDesativar.Visible = false;

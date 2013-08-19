@@ -31,7 +31,7 @@ namespace SGA
                 menuItemNFerramenta.Visible = false;
                 MenuItmRelatorios.Visible = false;
                
-            } if (funcionario.no_permissao == "Usuario_comum")
+            } if (funcionario.no_permissao == "Usuário Comum")
             {
                 menuItemNFuncionario.Visible = false;
                 menuItemNFerramenta.Visible = false;
@@ -124,7 +124,7 @@ namespace SGA
 
         private void menuItemlFuncionario_Click(object sender, EventArgs e)
         {
-            if (funcionario.no_permissao == "Usuario_comum")
+            if (funcionario.no_permissao == "Usuário Comum")
             {
                 ManterFuncionario telaDetalhes = new ManterFuncionario("adicionar", funcionario, funcionario);
                 telaDetalhes.ShowDialog();
