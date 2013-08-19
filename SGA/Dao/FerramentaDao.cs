@@ -237,7 +237,7 @@ namespace SGA.Dao
             }
             else
             {
-                SqlCommand desativa = new SqlCommand("UPDATE tb_ferramenta SET fk_situacao = 4 WHERE cod_ferramenta = @cod_ferramenta", Conexao.con());
+                SqlCommand desativa = new SqlCommand("UPDATE tb_ferramenta SET fk_situacao = 4, dt_desativacao = CURRENT_TIMESTAMP WHERE cod_ferramenta = @cod_ferramenta", Conexao.con());
 
                 desativa.Parameters.AddWithValue(@"cod_ferramenta", ferramenta.codFerramenta);
 

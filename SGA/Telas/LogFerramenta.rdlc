@@ -1271,6 +1271,7 @@
                               <Value>=Fields!dt_desativacao.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
