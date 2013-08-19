@@ -103,6 +103,7 @@ namespace SGA.Dao
             if (func.senha == "")
             {
                 func.senha = "invalida";
+                func.nome = "cadastrar senha";
             }
 	
             ler.Close();

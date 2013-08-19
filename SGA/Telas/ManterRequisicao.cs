@@ -224,20 +224,28 @@ namespace SGA.Telas
                                 Funcionario funcionario = funcionarioRequisitante;
 
                                 funcionario.senha = Criptografia.Encrypt(mensagem.texto);
+                                Funcionario funVer = funcionarioDel.Logar(funcionario);
+                                if (funVer.senha != "invalida")
+                                {
 
-                                funcionarioDel.Logar(funcionario);
-                                Requisicao requisicao = new Requisicao();
-                                requisicao.ferramentas = this.arrayFerramentas;
-                                requisicao.funcionario.Add(usuarioLogado);
-                                requisicao.funcionario.Add(funcionarioRequisitante);
 
-                                RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
-                                requisicaoDel.gravarRequisicao(requisicao);
+                                    Requisicao requisicao = new Requisicao();
+                                    requisicao.ferramentas = this.arrayFerramentas;
+                                    requisicao.funcionario.Add(usuarioLogado);
+                                    requisicao.funcionario.Add(funcionarioRequisitante);
 
-                                new Mensagem("Requisição cadastrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
-                                usuarioLogado.alteracao = true;
-                                this.DialogResult = DialogResult.OK;
-                                break;
+                                    RequisicaoDelegate requisicaoDel = new RequisicaoDelegate();
+                                    requisicaoDel.gravarRequisicao(requisicao);
+
+                                    new Mensagem("Requisição cadastrada com sucesso!", "informacao", SGA.Properties.Resources.ok).ShowDialog();
+                                    usuarioLogado.alteracao = true;
+                                    this.DialogResult = DialogResult.OK;
+                                    break;
+                                }
+                                else
+                                {
+                                    new Mensagem("Senha incorreta!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
+                                }
 
                             }
                             else

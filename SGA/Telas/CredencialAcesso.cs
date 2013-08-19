@@ -66,7 +66,7 @@ namespace SGA
                     FuncionarioDelegate funcionarioDelegate = new FuncionarioDelegate();
                     funcionario = funcionarioDelegate.Logar(objfuncionario);
                                                         
-                        if (String.IsNullOrEmpty(funcionario.senha))
+                        if (funcionario.nome == "cadastrar senha")
                         {
                             new Mensagem("Por favor!\n Cadastre uma senha!", "informacao", Resources.atencao).ShowDialog();
                             CLogin CadLogin = new CLogin(funcionario);

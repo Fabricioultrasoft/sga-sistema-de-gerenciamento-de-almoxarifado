@@ -127,10 +127,10 @@ namespace SGA.Telas
                 pbxFerramenta.SizeMode = PictureBoxSizeMode.Zoom;
                 pbxFerramenta.Image = imagem;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.Message);
+                // Não fazer nada.
             }
            
         }

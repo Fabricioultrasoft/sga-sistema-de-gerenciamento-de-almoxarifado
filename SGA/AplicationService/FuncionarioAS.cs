@@ -22,15 +22,23 @@ namespace SGA.AplicationService
         {
             Funcionario funcionario = funcionarioDao.Logar(func);
 
-            if (funcionario.matricula == 0 || funcionario.matricula != 0 && funcionario.senha == "invalida")
+            if (funcionario.nome == "cadastrar senha")
             {
-                throw new System.ArgumentException("Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!");
+                //
+            }
+            else
+            {
+                if (funcionario.matricula == 0 || funcionario.matricula != 0 && funcionario.senha == "invalida")
+                {
+                    throw new System.ArgumentException("Matrícula e/ou Senha inválidos! \n Entre novamente com os dados!");
+                }
+
+                if (funcionario.ativo == "0")
+                {
+                    throw new System.ArgumentException("   Usuário desativado! \n Contate o departamento \n  de Recursos Humanos!");
+                }
             }
             
-            if (funcionario.ativo == "0")
-            {
-                throw new System.ArgumentException("   Usuário desativado! \n Contate o departamento \n  de Recursos Humanos!");
-            }
             return funcionario;
         }
 
