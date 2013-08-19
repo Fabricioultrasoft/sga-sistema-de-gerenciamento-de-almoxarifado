@@ -707,7 +707,12 @@ namespace SGA.Telas
 
         private void btnLimparTudo_Click(object sender, EventArgs e)
         {
-            //Implementar
+            btnLimparFuncionario_Click(new object(), new EventArgs());
+            setDtpickers();
+            btnLimparFerramenta_Click(new object(), new EventArgs());
+            setDtpickersFerramenta();
+            cbxSituacaoRequisicao.SelectedItem = "";
+            setDtpickersRequisicao();
         }
     }
 }
