@@ -201,7 +201,7 @@ namespace SGA.Dao
             updade.ExecuteNonQuery();
 
             Conexao.con().Close();
-            Conexao.gravarLog("Requisição finalizada", requisicao.funcionario[2].matricula + "", requisicao.funcionario[1].matricula + "", requisicao.ferramentas[0].codFerramenta, requisicao.funcionario[2].matricula + "");
+            Conexao.gravarLog("Requisição finalizada", requisicao.funcionario[2].matricula + "", requisicao.funcionario[1].matricula + "", requisicao.ferramentas[0].codFerramenta, requisicao.codRequisicao + "");
         }
     }
 }
