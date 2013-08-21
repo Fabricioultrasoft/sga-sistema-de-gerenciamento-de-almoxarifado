@@ -160,10 +160,7 @@ namespace SGA.Telas
             else
             {
                 tipoLista = "selecionadas";
-                foreach (Ferramenta objf in ferramentasSelecionadas)
-                {
-                    arrayFerramentasRequsicao.Add(objf);
-                }
+                adicionarlistaFerr();
                 ferramentasSelecionadas = new List<Ferramenta>();
                 if (arrayFerramentasRequsicao.Count > 0)
                 {
@@ -202,6 +199,55 @@ namespace SGA.Telas
             }
         }
 
+        private void adicionarlistaFerr()
+        {
+            foreach (Ferramenta objf in ferramentasSelecionadas)
+            {
+                bool teste = false;
+                foreach (Ferramenta f in arrayFerramentasRequsicao)
+                {
+                    if (objf.codFerramenta == f.codFerramenta)
+                    {
+                        teste = true;
+                    }
+                }
+                if (!teste)
+                {
+                    arrayFerramentasRequsicao.Add(objf);
+                }
+
+            }
+            List<Ferramenta> array = new List<Ferramenta>();
+            foreach (Ferramenta f in arrayFerramentasRequsicao)
+            {
+                bool teste1 = false;
+                
+                foreach (Ferramenta fe in array)
+                {
+                    if (f.codFerramenta == fe.codFerramenta)
+                    {
+                        teste1 = true;
+                    }
+                }
+                if (array.Count <= 0)
+                {
+                    array.Add(f);
+                }
+                else
+                {
+                    if (teste1)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        array.Add(f); 
+                    }
+                }
+            }
+            arrayFerramentasRequsicao = array;
+        }
+
         private void btnNFerramenta_Click(object sender, EventArgs e)
         {
             if (tipoTela == "pesquisa")
@@ -214,10 +260,7 @@ namespace SGA.Telas
             }
             else
             {
-                foreach (Ferramenta objf in ferramentasSelecionadas)
-                {
-                    arrayFerramentasRequsicao.Add(objf);
-                }
+                adicionarlistaFerr();
                 ferramentasSelecionadas = new List<Ferramenta>();
                 if (arrayFerramentasRequsicao.Count > 0)
                 {
