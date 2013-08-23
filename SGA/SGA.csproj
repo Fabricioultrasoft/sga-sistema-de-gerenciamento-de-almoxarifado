@@ -294,7 +294,9 @@
     <EmbeddedResource Include="Telas\TelaRelatorio.resx">
       <DependentUpon>TelaRelatorio.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="FerramentaDataSet.xsc">
       <DependentUpon>FerramentaDataSet.xsd</DependentUpon>
     </None>

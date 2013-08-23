@@ -98,7 +98,7 @@ namespace SGA.AplicationService
               }
               else
               {
-                  throw new System.ArgumentException("Funcionário com pendência\nimpossível excluir!");
+                  throw new Exception("Funcionário com pendência\nimpossível excluir!");
               }
           }
 

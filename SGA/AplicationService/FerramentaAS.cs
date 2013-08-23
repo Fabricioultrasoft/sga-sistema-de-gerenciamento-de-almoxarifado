@@ -62,7 +62,7 @@ namespace SGA.AplicationService
             }
             else
             {
-                throw new System.ArgumentException("Ferramenta com pendência\nimpossível excluir!");
+                throw new Exception ("Ferramenta com pendência\nimpossível excluir!");
             }
         }
 
