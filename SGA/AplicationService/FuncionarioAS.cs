@@ -35,7 +35,7 @@ namespace SGA.AplicationService
 
                 if (funcionario.ativo == "0")
                 {
-                    throw new System.ArgumentException("   Usuário desativado! \n Contate o departamento \n  de Recursos Humanos!");
+                    throw new System.ArgumentException("Usuário desativado! \n Contate o departamento \n  de Recursos Humanos!");
                 }
             }
             
@@ -98,7 +98,7 @@ namespace SGA.AplicationService
               }
               else
               {
-                  throw new System.ArgumentException("Funcionário com pendência impossível excluir!");
+                  throw new System.ArgumentException("Funcionário com pendência\nimpossível excluir!");
               }
           }
 

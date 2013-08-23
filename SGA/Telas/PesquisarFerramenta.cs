@@ -412,7 +412,7 @@ namespace SGA.Telas
                     }
                     catch (Exception erro)
                     {
-                        if (erro.Message == "Matrícula e/ou Senha inválidos! Entre novamente com os dados!")
+                        if (erro.Message == "Senha incorreta!")
                         {
                             new Mensagem("Senha inválida!", "informacao", SGA.Properties.Resources.erro).ShowDialog();
                         }
